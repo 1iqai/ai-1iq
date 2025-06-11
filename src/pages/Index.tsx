@@ -1,7 +1,6 @@
 
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustIndicators from "@/components/TrustIndicators";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
@@ -14,7 +13,6 @@ const Index = () => {
       <div className="pt-20">
         <Hero />
         <ScrollingBanner />
-        <TrustIndicators />
         <Features />
         <Testimonials />
         <Footer />

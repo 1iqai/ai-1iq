@@ -5,6 +5,7 @@ import TrustIndicators from "@/components/TrustIndicators";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import ScrollingBanner from "@/components/ScrollingBanner";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Header />
       <div className="pt-20">
         <Hero />
+        <ScrollingBanner />
         <TrustIndicators />
         <Features />
         <Testimonials />

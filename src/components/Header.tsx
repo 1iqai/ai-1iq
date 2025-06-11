@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
@@ -7,10 +8,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
+                alt="1iQ Logo" 
+                className="w-8 h-8 object-contain"
+              />
             </div>
-            <span className="text-xl font-semibold text-foreground">Secoda</span>
+            <span className="text-xl font-semibold text-foreground">1iQ</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-6">

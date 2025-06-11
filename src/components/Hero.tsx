@@ -6,7 +6,7 @@ const Hero = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="bg-gradient-to-br from-purple-100 to-blue-100 py-20 px-6 min-h-[80vh] flex items-center">
+    <section className="bg-gradient-to-b from-[#c8a2c8] via-[#e6c7d8] to-[#d4e3f0] py-20 px-6 min-h-[80vh] flex items-center">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Left side - Content */}
         <div className="max-w-xl">

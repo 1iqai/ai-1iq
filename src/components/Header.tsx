@@ -1,10 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="bg-background border-b border-border py-4 px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border py-4 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">

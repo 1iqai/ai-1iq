@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import {
@@ -32,10 +31,17 @@ const Header = () => {
                   <span>Products</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[600px] p-0 bg-white border border-border rounded-lg shadow-lg">
-                    <div className="grid grid-cols-2">
+                  <div className="w-[600px] p-0 bg-white border border-border rounded-lg shadow-lg relative">
+                    {/* Dropdown line design matching the image */}
+                    <div className="absolute top-0 left-0 right-0">
+                      <div className="h-1 bg-black"></div>
+                      <div className="h-1 bg-green-200"></div>
+                      <div className="h-px bg-black"></div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 pt-3">
                       {/* Features Column */}
-                      <div className="p-6 bg-green-50 rounded-l-lg">
+                      <div className="p-6 bg-green-50 rounded-bl-lg">
                         <h3 className="text-lg font-semibold text-gray-900 mb-4">Features</h3>
                         <div className="space-y-4">
                           <div className="flex items-start space-x-3">
@@ -111,7 +117,7 @@ const Header = () => {
                       </div>
                       
                       {/* Platform Column */}
-                      <div className="p-6 bg-white rounded-r-lg">
+                      <div className="p-6 bg-white rounded-br-lg">
                         <h3 className="text-lg font-semibold text-gray-900 mb-4">Platform</h3>
                         <div className="space-y-4">
                           <div className="flex items-start space-x-3">
@@ -168,33 +174,42 @@ const Header = () => {
                   <span>Resources</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[400px] p-6 bg-white border border-border rounded-lg shadow-lg">
-                    <div className="space-y-4">
-                      <div className="flex items-start space-x-3">
-                        <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <div className="w-4 h-4 bg-blue-600 rounded"></div>
+                  <div className="w-[400px] p-0 bg-white border border-border rounded-lg shadow-lg relative">
+                    {/* Dropdown line design matching the image */}
+                    <div className="absolute top-0 left-0 right-0">
+                      <div className="h-1 bg-black"></div>
+                      <div className="h-1 bg-green-200"></div>
+                      <div className="h-px bg-black"></div>
+                    </div>
+                    
+                    <div className="p-6 pt-9">
+                      <div className="space-y-4">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <div className="w-4 h-4 bg-blue-600 rounded"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-900">Documentation</h4>
+                            <p className="text-sm text-gray-600">Learn how to use 1iQ</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Documentation</h4>
-                          <p className="text-sm text-gray-600">Learn how to use 1iQ</p>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                            <div className="w-4 h-4 bg-green-600 rounded"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-900">Blog</h4>
+                            <p className="text-sm text-gray-600">Latest news and insights</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                          <div className="w-4 h-4 bg-green-600 rounded"></div>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Blog</h4>
-                          <p className="text-sm text-gray-600">Latest news and insights</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                          <div className="w-4 h-4 bg-purple-600 rounded"></div>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-gray-900">Community</h4>
-                          <p className="text-sm text-gray-600">Connect with other users</p>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <div className="w-4 h-4 bg-purple-600 rounded"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-medium text-gray-900">Community</h4>
+                            <p className="text-sm text-gray-600">Connect with other users</p>
+                          </div>
                         </div>
                       </div>
                     </div>

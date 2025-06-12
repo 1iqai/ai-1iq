@@ -11,7 +11,7 @@ const ScrollingBanner = () => {
   ];
 
   return (
-    <div className="bg-white border-t border-slate-200 py-8 overflow-hidden">
+    <div className="bg-white py-8 overflow-hidden">
       <div className="relative">
         <div className="flex animate-scroll gap-16">
           {/* First set of logos */}

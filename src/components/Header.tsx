@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { Book, Headphones, ShieldCheck, Briefcase, Gear } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -174,44 +176,80 @@ const Header = () => {
                   <span>Resources</span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[400px] p-0 bg-white border border-border rounded-lg shadow-lg relative">
-                    {/* Dropdown line design matching the image */}
-                    <div className="absolute top-0 left-0 right-0">
-                      <div className="h-1 bg-black"></div>
-                      <div className="h-1 bg-green-200"></div>
-                      <div className="h-px bg-black"></div>
+                  <div className="w-[400px] p-0 bg-white border-2 border-black rounded-none shadow-lg relative">
+                    {/* Resources header with green underline */}
+                    <div className="px-6 py-3 border-b-2 border-green-500">
+                      <h3 className="text-lg font-semibold text-gray-900">Resources</h3>
                     </div>
                     
-                    <div className="p-6 pt-9">
-                      <div className="space-y-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <div className="w-4 h-4 bg-blue-600 rounded"></div>
+                    <div className="grid grid-cols-2">
+                      {/* Left Column */}
+                      <div className="p-6 border-r border-black">
+                        <div className="space-y-4">
+                          <div className="flex items-center space-x-3">
+                            <Book className="w-5 h-5 text-green-500" />
+                            <span className="text-gray-900 font-medium">Blog</span>
                           </div>
-                          <div>
-                            <h4 className="font-medium text-gray-900">Documentation</h4>
-                            <p className="text-sm text-gray-600">Learn how to use 1iQ</p>
+                          <div className="flex items-center space-x-3">
+                            <Headphones className="w-5 h-5 text-green-500" />
+                            <span className="text-gray-900 font-medium">Help Guides</span>
                           </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                            <div className="w-4 h-4 bg-green-600 rounded"></div>
+                          <div className="flex items-center space-x-3">
+                            <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                            </div>
+                            <span className="text-gray-900 font-medium">What's New</span>
                           </div>
-                          <div>
-                            <h4 className="font-medium text-gray-900">Blog</h4>
-                            <p className="text-sm text-gray-600">Latest news and insights</p>
+                          <div className="flex items-center space-x-3">
+                            <div className="w-5 h-5 text-green-500">
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V9ZM19 19H5V3H15V9H19Z"/>
+                              </svg>
+                            </div>
+                            <span className="text-gray-900 font-medium">Find an Expert</span>
                           </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                            <div className="w-4 h-4 bg-purple-600 rounded"></div>
-                          </div>
-                          <div>
-                            <h4 className="font-medium text-gray-900">Community</h4>
-                            <p className="text-sm text-gray-600">Connect with other users</p>
+                          <div className="flex items-center space-x-3">
+                            <ShieldCheck className="w-5 h-5 text-green-500" />
+                            <span className="text-gray-900 font-medium">Security</span>
                           </div>
                         </div>
                       </div>
+                      
+                      {/* Right Column */}
+                      <div className="p-6">
+                        <div className="space-y-4">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center">
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                            </div>
+                            <span className="text-gray-900 font-medium">Brand</span>
+                          </div>
+                          <div className="flex items-center space-x-3">
+                            <Briefcase className="w-5 h-5 text-green-500" />
+                            <span className="text-gray-900 font-medium">Jobs</span>
+                          </div>
+                          <div className="flex items-center space-x-3">
+                            <Gear className="w-5 h-5 text-green-500" />
+                            <span className="text-gray-900 font-medium">System Status</span>
+                          </div>
+                          <div className="flex items-center space-x-3">
+                            <div className="w-5 h-5 text-green-500">
+                              <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                              </svg>
+                            </div>
+                            <span className="text-gray-900 font-medium">Affiliates Program</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Bottom border and Read More */}
+                    <div className="border-t-2 border-black p-4">
+                      <a href="#" className="text-gray-900 font-semibold hover:text-gray-700 flex items-center">
+                        Read More
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 </NavigationMenuContent>

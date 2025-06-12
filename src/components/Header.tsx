@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { Book, Headphones, ShieldCheck, Briefcase, Gear } from "lucide-react";
+import { Book, Headphones, ShieldCheck, Briefcase, Settings } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -229,7 +229,7 @@ const Header = () => {
                             <span className="text-gray-900 font-medium">Jobs</span>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <Gear className="w-5 h-5 text-green-500" />
+                            <Settings className="w-5 h-5 text-green-500" />
                             <span className="text-gray-900 font-medium">System Status</span>
                           </div>
                           <div className="flex items-center space-x-3">

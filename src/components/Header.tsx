@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Book, Headphones, ShieldCheck, Briefcase, Settings } from "lucide-react";
@@ -12,7 +11,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-border py-4 px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white py-4 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">

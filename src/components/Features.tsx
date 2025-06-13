@@ -148,8 +148,11 @@ const Features = () => {
             {/* Scrollable gallery */}
             <div
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing pb-4"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              className="flex gap-6 overflow-x-auto pb-4 cursor-grab active:cursor-grabbing"
+              style={{ 
+                scrollbarWidth: 'none', 
+                msOverflowStyle: 'none'
+              }}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
@@ -182,6 +185,15 @@ const Features = () => {
                 </div>
               ))}
             </div>
+            
+            {/* Add CSS to hide scrollbar */}
+            <style>
+              {`
+                .overflow-x-auto::-webkit-scrollbar {
+                  display: none;
+                }
+              `}
+            </style>
           </div>
 
           {/* Discover more button */}
@@ -293,12 +305,6 @@ const Features = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };

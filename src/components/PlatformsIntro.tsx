@@ -30,7 +30,7 @@ const PlatformsIntro = () => {
             
             {/* Right side - 1iQ Core Logo */}
             <div className="flex items-center justify-center lg:justify-end">
-              <div className="text-9xl lg:text-[12rem] xl:text-[14rem] font-bold text-slate-900 tracking-tight leading-none">
+              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
                 1iQ Core
               </div>
             </div>

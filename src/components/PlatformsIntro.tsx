@@ -1,5 +1,4 @@
 
-
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -83,10 +82,17 @@ const PlatformsIntro = () => {
               </div>
             </div>
             
-            {/* Right side - 1iQ Intel Logo */}
+            {/* Right side - 1iQ Intel Logo with hover effect */}
             <div className="flex items-center justify-center lg:justify-end">
-              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                1iQ Intel
+              <div className="relative group cursor-pointer">
+                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none transition-opacity duration-500 group-hover:opacity-0">
+                  1iQ Intel
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-md text-center font-inter">
+                    1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it's lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -97,4 +103,3 @@ const PlatformsIntro = () => {
 };
 
 export default PlatformsIntro;
-

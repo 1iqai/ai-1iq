@@ -14,9 +14,9 @@ const BuildSection = () => {
           </div>
           
           {/* Right side - Content */}
-          <div className="space-y-8">
+          <div className="flex flex-col items-center text-center space-y-12">
             <h2 className="font-inter text-4xl lg:text-5xl xl:text-6xl font-normal text-slate-900 leading-none">
-              So much left to build
+              There is so much left to build
             </h2>
             
             <p className="font-inter text-lg lg:text-xl text-slate-600 leading-relaxed max-w-lg">

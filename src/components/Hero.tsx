@@ -1,4 +1,6 @@
 
+import { ArrowDown } from "lucide-react";
+
 const Hero = () => {
   return (
     <section className="relative bg-slate-900 py-20 px-6 min-h-[80vh] flex items-center overflow-hidden">
@@ -28,6 +30,14 @@ const Hero = () => {
             for Every Decision
           </h1>
         </div>
+      </div>
+
+      {/* Scroll to Explore - positioned at bottom center */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
+        <span className="text-white text-lg font-inter mb-2 opacity-80">
+          Scroll to Explore
+        </span>
+        <ArrowDown className="w-6 h-6 text-white animate-bounce-down opacity-80" />
       </div>
     </section>
   );

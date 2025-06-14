@@ -3,7 +3,7 @@ import { Search, Menu } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md py-3 px-6 border-b border-gray-200/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md py-3 px-6 border-b border-gray-200/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 flex items-center justify-center">

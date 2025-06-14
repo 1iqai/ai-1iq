@@ -1,5 +1,5 @@
 
-import { Youtube, Linkedin, Github } from "lucide-react";
+import { Youtube, Linkedin, Github, ArrowRight } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,7 +12,8 @@ const Footer = () => {
             <p className="text-sm mb-8">All rights reserved.</p>
             
             <div className="border-t border-slate-200 pt-4 mb-8">
-              <a href="#" className="text-sm hover:text-slate-900 transition-colors">
+              <a href="#" className="text-sm relative group transition-colors">
+                <span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 Do Not Sell or Share My Personal Information
               </a>
             </div>
@@ -46,30 +47,30 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">OFFERINGS</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Anti-Money Laundering</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Automotive & Mobility</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Data Protection</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Defense</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Energy</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Federal Health</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">FedStart</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Financial Services</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Food & Beverage</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">1iQ for Builders</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Govt Financial Management</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors text-slate-400">— Health & Life Sciences</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Hospital Operations</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Insurance</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Intelligence</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Mission Manager</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Rail</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Readiness</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Retail</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Secure Collaboration</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Semiconductors</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Supply Chain</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Telecommunications</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Utilities</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Anti-Money Laundering</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Automotive & Mobility</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Data Protection</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Defense</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Energy</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Federal Health</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>FedStart</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Financial Services</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Food & Beverage</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ for Builders</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Govt Financial Management</a></li>
+              <li><a href="#" className="relative group flex items-center gap-1 text-slate-400 transition-colors"><ArrowRight size={12} /> Health & Life Sciences</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Hospital Operations</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Insurance</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Intelligence</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Mission Manager</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Rail</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Readiness</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Retail</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Secure Collaboration</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Semiconductors</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Supply Chain</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Telecommunications</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Utilities</a></li>
             </ul>
           </div>
           
@@ -77,23 +78,23 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">IMPACT STUDIES</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Airbus</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Axel Springer</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Cleveland Clinic</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Concordance</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Doosan Infracore</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Fujitsu</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">HHS & CDC</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Jacobs</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Kinder Morgan</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">NHS</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Pacific Gas & Electric</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Ringler</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Sonnedix</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">SOMPO</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Swiss Re</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Tampa General Hospital</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">World Food Programme</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Airbus</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Axel Springer</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Cleveland Clinic</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Concordance</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Doosan Infracore</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Fujitsu</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>HHS & CDC</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Jacobs</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Kinder Morgan</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>NHS</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Pacific Gas & Electric</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Ringler</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Sonnedix</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>SOMPO</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Swiss Re</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Tampa General Hospital</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>World Food Programme</a></li>
             </ul>
           </div>
           
@@ -101,36 +102,36 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">CAPABILITIES</h4>
             <ul className="space-y-3 text-sm mb-8">
-              <li><a href="#" className="hover:text-slate-900 transition-colors">AI + ML</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">AIP for Developers</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Data Integration</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Digital Twin</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Dynamic Scheduling</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Edge AI</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Marketplace</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">MetaConstellation</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Pipeline Builder</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Process Mining</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Real-Time Alerting</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Streaming</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Titanium</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Warp Speed</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AI + ML</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AIP for Developers</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Data Integration</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Digital Twin</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Dynamic Scheduling</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Edge AI</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Marketplace</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>MetaConstellation</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Pipeline Builder</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Process Mining</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Real-Time Alerting</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Streaming</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Titanium</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Warp Speed</a></li>
             </ul>
             
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">DOCUMENTS</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Developer Community</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Platform Documentation</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">1iQ Developers</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Trust Center</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Modern Slavery Statement</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Cookies</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Privacy and Civil Liberties</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">1iQ Explained</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Sustainability</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Human Rights Policy</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Privacy and Security Statement</a></li>
-              <li><a href="#" className="hover:text-slate-900 transition-colors">Terms of Use</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Developer Community</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Platform Documentation</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Developers</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Trust Center</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Modern Slavery Statement</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Cookies</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Privacy and Civil Liberties</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Explained</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Sustainability</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Human Rights Policy</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Privacy and Security Statement</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Terms of Use</a></li>
             </ul>
           </div>
         </div>

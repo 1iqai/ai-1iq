@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ScrollingBanner from "@/components/ScrollingBanner";
+import PlatformsIntro from "@/components/PlatformsIntro";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <div className="bg-white">
         <Hero />
         <ScrollingBanner />
+        <PlatformsIntro />
         <Features />
         <Testimonials />
         <Footer />

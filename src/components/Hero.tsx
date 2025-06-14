@@ -54,7 +54,7 @@ const Hero = () => {
         {/* Centered Content matching reference layout */}
         <div className="text-center max-w-4xl">
           <h1 className="font-inter text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-12 leading-tight tracking-normal">
-            AI-Powered Automation
+            Data-Powered Automation
             <br />
             for Every Decision
           </h1>

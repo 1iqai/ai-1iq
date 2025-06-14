@@ -28,7 +28,7 @@ const Header = () => {
   }, [videoSources.length]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 overflow-hidden py-3 px-6 border-b border-white/20">
+    <header className="fixed top-0 left-0 right-0 z-50 overflow-hidden py-3 px-6">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {videoSources.map((src, index) => (

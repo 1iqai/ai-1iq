@@ -1,22 +1,50 @@
 
 import { ArrowDown } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  
+  // Array of video sources - you can add more video URLs here
+  const videoSources = [
+    "/lovable-uploads/e93dd749-d087-4daf-8f07-ba9de354ebde.png", // This appears to be a placeholder
+    // Add more video URLs here when you have them
+    // "/path/to/video2.mp4",
+    // "/path/to/video3.mp4",
+  ];
+
+  useEffect(() => {
+    if (videoSources.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentVideoIndex((prevIndex) => 
+          (prevIndex + 1) % videoSources.length
+        );
+      }, 10000); // Change video every 10 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [videoSources.length]);
+
   return (
     <section className="relative bg-slate-900 py-20 px-6 min-h-[80vh] flex items-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-70"
-        >
-          <source src="/lovable-uploads/e93dd749-d087-4daf-8f07-ba9de354ebde.png" type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          <div className="w-full h-full bg-slate-800"></div>
-        </video>
+        {videoSources.map((src, index) => (
+          <video
+            key={index}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
+              index === currentVideoIndex ? 'opacity-70' : 'opacity-0'
+            }`}
+          >
+            <source src={src} type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <div className="w-full h-full bg-slate-800"></div>
+          </video>
+        ))}
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

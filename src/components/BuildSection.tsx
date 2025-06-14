@@ -1,5 +1,4 @@
 
-
 const BuildSection = () => {
   return (
     <section className="py-20 px-6 bg-gray-50">
@@ -21,7 +20,7 @@ const BuildSection = () => {
             </h2>
             
             <p className="font-inter text-lg lg:text-xl text-slate-600 leading-relaxed max-w-lg">
-              Palantirians deliver mission-critical outcomes for the West's most important institutions.
+              1iQ delivers mission-critical execution for the world's most complex projects—driving precision and performance across construction, infrastructure, and enterprise operations.
             </p>
             
             <div className="pt-4">
@@ -37,4 +36,3 @@ const BuildSection = () => {
 };
 
 export default BuildSection;
-

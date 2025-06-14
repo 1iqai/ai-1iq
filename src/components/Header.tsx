@@ -21,21 +21,21 @@ const Header = () => {
           <Button 
             variant="outline" 
             size="sm"
-            className="bg-white hover:bg-gray-50 text-gray-700 border-gray-300 rounded-lg px-5 py-2 font-medium text-sm"
+            className="bg-white hover:bg-gray-800 text-gray-700 hover:text-white border-gray-300 hover:border-gray-800 rounded-lg px-5 py-2 font-medium text-sm transition-all duration-200"
           >
             Get Started
           </Button>
           <Button 
             variant="ghost" 
             size="icon"
-            className="h-9 w-9 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
+            className="h-9 w-9 text-gray-600 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-200"
           >
             <Search className="h-5 w-5" />
           </Button>
           <Button 
             variant="ghost" 
             size="icon"
-            className="h-9 w-9 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
+            className="h-9 w-9 text-gray-600 hover:text-white hover:bg-gray-800 rounded-lg transition-all duration-200"
           >
             <Menu className="h-5 w-5" />
           </Button>

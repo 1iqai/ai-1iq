@@ -1,4 +1,3 @@
-
 import { Youtube, Linkedin, Github, ArrowRight } from "lucide-react";
 
 const Footer = () => {
@@ -58,7 +57,7 @@ const Footer = () => {
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Food & Beverage</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ for Builders</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Govt Financial Management</a></li>
-              <li><a href="#" className="relative group flex items-center gap-1 text-slate-400 transition-colors"><ArrowRight size={12} /> Health & Life Sciences</a></li>
+              <li><a href="#" className="relative group flex items-center gap-1 transition-colors"><ArrowRight size={12} /><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Health & Life Sciences</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Hospital Operations</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Insurance</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Intelligence</a></li>

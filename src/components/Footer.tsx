@@ -1,3 +1,4 @@
+
 import { Youtube, Linkedin, Github, ArrowRight } from "lucide-react";
 
 const Footer = () => {
@@ -45,7 +46,7 @@ const Footer = () => {
           {/* Offerings Column */}
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">OFFERINGS</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs">
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Anti-Money Laundering</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Automotive & Mobility</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Data Protection</a></li>
@@ -76,7 +77,7 @@ const Footer = () => {
           {/* Impact Studies Column */}
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">IMPACT STUDIES</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs">
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Airbus</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Axel Springer</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Cleveland Clinic</a></li>
@@ -100,7 +101,7 @@ const Footer = () => {
           {/* Capabilities and Documents Columns */}
           <div>
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">CAPABILITIES</h4>
-            <ul className="space-y-3 text-sm mb-8">
+            <ul className="space-y-3 text-xs mb-8">
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AI + ML</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AIP for Developers</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Data Integration</a></li>
@@ -118,7 +119,7 @@ const Footer = () => {
             </ul>
             
             <h4 className="font-medium text-slate-400 text-sm mb-4 uppercase tracking-wider">DOCUMENTS</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs">
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Developer Community</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Platform Documentation</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-slate-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Developers</a></li>

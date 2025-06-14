@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ScrollingBanner from "@/components/ScrollingBanner";
 import PlatformsIntro from "@/components/PlatformsIntro";
+import BuildSection from "@/components/BuildSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
         <Hero />
         <ScrollingBanner />
         <PlatformsIntro />
+        <BuildSection />
         <Features />
         <Testimonials />
         <Footer />

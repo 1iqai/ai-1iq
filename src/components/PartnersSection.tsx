@@ -1,4 +1,6 @@
 
+import { Separator } from "@/components/ui/separator";
+
 const PartnersSection = () => {
   const partners = [
     {
@@ -26,6 +28,7 @@ const PartnersSection = () => {
   return (
     <section className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
+        <Separator className="mb-12 bg-slate-300" />
         <h2 className="text-4xl lg:text-5xl font-normal text-slate-900 mb-20">
           What our partners say about us
         </h2>

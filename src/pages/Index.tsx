@@ -6,6 +6,7 @@ import ScrollingBanner from "@/components/ScrollingBanner";
 import PlatformsIntro from "@/components/PlatformsIntro";
 import BuildSection from "@/components/BuildSection";
 import PartnersSection from "@/components/PartnersSection";
+import CTASection from "@/components/CTASection";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <PlatformsIntro />
         <BuildSection />
         <PartnersSection />
+        <CTASection />
         <Footer />
       </div>
     </div>

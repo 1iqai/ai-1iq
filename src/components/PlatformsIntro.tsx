@@ -1,3 +1,4 @@
+
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -19,11 +20,7 @@ const PlatformsIntro = () => {
             {/* Left side - Description */}
             <div className="space-y-8">
               <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                Automate operations,
-                <br />
-                from the factory floor
-                <br />
-                to the front lines
+                Turn chaos into coordination
               </h4>
               <div className="text-slate-400 text-lg font-normal">
                 /0.1

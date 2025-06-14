@@ -1,5 +1,4 @@
 
-
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -17,7 +16,8 @@ const PlatformsIntro = () => {
             Our Platforms
           </h3>
           
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Platform 1 - 1iQ Core */}
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
             {/* Left side - Description */}
             <div className="space-y-8">
               <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
@@ -35,6 +35,46 @@ const PlatformsIntro = () => {
               </div>
             </div>
           </div>
+
+          {/* Platform 2 - 1iQ Field */}
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-32">
+            {/* Left side - Description */}
+            <div className="space-y-8">
+              <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
+                The jobsite, reimagined
+              </h4>
+              <div className="text-slate-400 text-lg font-normal">
+                /0.2
+              </div>
+            </div>
+            
+            {/* Right side - 1iQ Field Logo */}
+            <div className="flex items-center justify-center lg:justify-end">
+              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
+                1iQ Field
+              </div>
+            </div>
+          </div>
+
+          {/* Platform 3 - 1iQ Intel */}
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Left side - Description */}
+            <div className="space-y-8">
+              <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
+                Decisions driven by data, not assumptions
+              </h4>
+              <div className="text-slate-400 text-lg font-normal">
+                /0.3
+              </div>
+            </div>
+            
+            {/* Right side - 1iQ Intel Logo */}
+            <div className="flex items-center justify-center lg:justify-end">
+              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
+                1iQ Intel
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -42,4 +82,3 @@ const PlatformsIntro = () => {
 };
 
 export default PlatformsIntro;
-

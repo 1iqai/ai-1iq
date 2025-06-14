@@ -1,4 +1,3 @@
-
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -6,13 +5,7 @@ const PlatformsIntro = () => {
         {/* Main headline */}
         <div className="text-center mb-32">
           <h2 className="font-inter text-5xl lg:text-6xl xl:text-7xl font-normal text-slate-900 leading-tight tracking-normal max-w-6xl mx-auto">
-            Our software powers real-time, <span className="text-slate-400">AI-driven</span>
-            <br />
-            decisions in critical government and
-            <br />
-            commercial enterprises in the West, from the
-            <br />
-            factory floors to the front lines.
+            Our software powers real-time, <span className="text-slate-400">AI-driven</span> clarity and decisions to construction teams on every site, at every scale.
           </h2>
         </div>
 

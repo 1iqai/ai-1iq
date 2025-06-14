@@ -8,8 +8,8 @@ const Hero = () => {
   // Array of video sources - you can add more video URLs here
   const videoSources = [
     "/lovable-uploads/e93dd749-d087-4daf-8f07-ba9de354ebde.png", // This appears to be a placeholder
+    "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1",
     // Add more video URLs here when you have them
-    // "/path/to/video2.mp4",
     // "/path/to/video3.mp4",
   ];
 

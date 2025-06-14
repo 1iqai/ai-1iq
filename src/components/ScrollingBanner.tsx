@@ -1,6 +1,9 @@
 
 const ScrollingBanner = () => {
   const companies = [
+    { name: "Red Bull", logo: "🔴" },
+    { name: "Amazon", logo: "📦" },
+    { name: "Shell", logo: "🐚" },
     { name: "G2", logo: "⭐" },
     { name: "DEEZER", logo: "🎵" },
     { name: "Kaufland", logo: "K" },

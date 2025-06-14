@@ -15,7 +15,7 @@ const BuildSection = () => {
           
           {/* Right side - Content */}
           <div className="flex flex-col items-center text-center space-y-12">
-            <h2 className="font-inter text-4xl lg:text-5xl xl:text-6xl font-normal text-slate-900 leading-none">
+            <h2 className="font-inter text-3xl lg:text-4xl xl:text-5xl font-normal text-slate-900 leading-none">
               There is so much left to build
             </h2>
             

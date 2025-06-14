@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Search, Menu } from "lucide-react";
 
@@ -28,7 +29,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="icon"
-              className="h-10 w-10 text-gray-600 hover:text-white hover:bg-gray-800 border-2 border-gray-400 hover:border-gray-800 rounded-none transition-all duration-200"
+              className="h-10 w-10 text-gray-600 hover:text-white hover:bg-gray-800 border-2 border-gray-400 hover:border-gray-800 rounded-none transition-all duration-200 border-r-0"
             >
               <Search className="h-5 w-5" />
             </Button>

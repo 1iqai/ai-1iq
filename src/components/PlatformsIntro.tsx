@@ -1,4 +1,5 @@
 
+
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -27,10 +28,10 @@ const PlatformsIntro = () => {
               </div>
             </div>
             
-            {/* Right side - AIP Logo */}
+            {/* Right side - 1iQ Core Logo */}
             <div className="flex items-center justify-center lg:justify-end">
               <div className="text-9xl lg:text-[12rem] xl:text-[14rem] font-bold text-slate-900 tracking-tight leading-none">
-                AIP
+                1iQ Core
               </div>
             </div>
           </div>
@@ -41,3 +42,4 @@ const PlatformsIntro = () => {
 };
 
 export default PlatformsIntro;
+

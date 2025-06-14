@@ -28,10 +28,17 @@ const PlatformsIntro = () => {
               </div>
             </div>
             
-            {/* Right side - 1iQ Core Logo */}
+            {/* Right side - 1iQ Core Logo with hover effect */}
             <div className="flex items-center justify-center lg:justify-end">
-              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                1iQ Core
+              <div className="relative group cursor-pointer">
+                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none transition-opacity duration-500 group-hover:opacity-0">
+                  1iQ Core
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-md text-center font-inter">
+                    1iQ Core connects every moving part of your construction project—scheduling, resources, field updates, and stakeholder visibility—into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

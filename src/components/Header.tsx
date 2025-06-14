@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Search, Menu } from "lucide-react";
 
@@ -17,7 +16,7 @@ const Header = () => {
           <span className="text-xl font-medium text-foreground tracking-tight">1iQ</span>
         </div>
         
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-4">
           <Button 
             variant="outline" 
             size="sm"

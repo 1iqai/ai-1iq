@@ -1,4 +1,5 @@
 
+
 const BuildSection = () => {
   return (
     <section className="py-20 px-6 bg-gray-50">
@@ -15,7 +16,7 @@ const BuildSection = () => {
           
           {/* Right side - Content */}
           <div className="flex flex-col items-center text-center space-y-12">
-            <h2 className="font-inter text-3xl lg:text-4xl xl:text-5xl font-normal text-slate-900 leading-none">
+            <h2 className="font-inter text-2xl lg:text-3xl xl:text-4xl font-normal text-slate-900 leading-none">
               There is so much left to build
             </h2>
             
@@ -36,3 +37,4 @@ const BuildSection = () => {
 };
 
 export default BuildSection;
+

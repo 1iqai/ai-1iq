@@ -27,7 +27,7 @@ const Hero = () => {
   }, [videoSources.length]);
 
   return (
-    <section className="relative bg-slate-900 py-20 px-6 min-h-[80vh] flex items-center overflow-hidden">
+    <section className="relative bg-slate-900 px-6 min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {videoSources.map((src, index) => (
@@ -54,7 +54,7 @@ const Hero = () => {
         {/* Centered Content matching reference layout */}
         <div className="text-center max-w-4xl">
           <h1 className="font-inter text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-12 leading-tight tracking-normal">
-            Data-Powered Automation
+            AI-Powered Automation
             <br />
             for Every Decision
           </h1>

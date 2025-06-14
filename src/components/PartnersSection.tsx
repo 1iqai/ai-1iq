@@ -1,5 +1,6 @@
 
 import { Separator } from "@/components/ui/separator";
+import ScrollAnimatedText from "./ScrollAnimatedText";
 
 const PartnersSection = () => {
   const partners = [
@@ -28,13 +29,24 @@ const PartnersSection = () => {
   return (
     <section className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <Separator className="mb-12 bg-slate-300" />
-        <h2 className="text-4xl lg:text-5xl font-normal text-slate-900 mb-20">
+        <ScrollAnimatedText speed={0.1} direction="up">
+          <Separator className="mb-12 bg-slate-300" />
+        </ScrollAnimatedText>
+        <ScrollAnimatedText 
+          as="h2" 
+          className="text-4xl lg:text-5xl font-normal text-slate-900 mb-20"
+          speed={0.4}
+          direction="up"
+        >
           What our partners say about us
-        </h2>
+        </ScrollAnimatedText>
         
         <div className="overflow-hidden">
-          <div className="flex animate-scroll-left gap-8">
+          <ScrollAnimatedText 
+            className="flex animate-scroll-left gap-8"
+            speed={0.6}
+            direction="left"
+          >
             {/* First set of testimonials */}
             {partners.map((partner, index) => (
               <div key={`first-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
@@ -61,7 +73,7 @@ const PartnersSection = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </ScrollAnimatedText>
         </div>
       </div>
     </section>

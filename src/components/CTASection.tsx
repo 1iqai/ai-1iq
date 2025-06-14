@@ -1,10 +1,13 @@
 
 import { ArrowRight } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const CTASection = () => {
   return (
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
+        <Separator className="mb-12 bg-slate-300" />
+        
         <div className="grid md:grid-cols-2 gap-6">
           {/* Request a Demo Button - Light */}
           <div className="group bg-gray-100 hover:bg-gray-200 transition-colors duration-300 rounded-2xl p-8 cursor-pointer h-32">
@@ -26,6 +29,8 @@ const CTASection = () => {
             </div>
           </div>
         </div>
+
+        <Separator className="mt-12 bg-slate-300" />
       </div>
     </section>
   );

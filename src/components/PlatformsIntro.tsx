@@ -1,4 +1,5 @@
 
+
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -36,7 +37,7 @@ const PlatformsIntro = () => {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-md text-center font-inter">
-                    1iQ Core connects every moving part of your construction project—scheduling, resources, field updates, and stakeholder visibility—into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.
+                    1iQ Core connects every moving part of your construction project scheduling, resources, field updates, and stakeholder visibility into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.
                   </p>
                 </div>
               </div>
@@ -89,3 +90,4 @@ const PlatformsIntro = () => {
 };
 
 export default PlatformsIntro;
+

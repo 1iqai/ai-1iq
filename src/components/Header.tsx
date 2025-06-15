@@ -25,7 +25,7 @@ const Header = () => {
             onClick={handleLogoClick}
             className="flex items-center space-x-3 transition-all duration-200"
           >
-            <div className="w-8 h-8 flex items-center justify-center hover:bg-white hover:shadow-lg transition-all duration-200 rounded">
+            <div className="w-8 h-8 flex items-center justify-center hover:shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-200 rounded">
               <img 
                 src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
                 alt="1iQ Logo" 

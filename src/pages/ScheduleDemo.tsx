@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, Mail, Phone } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
@@ -11,10 +11,8 @@ const ScheduleDemo = () => {
     firstName: '',
     lastName: '',
     email: '',
-    company: '',
     phone: '',
-    preferredDate: '',
-    message: ''
+    jobTitle: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,7 +21,7 @@ const ScheduleDemo = () => {
     // Handle form submission here
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -31,34 +29,40 @@ const ScheduleDemo = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Header />
       
       <div className="pt-32 pb-16 px-6">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Button 
             variant="ghost" 
             onClick={() => navigate('/')}
-            className="mb-8 text-gray-600 hover:text-gray-800"
+            className="mb-8 text-gray-600 hover:text-gray-800 p-0"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
 
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="text-center mb-8">
-              <Calendar className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Schedule a Demo</h1>
-              <p className="text-gray-600">
-                See 1iQ in action with a personalized demonstration tailored to your needs
-              </p>
+          <div className="flex min-h-[80vh]">
+            {/* Left side - Large heading */}
+            <div className="w-1/2 pr-16 flex items-start pt-8">
+              <h1 className="text-7xl font-light text-black leading-tight">
+                Get Started
+              </h1>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Right side - Form content */}
+            <div className="w-1/2 pl-16">
+              <div className="mb-12">
+                <h2 className="text-2xl font-light text-black mb-6">
+                  Interested in solving your problems with 1iQ software?
+                </h2>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    First Name *
+                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-3">
+                    First Name: *
                   </label>
                   <input
                     type="text"
@@ -66,12 +70,13 @@ const ScheduleDemo = () => {
                     required
                     value={formData.firstName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base focus:border-black focus:outline-none focus:ring-0"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name *
+                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-3">
+                    Last Name: *
                   </label>
                   <input
                     type="text"
@@ -79,86 +84,62 @@ const ScheduleDemo = () => {
                     required
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base focus:border-black focus:outline-none focus:ring-0"
                   />
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-3">
+                    Business Email Address: *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base focus:border-black focus:outline-none focus:ring-0"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Company *
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  required
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-3">
+                    Phone Number: *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base focus:border-black focus:outline-none focus:ring-0"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
+                <div>
+                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-wider mb-3">
+                    Job Title: *
+                  </label>
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    required
+                    value={formData.jobTitle}
+                    onChange={handleInputChange}
+                    className="w-full border-0 border-b border-gray-300 bg-transparent px-0 py-3 text-base focus:border-black focus:outline-none focus:ring-0"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Preferred Demo Date
-                </label>
-                <input
-                  type="date"
-                  name="preferredDate"
-                  value={formData.preferredDate}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Tell us about your use case
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="What specific challenges are you looking to solve with 1iQ?"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                ></textarea>
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
-              >
-                Schedule Demo
-              </Button>
-            </form>
+                <div className="pt-8">
+                  <Button 
+                    type="submit" 
+                    className="bg-black hover:bg-gray-800 text-white px-8 py-3 text-sm font-medium uppercase tracking-wider"
+                  >
+                    Submit
+                  </Button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

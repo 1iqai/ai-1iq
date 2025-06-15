@@ -81,20 +81,20 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section - Updated to match Palantir layout */}
-      <section className="py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
+      {/* Hero Section - Updated colors to match reference */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Main heading */}
             <div>
-              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-slate-900 leading-tight">
+              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-black leading-tight">
                 Build the Future
               </h1>
             </div>
             
             {/* Right side - Description */}
             <div>
-              <p className="font-inter text-xl lg:text-2xl text-slate-600 leading-relaxed">
+              <p className="font-inter text-xl lg:text-2xl text-gray-600 leading-relaxed">
                 1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
               </p>
             </div>
@@ -102,14 +102,14 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Removed Refresh News button */}
-      <section className="py-20 px-6 bg-white">
+      {/* News Section - Updated colors */}
+      <section className="py-20 px-6 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="font-inter text-3xl lg:text-4xl font-normal text-slate-900 mb-4">
+            <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-4">
               Construction Industry News
             </h2>
-            <p className="text-slate-600 text-lg">
+            <p className="text-gray-600 text-lg">
               Daily updates on project management challenges and industry incidents
             </p>
           </div>
@@ -123,32 +123,32 @@ const LearnMore = () => {
                   onClick={prevSlide}
                   variant="outline"
                   size="icon"
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-slate-300 hover:bg-slate-50"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-gray-300 hover:bg-gray-50"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </Button>
 
                 {/* Article Display */}
                 <div className="max-w-4xl mx-16">
-                  <Card className="hover:shadow-lg transition-shadow duration-300 border-slate-200 p-8">
+                  <Card className="hover:shadow-lg transition-shadow duration-300 border-gray-200 p-8">
                     <CardHeader className="pb-6">
                       <div className="flex justify-between items-start mb-4">
-                        <span className="text-base text-slate-500 font-medium">{getCurrentArticle().source}</span>
-                        <span className="text-base text-slate-400">{formatDate(getCurrentArticle().publishedAt)}</span>
+                        <span className="text-base text-gray-500 font-medium">{getCurrentArticle().source}</span>
+                        <span className="text-base text-gray-400">{formatDate(getCurrentArticle().publishedAt)}</span>
                       </div>
-                      <CardTitle className="text-2xl lg:text-3xl leading-tight text-slate-900 hover:text-slate-700 transition-colors font-normal">
+                      <CardTitle className="text-2xl lg:text-3xl leading-tight text-black hover:text-gray-700 transition-colors font-normal">
                         {getCurrentArticle().title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-slate-600 leading-relaxed mb-6 text-lg">
+                      <CardDescription className="text-gray-600 leading-relaxed mb-6 text-lg">
                         {getCurrentArticle().description}
                       </CardDescription>
                       {getCurrentArticle().url !== '#' && (
                         <Button 
                           variant="outline" 
                           size="sm"
-                          className="border-slate-300 text-slate-700 hover:bg-slate-50 text-base px-6 py-3"
+                          className="border-gray-300 text-gray-700 hover:bg-gray-50 text-base px-6 py-3"
                           onClick={() => window.open(getCurrentArticle().url, '_blank')}
                         >
                           Read Full Article
@@ -163,7 +163,7 @@ const LearnMore = () => {
                   onClick={nextSlide}
                   variant="outline"
                   size="icon"
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-slate-300 hover:bg-slate-50"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-gray-300 hover:bg-gray-50"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </Button>
@@ -171,7 +171,7 @@ const LearnMore = () => {
 
               {/* Article Counter and Indicators */}
               <div className="flex flex-col items-center mt-8 gap-4">
-                <div className="text-slate-600">
+                <div className="text-gray-600">
                   Article {currentSlide + 1} of {articles.length}
                 </div>
                 
@@ -182,7 +182,7 @@ const LearnMore = () => {
                       key={index}
                       onClick={() => setCurrentSlide(index)}
                       className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentSlide ? 'bg-slate-900' : 'bg-slate-300'
+                        index === currentSlide ? 'bg-black' : 'bg-gray-300'
                       }`}
                     />
                   ))}
@@ -193,33 +193,33 @@ const LearnMore = () => {
 
           {articles.length === 0 && !loading && (
             <div className="text-center py-12">
-              <p className="text-slate-500 text-lg">No articles loaded. Please try again later.</p>
+              <p className="text-gray-500 text-lg">No articles loaded. Please try again later.</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 bg-slate-50">
+      {/* CTA Section - Updated colors */}
+      <section className="py-20 px-6 bg-gray-50 border-t border-gray-200">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-inter text-3xl lg:text-4xl font-normal text-slate-900 mb-8">
+          <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">
             Don't Let Your Project Become Tomorrow's Headline
           </h2>
-          <p className="font-inter text-xl text-slate-600 mb-12 leading-relaxed">
+          <p className="font-inter text-xl text-gray-600 mb-12 leading-relaxed">
             1iQ's AI-driven platform provides the real-time visibility and control needed to prevent 
             project failures before they happen. Take control of your construction operations today.
           </p>
           <div className="flex gap-6 justify-center">
             <Button 
               size="lg"
-              className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-3"
+              className="bg-black hover:bg-gray-800 text-white px-8 py-3"
             >
               Schedule Demo
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-3"
+              className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3"
             >
               Contact Sales
             </Button>

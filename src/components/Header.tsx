@@ -4,10 +4,12 @@ import { Search, Menu } from "lucide-react";
 import { useState } from "react";
 import NavigationMenu from "./NavigationMenu";
 import SearchOverlay from "./SearchOverlay";
+import GetStartedModal from "./GetStartedModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isGetStartedOpen, setIsGetStartedOpen] = useState(false);
 
   return (
     <>
@@ -28,6 +30,7 @@ const Header = () => {
             <Button 
               variant="outline" 
               size="sm"
+              onClick={() => setIsGetStartedOpen(true)}
               className="bg-white hover:bg-gray-800 text-gray-700 hover:text-white border-2 border-gray-400 hover:border-gray-800 rounded-none px-6 py-2 font-medium text-sm transition-all duration-200 h-10"
             >
               Get Started
@@ -56,6 +59,7 @@ const Header = () => {
       
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <GetStartedModal isOpen={isGetStartedOpen} onClose={() => setIsGetStartedOpen(false)} />
     </>
   );
 };

@@ -1,0 +1,219 @@
+
+import React from 'react';
+import { X, ArrowRight } from 'lucide-react';
+
+interface NavigationMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-slate-900 z-50 overflow-y-auto">
+      {/* Header */}
+      <div className="flex justify-between items-center p-6 border-b border-slate-700">
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
+            alt="1iQ Logo" 
+            className="w-8 h-8 object-contain"
+          />
+          <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
+        </div>
+        <button 
+          onClick={onClose}
+          className="text-white hover:text-gray-300 transition-colors"
+        >
+          <X size={24} />
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div className="grid lg:grid-cols-3 gap-16 p-8 lg:p-16">
+        {/* Left Column - Navigation */}
+        <div className="space-y-12">
+          <div>
+            <h2 className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tight">
+              Generate Alpha
+            </h2>
+          </div>
+
+          <div>
+            <h3 className="text-2xl font-light text-gray-400 mb-8 tracking-wide">
+              Our Platforms
+            </h3>
+            <nav className="space-y-6">
+              <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
+                <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
+                <span className="text-lg font-light">1iQ Core</span>
+              </a>
+              <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
+                <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
+                <span className="text-lg font-light">1iQ Field</span>
+              </a>
+              <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
+                <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
+                <span className="text-lg font-light">1iQ Intel</span>
+              </a>
+            </nav>
+          </div>
+
+          <div className="space-y-6">
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">Offerings</span>
+            </a>
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">Impact Studies</span>
+            </a>
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">Documentation</span>
+            </a>
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">Careers</span>
+            </a>
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">Newsroom</span>
+            </a>
+            <a href="#" className="block text-white hover:text-gray-300 transition-colors">
+              <span className="text-lg font-light">1iQ Explained</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Middle Column - Latest News */}
+        <div className="border-l border-slate-700 pl-8">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
+              Latest News
+            </h3>
+            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
+              NEWSROOM →
+            </a>
+          </div>
+
+          <div className="space-y-8">
+            <article className="space-y-4">
+              <div className="aspect-video bg-gray-800 rounded overflow-hidden">
+                <img 
+                  src="/lovable-uploads/e93dd749-d087-4daf-8f07-ba9de354ebde.png" 
+                  alt="News"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-xs text-gray-500 uppercase tracking-wider">
+                CONSTRUCTION TECH, FEBRUARY 19, 2025
+              </div>
+              <h4 className="text-white text-base font-light leading-relaxed">
+                1iQ CEO talks construction technology advancement and the future of AI-driven project management
+              </h4>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                1iQ CEO spoke about revolutionary construction management solutions, the state of construction tech innovation, and AI integration in field operations.
+              </p>
+              <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
+                <ArrowRight className="w-3 h-3 mr-1" />
+                Watch Here
+              </a>
+            </article>
+
+            <article className="space-y-4">
+              <div className="aspect-video bg-gray-800 rounded overflow-hidden">
+                <img 
+                  src="/lovable-uploads/e9d5b0fc-0ed1-4899-91d6-180731263b5b.png" 
+                  alt="News"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-xs text-gray-500 uppercase tracking-wider">
+                CONSTRUCTION WEEKLY, MARCH 12, 2025
+              </div>
+              <h4 className="text-white text-base font-light leading-relaxed">
+                1iQ's AI-powered construction management platform transforms project delivery
+              </h4>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Construction teams now have access to real-time project intelligence through state-of-the-art AI systems that optimize workflow and resource allocation.
+              </p>
+              <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
+                <ArrowRight className="w-3 h-3 mr-1" />
+                Read More
+              </a>
+            </article>
+          </div>
+        </div>
+
+        {/* Right Column - Offerings & Quick Links */}
+        <div className="border-l border-slate-700 pl-8 space-y-12">
+          <div>
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
+                Offerings
+              </h3>
+              <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
+                VIEW ALL OFFERINGS →
+              </a>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Our platforms are used throughout the construction industry to help organizations quickly implement solutions to the hardest problems they face.
+            </p>
+            <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
+              <ArrowRight className="w-3 h-3 mr-1" />
+              Learn more about 1iQ
+            </a>
+          </div>
+
+          <div>
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
+                Latest Impact
+              </h3>
+              <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
+                VIEW ALL IMPACT STUDIES →
+              </a>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="text-xs text-gray-500 uppercase tracking-wider">
+                IMPACT STUDY // GENERAL CONSTRUCTION
+              </div>
+              <div className="aspect-video bg-gray-800 rounded overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800"></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6">
+              Quick Links
+            </h3>
+            <div className="space-y-3">
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                About 1iQ
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Blog
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Investor Relations
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Letters from the CEO
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Privacy & Civil Liberties
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Information Security
+              </a>
+              <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Cloud Partners
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NavigationMenu;

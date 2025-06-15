@@ -20,18 +20,27 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
     'Artificial Intelligence (AI)'
   ];
 
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  };
+
   return (
     <div className="fixed inset-0 bg-slate-900 z-50">
       {/* Header */}
       <div className="flex justify-between items-center p-6">
-        <div className="flex items-center space-x-3">
-          <img 
-            src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
-            alt="1iQ Logo" 
-            className="w-8 h-8 object-contain"
-          />
+        <button 
+          onClick={handleLogoClick}
+          className="flex items-center space-x-3 transition-all duration-200"
+        >
+          <div className="w-8 h-8 flex items-center justify-center hover:shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-200 rounded">
+            <img 
+              src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
+              alt="1iQ Logo" 
+              className="w-8 h-8 object-contain"
+            />
+          </div>
           <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
-        </div>
+        </button>
         <button 
           onClick={onClose}
           className="text-white hover:text-gray-300 transition-colors"

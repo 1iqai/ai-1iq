@@ -23,16 +23,16 @@ const Header = () => {
         <div className="max-w-7xl mx-auto bg-transparent backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 flex items-center justify-between">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-200 px-3 py-2 rounded"
+            className="flex items-center space-x-3 transition-all duration-200"
           >
-            <div className="w-8 h-8 flex items-center justify-center">
+            <div className="w-8 h-8 flex items-center justify-center hover:bg-white hover:shadow-lg transition-all duration-200 rounded">
               <img 
                 src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
                 alt="1iQ Logo" 
                 className="w-8 h-8 object-contain"
               />
             </div>
-            <span className="text-xl font-medium tracking-tight">1iQ</span>
+            <span className="text-xl font-medium tracking-tight text-white">1iQ</span>
           </button>
           
           <div className="flex items-center space-x-10">

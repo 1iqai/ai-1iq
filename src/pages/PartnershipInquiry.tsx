@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -215,6 +216,8 @@ const PartnershipInquiry = () => {
                       <SelectItem value="europe">Europe</SelectItem>
                       <SelectItem value="asia-pacific">Asia Pacific</SelectItem>
                       <SelectItem value="latin-america">Latin America</SelectItem>
+                      <SelectItem value="africa">Africa</SelectItem>
+                      <SelectItem value="mena">MENA</SelectItem>
                       <SelectItem value="global">Global</SelectItem>
                     </SelectContent>
                   </Select>

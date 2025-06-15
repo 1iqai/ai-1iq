@@ -23,7 +23,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto bg-transparent backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 flex items-center justify-between">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-3 hover:bg-white hover:text-black transition-all duration-200 px-3 py-2 rounded"
           >
             <div className="w-8 h-8 flex items-center justify-center">
               <img 
@@ -32,7 +32,7 @@ const Header = () => {
                 className="w-8 h-8 object-contain"
               />
             </div>
-            <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
+            <span className="text-xl font-medium tracking-tight">1iQ</span>
           </button>
           
           <div className="flex items-center space-x-10">

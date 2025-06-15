@@ -124,7 +124,7 @@ const LearnMore = () => {
               <div className="space-y-4 text-gray-700">
                 <p>
                   Interested in the Construction Project Intelligence or{' '}
-                  <span className="underline">AI-Driven Operations Engineer</span> positions in New York?
+                  <span className="underline">AI-Driven Operations Engineer</span> positions?
                   Don't just tell us how you'd build the future — show us.
                 </p>
                 <p>

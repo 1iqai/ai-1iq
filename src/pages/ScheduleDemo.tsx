@@ -55,9 +55,9 @@ const ScheduleDemo = () => {
       <div className="pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="min-h-[80vh]">
-            {/* Content moved to left side only */}
-            <div className="max-w-2xl">
-              <div className="mb-16">
+            {/* Full width container for form with extended lines */}
+            <div className="w-full">
+              <div className="mb-16 max-w-2xl">
                 <h1 className="text-8xl font-light text-black leading-tight tracking-tight mb-8">
                   Get Started
                 </h1>
@@ -67,10 +67,12 @@ const ScheduleDemo = () => {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-12">
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    First Name: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      First Name: *
+                    </label>
+                  </div>
                   <input
                     type="text"
                     name="firstName"
@@ -81,10 +83,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Last Name: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Last Name: *
+                    </label>
+                  </div>
                   <input
                     type="text"
                     name="lastName"
@@ -95,10 +99,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Business Email Address: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Business Email Address: *
+                    </label>
+                  </div>
                   <input
                     type="email"
                     name="email"
@@ -109,10 +115,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Phone Number: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Phone Number: *
+                    </label>
+                  </div>
                   <input
                     type="tel"
                     name="phone"
@@ -123,10 +131,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Job Title: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Job Title: *
+                    </label>
+                  </div>
                   <input
                     type="text"
                     name="jobTitle"
@@ -137,10 +147,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Company / Institution: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Company / Institution: *
+                    </label>
+                  </div>
                   <input
                     type="text"
                     name="company"
@@ -151,10 +163,12 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Country: *
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Country: *
+                    </label>
+                  </div>
                   <Select onValueChange={handleSelectChange}>
                     <SelectTrigger className="w-full border-0 border-b border-gray-400 bg-transparent px-0 py-4 text-base focus:border-black focus:outline-none focus:ring-0 rounded-none">
                       <SelectValue placeholder="Select..." />
@@ -171,10 +185,12 @@ const ScheduleDemo = () => {
                   </Select>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
-                    Tell us about your project; a bit of context will allow us to connect you to the right team faster:
-                  </label>
+                <div className="w-full">
+                  <div className="max-w-2xl">
+                    <label className="block text-xs font-medium text-gray-600 uppercase tracking-widest mb-4">
+                      Tell us about your project; a bit of context will allow us to connect you to the right team faster:
+                    </label>
+                  </div>
                   <Textarea
                     name="projectDescription"
                     value={formData.projectDescription}
@@ -183,7 +199,7 @@ const ScheduleDemo = () => {
                   />
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 max-w-2xl">
                   <div className="flex items-start space-x-3">
                     <Checkbox
                       id="productUpdates"
@@ -221,7 +237,7 @@ const ScheduleDemo = () => {
                   </div>
                 </div>
 
-                <div className="pt-12">
+                <div className="pt-12 max-w-2xl">
                   <Button 
                     type="submit" 
                     className="bg-black hover:bg-gray-800 text-white px-8 py-3 text-sm font-medium uppercase tracking-wider rounded-none"

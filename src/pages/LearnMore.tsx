@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { NewsService } from "@/services/NewsService";
@@ -20,14 +19,23 @@ interface NewsArticle {
 const LearnMore = () => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(false);
-  const [apiKey, setApiKey] = useState('');
-  const [showApiInput, setShowApiInput] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const { toast } = useToast();
 
   useEffect(() => {
     loadNews();
   }, []);
+
+  // Auto-rotation effect
+  useEffect(() => {
+    if (articles.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % articles.length);
+      }, 6000);
+
+      return () => clearInterval(interval);
+    }
+  }, [articles.length]);
 
   const loadNews = async () => {
     setLoading(true);
@@ -49,20 +57,6 @@ const LearnMore = () => {
     }
   };
 
-  const handleSaveApiKey = () => {
-    if (apiKey.trim()) {
-      NewsService.saveApiKey(apiKey.trim());
-      setShowApiInput(false);
-      setApiKey('');
-      toast({
-        title: "Success",
-        description: "API key saved. Refreshing news...",
-        duration: 3000,
-      });
-      loadNews();
-    }
-  };
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -72,20 +66,15 @@ const LearnMore = () => {
   };
 
   const nextSlide = () => {
-    if (currentSlide < Math.ceil(articles.length / 4) - 1) {
-      setCurrentSlide(currentSlide + 1);
-    }
+    setCurrentSlide((prev) => (prev + 1) % articles.length);
   };
 
   const prevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-    }
+    setCurrentSlide((prev) => (prev - 1 + articles.length) % articles.length);
   };
 
-  const getCurrentArticles = () => {
-    const startIndex = currentSlide * 4;
-    return articles.slice(startIndex, startIndex + 4);
+  const getCurrentArticle = () => {
+    return articles[currentSlide];
   };
 
   return (
@@ -118,127 +107,88 @@ const LearnMore = () => {
               </p>
             </div>
             
-            <div className="flex gap-4">
-              <Button 
-                onClick={loadNews} 
-                disabled={loading}
-                className="bg-slate-900 hover:bg-slate-800 text-white"
-              >
-                {loading ? 'Loading...' : 'Refresh News'}
-              </Button>
-              
-              <Button 
-                onClick={() => setShowApiInput(!showApiInput)}
-                variant="outline"
-                className="border-slate-300 text-slate-700 hover:bg-slate-50"
-              >
-                Add API Key
-              </Button>
-            </div>
+            <Button 
+              onClick={loadNews} 
+              disabled={loading}
+              className="bg-slate-900 hover:bg-slate-800 text-white"
+            >
+              {loading ? 'Loading...' : 'Refresh News'}
+            </Button>
           </div>
 
-          {/* API Key Input */}
-          {showApiInput && (
-            <Card className="mb-8 bg-slate-50 border-slate-200">
-              <CardHeader>
-                <CardTitle className="text-lg">NewsAPI Configuration</CardTitle>
-                <CardDescription>
-                  Add your NewsAPI key to get live construction industry news. 
-                  Get a free key at <a href="https://newsapi.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">newsapi.org</a>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-4">
-                  <Input
-                    type="password"
-                    placeholder="Enter your NewsAPI key"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    className="flex-1"
-                  />
-                  <Button onClick={handleSaveApiKey} className="bg-slate-900 hover:bg-slate-800 text-white">
-                    Save Key
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* News Slide Layout */}
+          {/* Single Article Display with Navigation */}
           {articles.length > 0 && (
             <div className="relative">
-              {/* Navigation */}
-              <div className="flex justify-between items-center mb-8">
+              <div className="flex items-center justify-center">
+                {/* Left Arrow */}
                 <Button
                   onClick={prevSlide}
-                  disabled={currentSlide === 0}
                   variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
+                  size="icon"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-slate-300 hover:bg-slate-50"
                 >
-                  <ChevronLeft className="w-4 h-4" />
-                  Previous
+                  <ChevronLeft className="w-6 h-6" />
                 </Button>
-                
-                <div className="text-slate-600">
-                  Page {currentSlide + 1} of {Math.ceil(articles.length / 4)}
-                </div>
-                
-                <Button
-                  onClick={nextSlide}
-                  disabled={currentSlide >= Math.ceil(articles.length / 4) - 1}
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              </div>
 
-              {/* Articles Grid */}
-              <div className="grid lg:grid-cols-2 gap-12">
-                {getCurrentArticles().map((article, index) => (
-                  <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-slate-200 p-8">
+                {/* Article Display */}
+                <div className="max-w-4xl mx-16">
+                  <Card className="hover:shadow-lg transition-shadow duration-300 border-slate-200 p-8">
                     <CardHeader className="pb-6">
                       <div className="flex justify-between items-start mb-4">
-                        <span className="text-base text-slate-500 font-medium">{article.source}</span>
-                        <span className="text-base text-slate-400">{formatDate(article.publishedAt)}</span>
+                        <span className="text-base text-slate-500 font-medium">{getCurrentArticle().source}</span>
+                        <span className="text-base text-slate-400">{formatDate(getCurrentArticle().publishedAt)}</span>
                       </div>
                       <CardTitle className="text-2xl lg:text-3xl leading-tight text-slate-900 hover:text-slate-700 transition-colors font-normal">
-                        {article.title}
+                        {getCurrentArticle().title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-slate-600 leading-relaxed mb-6 text-lg">
-                        {article.description}
+                        {getCurrentArticle().description}
                       </CardDescription>
-                      {article.url !== '#' && (
+                      {getCurrentArticle().url !== '#' && (
                         <Button 
                           variant="outline" 
                           size="sm"
                           className="border-slate-300 text-slate-700 hover:bg-slate-50 text-base px-6 py-3"
-                          onClick={() => window.open(article.url, '_blank')}
+                          onClick={() => window.open(getCurrentArticle().url, '_blank')}
                         >
                           Read Full Article
                         </Button>
                       )}
                     </CardContent>
                   </Card>
-                ))}
+                </div>
+
+                {/* Right Arrow */}
+                <Button
+                  onClick={nextSlide}
+                  variant="outline"
+                  size="icon"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-slate-300 hover:bg-slate-50"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </Button>
               </div>
 
-              {/* Slide Indicators */}
-              <div className="flex justify-center mt-12 gap-2">
-                {Array.from({ length: Math.ceil(articles.length / 4) }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentSlide ? 'bg-slate-900' : 'bg-slate-300'
-                    }`}
-                  />
-                ))}
+              {/* Article Counter and Indicators */}
+              <div className="flex flex-col items-center mt-8 gap-4">
+                <div className="text-slate-600">
+                  Article {currentSlide + 1} of {articles.length}
+                </div>
+                
+                {/* Slide Indicators */}
+                <div className="flex justify-center gap-2">
+                  {articles.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-colors ${
+                        index === currentSlide ? 'bg-slate-900' : 'bg-slate-300'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           )}

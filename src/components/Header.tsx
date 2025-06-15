@@ -2,20 +2,29 @@
 import { Button } from "@/components/ui/button";
 import { Search, Menu } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavigationMenu from "./NavigationMenu";
 import SearchOverlay from "./SearchOverlay";
 import GetStartedModal from "./GetStartedModal";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isGetStartedOpen, setIsGetStartedOpen] = useState(false);
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 py-6 px-6">
         <div className="max-w-7xl mx-auto bg-transparent backdrop-blur-sm border border-white/20 rounded-lg px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
+          <button 
+            onClick={handleLogoClick}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
             <div className="w-8 h-8 flex items-center justify-center">
               <img 
                 src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
@@ -24,7 +33,7 @@ const Header = () => {
               />
             </div>
             <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
-          </div>
+          </button>
           
           <div className="flex items-center space-x-10">
             <Button 

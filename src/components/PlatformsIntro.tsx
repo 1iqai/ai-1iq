@@ -16,6 +16,37 @@ const PlatformsIntro = () => {
             Our Platforms
           </h3>
           
+          {/* Image section matching the screenshot layout */}
+          <div className="grid lg:grid-cols-12 gap-8 items-center mb-32 px-4 lg:px-8">
+            {/* Left side - Text content */}
+            <div className="lg:col-span-4 space-y-8">
+              <h4 className="font-inter text-2xl lg:text-3xl text-slate-900 font-normal leading-relaxed">
+                Automate operations, from the factory floor to the front lines
+              </h4>
+              <div className="text-slate-400 text-lg font-normal">
+                /0.1
+              </div>
+            </div>
+            
+            {/* Center - Image */}
+            <div className="lg:col-span-4 flex items-center justify-center">
+              <div className="w-full max-w-md">
+                <img 
+                  src="/lovable-uploads/4a523436-4568-404d-9ec8-be7c1383e4a3.png" 
+                  alt="Construction automation interface" 
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
+            </div>
+            
+            {/* Right side - AIP text */}
+            <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
+              <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
+                AIP
+              </div>
+            </div>
+          </div>
+          
           {/* Platform 1 - 1iQ Core */}
           <div className="grid lg:grid-cols-12 gap-8 items-center mb-32 px-4 lg:px-8">
             {/* Left side - Description */}

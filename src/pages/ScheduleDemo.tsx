@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -49,10 +48,13 @@ const ScheduleDemo = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      {/* Dark gradient background for header area */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-900 to-transparent"></div>
+      
       <Header />
       
-      <div className="pt-32 pb-16 px-6">
+      <div className="pt-32 pb-16 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="min-h-[80vh]">
             {/* Full width container for form with extended lines */}

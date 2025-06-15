@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -86,19 +87,19 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
               <div className="space-y-4">
                 <button 
                   onClick={() => handleNavigation('/schedule-demo')}
-                  className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors"
+                  className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors font-medium"
                 >
                   Schedule a Demo
                 </button>
                 <button 
                   onClick={() => handleNavigation('/contact-sales')}
-                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors"
+                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
                 >
                   Contact Sales
                 </button>
                 <button 
                   onClick={() => handleNavigation('/partnership-inquiry')}
-                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors"
+                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
                 >
                   Partnership Inquiry
                 </button>

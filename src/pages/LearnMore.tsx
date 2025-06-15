@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { NewsService } from "@/services/NewsService";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ const LearnMore = () => {
   const [loading, setLoading] = useState(false);
   const [apiKey, setApiKey] = useState('');
   const [showApiInput, setShowApiInput] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -67,6 +69,23 @@ const LearnMore = () => {
       month: 'long',
       day: 'numeric'
     });
+  };
+
+  const nextSlide = () => {
+    if (currentSlide < Math.ceil(articles.length / 4) - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+  const getCurrentArticles = () => {
+    const startIndex = currentSlide * 4;
+    return articles.slice(startIndex, startIndex + 4);
   };
 
   return (
@@ -145,37 +164,84 @@ const LearnMore = () => {
             </Card>
           )}
 
-          {/* News Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            {articles.map((article, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-slate-200">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="text-sm text-slate-500 font-medium">{article.source}</span>
-                    <span className="text-sm text-slate-400">{formatDate(article.publishedAt)}</span>
-                  </div>
-                  <CardTitle className="text-xl leading-tight text-slate-900 hover:text-slate-700 transition-colors">
-                    {article.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-slate-600 leading-relaxed mb-4">
-                    {article.description}
-                  </CardDescription>
-                  {article.url !== '#' && (
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="border-slate-300 text-slate-700 hover:bg-slate-50"
-                      onClick={() => window.open(article.url, '_blank')}
-                    >
-                      Read Full Article
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* News Slide Layout */}
+          {articles.length > 0 && (
+            <div className="relative">
+              {/* Navigation */}
+              <div className="flex justify-between items-center mb-8">
+                <Button
+                  onClick={prevSlide}
+                  disabled={currentSlide === 0}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  Previous
+                </Button>
+                
+                <div className="text-slate-600">
+                  Page {currentSlide + 1} of {Math.ceil(articles.length / 4)}
+                </div>
+                
+                <Button
+                  onClick={nextSlide}
+                  disabled={currentSlide >= Math.ceil(articles.length / 4) - 1}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
+
+              {/* Articles Grid */}
+              <div className="grid lg:grid-cols-2 gap-12">
+                {getCurrentArticles().map((article, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-slate-200 p-8">
+                    <CardHeader className="pb-6">
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-base text-slate-500 font-medium">{article.source}</span>
+                        <span className="text-base text-slate-400">{formatDate(article.publishedAt)}</span>
+                      </div>
+                      <CardTitle className="text-2xl lg:text-3xl leading-tight text-slate-900 hover:text-slate-700 transition-colors font-normal">
+                        {article.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-slate-600 leading-relaxed mb-6 text-lg">
+                        {article.description}
+                      </CardDescription>
+                      {article.url !== '#' && (
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          className="border-slate-300 text-slate-700 hover:bg-slate-50 text-base px-6 py-3"
+                          onClick={() => window.open(article.url, '_blank')}
+                        >
+                          Read Full Article
+                        </Button>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Slide Indicators */}
+              <div className="flex justify-center mt-12 gap-2">
+                {Array.from({ length: Math.ceil(articles.length / 4) }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide ? 'bg-slate-900' : 'bg-slate-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
 
           {articles.length === 0 && !loading && (
             <div className="text-center py-12">

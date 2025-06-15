@@ -1,5 +1,10 @@
 
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+
 const BuildSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -24,9 +29,13 @@ const BuildSection = () => {
             </p>
             
             <div className="pt-4">
-              <button className="border border-slate-300 text-slate-700 px-8 py-3 text-sm font-medium tracking-wide hover:bg-slate-50 transition-colors">
+              <Button 
+                onClick={() => navigate('/learn-more')}
+                variant="outline"
+                className="border border-slate-300 text-slate-700 px-8 py-3 text-sm font-medium tracking-wide hover:bg-slate-50 transition-colors"
+              >
                 LEARN MORE
-              </button>
+              </Button>
             </div>
           </div>
         </div>

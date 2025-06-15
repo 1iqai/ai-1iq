@@ -77,11 +77,6 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
             </h1>
             
             <div className="space-y-6">
-              <p className="text-gray-700 leading-relaxed">
-                Our team of experts is ready to help you transform your data into actionable insights. 
-                Let's discuss how 1iQ can accelerate your decision-making process.
-              </p>
-              
               <div className="space-y-4">
                 <button className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors">
                   Schedule a Demo

@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Search, Menu } from "lucide-react";
 import { useState } from "react";
 import NavigationMenu from "./NavigationMenu";
+import SearchOverlay from "./SearchOverlay";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <>
@@ -34,6 +36,7 @@ const Header = () => {
               <Button 
                 variant="ghost" 
                 size="icon"
+                onClick={() => setIsSearchOpen(true)}
                 className="h-10 w-10 text-white hover:text-white hover:bg-gray-800 border-2 border-gray-400 hover:border-gray-800 rounded-none transition-all duration-200 border-r-0"
               >
                 <Search className="h-5 w-5" />
@@ -52,6 +55,7 @@ const Header = () => {
       </header>
       
       <NavigationMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 };

@@ -81,39 +81,37 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Updated to match Palantir layout */}
       <section className="py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="font-inter text-4xl lg:text-6xl font-normal text-slate-900 mb-8 leading-tight">
-            Why <span className="text-slate-400">1iQ</span> Matters
-          </h1>
-          <p className="font-inter text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Every day, construction projects fail due to poor management, inadequate oversight, and lack of real-time visibility. 
-            1iQ exists to prevent these tragedies through AI-driven project intelligence.
-          </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Main heading */}
+            <div>
+              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-slate-900 leading-tight">
+                Build the Future
+              </h1>
+            </div>
+            
+            {/* Right side - Description */}
+            <div>
+              <p className="font-inter text-xl lg:text-2xl text-slate-600 leading-relaxed">
+                1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* News Section */}
+      {/* News Section - Removed Refresh News button */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="font-inter text-3xl lg:text-4xl font-normal text-slate-900 mb-4">
-                Construction Industry News
-              </h2>
-              <p className="text-slate-600 text-lg">
-                Daily updates on project management challenges and industry incidents
-              </p>
-            </div>
-            
-            <Button 
-              onClick={loadNews} 
-              disabled={loading}
-              className="bg-slate-900 hover:bg-slate-800 text-white"
-            >
-              {loading ? 'Loading...' : 'Refresh News'}
-            </Button>
+          <div className="mb-12">
+            <h2 className="font-inter text-3xl lg:text-4xl font-normal text-slate-900 mb-4">
+              Construction Industry News
+            </h2>
+            <p className="text-slate-600 text-lg">
+              Daily updates on project management challenges and industry incidents
+            </p>
           </div>
 
           {/* Single Article Display with Navigation */}
@@ -195,7 +193,7 @@ const LearnMore = () => {
 
           {articles.length === 0 && !loading && (
             <div className="text-center py-12">
-              <p className="text-slate-500 text-lg">No articles loaded. Click "Refresh News" to try again.</p>
+              <p className="text-slate-500 text-lg">No articles loaded. Please try again later.</p>
             </div>
           )}
         </div>

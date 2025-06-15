@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface GetStartedModalProps {
   isOpen: boolean;
@@ -9,6 +9,7 @@ interface GetStartedModalProps {
 
 const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const navigate = useNavigate();
   
   // Same video sources as Hero component
   const videoSources = [
@@ -30,6 +31,11 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
       return () => clearInterval(interval);
     }
   }, [isOpen, videoSources.length]);
+
+  const handleNavigation = (path: string) => {
+    onClose();
+    navigate(path);
+  };
 
   if (!isOpen) return null;
 
@@ -78,13 +84,22 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
             
             <div className="space-y-6">
               <div className="space-y-4">
-                <button className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/schedule-demo')}
+                  className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors"
+                >
                   Schedule a Demo
                 </button>
-                <button className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/contact-sales')}
+                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors"
+                >
                   Contact Sales
                 </button>
-                <button className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/partnership-inquiry')}
+                  className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors"
+                >
                   Partnership Inquiry
                 </button>
               </div>

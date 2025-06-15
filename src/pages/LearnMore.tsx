@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -81,8 +80,8 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section - Updated colors to match reference */}
-      <section className="py-20 px-6 bg-white">
+      {/* Hero Section - Adjusted positioning to be lower and more visible */}
+      <section className="py-32 px-6 bg-white min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Main heading */}
@@ -102,15 +101,9 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Updated colors and removed description */}
+      {/* News Section - Removed heading */}
       <section className="py-20 px-6 bg-white border-t border-black">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-4">
-              Construction Industry News
-            </h2>
-          </div>
-
           {/* Single Article Display with Navigation */}
           {articles.length > 0 && (
             <div className="relative">

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -194,6 +193,8 @@ const PartnershipInquiry = () => {
                       <SelectItem value="manufacturing">Manufacturing</SelectItem>
                       <SelectItem value="technology">Technology</SelectItem>
                       <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="construction">Construction</SelectItem>
+                      <SelectItem value="oil-gas">Oil and Gas</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>

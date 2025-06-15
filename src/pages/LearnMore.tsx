@@ -102,16 +102,13 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Updated colors */}
-      <section className="py-20 px-6 bg-white border-t border-gray-200">
+      {/* News Section - Updated colors and removed description */}
+      <section className="py-20 px-6 bg-white border-t border-black">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-4">
               Construction Industry News
             </h2>
-            <p className="text-gray-600 text-lg">
-              Daily updates on project management challenges and industry incidents
-            </p>
           </div>
 
           {/* Single Article Display with Navigation */}
@@ -123,17 +120,17 @@ const LearnMore = () => {
                   onClick={prevSlide}
                   variant="outline"
                   size="icon"
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-gray-300 hover:bg-gray-50"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-black hover:bg-gray-50"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-6 h-6 text-black" />
                 </Button>
 
                 {/* Article Display */}
                 <div className="max-w-4xl mx-16">
-                  <Card className="hover:shadow-lg transition-shadow duration-300 border-gray-200 p-8">
+                  <Card className="hover:shadow-lg transition-shadow duration-300 border-black p-8">
                     <CardHeader className="pb-6">
                       <div className="flex justify-between items-start mb-4">
-                        <span className="text-base text-gray-500 font-medium">{getCurrentArticle().source}</span>
+                        <span className="text-base text-black font-medium">{getCurrentArticle().source}</span>
                         <span className="text-base text-gray-400">{formatDate(getCurrentArticle().publishedAt)}</span>
                       </div>
                       <CardTitle className="text-2xl lg:text-3xl leading-tight text-black hover:text-gray-700 transition-colors font-normal">
@@ -148,7 +145,7 @@ const LearnMore = () => {
                         <Button 
                           variant="outline" 
                           size="sm"
-                          className="border-gray-300 text-gray-700 hover:bg-gray-50 text-base px-6 py-3"
+                          className="border-black text-black hover:bg-gray-50 text-base px-6 py-3"
                           onClick={() => window.open(getCurrentArticle().url, '_blank')}
                         >
                           Read Full Article
@@ -163,15 +160,15 @@ const LearnMore = () => {
                   onClick={nextSlide}
                   variant="outline"
                   size="icon"
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-gray-300 hover:bg-gray-50"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-black hover:bg-gray-50"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-6 h-6 text-black" />
                 </Button>
               </div>
 
               {/* Article Counter and Indicators */}
               <div className="flex flex-col items-center mt-8 gap-4">
-                <div className="text-gray-600">
+                <div className="text-black">
                   Article {currentSlide + 1} of {articles.length}
                 </div>
                 
@@ -200,7 +197,7 @@ const LearnMore = () => {
       </section>
 
       {/* CTA Section - Updated colors */}
-      <section className="py-20 px-6 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 px-6 bg-gray-50 border-t border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">
             Don't Let Your Project Become Tomorrow's Headline

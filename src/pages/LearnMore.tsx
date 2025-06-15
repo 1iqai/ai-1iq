@@ -84,23 +84,23 @@ const LearnMore = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black">
       <Header />
       
-      {/* Hero Section - Reduced padding */}
-      <section className="py-16 px-6 bg-white">
+      {/* Hero Section */}
+      <section className="py-16 px-6 bg-gradient-to-br from-blue-900 via-purple-900 to-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Main heading */}
             <div>
-              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-black leading-tight">
+              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-white leading-tight">
                 Build the Future
               </h1>
             </div>
             
             {/* Right side - Description */}
             <div>
-              <p className="font-inter text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="font-inter text-xl lg:text-2xl text-gray-200 leading-relaxed">
                 1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
               </p>
             </div>
@@ -213,7 +213,7 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Reduced padding */}
+      {/* News Section */}
       <section className="py-12 px-6 bg-white border-t border-black">
         <div className="max-w-7xl mx-auto">
           {/* Single Article Display with Navigation */}
@@ -301,7 +301,7 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* CTA Section - Reduced padding */}
+      {/* CTA Section */}
       <section className="py-12 px-6 bg-gray-50 border-t border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">

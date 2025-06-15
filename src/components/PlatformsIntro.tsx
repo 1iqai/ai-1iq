@@ -62,7 +62,7 @@ const PlatformsIntro = () => {
             {/* Right side - 1iQ Core Logo with hover effect */}
             <div className="lg:col-span-8 flex items-center justify-center lg:justify-end">
               <div className="relative group cursor-pointer">
-                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none transition-opacity duration-500 group-hover:opacity-0">
+                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none transition-all duration-500 group-hover:opacity-0 hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]">
                   1iQ Core
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">

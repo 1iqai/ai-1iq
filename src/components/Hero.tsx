@@ -1,7 +1,6 @@
 
 import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import ScrollAnimatedText from "./ScrollAnimatedText";
 
 const Hero = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -54,32 +53,20 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-center">
         {/* Centered Content matching reference layout */}
         <div className="text-center max-w-4xl">
-          <ScrollAnimatedText 
-            as="h1" 
-            className="font-inter text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-12 leading-tight tracking-normal"
-            speed={0.3}
-            direction="up"
-          >
+          <h1 className="font-inter text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-12 leading-tight tracking-normal">
             Data-Powered Automation
             <br />
             for Every Decision
-          </ScrollAnimatedText>
+          </h1>
         </div>
       </div>
 
       {/* Scroll to Explore - positioned at bottom center */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
-        <ScrollAnimatedText 
-          as="span" 
-          className="text-white text-lg font-inter mb-2 opacity-80"
-          speed={0.2}
-          direction="down"
-        >
+        <span className="text-white text-lg font-inter mb-2 opacity-80">
           Scroll to Explore
-        </ScrollAnimatedText>
-        <ScrollAnimatedText speed={0.4} direction="up">
-          <ArrowDown className="w-6 h-6 text-white animate-bounce-down opacity-80" />
-        </ScrollAnimatedText>
+        </span>
+        <ArrowDown className="w-6 h-6 text-white animate-bounce-down opacity-80" />
       </div>
     </section>
   );

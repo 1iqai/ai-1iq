@@ -1,6 +1,4 @@
 
-import ScrollAnimatedText from "./ScrollAnimatedText";
-
 const ScrollingBanner = () => {
   const companies = [
     { name: "Red Bull", logo: "🔴" },
@@ -18,11 +16,7 @@ const ScrollingBanner = () => {
   return (
     <div className="bg-white py-8 overflow-hidden">
       <div className="relative">
-        <ScrollAnimatedText 
-          className="flex animate-scroll gap-16"
-          speed={0.8}
-          direction="right"
-        >
+        <div className="flex animate-scroll gap-16">
           {/* First set of logos */}
           {companies.map((company, index) => (
             <div key={`first-${index}`} className="flex items-center justify-center min-w-[120px]">
@@ -39,7 +33,7 @@ const ScrollingBanner = () => {
               </div>
             </div>
           ))}
-        </ScrollAnimatedText>
+        </div>
       </div>
     </div>
   );

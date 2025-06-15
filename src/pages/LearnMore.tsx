@@ -1,6 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { NewsService } from "@/services/NewsService";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -19,6 +22,10 @@ const LearnMore = () => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedJobType, setSelectedJobType] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {
@@ -80,8 +87,8 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section - Adjusted positioning to be lower and more visible */}
-      <section className="py-32 px-6 bg-white min-h-screen flex items-center">
+      {/* Hero Section - Reduced padding */}
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Main heading */}
@@ -101,8 +108,113 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Removed heading */}
-      <section className="py-20 px-6 bg-white border-t border-black">
+      {/* Job Search Section */}
+      <section className="py-16 px-6 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Job content */}
+            <div>
+              <h2 className="font-inter text-4xl lg:text-5xl font-normal text-black leading-tight mb-8">
+                Launching
+                <br />
+                Build to
+                <br />
+                Apply.
+              </h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Interested in the Construction Project Intelligence or{' '}
+                  <span className="underline">AI-Driven Operations Engineer</span> positions in New York?
+                  Don't just tell us how you'd build the future — show us.
+                </p>
+                <p>
+                  <span className="underline">Register for a free 1iQ Developer Tier account</span> and send us a
+                  demo as your application via the Build to Apply links below
+                  (<span className="underline">Project Intelligence, AI-Driven Operations Engineer</span>).
+                  The highest quality submissions will be selected
+                  for an immediate on-site interview. This is not a required step
+                  of the application process — you may also choose to apply via
+                  the application links below.
+                </p>
+              </div>
+            </div>
+            
+            {/* Right side - Placeholder image */}
+            <div className="flex justify-center">
+              <div className="w-full max-w-md h-64 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-4"></div>
+                  <div className="text-sm">1iQ Platform Demo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Job Search Filters */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-4">
+            <Select value={selectedJobType} onValueChange={setSelectedJobType}>
+              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
+                <SelectValue placeholder="Full-time" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="software-engineer">Software Engineer</SelectItem>
+                <SelectItem value="project-manager">Project Manager</SelectItem>
+                <SelectItem value="data-scientist">Data Scientist</SelectItem>
+                <SelectItem value="product-manager">Product Manager</SelectItem>
+                <SelectItem value="sales-engineer">Sales Engineer</SelectItem>
+                <SelectItem value="customer-success">Customer Success Manager</SelectItem>
+                <SelectItem value="devops-engineer">DevOps Engineer</SelectItem>
+                <SelectItem value="ui-ux-designer">UI/UX Designer</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
+                <SelectValue placeholder="All Locations" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="north-america">North America</SelectItem>
+                <SelectItem value="europe">Europe</SelectItem>
+                <SelectItem value="asia-pacific">Asia Pacific</SelectItem>
+                <SelectItem value="middle-east">Middle East</SelectItem>
+                <SelectItem value="latin-america">Latin America</SelectItem>
+                <SelectItem value="africa">Africa</SelectItem>
+                <SelectItem value="new-york">New York</SelectItem>
+                <SelectItem value="london">London</SelectItem>
+                <SelectItem value="singapore">Singapore</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
+              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
+                <SelectValue placeholder="Core Operations" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="engineering">Engineering</SelectItem>
+                <SelectItem value="product">Product</SelectItem>
+                <SelectItem value="sales">Sales</SelectItem>
+                <SelectItem value="marketing">Marketing</SelectItem>
+                <SelectItem value="operations">Operations</SelectItem>
+                <SelectItem value="customer-success">Customer Success</SelectItem>
+                <SelectItem value="finance">Finance</SelectItem>
+                <SelectItem value="hr">Human Resources</SelectItem>
+                <SelectItem value="legal">Legal</SelectItem>
+                <SelectItem value="security">Security</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Input
+              placeholder="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="border-b border-gray-300 rounded-none bg-transparent"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* News Section - Reduced padding */}
+      <section className="py-12 px-6 bg-white border-t border-black">
         <div className="max-w-7xl mx-auto">
           {/* Single Article Display with Navigation */}
           {articles.length > 0 && (
@@ -189,8 +301,8 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* CTA Section - Updated colors */}
-      <section className="py-20 px-6 bg-gray-50 border-t border-black">
+      {/* CTA Section - Reduced padding */}
+      <section className="py-12 px-6 bg-gray-50 border-t border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">
             Don't Let Your Project Become Tomorrow's Headline

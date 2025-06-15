@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 py-6 px-6">
-        <div className="max-w-7xl mx-auto bg-white/95 backdrop-blur-sm border border-gray-200 rounded-lg px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-6 py-4 flex items-center justify-between">
           <button 
             onClick={handleLogoClick}
             className="flex items-center space-x-3 transition-all duration-200"
@@ -32,7 +32,7 @@ const Header = () => {
                 className="w-8 h-8 object-contain"
               />
             </div>
-            <span className="text-xl font-medium tracking-tight text-gray-900">1iQ</span>
+            <span className="text-xl font-medium tracking-tight text-white">1iQ</span>
           </button>
           
           <div className="flex items-center space-x-10">
@@ -40,7 +40,7 @@ const Header = () => {
               variant="outline" 
               size="sm"
               onClick={() => setIsGetStartedOpen(true)}
-              className="bg-transparent hover:bg-gray-50 text-gray-700 hover:text-gray-900 border border-gray-300 hover:border-gray-400 rounded-md px-6 py-2 font-medium text-sm transition-all duration-200 h-10"
+              className="bg-white/10 hover:bg-white/20 text-white hover:text-white border border-white/30 hover:border-white/50 rounded-md px-6 py-2 font-medium text-sm transition-all duration-200 h-10"
             >
               Get Started
             </Button>
@@ -49,7 +49,7 @@ const Header = () => {
                 variant="ghost" 
                 size="icon"
                 onClick={() => setIsSearchOpen(true)}
-                className="h-10 w-10 text-gray-600 hover:text-gray-900 hover:bg-gray-50 border border-gray-300 hover:border-gray-400 rounded-md transition-all duration-200 border-r-0 rounded-r-none"
+                className="h-10 w-10 text-white hover:text-white hover:bg-white/20 border border-white/30 hover:border-white/50 rounded-md transition-all duration-200 border-r-0 rounded-r-none"
               >
                 <Search className="h-5 w-5" />
               </Button>
@@ -57,7 +57,7 @@ const Header = () => {
                 variant="ghost" 
                 size="icon"
                 onClick={() => setIsMenuOpen(true)}
-                className="h-10 w-10 text-gray-600 hover:text-gray-900 hover:bg-gray-50 border border-gray-300 hover:border-gray-400 rounded-md transition-all duration-200 rounded-l-none"
+                className="h-10 w-10 text-white hover:text-white hover:bg-white/20 border border-white/30 hover:border-white/50 rounded-md transition-all duration-200 rounded-l-none"
               >
                 <Menu className="h-5 w-5" />
               </Button>

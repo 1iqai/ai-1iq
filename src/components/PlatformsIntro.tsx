@@ -1,4 +1,6 @@
 
+import SquareQ from "./SquareQ";
+
 const PlatformsIntro = () => {
   return (
     <section className="py-20 px-6 bg-white">
@@ -6,14 +8,14 @@ const PlatformsIntro = () => {
         {/* Main headline */}
         <div className="text-center mb-32">
           <h2 className="font-inter text-5xl lg:text-6xl xl:text-7xl font-normal text-slate-900 leading-tight tracking-normal max-w-6xl mx-auto">
-            Our software powers real-time, <span className="text-slate-400">AI-driven</span> clarity and decisions to construction teams on every site, at every scale.
+            <SquareQ>Our software powers real-time, AI-driven clarity and decisions to construction teams on every site, at every scale.</SquareQ>
           </h2>
         </div>
 
         {/* Our Platforms section */}
         <div className="mb-16">
           <h3 className="font-inter text-4xl lg:text-5xl font-normal text-slate-900 mb-20 px-4 lg:px-8">
-            Our Platforms
+            <SquareQ>Our Platforms</SquareQ>
           </h3>
           
           {/* Platform 1 - 1iQ Core */}
@@ -22,7 +24,7 @@ const PlatformsIntro = () => {
               {/* Left side - Description */}
               <div className="lg:col-span-4 space-y-8">
                 <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  Automate operations, from the factory floor to the front lines
+                  <SquareQ>Automate operations, from the factory floor to the front lines</SquareQ>
                 </h4>
                 <div className="text-slate-400 text-lg font-normal">
                   /0.1
@@ -30,7 +32,7 @@ const PlatformsIntro = () => {
                 {/* Description text - hidden by default, shown on hover */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    1iQ Core connects every moving part of your construction project scheduling, resources, field updates, and stakeholder visibility into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.
+                    <SquareQ>1iQ Core connects every moving part of your construction project scheduling, resources, field updates, and stakeholder visibility into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.</SquareQ>
                   </p>
                 </div>
               </div>
@@ -47,7 +49,7 @@ const PlatformsIntro = () => {
               {/* Right side - 1iQ Core Logo */}
               <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
                 <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  1iQ Core
+                  <SquareQ>1iQ Core</SquareQ>
                 </div>
               </div>
             </div>
@@ -59,7 +61,7 @@ const PlatformsIntro = () => {
               {/* Left side - Description */}
               <div className="lg:col-span-4 space-y-8">
                 <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  Achieve AI-driven combat superiority
+                  <SquareQ>Achieve AI-driven combat superiority</SquareQ>
                 </h4>
                 <div className="text-slate-400 text-lg font-normal">
                   /0.2
@@ -67,7 +69,7 @@ const PlatformsIntro = () => {
                 {/* Description text - hidden by default, shown on hover */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it's lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.
+                    <SquareQ>1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it's lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.</SquareQ>
                   </p>
                 </div>
               </div>
@@ -84,7 +86,7 @@ const PlatformsIntro = () => {
               {/* Right side - 1iQ Field Logo */}
               <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
                 <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  1iQ Field
+                  <SquareQ>1iQ Field</SquareQ>
                 </div>
               </div>
             </div>
@@ -96,7 +98,7 @@ const PlatformsIntro = () => {
               {/* Left side - Description */}
               <div className="lg:col-span-4 space-y-8">
                 <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  Decisions driven by data, not assumptions
+                  <SquareQ>Decisions driven by data, not assumptions</SquareQ>
                 </h4>
                 <div className="text-slate-400 text-lg font-normal">
                   /0.3
@@ -104,7 +106,7 @@ const PlatformsIntro = () => {
                 {/* Description text - hidden by default, shown on hover */}
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    1iQ Intel transforms raw project data into actionable intelligence through advanced analytics and AI-powered insights. Predict bottlenecks before they happen, optimize resource allocation in real-time, and make informed decisions that keep projects on track and profitable.
+                    <SquareQ>1iQ Intel transforms raw project data into actionable intelligence through advanced analytics and AI-powered insights. Predict bottlenecks before they happen, optimize resource allocation in real-time, and make informed decisions that keep projects on track and profitable.</SquareQ>
                   </p>
                 </div>
               </div>
@@ -121,7 +123,7 @@ const PlatformsIntro = () => {
               {/* Right side - 1iQ Intel Logo */}
               <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
                 <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  1iQ Intel
+                  <SquareQ>1iQ Intel</SquareQ>
                 </div>
               </div>
             </div>

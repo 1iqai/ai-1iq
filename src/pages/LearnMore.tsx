@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +8,7 @@ import { NewsService } from "@/services/NewsService";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SquareQ from "@/components/SquareQ";
 
 interface NewsArticle {
   title: string;
@@ -94,14 +94,14 @@ const LearnMore = () => {
             {/* Left side - Main heading */}
             <div>
               <h1 className="font-inter text-5xl lg:text-7xl font-normal text-black leading-tight">
-                Build the Future
+                <SquareQ>Build the Future</SquareQ>
               </h1>
             </div>
             
             {/* Right side - Description */}
             <div>
               <p className="font-inter text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
+                <SquareQ>1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.</SquareQ>
               </p>
             </div>
           </div>
@@ -115,26 +115,18 @@ const LearnMore = () => {
             {/* Left side - Job content */}
             <div>
               <h2 className="font-inter text-4xl lg:text-5xl font-normal text-black leading-tight mb-8">
-                Launching
+                <SquareQ>Launching</SquareQ>
                 <br />
-                Build to
+                <SquareQ>Build to</SquareQ>
                 <br />
-                Apply.
+                <SquareQ>Apply.</SquareQ>
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Interested in the Construction Project Intelligence or{' '}
-                  <span className="underline">AI-Driven Operations Engineer</span> positions?
-                  Don't just tell us how you'd build the future — show us.
+                  <SquareQ>Interested in the Construction Project Intelligence or AI-Driven Operations Engineer positions? Don't just tell us how you'd build the future — show us.</SquareQ>
                 </p>
                 <p>
-                  <span className="underline">Register for a free 1iQ Developer Tier account</span> and send us a
-                  demo as your application via the Build to Apply links below
-                  (<span className="underline">Project Intelligence, AI-Driven Operations Engineer</span>).
-                  The highest quality submissions will be selected
-                  for an immediate on-site interview. This is not a required step
-                  of the application process — you may also choose to apply via
-                  the application links below.
+                  <SquareQ>Register for a free 1iQ Developer Tier account and send us a demo as your application via the Build to Apply links below (Project Intelligence, AI-Driven Operations Engineer). The highest quality submissions will be selected for an immediate on-site interview. This is not a required step of the application process — you may also choose to apply via the application links below.</SquareQ>
                 </p>
               </div>
             </div>
@@ -144,7 +136,7 @@ const LearnMore = () => {
               <div className="w-full max-w-md h-64 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg flex items-center justify-center">
                 <div className="text-white text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-4"></div>
-                  <div className="text-sm">1iQ Platform Demo</div>
+                  <div className="text-sm"><SquareQ>1iQ Platform Demo</SquareQ></div>
                 </div>
               </div>
             </div>
@@ -157,14 +149,14 @@ const LearnMore = () => {
                 <SelectValue placeholder="Full-time" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="software-engineer">Software Engineer</SelectItem>
-                <SelectItem value="project-manager">Project Manager</SelectItem>
-                <SelectItem value="data-scientist">Data Scientist</SelectItem>
-                <SelectItem value="product-manager">Product Manager</SelectItem>
-                <SelectItem value="sales-engineer">Sales Engineer</SelectItem>
-                <SelectItem value="customer-success">Customer Success Manager</SelectItem>
-                <SelectItem value="devops-engineer">DevOps Engineer</SelectItem>
-                <SelectItem value="ui-ux-designer">UI/UX Designer</SelectItem>
+                <SelectItem value="software-engineer"><SquareQ>Software Engineer</SquareQ></SelectItem>
+                <SelectItem value="project-manager"><SquareQ>Project Manager</SquareQ></SelectItem>
+                <SelectItem value="data-scientist"><SquareQ>Data Scientist</SquareQ></SelectItem>
+                <SelectItem value="product-manager"><SquareQ>Product Manager</SquareQ></SelectItem>
+                <SelectItem value="sales-engineer"><SquareQ>Sales Engineer</SquareQ></SelectItem>
+                <SelectItem value="customer-success"><SquareQ>Customer Success Manager</SquareQ></SelectItem>
+                <SelectItem value="devops-engineer"><SquareQ>DevOps Engineer</SquareQ></SelectItem>
+                <SelectItem value="ui-ux-designer"><SquareQ>UI/UX Designer</SquareQ></SelectItem>
               </SelectContent>
             </Select>
 
@@ -173,15 +165,15 @@ const LearnMore = () => {
                 <SelectValue placeholder="All Locations" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="north-america">North America</SelectItem>
-                <SelectItem value="europe">Europe</SelectItem>
-                <SelectItem value="asia-pacific">Asia Pacific</SelectItem>
-                <SelectItem value="middle-east">Middle East</SelectItem>
-                <SelectItem value="latin-america">Latin America</SelectItem>
-                <SelectItem value="africa">Africa</SelectItem>
-                <SelectItem value="new-york">New York</SelectItem>
-                <SelectItem value="london">London</SelectItem>
-                <SelectItem value="singapore">Singapore</SelectItem>
+                <SelectItem value="north-america"><SquareQ>North America</SquareQ></SelectItem>
+                <SelectItem value="europe"><SquareQ>Europe</SquareQ></SelectItem>
+                <SelectItem value="asia-pacific"><SquareQ>Asia Pacific</SquareQ></SelectItem>
+                <SelectItem value="middle-east"><SquareQ>Middle East</SquareQ></SelectItem>
+                <SelectItem value="latin-america"><SquareQ>Latin America</SquareQ></SelectItem>
+                <SelectItem value="africa"><SquareQ>Africa</SquareQ></SelectItem>
+                <SelectItem value="new-york"><SquareQ>New York</SquareQ></SelectItem>
+                <SelectItem value="london"><SquareQ>London</SquareQ></SelectItem>
+                <SelectItem value="singapore"><SquareQ>Singapore</SquareQ></SelectItem>
               </SelectContent>
             </Select>
 
@@ -190,16 +182,16 @@ const LearnMore = () => {
                 <SelectValue placeholder="Core Operations" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="engineering">Engineering</SelectItem>
-                <SelectItem value="product">Product</SelectItem>
-                <SelectItem value="sales">Sales</SelectItem>
-                <SelectItem value="marketing">Marketing</SelectItem>
-                <SelectItem value="operations">Operations</SelectItem>
-                <SelectItem value="customer-success">Customer Success</SelectItem>
-                <SelectItem value="finance">Finance</SelectItem>
-                <SelectItem value="hr">Human Resources</SelectItem>
-                <SelectItem value="legal">Legal</SelectItem>
-                <SelectItem value="security">Security</SelectItem>
+                <SelectItem value="engineering"><SquareQ>Engineering</SquareQ></SelectItem>
+                <SelectItem value="product"><SquareQ>Product</SquareQ></SelectItem>
+                <SelectItem value="sales"><SquareQ>Sales</SquareQ></SelectItem>
+                <SelectItem value="marketing"><SquareQ>Marketing</SquareQ></SelectItem>
+                <SelectItem value="operations"><SquareQ>Operations</SquareQ></SelectItem>
+                <SelectItem value="customer-success"><SquareQ>Customer Success</SquareQ></SelectItem>
+                <SelectItem value="finance"><SquareQ>Finance</SquareQ></SelectItem>
+                <SelectItem value="hr"><SquareQ>Human Resources</SquareQ></SelectItem>
+                <SelectItem value="legal"><SquareQ>Legal</SquareQ></SelectItem>
+                <SelectItem value="security"><SquareQ>Security</SquareQ></SelectItem>
               </SelectContent>
             </Select>
 
@@ -235,16 +227,16 @@ const LearnMore = () => {
                   <Card className="hover:shadow-lg transition-shadow duration-300 border-black p-8">
                     <CardHeader className="pb-6">
                       <div className="flex justify-between items-start mb-4">
-                        <span className="text-base text-black font-medium">{getCurrentArticle().source}</span>
+                        <span className="text-base text-black font-medium"><SquareQ>{getCurrentArticle().source}</SquareQ></span>
                         <span className="text-base text-gray-400">{formatDate(getCurrentArticle().publishedAt)}</span>
                       </div>
                       <CardTitle className="text-2xl lg:text-3xl leading-tight text-black hover:text-gray-700 transition-colors font-normal">
-                        {getCurrentArticle().title}
+                        <SquareQ>{getCurrentArticle().title}</SquareQ>
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-gray-600 leading-relaxed mb-6 text-lg">
-                        {getCurrentArticle().description}
+                        <SquareQ>{getCurrentArticle().description}</SquareQ>
                       </CardDescription>
                       {getCurrentArticle().url !== '#' && (
                         <Button 
@@ -253,7 +245,7 @@ const LearnMore = () => {
                           className="border-black text-black hover:bg-gray-50 text-base px-6 py-3"
                           onClick={() => window.open(getCurrentArticle().url, '_blank')}
                         >
-                          Read Full Article
+                          <SquareQ>Read Full Article</SquareQ>
                         </Button>
                       )}
                     </CardContent>
@@ -274,7 +266,7 @@ const LearnMore = () => {
               {/* Article Counter and Indicators */}
               <div className="flex flex-col items-center mt-8 gap-4">
                 <div className="text-black">
-                  Article {currentSlide + 1} of {articles.length}
+                  <SquareQ>Article {currentSlide + 1} of {articles.length}</SquareQ>
                 </div>
                 
                 {/* Slide Indicators */}
@@ -295,7 +287,7 @@ const LearnMore = () => {
 
           {articles.length === 0 && !loading && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No articles loaded. Please try again later.</p>
+              <p className="text-gray-500 text-lg"><SquareQ>No articles loaded. Please try again later.</SquareQ></p>
             </div>
           )}
         </div>
@@ -305,25 +297,24 @@ const LearnMore = () => {
       <section className="py-12 px-6 bg-gray-50 border-t border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">
-            Don't Let Your Project Become Tomorrow's Headline
+            <SquareQ>Don't Let Your Project Become Tomorrow's Headline</SquareQ>
           </h2>
           <p className="font-inter text-xl text-gray-600 mb-12 leading-relaxed">
-            1iQ's AI-driven platform provides the real-time visibility and control needed to prevent 
-            project failures before they happen. Take control of your construction operations today.
+            <SquareQ>1iQ's AI-driven platform provides the real-time visibility and control needed to prevent project failures before they happen. Take control of your construction operations today.</SquareQ>
           </p>
           <div className="flex gap-6 justify-center">
             <Button 
               size="lg"
               className="bg-black hover:bg-gray-800 text-white px-8 py-3"
             >
-              Schedule Demo
+              <SquareQ>Schedule Demo</SquareQ>
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3"
             >
-              Contact Sales
+              <SquareQ>Contact Sales</SquareQ>
             </Button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import SquareQ from "./SquareQ";
 
 const BuildSection = () => {
   const navigate = useNavigate();
@@ -21,11 +22,11 @@ const BuildSection = () => {
           {/* Right side - Content */}
           <div className="flex flex-col items-center text-center space-y-12">
             <h2 className="font-inter text-2xl lg:text-3xl xl:text-4xl font-normal text-slate-900 leading-none">
-              There is so much left to build
+              <SquareQ>There is so much left to build</SquareQ>
             </h2>
             
             <p className="font-inter text-lg lg:text-xl text-slate-600 leading-relaxed max-w-lg">
-              1iQ delivers mission-critical execution for the world's most complex projects—driving precision and performance across construction, infrastructure, and enterprise operations.
+              <SquareQ>1iQ delivers mission-critical execution for the world's most complex projects—driving precision and performance across construction, infrastructure, and enterprise operations.</SquareQ>
             </p>
             
             <div className="pt-4">
@@ -34,7 +35,7 @@ const BuildSection = () => {
                 variant="outline"
                 className="border border-slate-300 text-slate-700 px-8 py-3 text-sm font-medium tracking-wide hover:bg-slate-50 transition-colors"
               >
-                LEARN MORE
+                <SquareQ>LEARN MORE</SquareQ>
               </Button>
             </div>
           </div>

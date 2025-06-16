@@ -1,5 +1,6 @@
 
 import { Separator } from "@/components/ui/separator";
+import SquareQ from "./SquareQ";
 
 const PartnersSection = () => {
   const partners = [
@@ -30,7 +31,7 @@ const PartnersSection = () => {
       <div className="max-w-7xl mx-auto">
         <Separator className="mb-12 bg-slate-300" />
         <h2 className="text-4xl lg:text-5xl font-normal text-slate-900 mb-20">
-          What our partners say about us
+          <SquareQ>What our partners say about us</SquareQ>
         </h2>
         
         <div className="overflow-hidden">
@@ -40,10 +41,10 @@ const PartnersSection = () => {
               <div key={`first-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                    {partner.name}
+                    <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">
-                    "{partner.quote}"
+                    "<SquareQ>{partner.quote}</SquareQ>"
                   </blockquote>
                 </div>
               </div>
@@ -53,10 +54,10 @@ const PartnersSection = () => {
               <div key={`second-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold text-slate-900 mb-4">
-                    {partner.name}
+                    <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">
-                    "{partner.quote}"
+                    "<SquareQ>{partner.quote}</SquareQ>"
                   </blockquote>
                 </div>
               </div>

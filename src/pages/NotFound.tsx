@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
+import SquareQ from "@/components/SquareQ";
 
 const NotFound = () => {
   const location = useLocation();
@@ -23,9 +24,9 @@ const NotFound = () => {
       <div className="pt-32 flex items-center justify-center min-h-screen bg-gray-100">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">404</h1>
-          <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
+          <p className="text-xl text-gray-600 mb-4"><SquareQ>Oops! Page not found</SquareQ></p>
           <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-            Return to Home
+            <SquareQ>Return to Home</SquareQ>
           </a>
         </div>
       </div>

@@ -43,7 +43,7 @@
     left: 0;
     width: 0.8em;
     height: 0.8em;
-    border: 0.08em solid currentColor;
+    border: 0.08em solid #9ca3af;
     border-radius: 0;
     background: transparent;
     z-index: 1;
@@ -56,7 +56,7 @@
     left: 0.4em;
     width: 0.4em;
     height: 0.08em;
-    background: currentColor;
+    background: #9ca3af;
     transform: rotate(45deg);
     z-index: 2;
   }

@@ -9,6 +9,7 @@ import ScheduleDemo from "./pages/ScheduleDemo";
 import ContactSales from "./pages/ContactSales";
 import PartnershipInquiry from "./pages/PartnershipInquiry";
 import LearnMore from "./pages/LearnMore";
+import OneiqCore from "./pages/OneiqCore";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/contact-sales" element={<ContactSales />} />
           <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
           <Route path="/learn-more" element={<LearnMore />} />
+          <Route path="/1iq-core" element={<OneiqCore />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

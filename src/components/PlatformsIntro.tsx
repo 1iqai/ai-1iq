@@ -1,131 +1,89 @@
-
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import SquareQ from "./SquareQ";
 
 const PlatformsIntro = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="py-20 px-6 bg-white">
-      <div className="max-w-full mx-auto px-4 lg:px-8 xl:px-16">
-        {/* Main headline */}
-        <div className="text-center mb-32">
-          <h2 className="font-inter text-5xl lg:text-6xl xl:text-7xl font-normal text-slate-900 leading-tight tracking-normal max-w-6xl mx-auto">
-            <SquareQ>Our software powers real-time, AI-driven clarity and decisions to construction teams on every site, at every scale.</SquareQ>
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center space-y-6 mb-20">
+          <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+            <SquareQ>Three platforms. Infinite possibilities.</SquareQ>
           </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+            <SquareQ>1iQ provides AI-powered construction management solutions that integrate seamlessly across your entire project lifecycle, from planning to completion.</SquareQ>
+          </p>
         </div>
 
-        {/* Our Platforms section */}
-        <div className="mb-16">
-          <h3 className="font-inter text-4xl lg:text-5xl font-normal text-slate-900 mb-20 px-4 lg:px-8">
-            <SquareQ>Our Platforms</SquareQ>
-          </h3>
-          
-          {/* Platform 1 - 1iQ Core */}
-          <div className="group px-4 lg:px-8 py-12 mb-16 hover:bg-gray-50 transition-colors duration-300 cursor-pointer">
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              {/* Left side - Description */}
-              <div className="lg:col-span-4 space-y-8">
-                <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  <SquareQ>Automate operations, from the factory floor to the front lines</SquareQ>
-                </h4>
-                <div className="text-slate-400 text-lg font-normal">
-                  /0.1
+        <div className="grid lg:grid-cols-3 gap-12">
+          {/* 1iQ Core */}
+          <div className="group cursor-pointer" onClick={() => navigate('/1iq-core')}>
+            <div className="aspect-square bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-all duration-300">
+              <div className="h-full flex flex-col justify-between">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-6 h-6 bg-white rounded"></div>
                 </div>
-                {/* Description text - hidden by default, shown on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    <SquareQ>1iQ Core connects every moving part of your construction project scheduling, resources, field updates, and stakeholder visibility into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.</SquareQ>
+                <div>
+                  <h3 className="text-2xl font-light text-gray-900 mb-3">
+                    <SquareQ>1iQ Core</SquareQ>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    <SquareQ>Unified project management platform integrating schedules, designs, and budgets with AI-powered insights.</SquareQ>
                   </p>
-                </div>
-              </div>
-              
-              {/* Center - Image (hidden by default, shown on hover) */}
-              <div className="lg:col-span-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop" 
-                  alt="1iQ Core Platform Interface" 
-                  className="w-full max-w-sm h-auto rounded-lg shadow-lg"
-                />
-              </div>
-
-              {/* Right side - 1iQ Core Logo */}
-              <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  <SquareQ>1iQ Core</SquareQ>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Platform 2 - 1iQ Field */}
-          <div className="group px-4 lg:px-8 py-12 mb-16 hover:bg-gray-50 transition-colors duration-300 cursor-pointer">
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              {/* Left side - Description */}
-              <div className="lg:col-span-4 space-y-8">
-                <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  <SquareQ>Achieve AI-driven combat superiority</SquareQ>
-                </h4>
-                <div className="text-slate-400 text-lg font-normal">
-                  /0.2
-                </div>
-                {/* Description text - hidden by default, shown on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    <SquareQ>1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it's lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.</SquareQ>
-                  </p>
-                </div>
-              </div>
-              
-              {/* Center - Image (hidden by default, shown on hover) */}
-              <div className="lg:col-span-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" 
-                  alt="1iQ Field Platform Interface" 
-                  className="w-full max-w-sm h-auto rounded-lg shadow-lg"
-                />
-              </div>
-
-              {/* Right side - 1iQ Field Logo */}
-              <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  <SquareQ>1iQ Field</SquareQ>
-                </div>
-              </div>
+            <div className="flex items-center text-blue-600 group-hover:text-blue-700 transition-colors">
+              <span className="font-medium mr-2"><SquareQ>Learn more</SquareQ></span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Platform 3 - 1iQ Intel */}
-          <div className="group px-4 lg:px-8 py-12 hover:bg-gray-50 transition-colors duration-300 cursor-pointer">
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              {/* Left side - Description */}
-              <div className="lg:col-span-4 space-y-8">
-                <h4 className="font-inter text-2xl lg:text-3xl text-slate-700 font-normal leading-relaxed">
-                  <SquareQ>Decisions driven by data, not assumptions</SquareQ>
-                </h4>
-                <div className="text-slate-400 text-lg font-normal">
-                  /0.3
+          {/* 1iQ Field */}
+          <div className="group cursor-pointer">
+            <div className="aspect-square bg-gradient-to-br from-orange-50 to-yellow-100 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-all duration-300">
+              <div className="h-full flex flex-col justify-between">
+                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-6 h-6 bg-white rounded"></div>
                 </div>
-                {/* Description text - hidden by default, shown on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-lg text-slate-700 leading-relaxed font-inter">
-                    <SquareQ>1iQ Intel transforms raw project data into actionable intelligence through advanced analytics and AI-powered insights. Predict bottlenecks before they happen, optimize resource allocation in real-time, and make informed decisions that keep projects on track and profitable.</SquareQ>
+                <div>
+                  <h3 className="text-2xl font-light text-gray-900 mb-3">
+                    <SquareQ>1iQ Field</SquareQ>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    <SquareQ>Mobile-first solution for real-time data collection, task management, and on-site team collaboration.</SquareQ>
                   </p>
                 </div>
               </div>
-              
-              {/* Center - Image (hidden by default, shown on hover) */}
-              <div className="lg:col-span-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <img 
-                  src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop" 
-                  alt="1iQ Intel Analytics Dashboard" 
-                  className="w-full max-w-sm h-auto rounded-lg shadow-lg"
-                />
-              </div>
+            </div>
+            <div className="flex items-center text-orange-500 group-hover:text-orange-600 transition-colors">
+              <span className="font-medium mr-2"><SquareQ>Learn more</SquareQ></span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
 
-              {/* Right side - 1iQ Intel Logo */}
-              <div className="lg:col-span-4 flex items-center justify-center lg:justify-end">
-                <div className="text-6xl lg:text-[7.8rem] xl:text-[9.1rem] font-bold text-slate-900 tracking-tight leading-none">
-                  <SquareQ>1iQ Intel</SquareQ>
+          {/* 1iQ Intel */}
+          <div className="group cursor-pointer">
+            <div className="aspect-square bg-gradient-to-br from-purple-50 to-pink-100 rounded-2xl p-8 mb-6 group-hover:shadow-xl transition-all duration-300">
+              <div className="h-full flex flex-col justify-between">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-6 h-6 bg-white rounded"></div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-light text-gray-900 mb-3">
+                    <SquareQ>1iQ Intel</SquareQ>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    <SquareQ>Advanced analytics platform providing predictive insights, risk assessment, and strategic decision support.</SquareQ>
+                  </p>
                 </div>
               </div>
+            </div>
+            <div className="flex items-center text-purple-500 group-hover:text-purple-600 transition-colors">
+              <span className="font-medium mr-2"><SquareQ>Learn more</SquareQ></span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>

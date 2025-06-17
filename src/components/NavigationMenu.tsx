@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { X, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import SquareQ from './SquareQ';
 
 interface NavigationMenuProps {
@@ -9,10 +9,17 @@ interface NavigationMenuProps {
 }
 
 const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
+  const navigate = useNavigate();
+  
   if (!isOpen) return null;
 
   const handleLogoClick = () => {
     window.location.href = '/';
+  };
+
+  const handleNavigation = (path: string) => {
+    onClose();
+    navigate(path);
   };
 
   return (
@@ -55,10 +62,13 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
               <SquareQ>Our Platforms</SquareQ>
             </h3>
             <nav className="space-y-6">
-              <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
+              <button 
+                onClick={() => handleNavigation('/1iq-core')}
+                className="flex items-center text-white hover:text-gray-300 transition-colors group w-full text-left"
+              >
                 <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
                 <span className="text-lg font-light"><SquareQ>1iQ Core</SquareQ></span>
-              </a>
+              </button>
               <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
                 <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
                 <span className="text-lg font-light"><SquareQ>1iQ Field</SquareQ></span>

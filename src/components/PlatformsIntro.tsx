@@ -18,17 +18,17 @@ const PlatformsIntro = () => {
     },
     {
       id: 'field',
-      name: 'Gotham',
-      description: 'Achieve AI-driven combat superiority, from space to mud',
+      name: '1iQ Field',
+      description: '1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it\'s lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.',
       shortDescription: 'Achieve AI-driven combat superiority, from space to mud',
       number: '/0.2',
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
     },
     {
       id: 'intel',
-      name: 'Foundry',
-      description: 'Build and manage secure software applications at scale',
-      shortDescription: 'Build and manage secure software applications at scale',
+      name: '1iQ Intel',
+      description: '1iQ Intel transforms raw project data into actionable intelligence through advanced analytics and AI-powered insights. Predict bottlenecks before they happen, optimize resource allocation in real-time, and make informed decisions that keep projects on track and profitable.',
+      shortDescription: 'Decisions driven by data, not assumptions',
       number: '/0.3',
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop"
     }

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -266,7 +267,7 @@ const LearnMore = () => {
               {/* Article Counter and Indicators */}
               <div className="flex flex-col items-center mt-8 gap-4">
                 <div className="text-black">
-                  <SquareQ>Article {currentSlide + 1} of {articles.length}</SquareQ>
+                  <SquareQ>{`Article ${currentSlide + 1} of ${articles.length}`}</SquareQ>
                 </div>
                 
                 {/* Slide Indicators */}

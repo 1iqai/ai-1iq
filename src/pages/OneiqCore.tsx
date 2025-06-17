@@ -56,8 +56,12 @@ const OneiqCore = () => {
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-8">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                <span className="text-white text-sm font-bold">1Q</span>
+              <div className="w-8 h-8 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/eb743052-5345-4cca-bfdf-1935334b35f9.png" 
+                  alt="1iQ Logo" 
+                  className="w-8 h-8 object-contain"
+                />
               </div>
               <span className="text-lg font-medium text-gray-900">
                 <SquareQ>1iQ Core Now</SquareQ>
@@ -70,7 +74,7 @@ const OneiqCore = () => {
               </h1>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                <SquareQ>Elevate your construction project management with a single platform that integrates schedules, designs, and financials. Experience the power of AI with real-time updates, predictive planning, and smart automations that enhance your strategic decision-making.</SquareQ>
+                <SquareQ>From scheduling and budgeting to documentation and resource allocation, 1iQ Core connects every piece of your operation in real time. Nothing gets lost in translation. Built for speed, clarity, and control, it replaces disconnected tools with a single, AI-driven platform that gives everyone from field teams to executives a live, shared source of truth.</SquareQ>
               </p>
 
               <div className="flex items-center space-x-4">
@@ -131,15 +135,15 @@ const OneiqCore = () => {
           
           <div className="space-y-6 text-gray-700 leading-relaxed">
             <p>
-              <SquareQ>1iQ Core Connected Construction Command Center provides a unified view of your construction projects, merging critical aspects like schedules, designs, and budgets into a user-friendly interface. Designed specifically for the construction industry's unique needs, it enables flexible and efficient project management.</SquareQ>
+              <SquareQ>1iQ Core is the intelligent engine behind construction's next generation—uniting schedules, budgets, documents, and team communication into a single, real-time command center. Built for high-stakes, fast-moving projects, it eliminates silos and guesswork by giving every stakeholder—from the field to the C-suite—immediate access to one powerful, dynamic source of truth.</SquareQ>
             </p>
             
             <p>
-              <SquareQ>With the integration of Building Information Modeling (BIM) and Work Orders, the application offers a series of dynamic and interconnected workflows for teams focused on the full spectrum of construction operations - from initial design through project completion and maintenance.</SquareQ>
+              <SquareQ>At the heart of 1iQ Core is its AI-powered scheduling system. Unlike rigid, manual tools of the past, it adapts in real time to changing conditions—automatically rebalancing timelines, adjusting task dependencies, and reallocating resources as your project evolves. Whether you're managing a single site or a national portfolio, 1iQ Core empowers you to spot risks before they become delays, fast-track approvals, and keep every moving part tightly aligned.</SquareQ>
             </p>
 
             <p>
-              <SquareQ>The platform leverages advanced AI algorithms to provide predictive insights, automated scheduling optimization, and real-time resource allocation recommendations, ensuring your projects stay on time and within budget while maintaining the highest quality standards.</SquareQ>
+              <SquareQ>This is more than just software. It's how you take control of complexity, cut through the noise, and deliver construction with confidence.</SquareQ>
             </p>
           </div>
         </div>

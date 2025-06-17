@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SquareQ from './SquareQ';
 
 interface GetStartedModalProps {
   isOpen: boolean;
@@ -66,7 +67,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
         {/* Header */}
         <div className="flex justify-between items-center p-8">
           <div className="text-sm text-gray-500 uppercase tracking-wider">
-            CONTACT / DEMO REQUEST + PARTNERSHIP INQUIRY
+            <SquareQ>CONTACT / DEMO REQUEST + PARTNERSHIP INQUIRY</SquareQ>
           </div>
           <button 
             onClick={onClose}
@@ -80,7 +81,7 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
         <div className="flex-1 flex flex-col justify-center px-8 pb-16">
           <div className="max-w-lg">
             <h1 className="text-4xl font-light text-gray-900 leading-tight mb-8">
-              Interested in solving your problems with 1iQ software?
+              <SquareQ>Interested in solving your problems with 1iQ software?</SquareQ>
             </h1>
             
             <div className="space-y-6">
@@ -89,19 +90,19 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
                   onClick={() => handleNavigation('/schedule-demo')}
                   className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors font-medium"
                 >
-                  Schedule a Demo
+                  <SquareQ>Schedule a Demo</SquareQ>
                 </button>
                 <button 
                   onClick={() => handleNavigation('/contact-sales')}
                   className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
                 >
-                  Contact Sales
+                  <SquareQ>Contact Sales</SquareQ>
                 </button>
                 <button 
                   onClick={() => handleNavigation('/partnership-inquiry')}
                   className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
                 >
-                  Partnership Inquiry
+                  <SquareQ>Partnership Inquiry</SquareQ>
                 </button>
               </div>
             </div>

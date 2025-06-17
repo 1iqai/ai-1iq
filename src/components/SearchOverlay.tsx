@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import SquareQ from './SquareQ';
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -39,7 +40,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
               className="w-8 h-8 object-contain"
             />
           </div>
-          <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
+          <span className="text-xl font-medium text-white tracking-tight"><SquareQ>1iQ</SquareQ></span>
         </button>
         <button 
           onClick={onClose}
@@ -68,7 +69,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
           {/* Popular Searches */}
           <div className="space-y-8">
             <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">
-              POPULAR SEARCHES
+              <SquareQ>POPULAR SEARCHES</SquareQ>
             </div>
             <div className="flex flex-wrap gap-x-8 gap-y-4">
               {popularSearches.map((search, index) => (
@@ -77,7 +78,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                   className="text-white text-lg font-light hover:text-gray-300 transition-colors underline decoration-gray-600 hover:decoration-gray-300"
                   onClick={() => setSearchQuery(search)}
                 >
-                  {search}
+                  <SquareQ>{search}</SquareQ>
                 </button>
               ))}
             </div>

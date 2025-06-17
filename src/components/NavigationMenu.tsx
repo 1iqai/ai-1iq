@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { X, ArrowRight } from 'lucide-react';
+import SquareQ from './SquareQ';
 
 interface NavigationMenuProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
               className="w-8 h-8 object-contain"
             />
           </div>
-          <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
+          <span className="text-xl font-medium text-white tracking-tight"><SquareQ>1iQ</SquareQ></span>
         </button>
         <button 
           onClick={onClose}
@@ -45,48 +46,48 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
         <div className="space-y-12">
           <div>
             <h2 className="text-4xl lg:text-5xl font-light text-white mb-2 tracking-tight">
-              Generate Alpha
+              <SquareQ>Generate Alpha</SquareQ>
             </h2>
           </div>
 
           <div>
             <h3 className="text-2xl font-light text-gray-400 mb-8 tracking-wide">
-              Our Platforms
+              <SquareQ>Our Platforms</SquareQ>
             </h3>
             <nav className="space-y-6">
               <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
                 <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
-                <span className="text-lg font-light">1iQ Core</span>
+                <span className="text-lg font-light"><SquareQ>1iQ Core</SquareQ></span>
               </a>
               <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
                 <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
-                <span className="text-lg font-light">1iQ Field</span>
+                <span className="text-lg font-light"><SquareQ>1iQ Field</SquareQ></span>
               </a>
               <a href="#" className="flex items-center text-white hover:text-gray-300 transition-colors group">
                 <ArrowRight className="w-4 h-4 mr-3 opacity-60" />
-                <span className="text-lg font-light">1iQ Intel</span>
+                <span className="text-lg font-light"><SquareQ>1iQ Intel</SquareQ></span>
               </a>
             </nav>
           </div>
 
           <div className="space-y-6">
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">Offerings</span>
+              <span className="text-lg font-light"><SquareQ>Offerings</SquareQ></span>
             </a>
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">Impact Studies</span>
+              <span className="text-lg font-light"><SquareQ>Impact Studies</SquareQ></span>
             </a>
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">Documentation</span>
+              <span className="text-lg font-light"><SquareQ>Documentation</SquareQ></span>
             </a>
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">Careers</span>
+              <span className="text-lg font-light"><SquareQ>Careers</SquareQ></span>
             </a>
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">Newsroom</span>
+              <span className="text-lg font-light"><SquareQ>Newsroom</SquareQ></span>
             </a>
             <a href="#" className="block text-white hover:text-gray-300 transition-colors">
-              <span className="text-lg font-light">1iQ Explained</span>
+              <span className="text-lg font-light"><SquareQ>1iQ Explained</SquareQ></span>
             </a>
           </div>
         </div>
@@ -95,10 +96,10 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
         <div className="border-l border-slate-700 pl-8">
           <div className="flex justify-between items-center mb-8">
             <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
-              Latest News
+              <SquareQ>Latest News</SquareQ>
             </h3>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
-              NEWSROOM →
+              <SquareQ>NEWSROOM →</SquareQ>
             </a>
           </div>
 
@@ -112,17 +113,17 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 />
               </div>
               <div className="text-xs text-gray-500 uppercase tracking-wider">
-                CONSTRUCTION TECH, FEBRUARY 19, 2025
+                <SquareQ>CONSTRUCTION TECH, FEBRUARY 19, 2025</SquareQ>
               </div>
               <h4 className="text-white text-base font-light leading-relaxed">
-                1iQ CEO talks construction technology advancement and the future of AI-driven project management
+                <SquareQ>1iQ CEO talks construction technology advancement and the future of AI-driven project management</SquareQ>
               </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                1iQ CEO spoke about revolutionary construction management solutions, the state of construction tech innovation, and AI integration in field operations.
+                <SquareQ>1iQ CEO spoke about revolutionary construction management solutions, the state of construction tech innovation, and AI integration in field operations.</SquareQ>
               </p>
               <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
                 <ArrowRight className="w-3 h-3 mr-1" />
-                Watch Here
+                <SquareQ>Watch Here</SquareQ>
               </a>
             </article>
 
@@ -135,17 +136,17 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 />
               </div>
               <div className="text-xs text-gray-500 uppercase tracking-wider">
-                CONSTRUCTION WEEKLY, MARCH 12, 2025
+                <SquareQ>CONSTRUCTION WEEKLY, MARCH 12, 2025</SquareQ>
               </div>
               <h4 className="text-white text-base font-light leading-relaxed">
-                1iQ's AI-powered construction management platform transforms project delivery
+                <SquareQ>1iQ's AI-powered construction management platform transforms project delivery</SquareQ>
               </h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Construction teams now have access to real-time project intelligence through state-of-the-art AI systems that optimize workflow and resource allocation.
+                <SquareQ>Construction teams now have access to real-time project intelligence through state-of-the-art AI systems that optimize workflow and resource allocation.</SquareQ>
               </p>
               <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
                 <ArrowRight className="w-3 h-3 mr-1" />
-                Read More
+                <SquareQ>Read More</SquareQ>
               </a>
             </article>
           </div>
@@ -156,34 +157,34 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
           <div>
             <div className="flex justify-between items-center mb-8">
               <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
-                Offerings
+                <SquareQ>Offerings</SquareQ>
               </h3>
               <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
-                VIEW ALL OFFERINGS →
+                <SquareQ>VIEW ALL OFFERINGS →</SquareQ>
               </a>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Our platforms are used throughout the construction industry to help organizations quickly implement solutions to the hardest problems they face.
+              <SquareQ>Our platforms are used throughout the construction industry to help organizations quickly implement solutions to the hardest problems they face.</SquareQ>
             </p>
             <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm">
               <ArrowRight className="w-3 h-3 mr-1" />
-              Learn more about 1iQ
+              <SquareQ>Learn more about 1iQ</SquareQ>
             </a>
           </div>
 
           <div>
             <div className="flex justify-between items-center mb-8">
               <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider">
-                Latest Impact
+                <SquareQ>Latest Impact</SquareQ>
               </h3>
               <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors underline">
-                VIEW ALL IMPACT STUDIES →
+                <SquareQ>VIEW ALL IMPACT STUDIES →</SquareQ>
               </a>
             </div>
             
             <div className="space-y-4">
               <div className="text-xs text-gray-500 uppercase tracking-wider">
-                IMPACT STUDY // GENERAL CONSTRUCTION
+                <SquareQ>IMPACT STUDY // GENERAL CONSTRUCTION</SquareQ>
               </div>
               <div className="aspect-video bg-gray-800 rounded overflow-hidden">
                 <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800"></div>
@@ -193,29 +194,29 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
 
           <div>
             <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6">
-              Quick Links
+              <SquareQ>Quick Links</SquareQ>
             </h3>
             <div className="space-y-3">
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                About 1iQ
+                <SquareQ>About 1iQ</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Blog
+                <SquareQ>Blog</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Investor Relations
+                <SquareQ>Investor Relations</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Letters from the CEO
+                <SquareQ>Letters from the CEO</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Privacy & Civil Liberties
+                <SquareQ>Privacy & Civil Liberties</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Information Security
+                <SquareQ>Information Security</SquareQ>
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
-                Cloud Partners
+                <SquareQ>Cloud Partners</SquareQ>
               </a>
             </div>
           </div>

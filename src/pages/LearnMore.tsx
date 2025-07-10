@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { NewsService } from "@/services/NewsService";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SquareQ from "@/components/SquareQ";
@@ -27,6 +28,7 @@ const LearnMore = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -147,65 +149,15 @@ const LearnMore = () => {
             </div>
           </div>
 
-          {/* Job Search Filters */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Select value={selectedJobType} onValueChange={setSelectedJobType}>
-              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
-                <SelectValue placeholder="Full-time" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="software-engineer"><SquareQ>Software Engineer</SquareQ></SelectItem>
-                <SelectItem value="project-manager"><SquareQ>Project Manager</SquareQ></SelectItem>
-                <SelectItem value="data-scientist"><SquareQ>Data Scientist</SquareQ></SelectItem>
-                <SelectItem value="product-manager"><SquareQ>Product Manager</SquareQ></SelectItem>
-                <SelectItem value="sales-engineer"><SquareQ>Sales Engineer</SquareQ></SelectItem>
-                <SelectItem value="customer-success"><SquareQ>Customer Success Manager</SquareQ></SelectItem>
-                <SelectItem value="devops-engineer"><SquareQ>DevOps Engineer</SquareQ></SelectItem>
-                <SelectItem value="ui-ux-designer"><SquareQ>UI/UX Designer</SquareQ></SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
-                <SelectValue placeholder="All Locations" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="north-america"><SquareQ>North America</SquareQ></SelectItem>
-                <SelectItem value="europe"><SquareQ>Europe</SquareQ></SelectItem>
-                <SelectItem value="asia-pacific"><SquareQ>Asia Pacific</SquareQ></SelectItem>
-                <SelectItem value="middle-east"><SquareQ>Middle East</SquareQ></SelectItem>
-                <SelectItem value="latin-america"><SquareQ>Latin America</SquareQ></SelectItem>
-                <SelectItem value="africa"><SquareQ>Africa</SquareQ></SelectItem>
-                <SelectItem value="new-york"><SquareQ>New York</SquareQ></SelectItem>
-                <SelectItem value="london"><SquareQ>London</SquareQ></SelectItem>
-                <SelectItem value="singapore"><SquareQ>Singapore</SquareQ></SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-              <SelectTrigger className="border-b border-gray-300 rounded-none bg-transparent">
-                <SelectValue placeholder="Core Operations" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="engineering"><SquareQ>Engineering</SquareQ></SelectItem>
-                <SelectItem value="product"><SquareQ>Product</SquareQ></SelectItem>
-                <SelectItem value="sales"><SquareQ>Sales</SquareQ></SelectItem>
-                <SelectItem value="marketing"><SquareQ>Marketing</SquareQ></SelectItem>
-                <SelectItem value="operations"><SquareQ>Operations</SquareQ></SelectItem>
-                <SelectItem value="customer-success"><SquareQ>Customer Success Manager</SquareQ></SelectItem>
-                <SelectItem value="finance"><SquareQ>Finance</SquareQ></SelectItem>
-                <SelectItem value="hr"><SquareQ>Human Resources</SquareQ></SelectItem>
-                <SelectItem value="legal"><SquareQ>Legal</SquareQ></SelectItem>
-                <SelectItem value="security"><SquareQ>Security</SquareQ></SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Input
-              placeholder="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border-b border-gray-300 rounded-none bg-transparent"
-            />
+          {/* Contact Sales Button */}
+          <div className="mt-16 flex justify-center">
+            <Button 
+              size="lg"
+              className="bg-black hover:bg-gray-800 text-white px-8 py-3"
+              onClick={() => navigate('/contact-sales')}
+            >
+              <SquareQ>Contact Sales</SquareQ>
+            </Button>
           </div>
         </div>
       </section>

@@ -27,6 +27,10 @@
     animation: bounce-down 2s infinite;
   }
 
+  .animate-bounce-horizontal {
+    animation: bounce-horizontal 1.5s ease-in-out infinite;
+  }
+
   /* Custom square Q styling */
   .square-q {
     position: relative;
@@ -100,5 +104,14 @@
   }
   90% {
     transform: translateY(-2px);
+  }
+}
+
+@keyframes bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
   }
 }

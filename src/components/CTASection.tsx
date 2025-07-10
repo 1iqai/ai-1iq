@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,7 @@ const CTASection = () => {
   const navigate = useNavigate();
 
   const handleRequestDemo = () => {
-    navigate('/schedule-demo');
+    navigate('/get-started');
   };
 
   return (

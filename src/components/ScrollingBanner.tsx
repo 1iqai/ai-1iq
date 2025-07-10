@@ -1,41 +1,38 @@
 
+
 const ScrollingBanner = () => {
   const sections = [
     {
-      title: "Defense Reformation",
-      industries: ["Aerospace", "Military Contractors", "Defense Systems"]
+      title: "Field Services & Maintenance",
+      industries: ["HVAC", "Plumbing", "Electrical", "Elevator Maintenance", "Facility Management", "Equipment Servicing"]
     },
     {
-      title: "Warp Speed",
-      industries: ["Logistics", "Supply Chain", "Transportation"]
+      title: "Fleet Management & Logistics",
+      industries: ["Trucking", "Delivery Services", "Public Transit", "Field Service Dispatch", "Heavy Equipment Tracking", "Vehicle Maintenance"]
     },
     {
-      title: "Tariffs",
-      industries: ["Manufacturing", "Trade", "Import/Export"]
+      title: "Renewable Energy & Utilities",
+      industries: ["Solar Installation", "Wind Energy", "Battery Storage", "Utility Services (Power, Water, Gas)", "Grid Modernization"]
     },
     {
-      title: "DevCon2",
-      industries: ["Technology", "Software", "Development"]
+      title: "Industrial & Infrastructure Projects",
+      industries: ["Oil & Gas", "Mining", "Water Treatment", "Waste Management", "Telecom Tower Servicing"]
     },
     {
-      title: "AIPCon 6",
-      industries: ["Artificial Intelligence", "Machine Learning", "Automation"]
+      title: "Property Development & Asset Management",
+      industries: ["Commercial Real Estate", "Retail Rollouts", "Mixed-Use Developments", "Residential Renovations", "Facility Upgrades"]
     },
     {
-      title: "Cybernetic Enterprise",
-      industries: ["Cybersecurity", "Enterprise", "Digital Infrastructure"]
+      title: "Healthcare Infrastructure & Operations",
+      industries: ["Hospital Construction", "Medical Facility Expansion", "Equipment Installation", "Mobile Clinics"]
     },
     {
-      title: "Maven Smart System",
-      industries: ["Smart Systems", "IoT", "Connected Devices"]
+      title: "Manufacturing & Plant Operations",
+      industries: ["Assembly Line Installations", "Factory Automation", "Plant Maintenance", "Turnarounds & Shutdowns"]
     },
     {
-      title: "TITAN",
-      industries: ["Heavy Industry", "Construction", "Manufacturing"]
-    },
-    {
-      title: "Vantage",
-      industries: ["Analytics", "Business Intelligence", "Strategic Planning"]
+      title: "Energy & Smart Infrastructure",
+      industries: ["EV Charging Station Installations", "Smart Grid Projects", "Infrastructure Resiliency", "Utility Modernization"]
     }
   ];
 
@@ -80,3 +77,4 @@ const ScrollingBanner = () => {
 };
 
 export default ScrollingBanner;
+

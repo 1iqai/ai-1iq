@@ -1,8 +1,15 @@
 
 import { ArrowRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+
+  const handleRequestDemo = () => {
+    navigate('/schedule-demo');
+  };
+
   return (
     <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -10,7 +17,10 @@ const CTASection = () => {
         
         <div className="flex justify-center">
           {/* Request a Demo Button - Centered */}
-          <div className="group bg-gray-100 hover:bg-gray-200 transition-colors duration-300 rounded-2xl p-8 cursor-pointer h-32 w-96">
+          <div 
+            className="group bg-gray-100 hover:bg-gray-200 transition-colors duration-300 rounded-2xl p-8 cursor-pointer h-32 w-96"
+            onClick={handleRequestDemo}
+          >
             <div className="flex items-center justify-between h-full">
               <h3 className="text-3xl font-normal text-slate-900">
                 Request a Demo

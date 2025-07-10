@@ -3,11 +3,7 @@ import { ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import SquareQ from "./SquareQ";
 
-interface HeroProps {
-  textColor?: string;
-}
-
-const Hero = ({ textColor = "text-white" }: HeroProps) => {
+const Hero = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   
   // Array of video sources - you can add more video URLs here
@@ -58,7 +54,7 @@ const Hero = ({ textColor = "text-white" }: HeroProps) => {
       <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-center">
         {/* Centered Content matching reference layout */}
         <div className="text-center max-w-4xl">
-          <h1 className={`font-inter text-6xl lg:text-7xl xl:text-8xl font-normal ${textColor} mb-12 leading-tight tracking-normal`}>
+          <h1 className="font-inter text-6xl lg:text-7xl xl:text-8xl font-normal text-white mb-12 leading-tight tracking-normal">
             <SquareQ>Data-Powered Automation</SquareQ>
             <br />
             <SquareQ>for Every Decision</SquareQ>
@@ -68,10 +64,10 @@ const Hero = ({ textColor = "text-white" }: HeroProps) => {
 
       {/* Scroll to Explore - positioned at bottom center */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
-        <span className={`${textColor} text-lg font-inter mb-2 opacity-80`}>
+        <span className="text-white text-lg font-inter mb-2 opacity-80">
           <SquareQ>Scroll to Explore</SquareQ>
         </span>
-        <ArrowDown className={`w-6 h-6 ${textColor} animate-bounce-down opacity-80`} />
+        <ArrowDown className="w-6 h-6 text-white animate-bounce-down opacity-80" />
       </div>
     </section>
   );

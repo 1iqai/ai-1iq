@@ -9,7 +9,6 @@ import { NewsService } from "@/services/NewsService";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import SquareQ from "@/components/SquareQ";
 
 interface NewsArticle {
@@ -94,10 +93,7 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section with black text */}
-      <Hero textColor="text-black" />
-
-      {/* Build the Future Section */}
+      {/* Hero Section - Fixed padding to ensure visibility */}
       <section className="pt-32 pb-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -133,10 +129,10 @@ const LearnMore = () => {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  <SquareQ>We're always looking for bold thinkers and builders who see the future of operational intelligence differently. If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.</SquareQ>
+                  <SquareQ>Interested in the Construction Project Intelligence or AI-Driven Operations Engineer positions? Don't just tell us how you'd build the future — show us.</SquareQ>
                 </p>
                 <p>
-                  <SquareQ>Use the Contact Sales button below to share your work, portfolio, or thoughts on how you see yourself contributing to the 1iQ ecosystem. We review every submission with curiosity and intention.</SquareQ>
+                  <SquareQ>Register for a free 1iQ Developer Tier account and send us a demo as your application via the Build to Apply links below (Project Intelligence, AI-Driven Operations Engineer). The highest quality submissions will be selected for an immediate on-site interview. This is not a required step of the application process — you may also choose to apply via the application links below.</SquareQ>
                 </p>
               </div>
             </div>

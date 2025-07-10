@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +8,7 @@ import { NewsService } from "@/services/NewsService";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
 import SquareQ from "@/components/SquareQ";
 
 interface NewsArticle {
@@ -93,7 +93,10 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section - Fixed padding to ensure visibility */}
+      {/* Hero Section with black text */}
+      <Hero textColor="text-black" />
+
+      {/* Build the Future Section */}
       <section className="pt-32 pb-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

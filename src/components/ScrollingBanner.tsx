@@ -1,3 +1,4 @@
+
 const ScrollingBanner = () => {
   const sections = [
     {
@@ -37,7 +38,7 @@ const ScrollingBanner = () => {
   return (
     <div className="bg-white py-8 overflow-hidden">
       <div className="relative">
-        <div className="flex animate-scroll gap-12">
+        <div className="flex animate-scroll gap-16">
           {/* First set */}
           {sections.map((section, index) => (
             <div key={`first-${index}`} className="flex flex-col items-start justify-start min-w-[280px] max-w-[280px]">

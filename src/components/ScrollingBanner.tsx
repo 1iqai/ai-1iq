@@ -39,14 +39,14 @@ const ScrollingBanner = () => {
   return (
     <div className="bg-white py-8 overflow-hidden">
       <div className="relative">
-        <div className="flex animate-scroll gap-16">
+        <div className="flex animate-scroll gap-24">
           {/* First set */}
           {sections.map((section, index) => (
-            <div key={`first-${index}`} className="flex flex-col items-start justify-center min-w-[200px]">
-              <div className="font-bold text-gray-900 text-base mb-1 whitespace-nowrap">
+            <div key={`first-${index}`} className="flex flex-col items-start justify-start min-w-[280px] max-w-[280px]">
+              <div className="font-bold text-gray-900 text-base mb-3 whitespace-nowrap">
                 {section.title}
               </div>
-              <div className="text-gray-400 text-sm space-y-0.5">
+              <div className="text-gray-400 text-sm space-y-1 leading-relaxed">
                 {section.industries.map((industry, industryIndex) => (
                   <div key={industryIndex} className="whitespace-nowrap">
                     {industry}
@@ -57,11 +57,11 @@ const ScrollingBanner = () => {
           ))}
           {/* Duplicate set for seamless loop */}
           {sections.map((section, index) => (
-            <div key={`second-${index}`} className="flex flex-col items-start justify-center min-w-[200px]">
-              <div className="font-bold text-gray-900 text-base mb-1 whitespace-nowrap">
+            <div key={`second-${index}`} className="flex flex-col items-start justify-start min-w-[280px] max-w-[280px]">
+              <div className="font-bold text-gray-900 text-base mb-3 whitespace-nowrap">
                 {section.title}
               </div>
-              <div className="text-gray-400 text-sm space-y-0.5">
+              <div className="text-gray-400 text-sm space-y-1 leading-relaxed">
                 {section.industries.map((industry, industryIndex) => (
                   <div key={industryIndex} className="whitespace-nowrap">
                     {industry}

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -129,10 +128,10 @@ const LearnMore = () => {
               </h2>
               <div className="space-y-4 text-gray-700">
                 <p>
-                  <SquareQ>Interested in the Construction Project Intelligence or AI-Driven Operations Engineer positions? Don't just tell us how you'd build the future — show us.</SquareQ>
+                  <SquareQ>We're always looking for bold thinkers and builders who see the future of operational intelligence differently. If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.</SquareQ>
                 </p>
                 <p>
-                  <SquareQ>Register for a free 1iQ Developer Tier account and send us a demo as your application via the Build to Apply links below (Project Intelligence, AI-Driven Operations Engineer). The highest quality submissions will be selected for an immediate on-site interview. This is not a required step of the application process — you may also choose to apply via the application links below.</SquareQ>
+                  <SquareQ>Use the Contact Sales button below to share your work, portfolio, or thoughts on how you see yourself contributing to the 1iQ ecosystem. We review every submission with curiosity and intention.</SquareQ>
                 </p>
               </div>
             </div>

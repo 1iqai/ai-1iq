@@ -5,24 +5,24 @@ import SquareQ from "./SquareQ";
 const PartnersSection = () => {
   const partners = [
     {
-      name: "L3HARRIS",
-      quote: "I did not want a dashboard to tell me I was in trouble. I know when I'm in trouble. I wanted someone to give me some predictives, and some ways to...get me not only technologically advanced, but decisionally be more agile and and able to maximize cost [savings] and efficiencies."
+      name: "RED BULL",
+      quote: "We manage dozens of activations across the country at any given time. With 1iQ, we finally have a scheduling and tasking system that keeps our entire operations team synced in real time. What used to take hours to coordinate now takes minutes—and we've never had this level of visibility before."
     },
     {
-      name: "SOMPO JAPAN",
-      quote: "So, what was the impact? Over the last three years, we have seen a $60 million improvement in profit. And we expect an additional $100M over the next three years."
+      name: "HALIFAX CONSTRUCTION & DEVELOPMENT",
+      quote: "1iQ completely transformed how we manage field operations. It replaced three platforms and our manual Excel process overnight. We now have real-time updates from job sites, instant schedule adjustments, and a live dashboard that keeps us on top of costs and crews. This is the future of construction coordination."
     },
     {
-      name: "GENERAL MILLS",
-      quote: "We're saving on average about $40,000 a day, which is about $14M annually – and it's really only deployed to part of our network."
+      name: "JTW SERVICES INC",
+      quote: "As a fast-growing company, staying organized was starting to feel impossible. 1iQ gave us a system that scales with us. We've cut reporting time in half, caught issues before they became costly, and improved visibility across all projects. Most importantly—it's directly contributed to increased revenue and better client confidence."
     },
     {
-      name: "AARP",
-      quote: "Foundry and AIP have been terrific for us. We launched the first prototype within 45 days. And that was just amazing from my perspective."
+      name: "DREW'S LIMO SERVICES",
+      quote: "For a fleet-based business, timing is everything. 1iQ helped us streamline dispatching, track every service in real time, and reduce idle hours. Our team runs smoother, and our clients notice the difference. It's like having a real-time operations manager in your pocket."
     },
     {
-      name: "KRAFT",
-      quote: "What we want to start scaling that autonomous if we were to rely...that would hit 384 billion a day. It would be impossible."
+      name: "THE WATERING HOPE FOUNDATION",
+      quote: "Our projects span rural and urban communities—and communication used to be a challenge. With 1iQ, our teams now operate with full transparency. From resource allocation to task tracking, everything runs smoother. It's helped us stay accountable and scale impact without adding admin overhead."
     }
   ];
 
@@ -40,7 +40,7 @@ const PartnersSection = () => {
             {partners.map((partner, index) => (
               <div key={`first-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">
                     <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">
@@ -53,7 +53,7 @@ const PartnersSection = () => {
             {partners.map((partner, index) => (
               <div key={`second-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4">
                     <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">

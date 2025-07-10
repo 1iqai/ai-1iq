@@ -4,12 +4,10 @@ interface SquareQProps {
 }
 
 const SquareQ = ({ children }: SquareQProps) => {
-  // First handle the special case of "1iQ" - preserve it as is
-  // Then replace all remaining capital O with regular O and wrap O in spans for styling
+  // First preserve "1iQ" as is, then replace all other square symbols with "O" and wrap them for styling
   const processedText = children
-    .replace(/1i[QO]/g, '1iQ') // Handle "1iQ" or "1iO" variations
-    .replace(/O/g, 'O')
-    .replace(/(?<!1i)O/g, '<span class="square-q">O</span>'); // Only wrap O that's not part of "1iQ"
+    .replace(/1i[QO]/g, '1iQ') // Handle "1iQ" or "1iO" variations - preserve as 1iQ
+    .replace(/(?<!1i)[QO]/g, '<span class="square-q">O</span>'); // Replace all other Q/O with styled O, but not the Q in "1iQ"
   
   return (
     <span 

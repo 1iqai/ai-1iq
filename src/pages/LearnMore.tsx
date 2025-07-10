@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -28,6 +27,11 @@ const LearnMore = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const { toast } = useToast();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     loadNews();
@@ -88,8 +92,8 @@ const LearnMore = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Hero Section - Reduced padding */}
-      <section className="py-16 px-6 bg-white">
+      {/* Hero Section - Fixed positioning and spacing */}
+      <section className="pt-24 pb-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Main heading */}
@@ -188,7 +192,7 @@ const LearnMore = () => {
                 <SelectItem value="sales"><SquareQ>Sales</SquareQ></SelectItem>
                 <SelectItem value="marketing"><SquareQ>Marketing</SquareQ></SelectItem>
                 <SelectItem value="operations"><SquareQ>Operations</SquareQ></SelectItem>
-                <SelectItem value="customer-success"><SquareQ>Customer Success</SquareQ></SelectItem>
+                <SelectItem value="customer-success"><SquareQ>Customer Success Manager</SquareQ></SelectItem>
                 <SelectItem value="finance"><SquareQ>Finance</SquareQ></SelectItem>
                 <SelectItem value="hr"><SquareQ>Human Resources</SquareQ></SelectItem>
                 <SelectItem value="legal"><SquareQ>Legal</SquareQ></SelectItem>
@@ -206,7 +210,7 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* News Section - Reduced padding */}
+      {/* News Section */}
       <section className="py-12 px-6 bg-white border-t border-black">
         <div className="max-w-7xl mx-auto">
           {/* Single Article Display with Navigation */}
@@ -294,7 +298,7 @@ const LearnMore = () => {
         </div>
       </section>
 
-      {/* CTA Section - Reduced padding */}
+      {/* CTA Section */}
       <section className="py-12 px-6 bg-gray-50 border-t border-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">

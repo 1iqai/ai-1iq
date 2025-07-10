@@ -21,7 +21,7 @@ const PartnersSection = () => {
       quote: "For a fleet-based business, timing is everything. 1iQ helped us streamline dispatching, track every service in real time, and reduce idle hours. Our team runs smoother, and our clients notice the difference. It's like having a real-time operations manager in your pocket."
     },
     {
-      name: "THE WATERING HOPE FOUNDATION",
+      name: "THE WATERING HOPE\nFOUNDATION",
       quote: "Our projects span rural and urban communities—and communication used to be a challenge. With 1iQ, our teams now operate with full transparency. From resource allocation to task tracking, everything runs smoother. It's helped us stay accountable and scale impact without adding admin overhead."
     }
   ];
@@ -40,7 +40,7 @@ const PartnersSection = () => {
             {partners.map((partner, index) => (
               <div key={`first-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4 whitespace-pre-line">
                     <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">
@@ -53,7 +53,7 @@ const PartnersSection = () => {
             {partners.map((partner, index) => (
               <div key={`second-${index}`} className="flex-shrink-0 w-80 bg-gray-200 p-8 rounded-lg">
                 <div className="mb-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">
+                  <h3 className="text-lg font-bold text-slate-900 mb-4 whitespace-pre-line">
                     <SquareQ>{partner.name}</SquareQ>
                   </h3>
                   <blockquote className="text-slate-700 leading-relaxed">

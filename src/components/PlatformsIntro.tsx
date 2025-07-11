@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Infinity } from "lucide-react";
 import SquareQ from "./SquareQ";
 
 const PlatformsIntro = () => {
@@ -38,8 +38,10 @@ const PlatformsIntro = () => {
     <section className="py-24 px-6 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-6 mb-20">
-          <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-            <SquareQ>Three platforms. Infinite possibilities.</SquareQ>
+          <h2 className="text-6xl lg:text-7xl font-bold text-gray-900 leading-tight animate-zoom-pulse">
+            <SquareQ>Three platforms</SquareQ>
+            <Infinity className="inline-block mx-4 w-12 h-12 lg:w-16 lg:h-16" />
+            <SquareQ>Infinite possibilities.</SquareQ>
           </h2>
         </div>
 

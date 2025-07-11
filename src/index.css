@@ -31,6 +31,10 @@
     animation: bounce-horizontal 1.5s ease-in-out infinite;
   }
 
+  .animate-zoom-pulse {
+    animation: zoom-pulse 3s ease-in-out infinite;
+  }
+
   /* Custom square Q styling */
   .square-q {
     position: relative;
@@ -113,5 +117,14 @@
   }
   50% {
     transform: translateX(8px);
+  }
+}
+
+@keyframes zoom-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
   }
 }

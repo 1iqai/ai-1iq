@@ -23,7 +23,7 @@ const CTASection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
               onClick={() => setIsDemoSidebarOpen(true)}
-              className="group bg-black text-white px-8 py-4 text-lg font-medium hover:bg-gray-800 transition-all duration-200 flex items-center gap-3"
+              className="group bg-gray-100 text-gray-900 px-8 py-4 text-lg font-medium hover:bg-gray-200 transition-all duration-200 flex items-center gap-3"
             >
               <SquareQ>Request a Demo</SquareQ>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

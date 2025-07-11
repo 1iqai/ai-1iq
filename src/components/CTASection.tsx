@@ -11,12 +11,6 @@ const CTASection = () => {
     <>
       <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <div className="space-y-6">
-            <h2 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
-              <SquareQ>Ready to transform your construction operations?</SquareQ>
-            </h2>
-          </div>
-          
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
               onClick={() => setIsDemoSidebarOpen(true)}

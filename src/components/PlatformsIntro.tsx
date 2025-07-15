@@ -99,6 +99,8 @@ const PlatformsIntro = () => {
                         navigate('/1iq-core');
                       } else if (platform.id === 'field') {
                         navigate('/1iq-field');
+                      } else if (platform.id === 'intel') {
+                        navigate('/1iq-intel');
                       }
                     }}
                   >

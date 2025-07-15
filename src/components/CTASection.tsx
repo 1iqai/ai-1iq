@@ -35,6 +35,13 @@ const CTASection = () => {
             >
               <SquareQ>1iQ Core</SquareQ>
             </button>
+
+            <button 
+              onClick={() => navigate('/1iq-intel')}
+              className="text-gray-600 hover:text-gray-900 transition-colors text-lg font-medium underline underline-offset-4"
+            >
+              <SquareQ>1iQ Intel</SquareQ>
+            </button>
           </div>
         </div>
       </section>

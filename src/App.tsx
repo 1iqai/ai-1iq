@@ -11,6 +11,7 @@ import PartnershipInquiry from "./pages/PartnershipInquiry";
 import LearnMore from "./pages/LearnMore";
 import OneiqCore from "./pages/OneiqCore";
 import OneiqField from "./pages/OneiqField";
+import OneiqIntel from "./pages/OneiqIntel";
 import GetStarted from "./pages/GetStarted";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/learn-more" element={<LearnMore />} />
           <Route path="/1iq-core" element={<OneiqCore />} />
           <Route path="/1iq-field" element={<OneiqField />} />
+          <Route path="/1iq-intel" element={<OneiqIntel />} />
           <Route path="/get-started" element={<GetStarted />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

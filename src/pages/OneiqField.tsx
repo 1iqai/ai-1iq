@@ -8,12 +8,12 @@ const OneiqField = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Updated with the new Halifax Construction dashboard image as the second image
+  // Updated with the Halifax Construction dashboard image for all reel positions
   const reelImages = [
-    "/lovable-uploads/8c40870e-03f4-4e78-8f28-4c980ae9c736.png",
-    "/lovable-uploads/7be8b173-19c0-4a20-b8b5-9c2183b668f0.png",
-    "/lovable-uploads/8c40870e-03f4-4e78-8f28-4c980ae9c736.png",
-    "/lovable-uploads/8c40870e-03f4-4e78-8f28-4c980ae9c736.png"
+    "/lovable-uploads/e411713f-6562-4770-af58-ca6273eb1f4b.png",
+    "/lovable-uploads/e411713f-6562-4770-af58-ca6273eb1f4b.png",
+    "/lovable-uploads/e411713f-6562-4770-af58-ca6273eb1f4b.png",
+    "/lovable-uploads/e411713f-6562-4770-af58-ca6273eb1f4b.png"
   ];
 
   useEffect(() => {

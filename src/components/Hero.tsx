@@ -5,8 +5,11 @@ import SquareQ from "./SquareQ";
 
 const Hero = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   
-  // Array of video sources - you can add more video URLs here
+  // Optimized video sources with better mobile compatibility
   const videoSources = [
     "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1",
     "https://www.dropbox.com/scl/fi/magy7156bh6q900e6vkbg/8328042-uhd_3840_2160_25fps.mp4?rlkey=csegaoa737hfv4ej5kjgdqxfh&dl=1",
@@ -15,38 +18,92 @@ const Hero = () => {
     "https://www.dropbox.com/scl/fi/riooctlcde9453q2jg6u0/2835998-uhd_3840_2160_24fps.mp4?rlkey=n531908bbghhtlwrjisy67lfy&dl=1",
   ];
 
+  // Mobile detection
   useEffect(() => {
-    if (videoSources.length > 1) {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Video cycling logic
+  useEffect(() => {
+    if (videoSources.length > 1 && !videoError) {
       const interval = setInterval(() => {
         setCurrentVideoIndex((prevIndex) => 
           (prevIndex + 1) % videoSources.length
         );
-      }, 10000); // Change video every 10 seconds
+      }, 10000);
 
       return () => clearInterval(interval);
     }
-  }, [videoSources.length]);
+  }, [videoSources.length, videoError]);
+
+  // Video event handlers
+  const handleVideoLoad = () => {
+    console.log('Video loaded successfully');
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
+
+  const handleVideoError = (error: any) => {
+    console.error('Video failed to load:', error);
+    setVideoError(true);
+  };
+
+  const handleVideoPlay = () => {
+    console.log('Video started playing');
+  };
 
   return (
     <section className="relative bg-slate-900 px-4 sm:px-6 min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
+      {/* Video Background with Mobile Optimization */}
       <div className="absolute inset-0 z-0">
-        {videoSources.map((src, index) => (
+        {!videoError && videoSources.map((src, index) => (
           <video
-            key={index}
-            autoPlay
+            key={`${index}-${src}`}
+            autoPlay={!isMobile}
             loop
             muted
             playsInline
+            preload={isMobile ? "metadata" : "auto"}
+            webkit-playsinline="true"
+            x-webkit-airplay="allow"
+            onLoadedData={handleVideoLoad}
+            onError={handleVideoError}
+            onPlay={handleVideoPlay}
             className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
               index === currentVideoIndex ? 'opacity-70' : 'opacity-0'
             }`}
+            style={{
+              WebkitTransform: 'translateZ(0)',
+              transform: 'translateZ(0)',
+            }}
           >
             <source src={src} type="video/mp4" />
-            {/* Fallback for browsers that don't support video */}
-            <div className="w-full h-full bg-slate-800"></div>
           </video>
         ))}
+        
+        {/* Fallback Background for Mobile or Video Errors */}
+        {(videoError || (isMobile && !videoLoaded)) && (
+          <div 
+            className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%)
+              `
+            }}
+          />
+        )}
+        
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>

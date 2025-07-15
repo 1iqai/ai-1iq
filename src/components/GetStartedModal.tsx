@@ -11,6 +11,9 @@ interface GetStartedModalProps {
 
 const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const navigate = useNavigate();
   
   // Same video sources as Hero component
@@ -22,8 +25,23 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
     "https://www.dropbox.com/scl/fi/riooctlcde9453q2jg6u0/2835998-uhd_3840_2160_24fps.mp4?rlkey=n531908bbghhtlwrjisy67lfy&dl=1",
   ];
 
+  // Mobile detection
   useEffect(() => {
-    if (isOpen && videoSources.length > 1) {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
+      const isSmallScreen = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice || isSmallScreen);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Video cycling logic
+  useEffect(() => {
+    if (isOpen && videoSources.length > 1 && !videoError) {
       const interval = setInterval(() => {
         setCurrentVideoIndex((prevIndex) => 
           (prevIndex + 1) % videoSources.length
@@ -32,7 +50,19 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
 
       return () => clearInterval(interval);
     }
-  }, [isOpen, videoSources.length]);
+  }, [isOpen, videoSources.length, videoError]);
+
+  // Video event handlers
+  const handleVideoLoad = () => {
+    console.log('Modal video loaded successfully');
+    setVideoLoaded(true);
+    setVideoError(false);
+  };
+
+  const handleVideoError = (error: any) => {
+    console.error('Modal video failed to load:', error);
+    setVideoError(true);
+  };
 
   const handleNavigation = (path: string) => {
     onClose();
@@ -43,22 +73,46 @@ const GetStartedModal = ({ isOpen, onClose }: GetStartedModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex">
-      {/* Left side - Video Background */}
+      {/* Left side - Video Background with Mobile Optimization */}
       <div className="w-1/2 relative overflow-hidden">
-        {videoSources.map((src, index) => (
+        {!videoError && videoSources.map((src, index) => (
           <video
-            key={index}
-            autoPlay
+            key={`modal-${index}-${src}`}
+            autoPlay={!isMobile}
             loop
             muted
             playsInline
+            preload={isMobile ? "metadata" : "auto"}
+            webkit-playsinline="true"
+            x-webkit-airplay="allow"
+            onLoadedData={handleVideoLoad}
+            onError={handleVideoError}
             className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
               index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{
+              WebkitTransform: 'translateZ(0)',
+              transform: 'translateZ(0)',
+            }}
           >
             <source src={src} type="video/mp4" />
           </video>
         ))}
+        
+        {/* Fallback Background for Mobile or Video Errors */}
+        {(videoError || (isMobile && !videoLoaded)) && (
+          <div 
+            className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%)
+              `
+            }}
+          />
+        )}
+        
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
 

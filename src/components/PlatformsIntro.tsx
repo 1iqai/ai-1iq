@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Infinity } from "lucide-react";
@@ -96,6 +97,8 @@ const PlatformsIntro = () => {
                     onClick={() => {
                       if (platform.id === 'core') {
                         navigate('/1iq-core');
+                      } else if (platform.id === 'field') {
+                        navigate('/1iq-field');
                       }
                     }}
                   >

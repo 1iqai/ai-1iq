@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -9,12 +8,12 @@ const OneiqIntel = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Placeholder images for 1iQ Intel; update with actual uploads as needed
+  // Updated images for 1iQ Intel using the dashboard interface
   const reelImages = [
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop"
+    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
+    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
+    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
+    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png"
   ];
 
   useEffect(() => {
@@ -98,7 +97,7 @@ const OneiqIntel = () => {
               <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden">
                 <img 
                   src={reelImages[currentImageIndex]}
-                  alt="1iQ Intel Interface"
+                  alt="1iQ Intel Dashboard Interface"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -117,7 +116,7 @@ const OneiqIntel = () => {
                   >
                     <img 
                       src={image}
-                      alt={`Interface ${index + 1}`}
+                      alt={`Dashboard ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
                   </button>

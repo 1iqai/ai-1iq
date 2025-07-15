@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -9,12 +8,12 @@ const OneiqCore = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Updated with the new 1iQ Field dashboard image
+  // Updated with the new 1iQ Core dashboard image
   const reelImages = [
-    "/lovable-uploads/a6a734b0-2f1d-43ab-83e0-85e2f1d94dd6.png",
-    "/lovable-uploads/a6a734b0-2f1d-43ab-83e0-85e2f1d94dd6.png",
-    "/lovable-uploads/a6a734b0-2f1d-43ab-83e0-85e2f1d94dd6.png",
-    "/lovable-uploads/a6a734b0-2f1d-43ab-83e0-85e2f1d94dd6.png"
+    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
+    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
+    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
+    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png"
   ];
 
   useEffect(() => {

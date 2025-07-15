@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Infinity, ChevronRight } from "lucide-react";
@@ -76,18 +75,18 @@ const PlatformsIntro = () => {
         <div className="space-y-12 sm:space-y-16 lg:space-y-24">
           {platforms.map((platform, index) => (
             <div key={platform.id} className="relative">
-              <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
+              <button 
+                className="w-full grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] cursor-pointer hover:bg-gray-50 active:bg-gray-100 transition-colors duration-200 p-2 sm:p-4 lg:p-6 rounded-lg touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+                onMouseEnter={() => setHoveredPlatform(platform.id)}
+                onMouseLeave={() => setHoveredPlatform(null)}
+                onClick={() => handlePlatformClick(platform)}
+              >
                 
                 {/* Mobile-first layout: Platform Name at top */}
                 <div className="lg:col-span-4 flex items-center justify-center lg:justify-end order-1 lg:order-3">
-                  <button 
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-gray-900 hover:text-gray-700 transition-colors text-center lg:text-right min-h-[44px] w-full lg:w-auto flex items-center justify-center lg:justify-end touch-manipulation"
-                    onMouseEnter={() => setHoveredPlatform(platform.id)}
-                    onMouseLeave={() => setHoveredPlatform(null)}
-                    onClick={() => handlePlatformClick(platform)}
-                  >
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-gray-900 hover:text-gray-700 transition-colors text-center lg:text-right min-h-[44px] w-full lg:w-auto flex items-center justify-center lg:justify-end">
                     <SquareQ>{platform.name}</SquareQ>
-                  </button>
+                  </div>
                 </div>
 
                 {/* Content Section - Better mobile typography */}
@@ -106,13 +105,10 @@ const PlatformsIntro = () => {
                         <SquareQ>{platform.description}</SquareQ>
                       </p>
                       <div className="flex justify-center lg:justify-start">
-                        <button 
-                          onClick={() => handlePlatformClick(platform)}
-                          className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-600 transition-colors text-sm sm:text-base font-medium underline underline-offset-4 min-h-[44px] px-2 py-2 touch-manipulation"
-                        >
+                        <span className="inline-flex items-center gap-2 text-gray-900 text-sm sm:text-base font-medium underline underline-offset-4 min-h-[44px] px-2 py-2">
                           Learn More
                           <ChevronRight className="w-4 h-4" />
-                        </button>
+                        </span>
                       </div>
                     </div>
                   )}
@@ -133,7 +129,7 @@ const PlatformsIntro = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           ))}
         </div>
@@ -141,7 +137,7 @@ const PlatformsIntro = () => {
         {/* Mobile CTA Section */}
         <div className="mt-16 sm:mt-20 lg:mt-24 text-center lg:hidden">
           <p className="text-sm text-gray-600 mb-4">
-            <SquareQ>Tap any platform name above to explore</SquareQ>
+            <SquareQ>Tap any platform row above to explore</SquareQ>
           </p>
         </div>
       </div>

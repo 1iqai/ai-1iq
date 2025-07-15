@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import SquareQ from './SquareQ';
 import DemoRequestSidebar from './DemoRequestSidebar';
 
 const CTASection = () => {
   const [isDemoSidebarOpen, setIsDemoSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -20,12 +22,19 @@ const CTASection = () => {
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
             
-            <a 
-              href="#platforms" 
+            <button 
+              onClick={() => navigate('/1iq-field')}
               className="text-gray-600 hover:text-gray-900 transition-colors text-lg font-medium underline underline-offset-4"
             >
-              <SquareQ>Learn More About Our Platforms</SquareQ>
-            </a>
+              <SquareQ>1iQ Field</SquareQ>
+            </button>
+
+            <button 
+              onClick={() => navigate('/1iq-core')}
+              className="text-gray-600 hover:text-gray-900 transition-colors text-lg font-medium underline underline-offset-4"
+            >
+              <SquareQ>1iQ Core</SquareQ>
+            </button>
           </div>
         </div>
       </section>

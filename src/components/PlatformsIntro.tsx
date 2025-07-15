@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Infinity } from "lucide-react";
@@ -7,6 +6,7 @@ import SquareQ from "./SquareQ";
 const PlatformsIntro = () => {
   const navigate = useNavigate();
   const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
+  const [activePlatform, setActivePlatform] = useState<string | null>(null);
 
   const platforms = [
     {
@@ -35,16 +35,34 @@ const PlatformsIntro = () => {
     }
   ];
 
+  const handlePlatformClick = (platform: typeof platforms[0]) => {
+    if (activePlatform === platform.id) {
+      // If already active, navigate to the platform page
+      if (platform.id === 'core') {
+        navigate('/1iq-core');
+      } else if (platform.id === 'field') {
+        navigate('/1iq-field');
+      } else if (platform.id === 'intel') {
+        navigate('/1iq-intel');
+      }
+    } else {
+      // Otherwise, set as active to show details
+      setActivePlatform(platform.id);
+    }
+  };
+
+  const displayedPlatform = hoveredPlatform || activePlatform;
+
   return (
-    <section className="py-24 px-6 bg-white min-h-screen">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-6 mb-20">
-          <h2 className="text-6xl lg:text-7xl font-bold text-gray-900 leading-tight animate-zoom-pulse text-center">
+        <div className="text-center space-y-4 sm:space-y-6 mb-16 sm:mb-20">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight animate-zoom-pulse text-center">
             <div className="text-center">
               <SquareQ>Three platforms</SquareQ>
             </div>
             <div className="text-center my-2">
-              <Infinity className="w-12 h-12 lg:w-16 lg:h-16 text-gray-400 mx-auto" />
+              <Infinity className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 text-gray-400 mx-auto" />
             </div>
             <div className="text-center">
               <SquareQ>Infinite possibilities.</SquareQ>
@@ -52,31 +70,37 @@ const PlatformsIntro = () => {
           </h2>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-16 sm:space-y-24 lg:space-y-32">
           {platforms.map((platform, index) => (
             <div key={platform.id} className="relative">
-              <div className="grid lg:grid-cols-12 gap-12 items-center min-h-[400px]">
+              <div className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center min-h-[300px] sm:min-h-[400px]">
                 {/* Left Side - Description */}
-                <div className="lg:col-span-4 space-y-6">
+                <div className="lg:col-span-4 space-y-4 sm:space-y-6 order-2 lg:order-1">
                   <div className="text-sm text-gray-400 font-mono">
                     {platform.number}
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-light text-gray-900 leading-relaxed">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-900 leading-relaxed">
                     <SquareQ>{platform.shortDescription}</SquareQ>
                   </h3>
-                  {hoveredPlatform === platform.id && (
+                  {displayedPlatform === platform.id && (
                     <div className="transition-all duration-300 ease-in-out">
-                      <p className="text-base text-gray-700 leading-relaxed font-light">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light">
                         <SquareQ>{platform.description}</SquareQ>
                       </p>
+                      <button 
+                        onClick={() => handlePlatformClick(platform)}
+                        className="mt-4 text-gray-900 hover:text-gray-600 transition-colors text-sm sm:text-base font-medium underline underline-offset-4 min-h-[44px] flex items-center"
+                      >
+                        Learn More →
+                      </button>
                     </div>
                   )}
                 </div>
 
-                {/* Middle - Image Display (appears on hover) */}
-                <div className="lg:col-span-4 flex justify-center">
-                  <div className="relative w-full max-w-md aspect-[4/3]">
-                    {hoveredPlatform === platform.id && (
+                {/* Middle - Image Display (appears on hover/active) */}
+                <div className="lg:col-span-4 flex justify-center order-3 lg:order-2">
+                  <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/3]">
+                    {displayedPlatform === platform.id && (
                       <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden transition-all duration-300 ease-in-out animate-fade-in">
                         <img 
                           src={platform.image}
@@ -89,20 +113,12 @@ const PlatformsIntro = () => {
                 </div>
 
                 {/* Right Side - Platform Name */}
-                <div className="lg:col-span-4 flex items-center justify-end">
+                <div className="lg:col-span-4 flex items-center justify-start lg:justify-end order-1 lg:order-3">
                   <h3 
-                    className="text-6xl lg:text-8xl font-bold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors text-right"
+                    className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-bold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors text-left lg:text-right min-h-[44px] flex items-center"
                     onMouseEnter={() => setHoveredPlatform(platform.id)}
                     onMouseLeave={() => setHoveredPlatform(null)}
-                    onClick={() => {
-                      if (platform.id === 'core') {
-                        navigate('/1iq-core');
-                      } else if (platform.id === 'field') {
-                        navigate('/1iq-field');
-                      } else if (platform.id === 'intel') {
-                        navigate('/1iq-intel');
-                      }
-                    }}
+                    onClick={() => handlePlatformClick(platform)}
                   >
                     <SquareQ>{platform.name}</SquareQ>
                   </h3>

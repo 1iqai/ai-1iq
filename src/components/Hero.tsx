@@ -1,130 +1,110 @@
 
-import { ArrowDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ArrowRight, PlayCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import SquareQ from "./SquareQ";
 
 const Hero = () => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  
-  // Optimized video sources with better mobile compatibility
-  const videoSources = [
-    "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1",
-    "https://www.dropbox.com/scl/fi/magy7156bh6q900e6vkbg/8328042-uhd_3840_2160_25fps.mp4?rlkey=csegaoa737hfv4ej5kjgdqxfh&dl=1",
-    "https://www.dropbox.com/scl/fi/b6odzp4ki9q7d9u34hjwt/istockphoto-2156301199-640_adpp_is.mp4?rlkey=wubnwer2cpru6zyzy9jwl3se6&dl=1",
-    "https://www.dropbox.com/scl/fi/q1bgsagocslaicd3aswok/3195703-uhd_3840_2160_25fps.mp4?rlkey=zui6xgbsxnd2t0hye72vjltvw&dl=1",
-    "https://www.dropbox.com/scl/fi/riooctlcde9453q2jg6u0/2835998-uhd_3840_2160_24fps.mp4?rlkey=n531908bbghhtlwrjisy67lfy&dl=1",
-  ];
-
-  // Mobile detection
-  useEffect(() => {
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
-      const isSmallScreen = window.innerWidth <= 768;
-      setIsMobile(isMobileDevice || isSmallScreen);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Video cycling logic
-  useEffect(() => {
-    if (videoSources.length > 1 && !videoError) {
-      const interval = setInterval(() => {
-        setCurrentVideoIndex((prevIndex) => 
-          (prevIndex + 1) % videoSources.length
-        );
-      }, 10000);
-
-      return () => clearInterval(interval);
-    }
-  }, [videoSources.length, videoError]);
-
-  // Video event handlers
-  const handleVideoLoad = () => {
-    console.log('Video loaded successfully');
-    setVideoLoaded(true);
-    setVideoError(false);
-  };
-
-  const handleVideoError = (error: any) => {
-    console.error('Video failed to load:', error);
-    setVideoError(true);
-  };
-
-  const handleVideoPlay = () => {
-    console.log('Video started playing');
-  };
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative bg-slate-900 px-4 sm:px-6 min-h-screen flex items-center overflow-hidden">
-      {/* Video Background with Mobile Optimization */}
-      <div className="absolute inset-0 z-0">
-        {!videoError && videoSources.map((src, index) => (
-          <video
-            key={`${index}-${src}`}
-            autoPlay={!isMobile}
-            loop
-            muted
-            playsInline
-            preload={isMobile ? "metadata" : "auto"}
-            webkit-playsinline="true"
-            x-webkit-airplay="allow"
-            onLoadedData={handleVideoLoad}
-            onError={handleVideoError}
-            onPlay={handleVideoPlay}
-            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
-              index === currentVideoIndex ? 'opacity-70' : 'opacity-0'
-            }`}
-            style={{
-              WebkitTransform: 'translateZ(0)',
-              transform: 'translateZ(0)',
-            }}
-          >
-            <source src={src} type="video/mp4" />
-          </video>
-        ))}
-        
-        {/* Fallback Background for Mobile or Video Errors */}
-        {(videoError || (isMobile && !videoLoaded)) && (
-          <div 
-            className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-black"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%)
-              `
-            }}
-          />
-        )}
-        
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex items-center justify-center">
-        {/* Centered Content with responsive text sizing */}
-        <div className="text-center max-w-4xl px-4">
-          <h1 className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-normal text-white mb-8 sm:mb-12 leading-tight tracking-normal">
-            <SquareQ>Data-Powered Automation</SquareQ>
-            <br />
-            <SquareQ>for Every Decision</SquareQ>
-          </h1>
+    <section className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-muted flex items-center relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      
+      {/* Content Container */}
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen py-20">
+          
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
+                <span className="block text-foreground">
+                  <SquareQ>Transform Your</SquareQ>
+                </span>
+                <span className="block gradient-text">
+                  <SquareQ>Decision Making</SquareQ>
+                </span>
+                <span className="block text-foreground">
+                  <SquareQ>with AI-Powered</SquareQ>
+                </span>
+                <span className="block text-foreground">
+                  <SquareQ>Automation</SquareQ>
+                </span>
+              </h1>
+              
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+                <SquareQ>1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.</SquareQ>
+              </p>
+            </div>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button 
+                size="lg" 
+                className="group text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <SquareQ>Get Started Free</SquareQ>
+                <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="group text-lg px-8 py-4 border-2 hover:bg-muted/50"
+              >
+                <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <SquareQ>Watch Demo</SquareQ>
+              </Button>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="pt-8 space-y-4">
+              <p className="text-sm text-muted-foreground font-medium">
+                <SquareQ>Trusted by 500+ organizations worldwide</SquareQ>
+              </p>
+              <div className="flex items-center space-x-6 opacity-60">
+                <div className="text-xs font-semibold tracking-wider">ENTERPRISE</div>
+                <div className="text-xs font-semibold tracking-wider">SECURE</div>
+                <div className="text-xs font-semibold tracking-wider">SCALABLE</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Content - Visual Element */}
+          <div className="relative lg:h-[600px] animate-slide-up">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl backdrop-blur-sm"></div>
+            <div className="relative h-full bg-card rounded-3xl shadow-large p-8 border border-border/50">
+              {/* Dashboard Preview */}
+              <div className="h-full flex flex-col space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="h-3 w-3 rounded-full bg-destructive"></div>
+                  <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
+                  <div className="h-3 w-3 rounded-full bg-green-400"></div>
+                </div>
+                
+                <div className="flex-1 space-y-4">
+                  <div className="h-8 bg-muted rounded animate-pulse"></div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="h-20 bg-primary/10 rounded-lg animate-pulse"></div>
+                    <div className="h-20 bg-accent/30 rounded-lg animate-pulse"></div>
+                    <div className="h-20 bg-secondary/50 rounded-lg animate-pulse"></div>
+                  </div>
+                  <div className="h-32 bg-muted/50 rounded-lg animate-pulse"></div>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-muted/30 rounded animate-pulse"></div>
+                    <div className="h-4 bg-muted/20 rounded animate-pulse w-3/4"></div>
+                    <div className="h-4 bg-muted/10 rounded animate-pulse w-1/2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
-      </div>
-
-      {/* Scroll to Explore - positioned at bottom center */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
-        <span className="text-white text-base sm:text-lg font-inter mb-2 opacity-80">
-          <SquareQ>Scroll to Explore</SquareQ>
-        </span>
-        <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 text-white animate-bounce-down opacity-80" />
       </div>
     </section>
   );

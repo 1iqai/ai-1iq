@@ -20,10 +20,10 @@ const Header = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 py-4 sm:py-6 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto bg-background/95 backdrop-blur-md border border-border/50 rounded-lg px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between shadow-soft">
           <button 
             onClick={handleLogoClick}
-            className="flex items-center space-x-2 sm:space-x-3 transition-all duration-200 hover:bg-white/10 hover:shadow-lg rounded-lg px-2 sm:px-3 py-2 min-h-[44px]"
+            className="flex items-center space-x-2 sm:space-x-3 transition-all duration-200 hover:bg-muted/50 rounded-lg px-2 sm:px-3 py-2 min-h-[44px]"
           >
             <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center transition-all duration-200 rounded">
               <img 
@@ -32,33 +32,33 @@ const Header = () => {
                 className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               />
             </div>
-            <span className="text-lg sm:text-xl font-medium tracking-tight text-white">1iQ</span>
+            <span className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">1iQ</span>
           </button>
           
           <div className="flex items-center space-x-2 sm:space-x-4">
             <Button 
-              variant="outline" 
+              variant="default" 
               size="sm"
               onClick={() => setIsGetStartedOpen(true)}
-              className="bg-white/10 hover:bg-white/20 text-white hover:text-white border border-white/30 hover:border-white/50 rounded-md px-3 sm:px-6 py-2 font-medium text-sm transition-all duration-200 h-10 sm:h-10 min-h-[44px]"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 sm:px-6 py-2 font-medium text-sm transition-all duration-200 h-10 sm:h-10 min-h-[44px] shadow-soft"
             >
               <span className="hidden sm:inline">Get Started</span>
               <span className="sm:hidden">Start</span>
             </Button>
             <div className="flex">
               <Button 
-                variant="ghost" 
+                variant="outline" 
                 size="icon"
                 onClick={() => setIsSearchOpen(true)}
-                className="h-10 w-10 sm:h-10 sm:w-10 text-white hover:text-white hover:bg-white/20 border border-white/30 hover:border-white/50 rounded-md transition-all duration-200 border-r-0 rounded-r-none min-h-[44px] min-w-[44px]"
+                className="h-10 w-10 sm:h-10 sm:w-10 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border hover:border-border/80 rounded-md transition-all duration-200 border-r-0 rounded-r-none min-h-[44px] min-w-[44px]"
               >
                 <Search className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button 
-                variant="ghost" 
+                variant="outline" 
                 size="icon"
                 onClick={() => setIsMenuOpen(true)}
-                className="h-10 w-10 sm:h-10 sm:w-10 text-white hover:text-white hover:bg-white/20 border border-white/30 hover:border-white/50 rounded-md transition-all duration-200 rounded-l-none min-h-[44px] min-w-[44px]"
+                className="h-10 w-10 sm:h-10 sm:w-10 text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border hover:border-border/80 rounded-md transition-all duration-200 rounded-l-none min-h-[44px] min-w-[44px]"
               >
                 <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>

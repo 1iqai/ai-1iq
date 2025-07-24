@@ -2,23 +2,21 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import ScrollingBanner from "@/components/ScrollingBanner";
-import PlatformsIntro from "@/components/PlatformsIntro";
-import BuildSection from "@/components/BuildSection";
+import ModernFeatures from "@/components/ModernFeatures";
+import ModernTestimonials from "@/components/ModernTestimonials";
+import ModernCTA from "@/components/ModernCTA";
 import PartnersSection from "@/components/PartnersSection";
-import CTASection from "@/components/CTASection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Header />
-      <div className="bg-white">
+      <div className="bg-background">
         <Hero />
-        <ScrollingBanner />
-        <PlatformsIntro />
-        <BuildSection />
+        <ModernFeatures />
+        <ModernTestimonials />
         <PartnersSection />
-        <CTASection />
+        <ModernCTA />
         <Footer />
       </div>
     </div>

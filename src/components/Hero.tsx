@@ -83,14 +83,6 @@ const Hero = () => {
                 <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
               </Button>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="group text-base px-8 py-3 border-2 border-primary/30 hover:border-primary/50 bg-white/90 backdrop-blur-sm hover:bg-white/95 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300 font-semibold"
-              >
-                <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                Watch Demo
-              </Button>
             </div>
             
             {/* Trust Indicators */}

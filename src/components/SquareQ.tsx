@@ -10,7 +10,7 @@ const SquareQ = ({ children }: SquareQProps) => {
   return (
     <span 
       dangerouslySetInnerHTML={{ __html: processedText }}
-      className="square-q-container"
+      className="square-q-container text-inherit"
     />
   );
 };

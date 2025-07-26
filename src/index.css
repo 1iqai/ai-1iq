@@ -195,11 +195,11 @@
   }
 
   .square-q {
-    color: transparent;
+    @apply inline-block w-4 h-4 bg-primary text-primary-foreground text-xs font-bold rounded-sm text-center leading-4;
   }
-
-  .square-q::before {
-    color: inherit;
+  
+  .square-q-container {
+    @apply text-inherit;
   }
 }
 

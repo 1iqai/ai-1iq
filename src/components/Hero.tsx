@@ -8,9 +8,10 @@ const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-muted flex items-center relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-hero flex items-center relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-indigo/5"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]"></div>
       
       {/* Content Container */}
       <div className="container-custom relative z-10">
@@ -18,15 +19,20 @@ const Hero = () => {
           
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
-                <span className="block text-foreground">
+            <div className="space-y-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
+                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                <SquareQ>Now Available: 1iQ Enterprise Platform</SquareQ>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-foreground mb-2">
                   <SquareQ>Transform Your</SquareQ>
                 </span>
-                <span className="block gradient-text">
+                <span className="block gradient-text mb-2">
                   <SquareQ>Decision Making</SquareQ>
                 </span>
-                <span className="block text-foreground">
+                <span className="block text-foreground mb-2">
                   <SquareQ>with AI-Powered</SquareQ>
                 </span>
                 <span className="block text-foreground">
@@ -34,16 +40,16 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
                 <SquareQ>1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.</SquareQ>
               </p>
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button 
                 size="lg" 
-                className="group text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="group text-lg px-8 py-4 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -54,7 +60,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="group text-lg px-8 py-4 border-2 hover:bg-muted/50"
+                className="group text-lg px-8 py-4 border-2 border-primary/20 hover:border-primary/40 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300"
               >
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 <SquareQ>Watch Demo</SquareQ>
@@ -74,30 +80,68 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right Content - Visual Element */}
+          {/* Right Content - Premium Dashboard Preview */}
           <div className="relative lg:h-[600px] animate-slide-up">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl backdrop-blur-sm"></div>
-            <div className="relative h-full bg-card rounded-3xl shadow-large p-8 border border-border/50">
-              {/* Dashboard Preview */}
-              <div className="h-full flex flex-col space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="h-3 w-3 rounded-full bg-destructive"></div>
-                  <div className="h-3 w-3 rounded-full bg-yellow-400"></div>
-                  <div className="h-3 w-3 rounded-full bg-green-400"></div>
+            <div className="absolute inset-0 bg-gradient-primary/10 rounded-3xl backdrop-blur-sm"></div>
+            <div className="absolute -inset-4 bg-gradient-primary/5 rounded-[2rem] blur-xl"></div>
+            <div className="relative h-full glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden">
+              {/* Dashboard Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <SquareQ>1iQ</SquareQ>
+                  </div>
+                  <div className="text-sm font-semibold text-foreground"><SquareQ>Enterprise Dashboard</SquareQ></div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="h-3 w-3 rounded-full bg-success/80"></div>
+                  <div className="h-3 w-3 rounded-full bg-warning/80"></div>
+                  <div className="h-3 w-3 rounded-full bg-destructive/80"></div>
+                </div>
+              </div>
+              
+              {/* Dashboard Content */}
+              <div className="space-y-6">
+                {/* Stats Cards */}
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="premium-card p-4 space-y-2">
+                    <div className="h-2 bg-gradient-primary rounded-full w-3/4"></div>
+                    <div className="h-6 bg-primary/20 rounded w-1/2"></div>
+                  </div>
+                  <div className="premium-card p-4 space-y-2">
+                    <div className="h-2 bg-gradient-to-r from-success to-info rounded-full w-2/3"></div>
+                    <div className="h-6 bg-success/20 rounded w-3/4"></div>
+                  </div>
+                  <div className="premium-card p-4 space-y-2">
+                    <div className="h-2 bg-gradient-to-r from-warning to-destructive rounded-full w-1/2"></div>
+                    <div className="h-6 bg-warning/20 rounded w-1/3"></div>
+                  </div>
                 </div>
                 
-                <div className="flex-1 space-y-4">
-                  <div className="h-8 bg-muted rounded animate-pulse"></div>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="h-20 bg-primary/10 rounded-lg animate-pulse"></div>
-                    <div className="h-20 bg-accent/30 rounded-lg animate-pulse"></div>
-                    <div className="h-20 bg-secondary/50 rounded-lg animate-pulse"></div>
+                {/* Main Chart Area */}
+                <div className="premium-card p-6 space-y-4">
+                  <div className="h-6 bg-gradient-primary/20 rounded w-1/4"></div>
+                  <div className="h-32 bg-gradient-to-br from-primary/10 via-brand-indigo/10 to-brand-purple/10 rounded-lg relative overflow-hidden">
+                    <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-primary/30 rounded-b-lg"></div>
+                    <div className="absolute bottom-0 left-1/4 w-2 h-20 bg-primary rounded-t"></div>
+                    <div className="absolute bottom-0 left-1/2 w-2 h-24 bg-brand-indigo rounded-t"></div>
+                    <div className="absolute bottom-0 left-3/4 w-2 h-16 bg-brand-purple rounded-t"></div>
                   </div>
-                  <div className="h-32 bg-muted/50 rounded-lg animate-pulse"></div>
-                  <div className="space-y-2">
-                    <div className="h-4 bg-muted/30 rounded animate-pulse"></div>
-                    <div className="h-4 bg-muted/20 rounded animate-pulse w-3/4"></div>
-                    <div className="h-4 bg-muted/10 rounded animate-pulse w-1/2"></div>
+                </div>
+                
+                {/* Activity List */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 p-3 premium-card">
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <div className="h-3 bg-muted/60 rounded flex-1"></div>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 premium-card">
+                    <div className="w-2 h-2 bg-warning rounded-full"></div>
+                    <div className="h-3 bg-muted/40 rounded flex-1 w-3/4"></div>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 premium-card">
+                    <div className="w-2 h-2 bg-info rounded-full"></div>
+                    <div className="h-3 bg-muted/20 rounded flex-1 w-1/2"></div>
                   </div>
                 </div>
               </div>

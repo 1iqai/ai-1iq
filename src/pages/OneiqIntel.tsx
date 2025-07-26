@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import Header from "@/components/Header";
 
 const OneiqIntel = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-hero">
+      <Header />
+      
       {/* Header */}
       <div className="relative z-10 bg-transparent">
         <div className="container-custom py-6">

@@ -1,4 +1,6 @@
 
+import { FirecrawlService } from './FirecrawlService';
+
 interface NewsArticle {
   title: string;
   description: string;
@@ -9,6 +11,9 @@ interface NewsArticle {
 
 export class NewsService {
   private static API_KEY_STORAGE_KEY = 'news_api_key';
+  private static CACHE_KEY = 'cached_news_articles';
+  private static CACHE_TIMESTAMP_KEY = 'cache_timestamp';
+  private static CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
   static saveApiKey(apiKey: string): void {
     localStorage.setItem(this.API_KEY_STORAGE_KEY, apiKey);
@@ -19,14 +24,64 @@ export class NewsService {
     return localStorage.getItem(this.API_KEY_STORAGE_KEY);
   }
 
-  static async fetchConstructionNews(): Promise<{ success: boolean; articles?: NewsArticle[]; error?: string }> {
-    const apiKey = this.getApiKey();
+  static getCachedArticles(): NewsArticle[] | null {
+    const cached = localStorage.getItem(this.CACHE_KEY);
+    const timestamp = localStorage.getItem(this.CACHE_TIMESTAMP_KEY);
     
-    // Try NewsAPI first (if API key is provided)
-    if (apiKey) {
+    if (cached && timestamp) {
+      const cacheAge = Date.now() - parseInt(timestamp);
+      if (cacheAge < this.CACHE_DURATION) {
+        return JSON.parse(cached);
+      }
+    }
+    return null;
+  }
+
+  static setCachedArticles(articles: NewsArticle[]): void {
+    localStorage.setItem(this.CACHE_KEY, JSON.stringify(articles));
+    localStorage.setItem(this.CACHE_TIMESTAMP_KEY, Date.now().toString());
+  }
+
+  static async fetchConstructionNews(forceRefresh: boolean = false): Promise<{ success: boolean; articles?: NewsArticle[]; error?: string; source?: string }> {
+    // Check cache first unless force refresh is requested
+    if (!forceRefresh) {
+      const cachedArticles = this.getCachedArticles();
+      if (cachedArticles) {
+        return { success: true, articles: cachedArticles, source: 'cache' };
+      }
+    }
+
+    // Try Firecrawl scraping first for live updates
+    const firecrawlApiKey = FirecrawlService.getApiKey();
+    if (firecrawlApiKey) {
+      try {
+        console.log('Attempting to scrape news with Firecrawl...');
+        const scrapedResult = await FirecrawlService.scrapeNewsWebsites();
+        
+        if (scrapedResult.success && scrapedResult.articles && scrapedResult.articles.length > 0) {
+          const articles = scrapedResult.articles.map(article => ({
+            title: article.title,
+            description: article.description,
+            url: article.url,
+            publishedAt: article.publishedAt,
+            source: article.source
+          }));
+          
+          // Cache the scraped articles
+          this.setCachedArticles(articles);
+          return { success: true, articles, source: 'firecrawl' };
+        }
+      } catch (error) {
+        console.error('Firecrawl scraping failed:', error);
+      }
+    }
+
+    // Try NewsAPI as fallback (if API key is provided)
+    const newsApiKey = this.getApiKey();
+    if (newsApiKey) {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=construction+project+management+failure+accident+safety&sortBy=publishedAt&language=en&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?q=construction+project+management+failure+accident+safety&sortBy=publishedAt&language=en&apiKey=${newsApiKey}`
         );
         
         if (response.ok) {
@@ -39,7 +94,10 @@ export class NewsService {
             source: article.source.name
           }));
           
-          return { success: true, articles: articles.slice(0, 10) };
+          // Cache the NewsAPI articles
+          const limitedArticles = articles.slice(0, 10);
+          this.setCachedArticles(limitedArticles);
+          return { success: true, articles: limitedArticles, source: 'newsapi' };
         }
       } catch (error) {
         console.error('NewsAPI error:', error);
@@ -93,7 +151,9 @@ export class NewsService {
         }
       ];
 
-      return { success: true, articles: mockArticles };
+      // Cache the mock articles as well
+      this.setCachedArticles(mockArticles);
+      return { success: true, articles: mockArticles, source: 'mock' };
     } catch (error) {
       console.error('Error fetching news:', error);
       return { success: false, error: 'Failed to fetch construction news' };

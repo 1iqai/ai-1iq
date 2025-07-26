@@ -4,9 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { NewsService } from "@/services/NewsService";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ApiKeyManager } from "@/components/ApiKeyManager";
+import { ChevronLeft, ChevronRight, RefreshCw, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -21,25 +23,44 @@ interface NewsArticle {
 const LearnMore = () => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("publishedAt");
   const [pageSize] = useState(6);
-  const {
-    toast
-  } = useToast();
+  const [newsSource, setNewsSource] = useState<string>('');
+  const { toast } = useToast();
   const navigate = useNavigate();
   useEffect(() => {
     fetchNews();
   }, [currentPage, searchTerm, sortBy]);
-  const fetchNews = async () => {
+  const fetchNews = async (forceRefresh: boolean = false) => {
     try {
-      setLoading(true);
-      const newsData = await NewsService.fetchConstructionNews();
+      if (forceRefresh) {
+        setRefreshing(true);
+      } else {
+        setLoading(true);
+      }
+      
+      const newsData = await NewsService.fetchConstructionNews(forceRefresh);
       if (newsData.success && newsData.articles) {
         setArticles(newsData.articles);
+        setNewsSource(newsData.source || 'unknown');
+        
+        if (forceRefresh) {
+          toast({
+            title: "Success",
+            description: `News refreshed successfully from ${newsData.source}`,
+            duration: 3000,
+          });
+        }
       } else {
         setArticles([]);
+        toast({
+          title: "Error",
+          description: newsData.error || "Failed to fetch news articles",
+          variant: "destructive"
+        });
       }
     } catch (error) {
       console.error('Error fetching news:', error);
@@ -51,7 +72,12 @@ const LearnMore = () => {
       });
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
+  };
+
+  const handleRefresh = () => {
+    fetchNews(true);
   };
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,26 +166,59 @@ const LearnMore = () => {
       {/* News Section */}
       <section className="container-custom py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Latest News
-            </h2>
-          </div>
-
-          {/* Search and Filter */}
-          <div className="mb-8 flex flex-col sm:flex-row gap-4">
+          <Tabs defaultValue="news" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8">
+              <TabsTrigger value="news">Latest News</TabsTrigger>
+              <TabsTrigger value="settings">
+                <Settings className="h-4 w-4 mr-2" />
+                API Settings
+              </TabsTrigger>
+            </TabsList>
             
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-full sm:w-48">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="publishedAt">Latest</SelectItem>
-                <SelectItem value="relevancy">Relevance</SelectItem>
-                <SelectItem value="popularity">Popular</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+            <TabsContent value="news" className="space-y-6">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                    Latest Construction News
+                  </h2>
+                  {newsSource && (
+                    <Badge variant={newsSource === 'firecrawl' ? 'default' : newsSource === 'newsapi' ? 'secondary' : 'outline'}>
+                      Source: {newsSource === 'firecrawl' ? 'Live Scraping' : newsSource === 'newsapi' ? 'News API' : newsSource === 'cache' ? 'Cached' : 'Mock Data'}
+                    </Badge>
+                  )}
+                </div>
+                <Button 
+                  onClick={handleRefresh} 
+                  disabled={refreshing}
+                  variant="outline"
+                  size="sm"
+                >
+                  <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+                  {refreshing ? 'Refreshing...' : 'Refresh News'}
+                </Button>
+              </div>
+
+              {/* Search and Filter */}
+              <div className="mb-8 flex flex-col sm:flex-row gap-4">
+                <form onSubmit={handleSearch} className="flex-1">
+                  <Input
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search construction news..."
+                    className="w-full"
+                  />
+                </form>
+                <Select value={sortBy} onValueChange={setSortBy}>
+                  <SelectTrigger className="w-full sm:w-48">
+                    <SelectValue placeholder="Sort by" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="publishedAt">Latest</SelectItem>
+                    <SelectItem value="relevancy">Relevance</SelectItem>
+                    <SelectItem value="popularity">Popular</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
           {/* Articles Grid */}
           {loading ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -199,20 +258,40 @@ const LearnMore = () => {
                 </Card>)}
             </div>}
 
-          {/* Pagination */}
-          {totalPages > 1 && <div className="flex justify-center items-center gap-4 mt-8">
-              <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
-                <ChevronLeft className="w-4 h-4" />
-                Previous
-              </Button>
-              <span className="text-muted-foreground">
-                Page {currentPage} of {totalPages}
-              </span>
-              <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
-                Next
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-            </div>}
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4 mt-8">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} 
+                    disabled={currentPage === 1}
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    Previous
+                  </Button>
+                  <span className="text-muted-foreground">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} 
+                    disabled={currentPage === totalPages}
+                  >
+                    Next
+                    <ChevronRight className="w-4 h-4" />
+                  </Button>
+                </div>
+              )}
+            </TabsContent>
+            
+            <TabsContent value="settings">
+              <div className="max-w-2xl mx-auto">
+                <ApiKeyManager />
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 

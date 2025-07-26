@@ -128,14 +128,11 @@ const ModernFeatures = () => {
               size="lg" 
               className="px-8 py-4 text-lg"
               onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Small delay to ensure scroll completes before triggering menu
-                setTimeout(() => {
-                  const menuButton = document.querySelector('button[aria-label="Open menu"], button:has(svg[data-lucide="menu"])') as HTMLButtonElement;
-                  if (menuButton) {
-                    menuButton.click();
-                  }
-                }, 600);
+                // Find and click the menu button in the header
+                const menuButton = document.querySelector('header button:last-child') as HTMLButtonElement;
+                if (menuButton) {
+                  menuButton.click();
+                }
               }}
             >
               Explore All Features

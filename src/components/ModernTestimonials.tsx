@@ -80,7 +80,7 @@ const ModernTestimonials = () => {
                 {/* Author Info */}
                 <div className="space-y-1">
                   <div className="font-semibold text-foreground text-lg">
-                    {testimonials[activeTestimonial].author}
+                    John Ryan
                   </div>
                   <div className="text-muted-foreground">
                     Business Intelligence

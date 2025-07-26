@@ -78,59 +78,67 @@ const LearnMore = () => {
       
       {/* Hero Section */}
       <section className="container-custom pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left side - Heading */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
-                <span className="block text-foreground mb-2">
-                  Build the Future
-                </span>
-              </h1>
-            </div>
-            
-            {/* Right side - Description */}
-            <div>
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
-                1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
-              </p>
-            </div>
+        <div className="text-center space-y-8">
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+              <span className="block text-foreground mb-2">
+                Learn More About 1iQ
+              </span>
+            </h1>
+            <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
+              Discover the latest insights, innovations, and opportunities in construction technology and operational intelligence.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Job Search Section */}
-      <section className="container-custom py-16">
+      {/* Careers Section */}
+      <section className="container-custom py-20 bg-gradient-subtle">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div className="text-center space-y-6">
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-foreground">
-                  Launching
-                </h2>
-                <h2 className="text-2xl font-bold text-foreground">
-                  Build to
-                </h2>
-                <h2 className="text-2xl font-bold text-foreground">
-                  Apply.
-                </h2>
-              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Join Our Mission
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                We're always looking for bold thinkers and builders who see the future of operational intelligence differently.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="premium-card">
+                <CardHeader>
+                  <CardTitle>For Builders & Innovators</CardTitle>
+                  <CardDescription>
+                    If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    We believe in supporting the next generation of builders through resources, mentorship, and funding opportunities.
+                  </p>
+                  <Button size="lg" className="w-full">
+                    Apply Now
+                  </Button>
+                </CardContent>
+              </Card>
               
-              <div className="max-w-2xl mx-auto">
-                <p className="text-muted-foreground leading-relaxed">
-                  We're always looking for bold thinkers and builders who see the future of operational intelligence differently. If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.
-                </p>
-                <p className="text-muted-foreground leading-relaxed mt-4">
-                  We believe in supporting the next generation of builders. Whether you're launching a startup, developing breakthrough technology, or leading innovative projects, we provide resources, mentorship, and funding opportunities.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <Button size="lg" className="premium-button">
-                  Apply Now
-                </Button>
-              </div>
+              <Card className="premium-card">
+                <CardHeader>
+                  <CardTitle>Career Opportunities</CardTitle>
+                  <CardDescription>
+                    Join our team of engineers, designers, and construction experts building the future of project intelligence.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    Whether you're a seasoned professional or emerging talent, we offer growth opportunities in a cutting-edge environment.
+                  </p>
+                  <Button variant="outline" size="lg" className="w-full">
+                    View Openings
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

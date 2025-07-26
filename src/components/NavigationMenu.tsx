@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, ArrowRight, ExternalLink } from 'lucide-react';
+import { X, ArrowRight, ExternalLink, Sparkles, Users, Building2, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface NavigationMenuProps {
@@ -21,158 +21,223 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-40 transition-opacity duration-300"
+        className="fixed inset-0 bg-black/60 backdrop-blur-lg z-40 transition-all duration-500"
         onClick={onClose}
       />
       
       {/* Side Panel */}
-      <div className="fixed right-0 top-0 h-full w-full bg-gradient-hero z-50 transform transition-transform duration-300 ease-in-out text-foreground overflow-y-auto">
+      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-background/95 backdrop-blur-xl z-50 transform transition-all duration-500 ease-in-out border-l border-border/50 shadow-2xl overflow-y-auto">
+        
         {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-primary/20">
-          <span className="text-xl font-semibold text-foreground tracking-tight">1iQ</span>
-          <button 
-            onClick={onClose}
-            className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-white/10"
-          >
-            <X size={20} />
-          </button>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-primary/10"></div>
+          <div className="relative flex justify-between items-center p-6 border-b border-border/30">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">1i</span>
+              </div>
+              <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">1iQ</span>
+            </div>
+            <button 
+              onClick={onClose}
+              className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-xl hover:bg-accent/50"
+            >
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-12">
-          {/* Main Navigation */}
-          <div className="space-y-8">
-            {/* Generate Alpha Section */}
-            <div className="space-y-6">
-              <h2 className="text-sm text-accent-foreground uppercase tracking-wider font-medium">
+        <div className="p-6 space-y-10">
+          
+          {/* Generate Alpha Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="w-6 h-6 bg-gradient-primary rounded-md flex items-center justify-center">
+                <Sparkles size={14} className="text-white" />
+              </div>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
                 Generate Alpha
               </h2>
-              
+            </div>
+            
+            <div className="premium-card p-1 hover-lift">
               <button 
                 onClick={() => handleNavigation('/get-started')}
-                className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
+                className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
               >
-                <span className="text-lg font-light text-foreground">Get Started</span>
-                <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
+                    <ArrowRight size={16} className="text-primary" />
+                  </div>
+                  <div>
+                    <span className="text-base font-medium text-foreground block">Get Started</span>
+                    <span className="text-sm text-muted-foreground">Begin your journey</span>
+                  </div>
+                </div>
+                <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
               </button>
             </div>
+          </div>
 
-            {/* Our Platforms Section */}
-            <div className="space-y-6">
-              <h2 className="text-sm text-accent-foreground uppercase tracking-wider font-medium">
+          {/* Our Platforms Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="w-6 h-6 bg-brand-indigo rounded-md flex items-center justify-center">
+                <Building2 size={14} className="text-white" />
+              </div>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
                 Our Platforms
               </h2>
-              
-              <div className="space-y-2">
-                <button 
-                  onClick={() => handleNavigation('/1iq-core')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">1iQ Core</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-                <button 
-                  onClick={() => handleNavigation('/1iq-field')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">1iQ Field</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-                <button 
-                  onClick={() => handleNavigation('/1iq-intel')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">1iQ Intel</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-              </div>
             </div>
+            
+            <div className="space-y-3">
+              {[
+                { name: '1iQ Core', path: '/1iq-core', desc: 'Core intelligence platform' },
+                { name: '1iQ Field', path: '/1iq-field', desc: 'Field operations management' },
+                { name: '1iQ Intel', path: '/1iq-intel', desc: 'Intelligence & analytics' }
+              ].map((platform, index) => (
+                <div key={platform.name} className="premium-card p-1 hover-lift">
+                  <button 
+                    onClick={() => handleNavigation(platform.path)}
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
+                        <span className="text-primary text-sm font-bold">{index + 1}</span>
+                      </div>
+                      <div>
+                        <span className="text-base font-medium text-foreground block">{platform.name}</span>
+                        <span className="text-sm text-muted-foreground">{platform.desc}</span>
+                      </div>
+                    </div>
+                    <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* Additional Navigation */}
-            <div className="space-y-6">
-              <h2 className="text-sm text-accent-foreground uppercase tracking-wider font-medium">
+          {/* Company Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="w-6 h-6 bg-brand-purple rounded-md flex items-center justify-center">
+                <Users size={14} className="text-white" />
+              </div>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
                 Company
               </h2>
-              
-              <div className="space-y-2">
-                <button 
-                  onClick={() => handleNavigation('/contact-sales')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Contact Sales</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-                <button 
-                  onClick={() => handleNavigation('/partnership-inquiry')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Partnerships</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-                <button 
-                  onClick={() => window.open('https://careers.example.com', '_blank')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Careers</span>
-                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-foreground transition-colors" />
-                </button>
-              </div>
             </div>
+            
+            <div className="space-y-3">
+              {[
+                { name: 'Contact Sales', path: '/contact-sales', desc: 'Speak with our team', external: false },
+                { name: 'Partnerships', path: '/partnership-inquiry', desc: 'Collaboration opportunities', external: false },
+                { name: 'Careers', path: 'https://careers.example.com', desc: 'Join our mission', external: true }
+              ].map((item) => (
+                <div key={item.name} className="premium-card p-1 hover-lift">
+                  <button 
+                    onClick={() => item.external ? window.open(item.path, '_blank') : handleNavigation(item.path)}
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
+                        {item.external ? (
+                          <ExternalLink size={16} className="text-primary" />
+                        ) : (
+                          <ArrowRight size={16} className="text-primary" />
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-base font-medium text-foreground block">{item.name}</span>
+                        <span className="text-sm text-muted-foreground">{item.desc}</span>
+                      </div>
+                    </div>
+                    {item.external ? (
+                      <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                    ) : (
+                      <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    )}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* Resources Section */}
-            <div className="space-y-6">
-              <h2 className="text-sm text-accent-foreground uppercase tracking-wider font-medium">
+          {/* Resources Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="w-6 h-6 bg-success rounded-md flex items-center justify-center">
+                <BookOpen size={14} className="text-white" />
+              </div>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
                 Resources
               </h2>
-              
-              <div className="space-y-2">
-                <button 
-                  onClick={() => handleNavigation('/learn-more')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Newsroom</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-                <button 
-                  onClick={() => window.open('https://docs.example.com', '_blank')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Documentation</span>
-                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-foreground transition-colors" />
-                </button>
-                <button 
-                  onClick={() => handleNavigation('/schedule-demo')}
-                  className="flex items-center justify-between w-full text-left py-3 px-4 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                >
-                  <span className="text-lg font-light text-foreground">Schedule Demo</span>
-                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
-                </button>
-              </div>
+            </div>
+            
+            <div className="space-y-3">
+              {[
+                { name: 'Newsroom', path: '/learn-more', desc: 'Latest updates & insights', external: false },
+                { name: 'Documentation', path: 'https://docs.example.com', desc: 'Technical guides', external: true },
+                { name: 'Schedule Demo', path: '/schedule-demo', desc: 'See 1iQ in action', external: false }
+              ].map((item) => (
+                <div key={item.name} className="premium-card p-1 hover-lift">
+                  <button 
+                    onClick={() => item.external ? window.open(item.path, '_blank') : handleNavigation(item.path)}
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
+                        {item.external ? (
+                          <ExternalLink size={16} className="text-primary" />
+                        ) : (
+                          <ArrowRight size={16} className="text-primary" />
+                        )}
+                      </div>
+                      <div>
+                        <span className="text-base font-medium text-foreground block">{item.name}</span>
+                        <span className="text-sm text-muted-foreground">{item.desc}</span>
+                      </div>
+                    </div>
+                    {item.external ? (
+                      <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                    ) : (
+                      <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    )}
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="border-t border-primary/20 pt-8">
-            <div className="glass-effect rounded-xl p-6 border border-primary/10">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Ready to get started?
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Transform your operations with 1iQ's intelligent platforms.
-              </p>
-              <div className="space-y-3">
-                <button 
-                  onClick={() => handleNavigation('/get-started')}
-                  className="w-full premium-button py-3 px-6 text-sm font-medium rounded-lg transition-all duration-200"
-                >
-                  Get Started
-                </button>
-                <button 
-                  onClick={() => handleNavigation('/schedule-demo')}
-                  className="w-full border border-primary/20 hover:border-primary/40 bg-white/10 hover:bg-white/20 text-foreground py-3 px-6 text-sm font-medium rounded-lg transition-all duration-200"
-                >
-                  Schedule Demo
-                </button>
+          <div className="border-t border-border/30 pt-8">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-primary/10 border border-primary/20 p-6 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-primary/5"></div>
+              <div className="relative">
+                <div className="flex items-center space-x-2 mb-4">
+                  <Sparkles size={20} className="text-primary" />
+                  <h3 className="text-lg font-bold text-foreground">
+                    Ready to transform?
+                  </h3>
+                </div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Join thousands of organizations using 1iQ to revolutionize their operations.
+                </p>
+                <div className="space-y-3">
+                  <button 
+                    onClick={() => handleNavigation('/get-started')}
+                    className="w-full premium-button py-4 px-6 text-sm font-semibold rounded-xl transition-all duration-300 hover:shadow-glow"
+                  >
+                    Start Your Journey
+                  </button>
+                  <button 
+                    onClick={() => handleNavigation('/schedule-demo')}
+                    className="w-full border border-primary/30 hover:border-primary/50 bg-background/80 hover:bg-background/90 text-foreground py-4 px-6 text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
+                  >
+                    Schedule Demo
+                  </button>
+                </div>
               </div>
             </div>
           </div>

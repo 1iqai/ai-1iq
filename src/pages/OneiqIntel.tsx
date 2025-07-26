@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import SquareQ from "@/components/SquareQ";
+
 
 const OneiqIntel = () => {
   const navigate = useNavigate();

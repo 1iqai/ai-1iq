@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Brain, Zap, Shield, BarChart3, Users, Cog } from "lucide-react";
-import SquareQ from "./SquareQ";
 
 const ModernFeatures = () => {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
@@ -64,16 +63,16 @@ const ModernFeatures = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge variant="outline" className="mb-4 text-sm font-medium">
-            <SquareQ>Platform Features</SquareQ>
+            Platform Features
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            <SquareQ>Everything you need to</SquareQ>{" "}
+            Everything you need to{" "}
             <span className="gradient-text">
-              <SquareQ>accelerate growth</SquareQ>
+              accelerate growth
             </span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            <SquareQ>Powerful features designed to transform how you work, with the flexibility to scale as you grow.</SquareQ>
+            Powerful features designed to transform how you work, with the flexibility to scale as you grow.
           </p>
         </div>
 
@@ -96,7 +95,7 @@ const ModernFeatures = () => {
                 <div className="relative z-10">
                   {/* Badge */}
                   <Badge variant="secondary" className="mb-4 text-xs">
-                    <SquareQ>{feature.badge}</SquareQ>
+                    {feature.badge}
                   </Badge>
                   
                   {/* Icon */}
@@ -106,10 +105,10 @@ const ModernFeatures = () => {
                   
                   {/* Content */}
                   <h3 className="text-xl font-semibold text-foreground mb-3">
-                    <SquareQ>{feature.title}</SquareQ>
+                    {feature.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    <SquareQ>{feature.description}</SquareQ>
+                    {feature.description}
                   </p>
                   
                   {/* Arrow Icon */}
@@ -126,11 +125,11 @@ const ModernFeatures = () => {
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="px-8 py-4 text-lg">
-              <SquareQ>Explore All Features</SquareQ>
+              Explore All Features
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2">
-              <SquareQ>Schedule Demo</SquareQ>
+              Schedule Demo
             </Button>
           </div>
         </div>

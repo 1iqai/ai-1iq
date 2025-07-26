@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
-import SquareQ from "@/components/SquareQ";
+
 
 const NotFound = () => {
   const location = useLocation();

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote } from "lucide-react";
-import SquareQ from "./SquareQ";
 
 const ModernTestimonials = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -47,16 +46,16 @@ const ModernTestimonials = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <Badge variant="outline" className="mb-4 text-sm font-medium">
-            <SquareQ>Customer Success</SquareQ>
+            Customer Success
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            <SquareQ>Trusted by industry</SquareQ>{" "}
+            Trusted by industry{" "}
             <span className="gradient-text">
-              <SquareQ>leaders worldwide</SquareQ>
+              leaders worldwide
             </span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            <SquareQ>See how organizations are transforming their operations with 1iQ.</SquareQ>
+            See how organizations are transforming their operations with 1iQ.
           </p>
         </div>
 
@@ -65,10 +64,10 @@ const ModernTestimonials = () => {
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-foreground mb-2">
-                <SquareQ>{stat.value}</SquareQ>
+                {stat.value}
               </div>
               <div className="text-sm text-muted-foreground font-medium">
-                <SquareQ>{stat.label}</SquareQ>
+                {stat.label}
               </div>
             </div>
           ))}
@@ -82,7 +81,7 @@ const ModernTestimonials = () => {
               <div className="flex-1 space-y-6">
                 <Quote className="w-12 h-12 text-primary opacity-60" />
                 <blockquote className="text-xl lg:text-2xl leading-relaxed text-foreground">
-                  <SquareQ>{`"${testimonials[activeTestimonial].quote}"`}</SquareQ>
+                  {`"${testimonials[activeTestimonial].quote}"`}
                 </blockquote>
                 
                 {/* Rating */}
@@ -95,13 +94,13 @@ const ModernTestimonials = () => {
                 {/* Author Info */}
                 <div className="space-y-1">
                   <div className="font-semibold text-foreground text-lg">
-                    <SquareQ>{testimonials[activeTestimonial].author}</SquareQ>
+                    {testimonials[activeTestimonial].author}
                   </div>
                   <div className="text-muted-foreground">
-                    <SquareQ>{testimonials[activeTestimonial].role}</SquareQ>
+                    {testimonials[activeTestimonial].role}
                   </div>
                   <div className="text-sm text-muted-foreground font-medium">
-                    <SquareQ>{testimonials[activeTestimonial].company}</SquareQ>
+                    {testimonials[activeTestimonial].company}
                   </div>
                 </div>
               </div>

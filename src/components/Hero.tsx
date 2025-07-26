@@ -2,7 +2,6 @@
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import SquareQ from "./SquareQ";
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -20,28 +19,28 @@ const Hero = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                <SquareQ>Now Available: 1iQ Enterprise Platform</SquareQ>
+                Now Available: 1iQ Enterprise Platform
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-foreground mb-2">
-                  <SquareQ>Transform Your</SquareQ>
+                  Transform Your
                 </span>
                 <span className="block gradient-text mb-2">
-                  <SquareQ>Decision Making</SquareQ>
+                  Decision Making
                 </span>
                 <span className="block text-foreground mb-2">
-                  <SquareQ>with AI-Powered</SquareQ>
+                  with AI-Powered
                 </span>
                 <span className="block text-foreground">
-                  <SquareQ>Automation</SquareQ>
+                  Automation
                 </span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
-                <SquareQ>1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.</SquareQ>
+                1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.
               </p>
             </div>
             
@@ -53,7 +52,7 @@ const Hero = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <SquareQ>Get Started Free</SquareQ>
+                Get Started Free
                 <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
               </Button>
               
@@ -63,14 +62,14 @@ const Hero = () => {
                 className="group text-lg px-8 py-4 border-2 border-primary/20 hover:border-primary/40 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300"
               >
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <SquareQ>Watch Demo</SquareQ>
+                Watch Demo
               </Button>
             </div>
             
             {/* Trust Indicators */}
             <div className="pt-8 space-y-4">
               <p className="text-sm text-muted-foreground font-medium">
-                <SquareQ>Trusted by 500+ organizations worldwide</SquareQ>
+                Trusted by 500+ organizations worldwide
               </p>
               <div className="flex items-center space-x-6 opacity-60">
                 <div className="text-xs font-semibold tracking-wider">ENTERPRISE</div>
@@ -89,9 +88,9 @@ const Hero = () => {
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                    <SquareQ>1iQ</SquareQ>
+                    1iQ
                   </div>
-                  <div className="text-sm font-semibold text-foreground"><SquareQ>Enterprise Dashboard</SquareQ></div>
+                  <div className="text-sm font-semibold text-foreground">Enterprise Dashboard</div>
                 </div>
                 <div className="flex gap-2">
                   <div className="h-3 w-3 rounded-full bg-success/80"></div>

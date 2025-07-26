@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Infinity, ChevronRight } from "lucide-react";
-import SquareQ from "./SquareQ";
+
 
 const PlatformsIntro = () => {
   const navigate = useNavigate();

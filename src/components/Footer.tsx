@@ -1,6 +1,5 @@
 
 import { Youtube, Linkedin, Github, ArrowRight } from "lucide-react";
-import SquareQ from "./SquareQ";
 
 const Footer = () => {
   return (
@@ -15,7 +14,7 @@ const Footer = () => {
             <div className="border-t border-gray-200 pt-4 mb-8">
               <a href="#" className="text-xs relative group transition-colors">
                 <span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                <SquareQ>Do Not Sell or Share My Personal Information</SquareQ>
+                Do Not Sell or Share My Personal Information
               </a>
             </div>
             
@@ -30,60 +29,60 @@ const Footer = () => {
             
             <div className="space-y-3">
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
-                <SquareQ>YOUTUBE</SquareQ>
+                YOUTUBE
               </button>
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
                 X
               </button>
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
-                <SquareQ>LINKEDIN</SquareQ>
+                LINKEDIN
               </button>
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
-                <SquareQ>GITHUB</SquareQ>
+                GITHUB
               </button>
             </div>
           </div>
           
           {/* Platforms Column */}
           <div>
-            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider"><SquareQ>PLATFORMS</SquareQ></h4>
+            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider">PLATFORMS</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>1iQ Core</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>1iQ Field</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>1iQ Intel</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>1iQ Cloud</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Developer Tools</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>AI Command Center</SquareQ></a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Core</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Field</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Intel</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Cloud</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Developer Tools</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AI Command Center</a></li>
             </ul>
           </div>
           
           {/* Industries Served Column */}
           <div>
-            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider"><SquareQ>INDUSTRIES SERVED</SquareQ></h4>
+            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider">INDUSTRIES SERVED</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Commercial Construction</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Industrial & Infrastructure</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Real Estate Development</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Public Sector & Smart Cities</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Healthcare Facilities</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Energy & Utilities</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Transportation & Rail</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Data Centers & Tech Campuses</SquareQ></a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Commercial Construction</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Industrial & Infrastructure</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Real Estate Development</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Public Sector & Smart Cities</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Healthcare Facilities</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Energy & Utilities</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Transportation & Rail</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Data Centers & Tech Campuses</a></li>
             </ul>
           </div>
           
           {/* Capabilities Column */}
           <div>
-            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider"><SquareQ>CAPABILITIES</SquareQ></h4>
+            <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider">CAPABILITIES</h4>
             <ul className="space-y-2 text-xs mb-8">
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>AI-Powered Scheduling</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Real-Time Data Sync</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Digital Twin Integration</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Predictive Conflict Resolution</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Workflow Automation</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Project Portfolio Intelligence</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Developer API Access</SquareQ></a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span><SquareQ>Multi-Project Control</SquareQ></a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AI-Powered Scheduling</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Real-Time Data Sync</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Digital Twin Integration</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Predictive Conflict Resolution</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Workflow Automation</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Project Portfolio Intelligence</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Developer API Access</a></li>
+              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Multi-Project Control</a></li>
             </ul>
           </div>
         </div>

@@ -2,7 +2,6 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import SquareQ from './SquareQ';
 
 interface DemoRequestSidebarProps {
   isOpen: boolean;
@@ -32,7 +31,7 @@ const DemoRequestSidebar = ({ isOpen, onClose }: DemoRequestSidebarProps) => {
         {/* Header */}
         <div className="flex justify-between items-start p-6 border-b border-gray-200">
           <div className="text-sm text-gray-500 uppercase tracking-wider">
-            <SquareQ>CONTACT / DEMO REQUEST + PARTNERSHIP INQUIRY</SquareQ>
+            CONTACT / DEMO REQUEST + PARTNERSHIP INQUIRY
           </div>
           <button 
             onClick={onClose}
@@ -46,7 +45,7 @@ const DemoRequestSidebar = ({ isOpen, onClose }: DemoRequestSidebarProps) => {
         <div className="p-6 space-y-8">
           <div>
             <h1 className="text-2xl font-light text-gray-900 leading-tight">
-              <SquareQ>Interested in solving your problems with 1iQ software?</SquareQ>
+              Interested in solving your problems with 1iQ software?
             </h1>
           </div>
           
@@ -55,19 +54,19 @@ const DemoRequestSidebar = ({ isOpen, onClose }: DemoRequestSidebarProps) => {
               onClick={() => handleNavigation('/schedule-demo')}
               className="w-full bg-black text-white py-4 px-6 text-left hover:bg-gray-800 transition-colors font-medium"
             >
-              <SquareQ>Schedule a Demo</SquareQ>
+              Schedule a Demo
             </button>
             <button 
               onClick={() => handleNavigation('/contact-sales')}
               className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
             >
-              <SquareQ>Contact Sales</SquareQ>
+              Contact Sales
             </button>
             <button 
               onClick={() => handleNavigation('/partnership-inquiry')}
               className="w-full border border-gray-300 text-gray-900 py-4 px-6 text-left hover:bg-gray-50 transition-colors font-medium"
             >
-              <SquareQ>Partnership Inquiry</SquareQ>
+              Partnership Inquiry
             </button>
           </div>
         </div>

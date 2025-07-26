@@ -77,7 +77,7 @@ const LearnMore = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="container-custom py-20">
+      <section className="container-custom pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left side - Heading */}
           <div className="space-y-8">

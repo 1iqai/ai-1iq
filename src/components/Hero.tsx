@@ -48,31 +48,31 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-8">
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-                <span className="block text-foreground mb-2">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight">
+                <span className="block text-foreground mb-3 drop-shadow-sm">
                   Transform Your
                 </span>
-                <span className="block gradient-text mb-2">
+                <span className="block gradient-text mb-3 drop-shadow-lg">
                   Decision Making
                 </span>
-                <span className="block text-foreground mb-2">
+                <span className="block text-foreground mb-3 drop-shadow-sm">
                   with AI-Powered
                 </span>
-                <span className="block text-foreground">
+                <span className="block text-foreground drop-shadow-sm">
                   Automation
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light drop-shadow-sm">
                 1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.
               </p>
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-4 pt-8">
               <Button 
                 size="lg" 
-                className="group text-lg px-8 py-4 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
+                className="group text-lg px-10 py-5 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300 font-semibold"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -83,7 +83,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="group text-lg px-8 py-4 border-2 border-primary/20 hover:border-primary/40 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300"
+                className="group text-lg px-10 py-5 border-2 border-primary/30 hover:border-primary/50 bg-white/90 backdrop-blur-sm hover:bg-white/95 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300 font-semibold"
               >
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 Watch Demo

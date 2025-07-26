@@ -40,7 +40,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
               className="w-8 h-8 object-contain"
             />
           </div>
-          <span className="text-xl font-medium text-white tracking-tight"><SquareQ>1iQ</SquareQ></span>
+          <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
         </button>
         <button 
           onClick={onClose}

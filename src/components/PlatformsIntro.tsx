@@ -137,7 +137,7 @@ const PlatformsIntro = () => {
         {/* Mobile CTA Section */}
         <div className="mt-16 sm:mt-20 lg:mt-24 text-center lg:hidden">
           <p className="text-sm text-gray-600 mb-4">
-            <SquareQ>Tap any platform row above to explore</SquareQ>
+            Tap any platform row above to explore
           </p>
         </div>
       </div>

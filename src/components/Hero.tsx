@@ -88,7 +88,7 @@ const Hero = () => {
             {/* Trust Indicators */}
             <div className="pt-6 space-y-3">
               <p className="text-sm text-muted-foreground font-medium">
-                Trusted by 500+ organizations worldwide
+                Trusted by 500+ developments worldwide
               </p>
             </div>
           </div>

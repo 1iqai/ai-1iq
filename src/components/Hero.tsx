@@ -19,10 +19,6 @@ const Hero = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
-                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                Now Available: 1iQ Enterprise Platform
-              </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-foreground mb-2">

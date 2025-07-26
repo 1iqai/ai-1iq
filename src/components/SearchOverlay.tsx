@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -10,82 +8,70 @@ interface SearchOverlayProps {
 
 const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  
+  const popularSearches = [
+    'AI automation',
+    'Project management',
+    'Field operations',
+    'Business intelligence',
+    'Resource allocation'
+  ];
 
   if (!isOpen) return null;
 
-  const popularSearches = [
-    'Foundry',
-    'Gotham', 
-    'Apollo',
-    'Ontology',
-    'Artificial Intelligence (AI)'
-  ];
-
-  const handleLogoClick = () => {
-    window.location.href = '/';
-  };
-
   return (
-    <div className="fixed inset-0 bg-slate-900 z-50">
-      {/* Header */}
-      <div className="flex justify-between items-center p-6">
-        <button 
-          onClick={handleLogoClick}
-          className="flex items-center space-x-3 transition-all duration-200"
-        >
-          <div className="w-8 h-8 flex items-center justify-center hover:shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-200 rounded">
-            <img 
-              src="/lovable-uploads/b5b303f6-c418-4625-bb79-dc96bb3cfbe6.png" 
-              alt="1iQ Logo" 
-              className="w-8 h-8 object-contain"
-            />
+    <>
+      {/* Backdrop */}
+      <div 
+        className="fixed inset-0 bg-black/80 z-40 transition-opacity duration-300"
+        onClick={onClose}
+      />
+      
+      {/* Search Panel */}
+      <div className="fixed inset-0 z-50 flex items-start justify-center pt-20">
+        <div className="w-full max-w-2xl mx-4">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8 text-white">
+            <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
+            <button 
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors p-2"
+            >
+              <X size={24} />
+            </button>
           </div>
-          <span className="text-xl font-medium text-white tracking-tight">1iQ</span>
-        </button>
-        <button 
-          onClick={onClose}
-          className="text-white hover:text-gray-300 transition-colors"
-        >
-          <X size={24} />
-        </button>
-      </div>
 
-      {/* Search Content */}
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-8">
-        <div className="w-full max-w-4xl">
           {/* Search Input */}
-          <div className="relative mb-16">
+          <div className="mb-8">
             <input
               type="text"
+              placeholder="Search 1iQ..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Start typing to search"
-              className="w-full bg-transparent text-white text-6xl font-light placeholder-gray-400 border-none outline-none tracking-tight"
+              className="w-full px-6 py-4 text-xl bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm"
               autoFocus
             />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gray-600"></div>
           </div>
 
           {/* Popular Searches */}
-          <div className="space-y-8">
-            <div className="text-gray-400 text-sm font-medium uppercase tracking-wider">
-              <SquareQ>POPULAR SEARCHES</SquareQ>
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-4">
+          <div className="text-white">
+            <h3 className="text-sm text-gray-400 uppercase tracking-wider font-medium mb-4">
+              POPULAR SEARCHES
+            </h3>
+            <div className="space-y-2">
               {popularSearches.map((search, index) => (
                 <button
                   key={index}
-                  className="text-white text-lg font-light hover:text-gray-300 transition-colors underline decoration-gray-600 hover:decoration-gray-300"
-                  onClick={() => setSearchQuery(search)}
+                  className="block w-full text-left px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded transition-colors"
                 >
-                  <SquareQ>{search}</SquareQ>
+                  {search}
                 </button>
               ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

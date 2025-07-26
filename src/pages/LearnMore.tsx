@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
@@ -10,64 +11,55 @@ import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-
 interface NewsArticle {
   title: string;
   description: string;
   url: string;
   publishedAt: string;
   source: string;
+  urlToImage?: string;
 }
 
 const LearnMore = () => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedJobType, setSelectedJobType] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("publishedAt");
+  const [pageSize] = useState(6);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  // Scroll to top when component mounts
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    fetchNews();
+  }, [currentPage, searchTerm, sortBy]);
 
-  useEffect(() => {
-    loadNews();
-  }, []);
-
-  // Auto-rotation effect
-  useEffect(() => {
-    if (articles.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % articles.length);
-      }, 6000);
-
-      return () => clearInterval(interval);
-    }
-  }, [articles.length]);
-
-  const loadNews = async () => {
-    setLoading(true);
+  const fetchNews = async () => {
     try {
-      const result = await NewsService.fetchConstructionNews();
-      if (result.success && result.articles) {
-        setArticles(result.articles);
+      setLoading(true);
+      const newsData = await NewsService.fetchConstructionNews();
+      if (newsData.success && newsData.articles) {
+        setArticles(newsData.articles);
       } else {
-        toast({
-          title: "Info",
-          description: "Showing sample construction industry news. Add your NewsAPI key for live updates.",
-          duration: 5000,
-        });
+        setArticles([]);
       }
     } catch (error) {
-      console.error('Error loading news:', error);
+      console.error('Error fetching news:', error);
+      setArticles([]);
+      toast({
+        title: "Error",
+        description: "Failed to fetch news articles. Please try again later.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    setCurrentPage(1);
+    fetchNews();
   };
 
   const formatDate = (dateString: string) => {
@@ -78,37 +70,34 @@ const LearnMore = () => {
     });
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % articles.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + articles.length) % articles.length);
-  };
-
-  const getCurrentArticle = () => {
-    return articles[currentSlide];
-  };
+  const totalPages = Math.ceil(articles.length / pageSize);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-hero">
       <Header />
       
-      {/* Hero Section - Fixed padding to ensure visibility */}
-      <section className="pt-32 pb-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Main heading */}
-            <div>
-              <h1 className="font-inter text-5xl lg:text-7xl font-normal text-black leading-tight">
-                <SquareQ>Build the Future</SquareQ>
+      {/* Hero Section */}
+      <section className="container-custom py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left side - Heading */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
+                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                Learn & Grow
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-foreground mb-2">
+                  Build the Future
+                </span>
               </h1>
             </div>
             
             {/* Right side - Description */}
             <div>
-              <p className="font-inter text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                <SquareQ>1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.</SquareQ>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
+                1iQ delivers mission-critical outcomes for construction's most important projects through AI-driven project intelligence and real-time visibility.
               </p>
             </div>
           </div>
@@ -116,164 +105,149 @@ const LearnMore = () => {
       </section>
 
       {/* Job Search Section */}
-      <section className="py-16 px-6 bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Job content */}
-            <div>
-              <h2 className="font-inter text-4xl lg:text-5xl font-normal text-black leading-tight mb-8">
-                <SquareQ>Launching</SquareQ>
-                <br />
-                <SquareQ>Build to</SquareQ>
-                <br />
-                <SquareQ>Apply.</SquareQ>
-              </h2>
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  <SquareQ>We're always looking for bold thinkers and builders who see the future of operational intelligence differently. If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.</SquareQ>
+      <section className="container-custom py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-8">
+            <div className="text-center space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold text-foreground">
+                  Launching
+                </h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  Build to
+                </h2>
+                <h2 className="text-2xl font-bold text-foreground">
+                  Apply.
+                </h2>
+              </div>
+              
+              <div className="max-w-2xl mx-auto">
+                <p className="text-muted-foreground leading-relaxed">
+                  We're always looking for bold thinkers and builders who see the future of operational intelligence differently. If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.
                 </p>
-                <p>
-                  <SquareQ>Use the Contact Sales button below to share your work, portfolio, or thoughts on how you see yourself contributing to the 1iQ ecosystem. We review every submission with curiosity and intention.</SquareQ>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  We believe in supporting the next generation of builders. Whether you're launching a startup, developing breakthrough technology, or leading innovative projects, we provide resources, mentorship, and funding opportunities.
                 </p>
               </div>
-            </div>
-            
-            {/* Right side - Placeholder image */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-md h-64 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="w-16 h-16 bg-white/20 rounded-lg mx-auto mb-4"></div>
-                  <div className="text-sm"><SquareQ>1iQ Platform Demo</SquareQ></div>
-                </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                <Button size="lg" className="premium-button">
+                  Apply Now
+                </Button>
               </div>
             </div>
-          </div>
-
-          {/* Contact Sales Button */}
-          <div className="mt-16 flex justify-center">
-            <Button 
-              size="lg"
-              className="bg-black hover:bg-gray-800 text-white px-8 py-3"
-              onClick={() => navigate('/contact-sales')}
-            >
-              <SquareQ>Contact Sales</SquareQ>
-            </Button>
           </div>
         </div>
       </section>
 
       {/* News Section */}
-      <section className="py-12 px-6 bg-white border-t border-black">
-        <div className="max-w-7xl mx-auto">
-          {/* Single Article Display with Navigation */}
-          {articles.length > 0 && (
-            <div className="relative">
-              <div className="flex items-center justify-center">
-                {/* Left Arrow */}
-                <Button
-                  onClick={prevSlide}
-                  variant="outline"
-                  size="icon"
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-black hover:bg-gray-50"
-                >
-                  <ChevronLeft className="w-6 h-6 text-black" />
-                </Button>
-
-                {/* Article Display */}
-                <div className="max-w-4xl mx-16">
-                  <Card className="hover:shadow-lg transition-shadow duration-300 border-black p-8">
-                    <CardHeader className="pb-6">
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="text-base text-black font-medium"><SquareQ>{getCurrentArticle().source}</SquareQ></span>
-                        <span className="text-base text-gray-400">{formatDate(getCurrentArticle().publishedAt)}</span>
-                      </div>
-                      <CardTitle className="text-2xl lg:text-3xl leading-tight text-black hover:text-gray-700 transition-colors font-normal">
-                        <SquareQ>{getCurrentArticle().title}</SquareQ>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-gray-600 leading-relaxed mb-6 text-lg">
-                        <SquareQ>{getCurrentArticle().description}</SquareQ>
-                      </CardDescription>
-                      {getCurrentArticle().url !== '#' && (
-                        <Button 
-                          variant="outline" 
-                          size="sm"
-                          className="border-black text-black hover:bg-gray-50 text-base px-6 py-3"
-                          onClick={() => window.open(getCurrentArticle().url, '_blank')}
-                        >
-                          <SquareQ>Read Full Article</SquareQ>
-                        </Button>
-                      )}
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Right Arrow */}
-                <Button
-                  onClick={nextSlide}
-                  variant="outline"
-                  size="icon"
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg border-black hover:bg-gray-50"
-                >
-                  <ChevronRight className="w-6 h-6 text-black" />
-                </Button>
-              </div>
-
-              {/* Article Counter and Indicators */}
-              <div className="flex flex-col items-center mt-8 gap-4">
-                <div className="text-black">
-                  <SquareQ>{`Article ${currentSlide + 1} of ${articles.length}`}</SquareQ>
-                </div>
-                
-                {/* Slide Indicators */}
-                <div className="flex justify-center gap-2">
-                  {articles.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentSlide ? 'bg-black' : 'bg-gray-300'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {articles.length === 0 && !loading && (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg"><SquareQ>No articles loaded. Please try again later.</SquareQ></p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-12 px-6 bg-gray-50 border-t border-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-inter text-3xl lg:text-4xl font-normal text-black mb-8">
-            <SquareQ>Don't Let Your Project Become Tomorrow's Headline</SquareQ>
-          </h2>
-          <p className="font-inter text-xl text-gray-600 mb-12 leading-relaxed">
-            <SquareQ>1iQ's AI-driven platform provides the real-time visibility and control needed to prevent project failures before they happen. Take control of your construction operations today.</SquareQ>
-          </p>
-          <div className="flex gap-6 justify-center">
-            <Button 
-              size="lg"
-              className="bg-black hover:bg-gray-800 text-white px-8 py-3"
-            >
-              <SquareQ>Schedule Demo</SquareQ>
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3"
-            >
-              <SquareQ>Contact Sales</SquareQ>
-            </Button>
+      <section className="container-custom py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Latest News
+            </h2>
           </div>
+
+          {/* Search and Filter */}
+          <div className="mb-8 flex flex-col sm:flex-row gap-4">
+            <form onSubmit={handleSearch} className="flex-1">
+              <Input
+                type="text"
+                placeholder="Search construction news..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full"
+              />
+            </form>
+            <Select value={sortBy} onValueChange={setSortBy}>
+              <SelectTrigger className="w-full sm:w-48">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="publishedAt">Latest</SelectItem>
+                <SelectItem value="relevancy">Relevance</SelectItem>
+                <SelectItem value="popularity">Popular</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Articles Grid */}
+          {loading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, index) => (
+                <Card key={index} className="premium-card animate-pulse">
+                  <CardHeader>
+                    <div className="h-4 bg-muted rounded w-3/4"></div>
+                    <div className="h-3 bg-muted rounded w-1/2"></div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="h-3 bg-muted rounded"></div>
+                      <div className="h-3 bg-muted rounded w-5/6"></div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((article, index) => (
+                <Card key={index} className="premium-card hover:shadow-premium transition-all duration-300">
+                  <CardHeader>
+                    <Badge variant="secondary" className="w-fit">
+                      {article.source}
+                    </Badge>
+                    <CardTitle className="text-lg line-clamp-2">
+                      {article.title}
+                    </CardTitle>
+                    <CardDescription>
+                      {formatDate(article.publishedAt)}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground line-clamp-3 mb-4">
+                      {article.description}
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open(article.url, '_blank')}
+                    >
+                      Read More
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-4 mt-8">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </Button>
+              <span className="text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 

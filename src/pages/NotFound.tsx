@@ -1,8 +1,6 @@
-
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
-
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,19 +13,15 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-white relative">
-      {/* Dark gradient background for header area */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-900 to-transparent"></div>
-      
+    <div className="min-h-screen bg-gradient-hero">
       <Header />
-      
-      <div className="pt-32 flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">404</h1>
-          <p className="text-xl text-gray-600 mb-4"><SquareQ>Oops! Page not found</SquareQ></p>
-          <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-            <SquareQ>Return to Home</SquareQ>
-          </a>
+      <div className="container-custom py-20">
+        <div className="text-center space-y-8">
+          <h1 className="text-6xl font-bold text-foreground">404</h1>
+          <h2 className="text-3xl font-semibold text-foreground">Page Not Found</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
         </div>
       </div>
     </div>

@@ -3,195 +3,141 @@ import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-
 const OneiqIntel = () => {
   const navigate = useNavigate();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Updated images for 1iQ Intel using the dashboard interface
-  const reelImages = [
-    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
-    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
-    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png",
-    "/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png"
-  ];
-
-  useEffect(() => {
-    if (reelImages.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % reelImages.length
-        );
-      }, 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [reelImages.length]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
-      <header className="border-b border-gray-200 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => navigate('/')}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+      <div className="relative z-10 bg-transparent">
+        <div className="container-custom py-6">
+          <div className="flex items-center justify-between">
+            <Button
+              variant="ghost"
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-2 text-foreground hover:bg-white/10"
             >
-              <ArrowLeft size={20} className="text-gray-600" />
-            </button>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-600 text-sm">1iQ</span>
-              <span className="text-gray-400">/</span>
-              <span className="text-gray-900 font-medium"><SquareQ>1iQ Intel</SquareQ></span>
-            </div>
+              <ArrowLeft className="w-4 h-4" />
+              Back
+            </Button>
+            <Button variant="ghost" size="icon" className="text-foreground hover:bg-white/10">
+              <Share2 className="w-4 h-4" />
+            </Button>
           </div>
         </div>
-      </header>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
+      {/* Main Content */}
+      <div className="container-custom py-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
           {/* Left Content */}
-          <div className="lg:w-1/2 space-y-8">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img 
-                  src="/lovable-uploads/eb743052-5345-4cca-bfdf-1935334b35f9.png" 
-                  alt="1iQ Logo" 
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <span className="text-lg font-medium text-gray-900">
-                <SquareQ>1iQ Intel Now</SquareQ>
-              </span>
-            </div>
-
+          <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-                <SquareQ>1iQ Intel Decisions Powered by Insight. Not Instinct.</SquareQ>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
+                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                1iQ Intel Platform
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-foreground mb-2">
+                  Business Intelligence
+                </span>
+                <span className="block gradient-text">
+                  Transformed
+                </span>
               </h1>
               
-              <p className="text-lg text-gray-700 leading-relaxed">
-                <SquareQ>1iQ Intel revolutionizes how you leverage your data—harnessing both historical records and real-time inputs to generate predictive intelligence that drives smarter decisions. From assessing project risks and anticipating delays to optimizing resource allocation, it equips you to shift from reactive management to proactive strategy, all supported by cutting-edge machine learning and comprehensive historical context.</SquareQ>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
+                Unlock the power of your data with advanced analytics, predictive modeling, and intelligent insights. 1iQ Intel transforms raw information into strategic advantages that drive informed decision-making.
               </p>
-
-              <div className="flex items-center space-x-4">
-                <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md"
-                  onClick={() => navigate('/schedule-demo')}
-                >
-                  <SquareQ>Request</SquareQ>
-                </Button>
-                <button className="p-3 hover:bg-gray-100 rounded-md transition-colors">
-                  <Share2 size={20} className="text-gray-600" />
-                </button>
-              </div>
             </div>
-          </div>
-
-          {/* Right Content - Image Reel */}
-          <div className="lg:w-1/2">
-            <div className="relative">
-              {/* Main Display */}
-              <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <img 
-                  src={reelImages[currentImageIndex]}
-                  alt="1iQ Intel Dashboard Interface"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Thumbnail Reel */}
-              <div className="flex space-x-2 mt-4">
-                {reelImages.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative aspect-video w-24 rounded overflow-hidden border-2 transition-all ${
-                      index === currentImageIndex 
-                        ? 'border-blue-500 shadow-lg' 
-                        : 'border-gray-300 hover:border-gray-400'
-                    }`}
-                  >
-                    <img 
-                      src={image}
-                      alt={`Dashboard ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Overview Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-medium text-gray-900 mb-6">
-            <SquareQ>Overview</SquareQ>
-          </h2>
-          
-          <div className="space-y-6 text-gray-700 leading-relaxed">
-            <p>
-              <SquareQ>1iQ Intel is the advanced analytics platform that converts your construction data into forward-looking intelligence—drawing from past projects, ongoing activities, and emerging trends to deliver insights that inform every decision. It eliminates guesswork by providing a clear view of potential outcomes, helping teams across the organization to plan with precision and adapt with agility.</SquareQ>
-            </p>
             
-            <p>
-              <SquareQ>At the heart of 1iQ Intel is its machine learning-driven core, which analyzes complex datasets to produce predictive risk alerts, performance benchmarks, and resource forecasts. With seamless integrations to financial and ERP systems, it creates customized reports and dashboards that turn raw numbers into strategic advantages, accessible to executives and managers alike.</SquareQ>
-            </p>
-
-            <p>
-              <SquareQ>This is more than data analysis. It's the intelligence that transforms instinct into insight, ensuring your projects are not just completed, but optimized for success.</SquareQ>
-            </p>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <Button 
+                size="lg" 
+                className="group text-lg px-8 py-4 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
+                onClick={() => navigate('/get-started')}
+              >
+                Get Started
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="group text-lg px-8 py-4 border-2 border-primary/20 hover:border-primary/40 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300"
+                onClick={() => navigate('/schedule-demo')}
+              >
+                Schedule Demo
+              </Button>
+            </div>
           </div>
+          
+          {/* Right Content - Single Image */}
+          <div className="relative lg:h-[600px]">
+            <div className="absolute inset-0 bg-gradient-primary/10 rounded-3xl backdrop-blur-sm"></div>
+            <div className="absolute -inset-4 bg-gradient-primary/5 rounded-[2rem] blur-xl"></div>
+            <div className="relative h-full glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden">
+              <img
+                src="/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png"
+                alt="1iQ Intel Analytics Dashboard"
+                className="w-full h-full object-cover rounded-2xl shadow-elegant"
+              />
+            </div>
+          </div>
+          
         </div>
+      </div>
 
-        {/* Features Grid */}
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Predictive Scheduling Risk Alerts</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Identify potential delays before they occur with AI-generated alerts based on historical patterns and current project data.</SquareQ>
+      {/* Features Section */}
+      <div className="container-custom py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Intelligence Features
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Advanced analytics and insights for data-driven decisions
             </p>
           </div>
           
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Historical Performance Analytics</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Analyze past project data to uncover trends, benchmarks, and lessons learned for improved future performance.</SquareQ>
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>AI-Driven Resource Modeling</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Model and optimize resource allocation using machine learning to forecast needs and prevent bottlenecks.</SquareQ>
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Custom Reporting & Insights Dashboard</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Create tailored reports and interactive dashboards for deep dives into key metrics and actionable insights.</SquareQ>
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Integration with Financial & ERP Systems</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Connect seamlessly with existing financial and ERP tools for comprehensive data flow and unified analytics.</SquareQ>
-            </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Predictive Analytics
+              </h3>
+              <p className="text-muted-foreground">
+                Advanced machine learning models analyze patterns and trends to forecast future outcomes and identify optimization opportunities.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Custom Dashboards
+              </h3>
+              <p className="text-muted-foreground">
+                Flexible visualization tools allow you to create personalized dashboards that highlight the metrics most important to your operations.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Data Integration
+              </h3>
+              <p className="text-muted-foreground">
+                Seamlessly connect and analyze data from multiple sources, creating a unified view of your business operations and performance.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Automated Reporting
+              </h3>
+              <p className="text-muted-foreground">
+                Intelligent reporting systems generate comprehensive insights and deliver them to stakeholders automatically on customizable schedules.
+              </p>
+            </div>
           </div>
         </div>
       </div>

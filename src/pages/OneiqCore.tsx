@@ -3,177 +3,141 @@ import { ArrowLeft, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-
 const OneiqCore = () => {
   const navigate = useNavigate();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Updated with the new 1iQ Core dashboard image
-  const reelImages = [
-    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
-    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
-    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png",
-    "/lovable-uploads/40a39c64-1583-4424-b99e-27a52826f869.png"
-  ];
-
-  useEffect(() => {
-    if (reelImages.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % reelImages.length
-        );
-      }, 5000);
-
-      return () => clearInterval(interval);
-    }
-  }, [reelImages.length]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-hero">
       {/* Header */}
-      <header className="border-b border-gray-200 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => navigate('/')}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+      <div className="relative z-10 bg-transparent">
+        <div className="container-custom py-6">
+          <div className="flex items-center justify-between">
+            <Button
+              variant="ghost"
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-2 text-foreground hover:bg-white/10"
             >
-              <ArrowLeft size={20} className="text-gray-600" />
-            </button>
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-600 text-sm">1iQ</span>
-              <span className="text-gray-400">/</span>
-              <span className="text-gray-900 font-medium"><SquareQ>1iQ Core</SquareQ></span>
-            </div>
+              <ArrowLeft className="w-4 h-4" />
+              Back
+            </Button>
+            <Button variant="ghost" size="icon" className="text-foreground hover:bg-white/10">
+              <Share2 className="w-4 h-4" />
+            </Button>
           </div>
         </div>
-      </header>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
+      {/* Main Content */}
+      <div className="container-custom py-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
           {/* Left Content */}
-          <div className="lg:w-1/2 space-y-8">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img 
-                  src="/lovable-uploads/eb743052-5345-4cca-bfdf-1935334b35f9.png" 
-                  alt="1iQ Logo" 
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <span className="text-lg font-medium text-gray-900">
-                <SquareQ>1iQ Core Now</SquareQ>
-              </span>
-            </div>
-
+          <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-                <SquareQ>1iQ Core Connected Construction Command Center</SquareQ>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
+                <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                1iQ Core Platform
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-foreground mb-2">
+                  Project Intelligence
+                </span>
+                <span className="block gradient-text">
+                  Redefined
+                </span>
               </h1>
               
-              <p className="text-lg text-gray-700 leading-relaxed">
-                <SquareQ>From scheduling and budgeting to documentation and resource allocation, 1iQ Core connects every piece of your operation in real time. Nothing gets lost in translation. Built for speed, clarity, and control, it replaces disconnected tools with a single, AI-driven platform that gives everyone from field teams to executives a live, shared source of truth.</SquareQ>
+              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
+                Transform your project management with AI-powered coordination, predictive analytics, and intelligent resource allocation. 1iQ Core delivers unprecedented visibility and control over complex operations.
               </p>
-
-              <div className="flex items-center space-x-4">
-                <Button 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md"
-                  onClick={() => navigate('/schedule-demo')}
-                >
-                  <SquareQ>Request</SquareQ>
-                </Button>
-                <button className="p-3 hover:bg-gray-100 rounded-md transition-colors">
-                  <Share2 size={20} className="text-gray-600" />
-                </button>
-              </div>
             </div>
-          </div>
-
-          {/* Right Content - Image Reel */}
-          <div className="lg:w-1/2">
-            <div className="relative">
-              {/* Main Display */}
-              <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden">
-                <img 
-                  src={reelImages[currentImageIndex]}
-                  alt="1iQ Core Interface"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Thumbnail Reel */}
-              <div className="flex space-x-2 mt-4">
-                {reelImages.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative aspect-video w-24 rounded overflow-hidden border-2 transition-all ${
-                      index === currentImageIndex 
-                        ? 'border-blue-500 shadow-lg' 
-                        : 'border-gray-300 hover:border-gray-400'
-                    }`}
-                  >
-                    <img 
-                      src={image}
-                      alt={`Interface ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Overview Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-medium text-gray-900 mb-6">
-            <SquareQ>Overview</SquareQ>
-          </h2>
-          
-          <div className="space-y-6 text-gray-700 leading-relaxed">
-            <p>
-              <SquareQ>1iQ Core is the intelligent engine behind construction's next generation—uniting schedules, budgets, documents, and team communication into a single, real-time command center. Built for high-stakes, fast-moving projects, it eliminates silos and guesswork by giving every stakeholder—from the field to the C-suite—immediate access to one powerful, dynamic source of truth.</SquareQ>
-            </p>
             
-            <p>
-              <SquareQ>At the heart of 1iQ Core is its AI-powered scheduling system. Unlike rigid, manual tools of the past, it adapts in real time to changing conditions—automatically rebalancing timelines, adjusting task dependencies, and reallocating resources as your project evolves. Whether you're managing a single site or a national portfolio, 1iQ Core empowers you to spot risks before they become delays, fast-track approvals, and keep every moving part tightly aligned.</SquareQ>
-            </p>
-
-            <p>
-              <SquareQ>This is more than just software. It's how you take control of complexity, cut through the noise, and deliver construction with confidence.</SquareQ>
-            </p>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <Button 
+                size="lg" 
+                className="group text-lg px-8 py-4 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
+                onClick={() => navigate('/get-started')}
+              >
+                Get Started
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="group text-lg px-8 py-4 border-2 border-primary/20 hover:border-primary/40 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300"
+                onClick={() => navigate('/schedule-demo')}
+              >
+                Schedule Demo
+              </Button>
+            </div>
           </div>
+          
+          {/* Right Content - Single Image */}
+          <div className="relative lg:h-[600px]">
+            <div className="absolute inset-0 bg-gradient-primary/10 rounded-3xl backdrop-blur-sm"></div>
+            <div className="absolute -inset-4 bg-gradient-primary/5 rounded-[2rem] blur-xl"></div>
+            <div className="relative h-full glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden">
+              <img
+                src="/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png"
+                alt="1iQ Core Platform Dashboard"
+                className="w-full h-full object-cover rounded-2xl shadow-elegant"
+              />
+            </div>
+          </div>
+          
         </div>
+      </div>
 
-        {/* Features Grid */}
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Real-Time Project Tracking</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Monitor project progress with live updates from field teams, automated milestone tracking, and instant notifications for critical path changes.</SquareQ>
+      {/* Features Section */}
+      <div className="container-custom py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Core Capabilities
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Powerful features for comprehensive project management
             </p>
           </div>
           
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>AI-Powered Scheduling</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Optimize project timelines with machine learning algorithms that predict delays, suggest alternative workflows, and automatically adjust schedules.</SquareQ>
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            <h3 className="text-lg font-medium text-gray-900">
-              <SquareQ>Integrated Financial Management</SquareQ>
-            </h3>
-            <p className="text-gray-600">
-              <SquareQ>Track costs, manage budgets, and forecast expenses with comprehensive financial tools designed for construction project complexity.</SquareQ>
-            </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                AI-Powered Coordination
+              </h3>
+              <p className="text-muted-foreground">
+                Advanced algorithms optimize resource allocation and predict potential bottlenecks before they impact project timelines.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Real-Time Analytics
+              </h3>
+              <p className="text-muted-foreground">
+                Comprehensive dashboards provide instant visibility into project performance, resource utilization, and progress metrics.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Intelligent Automation
+              </h3>
+              <p className="text-muted-foreground">
+                Automated workflows reduce manual overhead while ensuring critical tasks are completed on schedule and within budget.
+              </p>
+            </div>
+            
+            <div className="premium-card p-6 space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">
+                Predictive Insights
+              </h3>
+              <p className="text-muted-foreground">
+                Machine learning models analyze historical data to forecast project outcomes and recommend optimization strategies.
+              </p>
+            </div>
           </div>
         </div>
       </div>

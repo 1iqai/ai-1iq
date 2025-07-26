@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Infinity, ChevronRight } from "lucide-react";
 
-
 const PlatformsIntro = () => {
   const navigate = useNavigate();
   const [hoveredPlatform, setHoveredPlatform] = useState<string | null>(null);
@@ -10,133 +9,101 @@ const PlatformsIntro = () => {
 
   const platforms = [
     {
-      id: 'core',
-      name: '1iQ Core',
-      description: '1iQ Core connects every moving part of your construction project — scheduling, resources, field updates, and stakeholder visibility — into a single, unified platform. Real-time data syncs across teams, giving project managers and clients unprecedented control and situational awareness from day one.',
-      shortDescription: 'Automate operations, from the factory floor to the front lines',
-      number: '/0.1',
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop"
+      id: "core",
+      name: "1iQ Core",
+      shortDescription: "AI-powered project coordination and management platform",
+      description: "Comprehensive project management solution that leverages artificial intelligence to optimize resource allocation, predict potential issues, and streamline complex workflows across multiple departments and stakeholders.",
+      path: "/1iq-core"
     },
     {
-      id: 'field',
-      name: '1iQ Field',
-      description: '1iQ Field puts intuitive task checklists, live progress tracking, and instant feedback loops directly in the hands of your workforce. Built for the boots on the ground, it\'s lightweight, mobile-friendly, and designed to eliminate guesswork while keeping everyone aligned, accountable, and on pace.',
-      shortDescription: 'Achieve AI-driven combat superiority, from space to mud',
-      number: '/0.2',
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
+      id: "field",
+      name: "1iQ Field",
+      shortDescription: "Real-time field operations and workforce management",
+      description: "Advanced field management system designed for real-time coordination of on-site operations, crew scheduling, equipment tracking, and seamless communication between field teams and central command.",
+      path: "/1iq-field"
     },
     {
-      id: 'intel',
-      name: '1iQ Intel',
-      description: '1iQ Intel transforms raw project data into actionable intelligence through advanced analytics and AI-powered insights. Predict bottlenecks before they happen, optimize resource allocation in real-time, and make informed decisions that keep projects on track and profitable.',
-      shortDescription: 'Decisions driven by data, not assumptions',
-      number: '/0.3',
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop"
+      id: "intel",
+      name: "1iQ Intel", 
+      shortDescription: "Business intelligence and predictive analytics engine",
+      description: "Sophisticated analytics platform that transforms raw operational data into actionable insights, providing predictive modeling, performance forecasting, and strategic decision-making support.",
+      path: "/1iq-intel"
     }
   ];
 
-  const handlePlatformClick = (platform: typeof platforms[0]) => {
+  const handlePlatformClick = (platform: any) => {
     if (activePlatform === platform.id) {
-      // If already active, navigate to the platform page
-      if (platform.id === 'core') {
-        navigate('/1iq-core');
-      } else if (platform.id === 'field') {
-        navigate('/1iq-field');
-      } else if (platform.id === 'intel') {
-        navigate('/1iq-intel');
-      }
+      // If clicking the same platform, navigate to its page
+      navigate(platform.path);
     } else {
-      // Otherwise, set as active to show details
+      // If clicking a different platform, expand it
       setActivePlatform(platform.id);
     }
   };
 
-  const displayedPlatform = hoveredPlatform || activePlatform;
-
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white min-h-screen">
+    <section className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section - Optimized for mobile */}
-        <div className="text-center space-y-3 sm:space-y-4 lg:space-y-6 mb-12 sm:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight animate-zoom-pulse">
-            <div className="text-center">
-              <SquareQ>Three platforms</SquareQ>
-            </div>
-            <div className="text-center my-1 sm:my-2">
-              <Infinity className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 xl:w-16 xl:h-16 text-gray-400 mx-auto" />
-            </div>
-            <div className="text-center">
-              <SquareQ>Infinite possibilities.</SquareQ>
-            </div>
-          </h2>
-        </div>
-
-        {/* Platforms Section - Enhanced mobile layout */}
-        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
-          {platforms.map((platform, index) => (
-            <div key={platform.id} className="relative">
-              <button 
-                className="w-full grid lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start lg:items-center min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] cursor-pointer hover:bg-gray-50 active:bg-gray-100 transition-colors duration-200 p-2 sm:p-4 lg:p-6 rounded-lg touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2"
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+          {/* Left side - Heading */}
+          <div className="space-y-6">
+            <h2 className="text-4xl lg:text-5xl font-normal text-slate-900 leading-tight">
+              Three platforms
+            </h2>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal text-slate-900 leading-tight">
+              Infinite possibilities.
+            </h2>
+          </div>
+          
+          {/* Right side - Platform List */}
+          <div className="space-y-6">
+            {platforms.map((platform) => (
+              <div 
+                key={platform.id}
+                className={`border-b border-slate-200 pb-6 cursor-pointer transition-all duration-300 ${
+                  hoveredPlatform === platform.id ? 'transform translate-x-2' : ''
+                }`}
                 onMouseEnter={() => setHoveredPlatform(platform.id)}
                 onMouseLeave={() => setHoveredPlatform(null)}
                 onClick={() => handlePlatformClick(platform)}
               >
-                
-                {/* Mobile-first layout: Platform Name at top */}
-                <div className="lg:col-span-4 flex items-center justify-center lg:justify-end order-1 lg:order-3">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-gray-900 hover:text-gray-700 transition-colors text-center lg:text-right min-h-[44px] w-full lg:w-auto flex items-center justify-center lg:justify-end">
-                    <SquareQ>{platform.name}</SquareQ>
-                  </div>
-                </div>
-
-                {/* Content Section - Better mobile typography */}
-                <div className="lg:col-span-4 space-y-3 sm:space-y-4 lg:space-y-6 order-2 lg:order-1">
-                  <div className="text-xs sm:text-sm text-gray-400 font-mono text-center lg:text-left">
-                    {platform.number}
-                  </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-gray-900 leading-relaxed text-center lg:text-left">
-                    <SquareQ>{platform.shortDescription}</SquareQ>
-                  </h3>
-                  
-                  {/* Expandable content - Always visible on mobile when platform is active */}
-                  {displayedPlatform === platform.id && (
-                    <div className="transition-all duration-300 ease-in-out animate-fade-in">
-                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-light text-center lg:text-left mb-4">
-                        <SquareQ>{platform.description}</SquareQ>
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-medium text-slate-900 mb-4 flex items-center gap-3">
+                      {platform.name}
+                      <ChevronRight 
+                        className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                          activePlatform === platform.id ? 'rotate-90' : ''
+                        }`} 
+                      />
+                    </h3>
+                    
+                    {/* Short Description - Always visible */}
+                    <div className="mb-4">
+                      <p className="text-lg text-slate-600 leading-relaxed">
+                        {platform.shortDescription}
                       </p>
-                      <div className="flex justify-center lg:justify-start">
-                        <span className="inline-flex items-center gap-2 text-gray-900 text-sm sm:text-base font-medium underline underline-offset-4 min-h-[44px] px-2 py-2">
-                          Learn More
-                          <ChevronRight className="w-4 h-4" />
-                        </span>
-                      </div>
                     </div>
-                  )}
-                </div>
-
-                {/* Image Display - Optimized mobile sizing */}
-                <div className="lg:col-span-4 flex justify-center order-3 lg:order-2">
-                  <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-[4/3]">
-                    {displayedPlatform === platform.id && (
-                      <div className="w-full h-full bg-gray-100 rounded-lg overflow-hidden transition-all duration-300 ease-in-out animate-fade-in shadow-lg">
-                        <img 
-                          src={platform.image}
-                          alt={`${platform.name} platform`}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
+                    
+                    {/* Detailed Description - Visible when expanded */}
+                    {activePlatform === platform.id && (
+                      <div className="border-t border-slate-200 pt-6 mt-6">
+                        <p className="text-slate-700 leading-relaxed">
+                          {platform.description}
+                        </p>
                       </div>
                     )}
                   </div>
                 </div>
-              </button>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* Mobile CTA Section */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 text-center lg:hidden">
-          <p className="text-sm text-gray-600 mb-4">
+        
+        {/* Bottom instruction */}
+        <div className="mt-16 text-center">
+          <p className="text-slate-500 text-lg">
             Tap any platform row above to explore
           </p>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, ArrowRight, ExternalLink, Sparkles, Users, Building2, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import logoImage from '@/assets/1iq-logo.png';
 
 interface NavigationMenuProps {
   isOpen: boolean;
@@ -33,8 +34,8 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
           <div className="absolute inset-0 bg-gradient-primary/10"></div>
           <div className="relative flex justify-between items-center p-6 border-b border-border/30">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">1i</span>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
+                <img src={logoImage} alt="1iQ Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">1iQ</span>
             </div>

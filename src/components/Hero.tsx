@@ -35,27 +35,27 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-hero flex items-center relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-hero flex items-center relative overflow-hidden pt-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-indigo/5"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]"></div>
       
       {/* Content Container */}
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-5rem)] py-8">
           
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-8">
+          <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6">
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight">
-                <span className="block text-foreground mb-3 drop-shadow-sm">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
+                <span className="block text-foreground mb-2 drop-shadow-sm">
                   Transform Your
                 </span>
-                <span className="block gradient-text mb-3 drop-shadow-lg">
+                <span className="block gradient-text mb-2 drop-shadow-lg">
                   Decision Making
                 </span>
-                <span className="block text-foreground mb-3 drop-shadow-sm">
+                <span className="block text-foreground mb-2 drop-shadow-sm">
                   with AI-Powered
                 </span>
                 <span className="block text-foreground drop-shadow-sm">
@@ -63,16 +63,16 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light drop-shadow-sm">
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed font-light drop-shadow-sm">
                 1iQ delivers mission-critical execution for complex projects, driving precision and performance across construction, infrastructure, and enterprise operations.
               </p>
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-8">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button 
                 size="lg" 
-                className="group text-lg px-10 py-5 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300 font-semibold"
+                className="group text-base px-8 py-3 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300 font-semibold"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -83,7 +83,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="group text-lg px-10 py-5 border-2 border-primary/30 hover:border-primary/50 bg-white/90 backdrop-blur-sm hover:bg-white/95 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300 font-semibold"
+                className="group text-base px-8 py-3 border-2 border-primary/30 hover:border-primary/50 bg-white/90 backdrop-blur-sm hover:bg-white/95 text-primary hover:text-primary shadow-elegant hover:shadow-premium transition-all duration-300 font-semibold"
               >
                 <PlayCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 Watch Demo
@@ -91,7 +91,7 @@ const Hero = () => {
             </div>
             
             {/* Trust Indicators */}
-            <div className="pt-8 space-y-4">
+            <div className="pt-6 space-y-3">
               <p className="text-sm text-muted-foreground font-medium">
                 Trusted by 500+ organizations worldwide
               </p>
@@ -104,7 +104,7 @@ const Hero = () => {
           </div>
           
           {/* Right Content - Video Dashboard Preview */}
-          <div className="relative lg:h-[600px] animate-slide-up">
+          <div className="relative lg:h-[400px] animate-slide-up">
             <div className="absolute inset-0 bg-gradient-primary/10 rounded-3xl backdrop-blur-sm"></div>
             <div className="absolute -inset-6 bg-gradient-primary/5 rounded-[3rem] blur-2xl"></div>
             <div className="relative glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden shadow-2xl">

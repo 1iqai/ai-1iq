@@ -35,7 +35,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
           <div className="relative flex justify-between items-center p-6 border-b border-border/30">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src={logoImage} alt="1iQ Logo" className="w-full h-full object-contain" />
+                <img src="/lovable-uploads/4bf04b70-cf1b-4ce5-a342-4ac107a5f076.png" alt="1iQ Logo" className="w-full h-full object-contain" />
               </div>
               <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">1iQ</span>
             </div>

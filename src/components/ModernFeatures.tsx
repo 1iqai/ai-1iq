@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Brain, Zap, Shield, BarChart3, Users, Cog } from "lucide-react";
 
 const ModernFeatures = () => {
+  const navigate = useNavigate();
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
 
   const features = [
@@ -138,7 +140,12 @@ const ModernFeatures = () => {
               Explore All Features
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-4 text-lg border-2"
+              onClick={() => navigate('/schedule-demo')}
+            >
               Schedule Demo
             </Button>
           </div>

@@ -132,8 +132,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
             <div className="space-y-3">
               {[
                 { name: 'Contact Sales', path: '/contact-sales', desc: 'Speak with our team', external: false },
-                { name: 'Partnerships', path: '/partnership-inquiry', desc: 'Collaboration opportunities', external: false },
-                { name: 'Careers', path: 'https://careers.example.com', desc: 'Join our mission', external: true }
+                { name: 'Partnerships', path: '/partnership-inquiry', desc: 'Collaboration opportunities', external: false }
               ].map((item) => (
                 <div key={item.name} className="premium-card p-1 hover-lift">
                   <button 

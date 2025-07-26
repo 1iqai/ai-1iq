@@ -85,7 +85,7 @@ const OneiqCore = () => {
               <img
                 src="/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png"
                 alt="1iQ Core Platform Dashboard"
-                className="w-full h-full object-cover rounded-2xl shadow-elegant"
+                className="w-full h-full object-contain rounded-2xl shadow-elegant"
               />
             </div>
           </div>

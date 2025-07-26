@@ -86,7 +86,7 @@ const ModernTestimonials = () => {
                     Business Intelligence
                   </div>
                   <div className="text-sm text-muted-foreground font-medium">
-                    {testimonials[activeTestimonial].company}
+                    Red Bull
                   </div>
                 </div>
               </div>

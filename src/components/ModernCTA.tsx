@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ModernCTA = () => {
   const navigate = useNavigate();
   const benefits = ["No setup fees or hidden costs", "30-day money-back guarantee", "24/7 expert support included", "Free migration assistance"];
-  return <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5">
+  return <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}

@@ -39,10 +39,10 @@ const ModernTestimonials = () => {
     value: "24/7",
     label: "Expert Support"
   }];
-  return <section className="section-padding bg-muted/30">
+  return <section className="py-16 bg-muted/30">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Trusted by industry{" "}
             <span className="gradient-text">
@@ -55,7 +55,7 @@ const ModernTestimonials = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {stats.map((stat, index) => <div key={index} className="text-center">
               
             </div>)}
@@ -99,7 +99,7 @@ const ModernTestimonials = () => {
           </Card>
 
           {/* Testimonial Navigation */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-6 space-x-2">
             {testimonials.map((_, index) => <button key={index} onClick={() => setActiveTestimonial(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial ? 'bg-primary scale-125' : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'}`} />)}
           </div>
         </div>

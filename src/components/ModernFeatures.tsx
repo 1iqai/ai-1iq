@@ -62,9 +62,9 @@ const ModernFeatures = () => {
       <div className="container-custom">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="outline" className="mb-4 text-sm font-medium">
+          <h3 className="text-lg md:text-xl font-semibold text-primary mb-4 tracking-wide">
             Platform Features
-          </Badge>
+          </h3>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Everything you need to{" "}
             <span className="gradient-text">

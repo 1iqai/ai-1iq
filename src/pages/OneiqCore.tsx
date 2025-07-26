@@ -78,14 +78,14 @@ const OneiqCore = () => {
           </div>
           
           {/* Right Content - Single Image */}
-          <div className="relative lg:h-[600px]">
+          <div className="relative">
             <div className="absolute inset-0 bg-gradient-primary/10 rounded-3xl backdrop-blur-sm"></div>
             <div className="absolute -inset-4 bg-gradient-primary/5 rounded-[2rem] blur-xl"></div>
-            <div className="relative h-full glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden">
+            <div className="relative glass-effect rounded-3xl p-6 border border-primary/10 overflow-hidden">
               <img
                 src="/lovable-uploads/7d81da7b-2df8-46db-9e5b-695c1509856f.png"
                 alt="1iQ Core Platform Dashboard"
-                className="w-full h-full object-contain rounded-2xl shadow-elegant"
+                className="w-full h-auto rounded-2xl shadow-elegant"
               />
             </div>
           </div>

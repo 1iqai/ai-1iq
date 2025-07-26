@@ -2,8 +2,10 @@
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoError, setVideoError] = useState(false);
@@ -75,8 +77,9 @@ const Hero = () => {
                 className="group text-base px-8 py-3 premium-button shadow-glow hover:shadow-glow hover:scale-[1.02] transition-all duration-300 font-semibold"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={() => navigate('/get-started')}
               >
-                Get Started Free
+                Get Started
                 <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
               </Button>
               

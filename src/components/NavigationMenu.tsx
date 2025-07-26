@@ -57,7 +57,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 <Sparkles size={14} className="text-white" />
               </div>
               <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                Generate Alpha
+                CONNECT WITH US
               </h2>
             </div>
             

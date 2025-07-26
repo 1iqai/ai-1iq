@@ -10,7 +10,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 interface NewsArticle {
   title: string;
   description: string;
@@ -19,7 +18,6 @@ interface NewsArticle {
   source: string;
   urlToImage?: string;
 }
-
 const LearnMore = () => {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
@@ -27,13 +25,13 @@ const LearnMore = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("publishedAt");
   const [pageSize] = useState(6);
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
-
   useEffect(() => {
     fetchNews();
   }, [currentPage, searchTerm, sortBy]);
-
   const fetchNews = async () => {
     try {
       setLoading(true);
@@ -49,19 +47,17 @@ const LearnMore = () => {
       toast({
         title: "Error",
         description: "Failed to fetch news articles. Please try again later.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setLoading(false);
     }
   };
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setCurrentPage(1);
     fetchNews();
   };
-
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -69,11 +65,8 @@ const LearnMore = () => {
       day: 'numeric'
     });
   };
-
   const totalPages = Math.ceil(articles.length / pageSize);
-
-  return (
-    <div className="min-h-screen bg-gradient-hero">
+  return <div className="min-h-screen bg-gradient-hero">
       <Header />
       
       {/* Hero Section */}
@@ -156,13 +149,7 @@ const LearnMore = () => {
           {/* Search and Filter */}
           <div className="mb-8 flex flex-col sm:flex-row gap-4">
             <form onSubmit={handleSearch} className="flex-1">
-              <Input
-                type="text"
-                placeholder="Search construction news..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full"
-              />
+              
             </form>
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-full sm:w-48">
@@ -177,10 +164,8 @@ const LearnMore = () => {
           </div>
 
           {/* Articles Grid */}
-          {loading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, index) => (
-                <Card key={index} className="premium-card animate-pulse">
+          {loading ? <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...Array(6)].map((_, index) => <Card key={index} className="premium-card animate-pulse">
                   <CardHeader>
                     <div className="h-4 bg-muted rounded w-3/4"></div>
                     <div className="h-3 bg-muted rounded w-1/2"></div>
@@ -191,13 +176,9 @@ const LearnMore = () => {
                       <div className="h-3 bg-muted rounded w-5/6"></div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {articles.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((article, index) => (
-                <Card key={index} className="premium-card hover:shadow-premium transition-all duration-300">
+                </Card>)}
+            </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((article, index) => <Card key={index} className="premium-card hover:shadow-premium transition-all duration-300">
                   <CardHeader>
                     <Badge variant="secondary" className="w-fit">
                       {article.source}
@@ -213,51 +194,31 @@ const LearnMore = () => {
                     <p className="text-muted-foreground line-clamp-3 mb-4">
                       {article.description}
                     </p>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => window.open(article.url, '_blank')}
-                    >
+                    <Button variant="outline" size="sm" onClick={() => window.open(article.url, '_blank')}>
                       Read More
                     </Button>
                   </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
+                </Card>)}
+            </div>}
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="flex justify-center items-center gap-4 mt-8">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-              >
+          {totalPages > 1 && <div className="flex justify-center items-center gap-4 mt-8">
+              <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
                 <ChevronLeft className="w-4 h-4" />
                 Previous
               </Button>
               <span className="text-muted-foreground">
                 Page {currentPage} of {totalPages}
               </span>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                disabled={currentPage === totalPages}
-              >
+              <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
                 Next
                 <ChevronRight className="w-4 h-4" />
               </Button>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default LearnMore;

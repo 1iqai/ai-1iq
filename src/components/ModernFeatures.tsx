@@ -124,7 +124,20 @@ const ModernFeatures = () => {
         {/* CTA Section */}
         <div className="text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="px-8 py-4 text-lg">
+            <Button 
+              size="lg" 
+              className="px-8 py-4 text-lg"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Small delay to ensure scroll completes before triggering menu
+                setTimeout(() => {
+                  const menuButton = document.querySelector('button[aria-label="Open menu"], button:has(svg[data-lucide="menu"])') as HTMLButtonElement;
+                  if (menuButton) {
+                    menuButton.click();
+                  }
+                }, 600);
+              }}
+            >
               Explore All Features
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

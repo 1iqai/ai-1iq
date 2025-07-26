@@ -2,19 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
 const ModernCTA = () => {
   const navigate = useNavigate();
-
-  const benefits = [
-    "No setup fees or hidden costs",
-    "30-day money-back guarantee",
-    "24/7 expert support included",
-    "Free migration assistance"
-  ];
-
-  return (
-    <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5">
+  const benefits = ["No setup fees or hidden costs", "30-day money-back guarantee", "24/7 expert support included", "Free migration assistance"];
+  return <section className="section-padding bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
@@ -37,21 +28,12 @@ const ModernCTA = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="group text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-large"
-              onClick={() => navigate('/get-started')}
-            >
+            <Button size="lg" className="group text-lg px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-large" onClick={() => navigate('/get-started')}>
               Start Free Trial
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="text-lg px-8 py-4 border-2 hover:bg-muted/50"
-              onClick={() => navigate('/schedule-demo')}
-            >
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-2 hover:bg-muted/50" onClick={() => navigate('/schedule-demo')}>
               Schedule Demo
             </Button>
           </div>
@@ -62,15 +44,13 @@ const ModernCTA = () => {
               Join 500+ organizations already using 1iQ
             </p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
-              <div className="text-xs font-semibold tracking-wider">SOC 2 COMPLIANT</div>
-              <div className="text-xs font-semibold tracking-wider">GDPR READY</div>
-              <div className="text-xs font-semibold tracking-wider">99.9% UPTIME</div>
+              
+              
+              
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ModernCTA;

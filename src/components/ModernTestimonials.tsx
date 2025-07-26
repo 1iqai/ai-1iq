@@ -83,7 +83,7 @@ const ModernTestimonials = () => {
                     {testimonials[activeTestimonial].author}
                   </div>
                   <div className="text-muted-foreground">
-                    {testimonials[activeTestimonial].role}
+                    Business Intelligence
                   </div>
                   <div className="text-sm text-muted-foreground font-medium">
                     {testimonials[activeTestimonial].company}

@@ -34,17 +34,6 @@ const ModernCTA = () => {
             Join thousands of organizations already transforming their operations with 1iQ. Get started in minutes, not months.
           </p>
 
-          {/* Benefits List */}
-          <div className="grid sm:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center space-x-3 text-left">
-                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  {benefit}
-                </span>
-              </div>
-            ))}
-          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

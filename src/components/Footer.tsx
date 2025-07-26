@@ -2,9 +2,9 @@ import { Youtube, Linkedin, Github, ArrowRight } from "lucide-react";
 const Footer = () => {
   return <footer className="bg-white text-gray-500 py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Left column - Copyright and legal */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="md:col-span-1">
             <p className="text-xs mb-4">© 2025 1iQ Technologies Inc.</p>
             <p className="text-xs mb-8">All rights reserved.</p>
             
@@ -12,7 +12,7 @@ const Footer = () => {
             
             
             
-            <div className="space-y-3">
+            <div className="space-y-2">
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
                 YOUTUBE
               </button>
@@ -59,7 +59,7 @@ const Footer = () => {
           {/* Capabilities Column */}
           <div>
             <h4 className="font-medium text-gray-400 text-xs mb-4 uppercase tracking-wider">CAPABILITIES</h4>
-            <ul className="space-y-2 text-xs mb-8">
+            <ul className="space-y-2 text-xs">
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>AI-Powered Scheduling</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Real-Time Data Sync</a></li>
               <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>Digital Twin Integration</a></li>

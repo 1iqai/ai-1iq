@@ -13,6 +13,7 @@ import OneiqCore from "./pages/OneiqCore";
 import OneiqField from "./pages/OneiqField";
 import OneiqIntel from "./pages/OneiqIntel";
 import GetStarted from "./pages/GetStarted";
+import BuildersApplication from "./pages/BuildersApplication";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/1iq-field" element={<OneiqField />} />
           <Route path="/1iq-intel" element={<OneiqIntel />} />
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/builders-application" element={<BuildersApplication />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

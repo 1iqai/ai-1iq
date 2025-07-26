@@ -117,7 +117,7 @@ const LearnMore = () => {
                   <p className="text-muted-foreground mb-6">
                     We believe in supporting the next generation of builders through resources, mentorship, and funding opportunities.
                   </p>
-                  <Button size="lg" className="w-full">
+                  <Button size="lg" className="w-full" onClick={() => navigate('/builders-application')}>
                     Apply Now
                   </Button>
                 </CardContent>

@@ -29,7 +29,9 @@ const LearnMore = () => {
   const [sortBy, setSortBy] = useState("publishedAt");
   const [pageSize] = useState(6);
   const [newsSource, setNewsSource] = useState<string>('');
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
   useEffect(() => {
     fetchNews();
@@ -41,17 +43,15 @@ const LearnMore = () => {
       } else {
         setLoading(true);
       }
-      
       const newsData = await NewsService.fetchConstructionNews(forceRefresh);
       if (newsData.success && newsData.articles) {
         setArticles(newsData.articles);
         setNewsSource(newsData.source || 'unknown');
-        
         if (forceRefresh) {
           toast({
             title: "Success",
             description: `News refreshed successfully from ${newsData.source}`,
-            duration: 3000,
+            duration: 3000
           });
         }
       } else {
@@ -75,7 +75,6 @@ const LearnMore = () => {
       setRefreshing(false);
     }
   };
-
   const handleRefresh = () => {
     fetchNews(true);
   };
@@ -181,18 +180,9 @@ const LearnMore = () => {
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                     Latest Construction News
                   </h2>
-                  {newsSource && (
-                    <Badge variant={newsSource === 'firecrawl' ? 'default' : newsSource === 'newsapi' ? 'secondary' : 'outline'}>
-                      Source: {newsSource === 'firecrawl' ? 'Live Scraping' : newsSource === 'newsapi' ? 'News API' : newsSource === 'cache' ? 'Cached' : 'Mock Data'}
-                    </Badge>
-                  )}
+                  {newsSource}
                 </div>
-                <Button 
-                  onClick={handleRefresh} 
-                  disabled={refreshing}
-                  variant="outline"
-                  size="sm"
-                >
+                <Button onClick={handleRefresh} disabled={refreshing} variant="outline" size="sm">
                   <RefreshCw className={`h-4 w-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
                   {refreshing ? 'Refreshing...' : 'Refresh News'}
                 </Button>
@@ -201,12 +191,7 @@ const LearnMore = () => {
               {/* Search and Filter */}
               <div className="mb-8 flex flex-col sm:flex-row gap-4">
                 <form onSubmit={handleSearch} className="flex-1">
-                  <Input
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Search construction news..."
-                    className="w-full"
-                  />
+                  <Input value={searchTerm} onChange={e => setSearchTerm(e.target.value)} placeholder="Search construction news..." className="w-full" />
                 </form>
                 <Select value={sortBy} onValueChange={setSortBy}>
                   <SelectTrigger className="w-full sm:w-48">
@@ -259,31 +244,19 @@ const LearnMore = () => {
             </div>}
 
               {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-4 mt-8">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} 
-                    disabled={currentPage === 1}
-                  >
+              {totalPages > 1 && <div className="flex justify-center items-center gap-4 mt-8">
+                  <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
                     <ChevronLeft className="w-4 h-4" />
                     Previous
                   </Button>
                   <span className="text-muted-foreground">
                     Page {currentPage} of {totalPages}
                   </span>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} 
-                    disabled={currentPage === totalPages}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
                     Next
                     <ChevronRight className="w-4 h-4" />
                   </Button>
-                </div>
-              )}
+                </div>}
             </TabsContent>
             
             <TabsContent value="settings">

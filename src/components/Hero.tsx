@@ -95,10 +95,6 @@ const Hero = () => {
               <p className="text-sm text-muted-foreground font-medium">
                 Trusted by 500+ organizations worldwide
               </p>
-              <div className="flex items-center space-x-6 opacity-60">
-                <div className="text-xs font-semibold tracking-wider">ENTERPRISE</div>
-                <div className="text-xs font-semibold tracking-wider">SECURE</div>
-              </div>
             </div>
           </div>
           

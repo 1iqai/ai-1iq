@@ -84,7 +84,7 @@ const OneiqCore = () => {
             <div className="relative glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden shadow-2xl">
               <div className="bg-white/95 rounded-2xl p-4 shadow-inner">
                 <img
-                  src="/lovable-uploads/e93dd749-d087-4daf-8f07-ba9de354ebde.png"
+                  src="/lovable-uploads/8005dd27-23e3-4261-8a45-c07cc69a2996.png"
                   alt="1iQ Core Platform Dashboard"
                   className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
                 />

@@ -9,9 +9,6 @@ const ModernCTA = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
-          <Badge variant="outline" className="mb-6 text-sm font-medium border-primary/20">
-            Ready to Transform?
-          </Badge>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Start building the future

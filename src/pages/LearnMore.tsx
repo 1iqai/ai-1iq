@@ -148,9 +148,7 @@ const LearnMore = () => {
 
           {/* Search and Filter */}
           <div className="mb-8 flex flex-col sm:flex-row gap-4">
-            <form onSubmit={handleSearch} className="flex-1">
-              
-            </form>
+            
             <Select value={sortBy} onValueChange={setSortBy}>
               <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder="Sort by" />

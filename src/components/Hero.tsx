@@ -98,7 +98,6 @@ const Hero = () => {
               <div className="flex items-center space-x-6 opacity-60">
                 <div className="text-xs font-semibold tracking-wider">ENTERPRISE</div>
                 <div className="text-xs font-semibold tracking-wider">SECURE</div>
-                <div className="text-xs font-semibold tracking-wider">SCALABLE</div>
               </div>
             </div>
           </div>

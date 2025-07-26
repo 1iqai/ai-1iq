@@ -1,10 +1,38 @@
 
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [videoError, setVideoError] = useState(false);
+  
+  // Same video sources as GetStartedModal
+  const videoSources = [
+    "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1",
+    "https://www.dropbox.com/scl/fi/magy7156bh6q900e6vkbg/8328042-uhd_3840_2160_25fps.mp4?rlkey=csegaoa737hfv4ej5kjgdqxfh&dl=1",
+    "https://www.dropbox.com/scl/fi/b6odzp4ki9q7d9u34hjwt/istockphoto-2156301199-640_adpp_is.mp4?rlkey=wubnwer2cpru6zyzy9jwl3se6&dl=1",
+    "https://www.dropbox.com/scl/fi/q1bgsagocslaicd3aswok/3195703-uhd_3840_2160_25fps.mp4?rlkey=zui6xgbsxnd2t0hye72vjltvw&dl=1",
+    "https://www.dropbox.com/scl/fi/riooctlcde9453q2jg6u0/2835998-uhd_3840_2160_24fps.mp4?rlkey=n531908bbghhtlwrjisy67lfy&dl=1",
+  ];
+
+  // Video cycling logic
+  useEffect(() => {
+    if (videoSources.length > 1 && !videoError) {
+      const interval = setInterval(() => {
+        setCurrentVideoIndex((prevIndex) => 
+          (prevIndex + 1) % videoSources.length
+        );
+      }, 10000);
+
+      return () => clearInterval(interval);
+    }
+  }, [videoSources.length, videoError]);
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
 
   return (
     <section className="min-h-screen bg-gradient-hero flex items-center relative overflow-hidden">
@@ -81,22 +109,31 @@ const Hero = () => {
             <div className="absolute -inset-6 bg-gradient-primary/5 rounded-[3rem] blur-2xl"></div>
             <div className="relative glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden shadow-2xl">
               <div className="bg-white/95 rounded-2xl p-4 shadow-inner">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
-                  poster="/lovable-uploads/4ff089d9-32f4-4316-aacc-8ac8f22d910f.png"
-                >
-                  <source src="/lovable-uploads/4ff089d9-32f4-4316-aacc-8ac8f22d910f.png" type="video/mp4" />
-                  {/* Fallback image if video fails to load */}
+                {!videoError ? (
+                  <div className="relative">
+                    {videoSources.map((src, index) => (
+                      <video
+                        key={`hero-${index}-${src}`}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        onError={handleVideoError}
+                        className={`w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-all duration-500 ${
+                          index === currentVideoIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
+                        }`}
+                      >
+                        <source src={src} type="video/mp4" />
+                      </video>
+                    ))}
+                  </div>
+                ) : (
                   <img
                     src="/lovable-uploads/4ff089d9-32f4-4316-aacc-8ac8f22d910f.png"
                     alt="1iQ Enterprise Dashboard"
-                    className="w-full h-auto rounded-xl shadow-lg"
+                    className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
                   />
-                </video>
+                )}
               </div>
             </div>
           </div>

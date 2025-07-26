@@ -38,7 +38,7 @@ const ModernCTA = () => {
           {/* Trust Elements */}
           <div className="mt-8 pt-8 border-t border-border/50">
             <p className="text-sm text-muted-foreground mb-4">
-              Join 500+ organizations already using 1iQ
+              Join 500+ developments worldwide
             </p>
             <div className="flex justify-center items-center space-x-8 opacity-60">
               

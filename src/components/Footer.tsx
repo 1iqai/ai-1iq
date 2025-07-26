@@ -23,7 +23,7 @@ const Footer = () => {
                 LINKEDIN
               </button>
               <button className="w-full max-w-[100px] border border-gray-300 rounded-full py-1.5 px-3 text-xs hover:bg-gray-50 transition-colors">
-                GITHUB
+                INSTAGRAM
               </button>
             </div>
           </div>

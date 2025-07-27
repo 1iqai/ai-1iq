@@ -65,7 +65,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
             <div className="premium-card p-1 hover-lift">
               <button 
                 onClick={() => handleNavigation('/get-started')}
-                className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary hover:text-white transition-all duration-300 group"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
@@ -100,7 +100,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 <div key={platform.name} className="premium-card p-1 hover-lift">
                   <button 
                     onClick={() => handleNavigation(platform.path)}
-                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary hover:text-white transition-all duration-300 group"
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
@@ -137,7 +137,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 <div key={item.name} className="premium-card p-1 hover-lift">
                   <button 
                     onClick={() => item.external ? window.open(item.path, '_blank') : handleNavigation(item.path)}
-                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary hover:text-white transition-all duration-300 group"
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
@@ -181,7 +181,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                 <div key={item.name} className="premium-card p-1 hover-lift">
                   <button 
                     onClick={() => item.external ? window.open(item.path, '_blank') : handleNavigation(item.path)}
-                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary/5 transition-all duration-300 group"
+                    className="flex items-center justify-between w-full text-left p-4 rounded-lg hover:bg-gradient-primary hover:text-white transition-all duration-300 group"
                   >
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 bg-gradient-primary/10 rounded-lg flex items-center justify-center group-hover:bg-gradient-primary/20 transition-all">
@@ -230,7 +230,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
                   </button>
                   <button 
                     onClick={() => handleNavigation('/schedule-demo')}
-                    className="w-full border border-primary/30 hover:border-primary/50 bg-background/80 hover:bg-background/90 text-foreground py-4 px-6 text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
+                    className="w-full border border-primary/30 hover:border-primary/50 hover:bg-gradient-primary hover:text-white text-foreground py-4 px-6 text-sm font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm"
                   >
                     Schedule Demo
                   </button>

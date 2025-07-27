@@ -94,8 +94,7 @@ const NavigationMenu = ({ isOpen, onClose }: NavigationMenuProps) => {
             
             <div className="space-y-3">
               {[
-                { name: '1iQ Core', path: '/1iq-core', desc: 'Core intelligence platform' },
-                { name: '1iQ Field', path: '/1iq-field', desc: 'Field operations management' },
+                { name: '1iQ Core & Field', path: '/1iq-platform', desc: 'Complete operations platform' },
                 { name: '1iQ Intel', path: '/1iq-intel', desc: 'Intelligence & analytics' }
               ].map((platform, index) => (
                 <div key={platform.name} className="premium-card p-1 hover-lift">

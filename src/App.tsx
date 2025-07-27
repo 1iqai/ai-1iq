@@ -9,8 +9,7 @@ import ScheduleDemo from "./pages/ScheduleDemo";
 import ContactSales from "./pages/ContactSales";
 import PartnershipInquiry from "./pages/PartnershipInquiry";
 import LearnMore from "./pages/LearnMore";
-import OneiqCore from "./pages/OneiqCore";
-import OneiqField from "./pages/OneiqField";
+import OneiqPlatform from "./pages/OneiqPlatform";
 import OneiqIntel from "./pages/OneiqIntel";
 import GetStarted from "./pages/GetStarted";
 import BuildersApplication from "./pages/BuildersApplication";
@@ -30,8 +29,7 @@ const App = () => (
           <Route path="/contact-sales" element={<ContactSales />} />
           <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
           <Route path="/learn-more" element={<LearnMore />} />
-          <Route path="/1iq-core" element={<OneiqCore />} />
-          <Route path="/1iq-field" element={<OneiqField />} />
+          <Route path="/1iq-platform" element={<OneiqPlatform />} />
           <Route path="/1iq-intel" element={<OneiqIntel />} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/builders-application" element={<BuildersApplication />} />

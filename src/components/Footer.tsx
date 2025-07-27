@@ -34,7 +34,7 @@ const Footer = () => {
             <ul className="space-y-2 text-xs">
               <li><a href="/1iq-platform" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Core</a></li>
               <li><a href="/1iq-platform" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Field</a></li>
-              <li><a href="#" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Intel</a></li>
+              <li><a href="/1iq-intel" className="relative group transition-colors"><span className="absolute -top-1 left-0 w-full h-0.5 bg-gray-900 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>1iQ Intel</a></li>
               
               
               

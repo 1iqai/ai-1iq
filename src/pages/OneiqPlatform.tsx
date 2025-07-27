@@ -44,7 +44,7 @@ const OneiqPlatform = () => {
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
                 <span className="block text-foreground mb-2">
-                  Complete Operations
+                  Central Command
                 </span>
                 <span className="block gradient-text">
                   Intelligence

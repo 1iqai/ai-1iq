@@ -39,7 +39,7 @@ const OneiqPlatform = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 border border-primary/20 rounded-full text-sm font-medium text-accent-foreground">
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                1iQ Core & Field Platform
+                1iQ Core & Field
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">

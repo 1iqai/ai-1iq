@@ -6,7 +6,6 @@ interface BotProtectionProps {
 }
 
 export const BotProtection = ({ children }: BotProtectionProps) => {
-  const [isBlocked, setIsBlocked] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
 
   useEffect(() => {
@@ -18,9 +17,8 @@ export const BotProtection = ({ children }: BotProtectionProps) => {
       const detection = BotDetector.detectBot();
       
       if (detection.isBot) {
-        console.warn('Bot detected:', detection.reasons);
-        setIsBlocked(true);
-        return;
+        console.warn('Bot detected (non-blocking):', detection.reasons);
+        // No longer blocking, just logging
       }
 
       // Check rate limiting
@@ -47,8 +45,8 @@ export const BotProtection = ({ children }: BotProtectionProps) => {
     const honeypotInput = honeypot.querySelector('input');
     if (honeypotInput) {
       honeypotInput.addEventListener('change', () => {
-        console.warn('Honeypot triggered - bot detected');
-        setIsBlocked(true);
+        console.warn('Honeypot triggered - bot detected (non-blocking)');
+        // No longer blocking, just logging
       });
     }
 
@@ -59,22 +57,6 @@ export const BotProtection = ({ children }: BotProtectionProps) => {
       }
     };
   }, []);
-
-  if (isBlocked) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center p-8">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Access Restricted</h1>
-          <p className="text-muted-foreground mb-4">
-            Automated access is not permitted on this website.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            If you believe this is an error, please contact support.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>

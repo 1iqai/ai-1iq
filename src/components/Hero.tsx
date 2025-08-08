@@ -9,8 +9,8 @@ const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [videoError, setVideoError] = useState(false);
   
-  // Single video source - user's intro video
-  const videoSource = "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1";
+  // Single video source - user's intro video (corrected Dropbox URL)
+  const videoSource = "https://dl.dropboxusercontent.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz";
 
   const handleVideoError = () => {
     setVideoError(true);

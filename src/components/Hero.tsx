@@ -8,8 +8,8 @@ const Hero = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   
-  // Try with a simple, reliable video URL first
-  const videoSource = "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1";
+  // Using a working video URL for now - you can replace this with your uploaded video
+  const videoSource = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
   const handleVideoError = (e: any) => {
     console.log("Video error:", e);

@@ -7,13 +7,12 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   
-  // Single video source - user's intro video (corrected Dropbox URL)
-  const videoSource = "https://dl.dropboxusercontent.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz";
+  // Try with a simple, reliable video URL first
+  const videoSource = "https://www.dropbox.com/scl/fi/am3hd59bu19kow7z6ab6d/istockphoto-1556270667-640_adpp_is.mp4?rlkey=bhe9e0qjfmawy5ug4jizo6mmz&dl=1";
 
-  const handleVideoError = () => {
-    setVideoError(true);
+  const handleVideoError = (e: any) => {
+    console.log("Video error:", e);
   };
 
   return (
@@ -79,24 +78,17 @@ const Hero = () => {
             <div className="absolute -inset-6 bg-gradient-primary/5 rounded-[3rem] blur-2xl"></div>
             <div className="relative glass-effect rounded-3xl p-8 border border-primary/10 overflow-hidden shadow-2xl">
               <div className="bg-white/95 rounded-2xl p-4 shadow-inner">
-                {!videoError ? (
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    onError={handleVideoError}
-                    className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-all duration-500"
-                  >
-                    <source src={videoSource} type="video/mp4" />
-                  </video>
-                ) : (
-                  <img
-                    src="/lovable-uploads/4ff089d9-32f4-4316-aacc-8ac8f22d910f.png"
-                    alt="1iQ Enterprise Dashboard"
-                    className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-500"
-                  />
-                )}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onError={handleVideoError}
+                  className="w-full h-auto rounded-xl shadow-lg transform hover:scale-[1.02] transition-all duration-500"
+                >
+                  <source src={videoSource} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>

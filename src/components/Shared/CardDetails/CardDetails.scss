@@ -1,0 +1,120 @@
+@use "../../../responsive" as *;
+
+// 1. Divider Styling
+.angled-divider {
+  display: block;
+  width: 100%;
+  height: 12px; // Height of the kink
+  margin-bottom: 24px;
+  
+  path {
+    stroke: #d1d5db; // Light gray
+  }
+}
+
+.card-details {
+  display: grid;
+  // We removed the generic border-top here because we are using the SVG Divider
+  
+  @include laptop {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  // 2. Section Title (Left Side)
+  .section-title {
+    margin-bottom: 24px;
+    @include laptop {
+      grid-column: 1 / span 3;
+      padding-top: 32px;
+      margin-bottom: 0;
+    }
+  }
+
+  // Wrapper for the list of cards (Right Side)
+  .cards-wrapper {
+    @include laptop {
+      grid-column: 4 / span 5;
+    }
+  }
+
+  // 3. Individual Card Styling
+  .card {
+    display: flex;
+    // RESPONSIVE FIX: This puts the Value (2nd HTML element) ON TOP of the Text (1st HTML element) on Mobile
+    flex-direction: column-reverse; 
+    gap: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include tablet {
+      gap: 12px;
+    }
+
+    @include laptop {
+      // Return to row layout on desktop
+      flex-direction: row; 
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 32px;
+      padding-bottom: 48px;
+      gap: 32px;
+    }
+
+    // The Label (Column 2 in design)
+    .card-text {
+      font-size: 16px;
+      color: #333;
+      margin: 0;
+      
+      @include laptop {
+        flex: 1;
+        max-width: 250px; // Prevent label from stretching too wide
+      }
+    }
+
+    // Wrapper for Title + Date to keep them grouped
+    .card-value-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      
+      @include laptop {
+        align-items: flex-end; // Align numbers to the right on desktop
+        text-align: right;
+      }
+    }
+
+    // The Big Number (Column 3 in design)
+    .card-title {
+      font-weight: 400; // Large numbers often look better slightly lighter
+      line-height: 1;
+      margin: 0;
+      color: #000;
+
+      @include tablet {
+        font-size: 32px;
+      }
+
+      @include laptop {
+        font-size: 32px; // Match the huge scale in the image
+      }
+    }
+
+    // The "As of..." text
+    .card-date {
+      display: block;
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 4px;
+      
+      @include laptop {
+        margin-top: 8px;
+      }
+    }
+  }
+}

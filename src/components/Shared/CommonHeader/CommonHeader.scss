@@ -1,0 +1,83 @@
+@use "../../../responsive" as *;
+
+.header-dark {
+  color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  height: 42vh;
+  justify-content: flex-end;
+  padding-bottom: 24px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 64px;
+  overflow: hidden;
+
+  @include tablet {
+    height: 42vh;
+  }
+
+  @include laptop {
+    height: 42vh;
+  }
+
+  // Dark overlay
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .section-header {
+    max-width: 1600px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 24px;
+    position: relative;
+    z-index: 2;
+
+    .wrapper {
+      grid-column: 1 / span 9;
+
+      @include tablet {
+        grid-column: 1 / span 8;
+      }
+
+      @include laptop {
+        grid-column: 1 / span 4;
+      }
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 1.1;
+
+      @include laptop {
+        font-size: 60px;
+      }
+    }
+
+    p {
+      margin-top: 18px;
+    }
+  }
+}

@@ -1,0 +1,379 @@
+@use "../../responsive" as *;
+
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  width: 24px;
+  background: black;
+  position: absolute;
+  display: block;
+  content: "";
+
+  @include laptop {
+    width: 32px;
+  }
+
+  @media (max-width: 768px) {
+    width: 20px;
+  }
+}
+
+#nav-toggle span::before {
+  top: -7px;
+  height: 2px;
+}
+
+#nav-toggle span::after {
+  top: 7px;
+  height: 2px;
+}
+
+#nav-toggle span,
+#nav-toggle span::before,
+#nav-toggle span::after {
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.hamnav-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  visibility: hidden;
+  transition: all 0.6s ease-in-out;
+}
+
+.hamnav-blur.active {
+  z-index: 80;
+  visibility: visible;
+  background: rgba(53, 46, 46, 0.19);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  transition: all 0.6s ease-in-out;
+}
+
+.hamnav {
+  background-color: #f3f3f2;
+  border-radius: 8px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  transition: width 1.1s cubic-bezier(0.86, 0, 0.07, 1), background-color 1.1s cubic-bezier(0.86, 0, 0.07, 1),
+    filter 0.5s ease, color 1.1s cubic-bezier(0.86, 0, 0.07, 1);
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+
+  @include laptop {
+    width: 180px;
+  }
+
+  @media (max-width: 768px) {
+    width: 90px;
+    height: 42px;
+  }
+
+  &.active {
+    width: 42px;
+
+    @include laptop {
+      width: 64px;
+    }
+
+
+    .company-name {
+      opacity: 0;
+      border-right-color: transparent;
+    }
+
+    #nav-toggle {
+      span {
+        background-color: transparent;
+
+        &::after,
+        &::before {
+          top: 0;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .company-name {
+    padding: 0 14px 0 0;
+    border-right: 1px solid #d9d9d6;
+    transition: all 1.1s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include laptop {
+      padding: 12px 48px 12px 16px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 8px 0 0;
+    }
+  }
+
+  .toggle {
+    padding: 12px 16px;
+
+    @media (max-width: 768px) {
+      padding: 8px 10px;
+    }
+
+    #nav-toggle {
+      cursor: pointer;
+      display: inline-block;
+      height: 20px;
+      width: 24px;
+      position: relative;
+
+      @include laptop {
+        width: 32px;
+      }
+
+      @media (max-width: 768px) {
+        width: 20px;
+        height: 16px;
+      }
+
+      span {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+.outside-link {
+  .UpRightArrow {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    .UpRightArrow {
+      transform: rotate(-45deg) translate(4px, 0px);
+    }
+  }
+}
+
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #bcbfb0;
+  color: #fff;
+  padding: 18px;
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 90;
+  height: 100vh;
+  overflow-y: auto;
+
+  @include laptop {
+    padding: 24px;
+    height: 460px;
+    padding: 24px;
+  }
+
+  &.active {
+    transform: translateY(0%);
+
+    .menu-links a,
+    .menu-links-wide .wide-item {
+      opacity: 1;
+      transform: translateY(0);
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          transition-delay: 0.3s + ($i * 0.1s);
+        }
+      }
+    }
+  }
+
+  .menu-container {
+    display: grid;
+    gap: 55px;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include laptop {
+      grid-template-columns: repeat(16, 1fr);
+    }
+
+    .menu-links {
+      @include laptop {
+        grid-column: 1 / span 5;
+        border-right: 1px solid rgba(8, 8, 8, 0.1);
+      }
+
+      .section-title {
+        font-size: 14px;
+        color: #5f5f5f;
+        font-weight: 600;
+        margin-bottom: 42px;
+
+        @include laptop {
+          margin-bottom: 90px;
+        }
+      }
+
+      .link {
+        span {
+          color: rgba(0, 0, 0, 0.5);
+          transition: color 0.3s ease;
+        }
+
+        &.active {
+          span {
+            color: black;
+            font-weight: 600;
+          }
+        }
+
+        &:hover {
+          span {
+            color: black;
+          }
+        }
+
+        svg {
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+
+    .menu-links-wide {
+      @include laptop {
+        grid-column: 6/-1;
+      }
+
+      .section-title {
+        font-size: 14px;
+        color: #5f5f5f;
+        font-weight: 600;
+        margin-bottom: 42px;
+
+        @include laptop {
+          margin-bottom: 90px;
+        }
+      }
+
+      .wide-item {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        align-items: center;
+        color: black;
+        position: relative;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(8, 8, 8, 0.1);
+
+        @include laptop {
+          grid-template-columns: 80px 320px 1fr 30px;
+          gap: 0px;
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 42px;
+        }
+
+        &:hover {
+          .title {
+            &::before {
+              width: 65%;
+            }
+          }
+        }
+
+        div {
+          &:not(:first-child) {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            @include laptop {
+              border-top: 1px solid rgba(8, 8, 8, 0.1);
+            }
+          }
+
+          &:last-child {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: auto;
+            border: none;
+
+            @include laptop {
+              height: 100%;
+              position: static;
+              border-top: 1px solid rgba(8, 8, 8, 0.1);
+            }
+
+            svg.right-icon {
+              font-size: 32px;
+
+              @include laptop {
+                font-size: 62px;
+              }
+            }
+          }
+        }
+
+        .title {
+          font-weight: 600;
+          position: relative;
+
+          @include laptop {
+            &::before {
+              content: "";
+              width: 0%;
+              height: 2px;
+              background-color: black;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+          }
+        }
+
+        .icon {
+          stroke: black;
+          font-size: 32px;
+          background-color: #fff;
+          border-radius: 8px;
+          padding: 6px;
+        }
+      }
+    }
+  }
+
+  .menu-links a,
+  .menu-links-wide .wide-item {
+    //display: block;
+    // text-decoration: none;
+    //color: black;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+}

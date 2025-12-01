@@ -1,0 +1,18 @@
+@use "../../../responsive" as *;
+
+      /* Smooth height transition utility */
+.accordion-content {
+    transition: grid-template-rows 0.3s ease-out;
+}
+
+.accordion-content.open {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content.closed {
+    grid-template-rows: 0fr;
+}
+
+.accordion-inner {
+    overflow: hidden;
+}

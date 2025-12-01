@@ -1,0 +1,91 @@
+.industries-banner {
+  width: 100%;
+  margin-top: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  color: #111318;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 3rem);
+    padding: clamp(0.75rem, 1vw, 1.1rem) clamp(1.5rem, 5vw, 5rem);
+    animation: bannerFloat 8s ease-in-out infinite;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    flex: 1;
+  }
+
+  &__track {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(2rem, 4vw, 5rem);
+    will-change: transform;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: clamp(0.95rem, 1vw + 0.4rem, 1.35rem);
+    font-weight: 400;
+    text-transform: none;
+    color: rgba(17, 19, 24, 0.65);
+  }
+
+  &__text {
+    letter-spacing: 0.02em;
+  }
+
+  &__separator {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.2);
+    margin-left: clamp(1rem, 2vw, 2.5rem);
+  }
+}
+
+@keyframes bannerFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .industries-banner {
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &__label {
+      letter-spacing: 0.35em;
+    }
+
+    &__item {
+      font-size: 0.95rem;
+    }
+  }
+}

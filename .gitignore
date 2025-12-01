@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+blender_models/buildings2.blend
+blender_models/buildings2.blend1
+
+.vercel

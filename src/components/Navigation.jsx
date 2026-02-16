@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hamnav from "./Hamnav/Hamnav";
+import "./Navigation.scss";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -19,9 +20,9 @@ const Navigation = ({ heroRef }) => {
 
   useEffect(() => {
     if (!logoRef.current || !heroRef?.current) return;
-// Set initial large logo
+    // Set initial large logo
     gsap.set(logoRef.current, {
-      scale: 1.5, 
+      scale: 1.5,
       transformOrigin: "top left"
     });
 
@@ -82,9 +83,9 @@ const Navigation = ({ heroRef }) => {
     }
 
     hoverOutTweenRef.current?.kill();
-    // Target the img element inside the logoRef for rotation
-    const logoImg = logoRef.current.querySelector('img');
-    hoverOutTweenRef.current = gsap.to(logoImg, {
+    // Target the logo container inside the logoRef for rotation
+    const logoContainer = logoRef.current.querySelector('.navigation__logo-container');
+    hoverOutTweenRef.current = gsap.to(logoContainer, {
       rotationY: 0,
       duration: 0.8,
       ease: "power2.out",
@@ -110,9 +111,9 @@ const Navigation = ({ heroRef }) => {
 
     hoverInTweenRef.current?.kill();
 
-    // Target the img element inside the logoRef for rotation
-    const logoImg = logoRef.current.querySelector('img');
-    hoverInTweenRef.current = gsap.to(logoImg, {
+    // Target the logo container inside the logoRef for rotation
+    const logoContainer = logoRef.current.querySelector('.navigation__logo-container');
+    hoverInTweenRef.current = gsap.to(logoContainer, {
       rotationY: 180,
       duration: 0.8,
       ease: "power2.out",
@@ -155,19 +156,36 @@ const Navigation = ({ heroRef }) => {
         className="navigation__logo absolute top-5 left-10 cursor-pointer"
         style={{
           perspective: "1000px",
-          transformOrigin: "top left" // Set transform origin at the container level
+          transformOrigin: "top left"
         }}
       >
-        <img
-          src="/assets/1iQ.png"
-          alt="1iQ Logo"
-          className="navigation__logo-image h-12 md:24 lg:h-16 w-auto"
-          style={{
-            transformOrigin: "center center", // Keep image centered for rotation
-            filter: isLogoOnBrightSection ? "none" : "invert(1.0)",
-            transition: "filter 0.3s ease",
-          }}
-        />
+        <div className="navigation__logo-container relative h-12 md:h-24 lg:h-16" style={{ transformStyle: "preserve-3d" }}>
+          {/* Placeholder image to maintain proper container width */}
+          <img
+            src="/assets/1iQ.png"
+            alt=""
+            className="h-full w-auto invisible"
+            aria-hidden="true"
+          />
+          <img
+            src="/assets/1iQ.png"
+            alt="1iQ Logo"
+            className="navigation__logo-image absolute inset-0 h-full w-auto"
+            style={{
+              opacity: isLogoOnBrightSection ? 1 : 0,
+              transition: "opacity 0.8s ease",
+            }}
+          />
+          <img
+            src="/assets/1iQ-White.png"
+            alt="1iQ Logo White"
+            className="navigation__logo-image absolute inset-0 h-full w-auto"
+            style={{
+              opacity: isLogoOnBrightSection ? 0 : 1,
+              transition: "opacity 0.8s ease",
+            }}
+          />
+        </div>
       </div>
 
       {/* Top Navigation Bar */}
@@ -193,7 +211,20 @@ const Navigation = ({ heroRef }) => {
           </svg>
         </button> */}
 
-        <Hamnav></Hamnav>
+        <div className="navigation__actions">
+          <div className="navigation__profile-icon" onClick={() => navigate('https://app.1iq.ai/')}>
+            <img src="/assets/person-svgrepo-com.svg" alt="Profile" />
+          </div>
+
+          <button
+            className="navigation__request-btn"
+            onClick={() => navigate('/schedule')}
+          >
+            Request a Demo
+          </button>
+
+          <Hamnav />
+        </div>
       </div>
       {/* Side Menu Component */}
       {/* <SideMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}

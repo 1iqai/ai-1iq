@@ -108,22 +108,6 @@ const Hamnav = () => {
                   1iQ Client Portal <GoArrowRight className="UpRightArrow" />
                 </span>
               </a>
-              <a
-                className={`link ${location.pathname === '/get-started' ? 'active' : ''}`}
-                href="#"
-                onClick={(e) => { e.preventDefault(); handleNavigation('/get-started'); }}
-              >
-                <span>Get Started</span>
-                <span>Get Started</span>
-              </a>
-              <a
-                className={`link ${location.pathname === '/learn-more' ? 'active' : ''}`}
-                href="#"
-                onClick={(e) => { e.preventDefault(); handleNavigation('/learn-more'); }}
-              >
-                <span>Learn More</span>
-                <span>Learn More</span>
-              </a>
             </div>
 
           </div>
@@ -146,48 +130,25 @@ const Hamnav = () => {
                   <IoIosArrowRoundForward className="right-icon" />
                 </div>
               </div>
-              <div className="wide-item cursor-pointer" onClick={() => handleNavigation('/platform', 'core')}>
-                <div>
-                  <FiMap size={52} className="icon" />
-                </div>
-                <div className="title">
-                  <p>1iQ Core</p>
-                </div>
-                <div className="wide-description">
-                  <p>Real-Time Coordination | Crew Enablement</p>
-                </div>
-                <div>
-                  <IoIosArrowRoundForward className="right-icon" />
-                </div>
-              </div>
-              <div className="wide-item cursor-pointer" onClick={() => handleNavigation('/platform', 'field')}>
-                <div>
-                  <FiMap size={52} className="icon" />
-                </div>
-                <div className="title">
-                  <p>1iQ Field</p>
-                </div>
-                <div className="wide-description">
-                  <p>Real-Time Coordination | Crew Enablement</p>
-                </div>
-                <div>
-                  <IoIosArrowRoundForward className="right-icon" />
-                </div>
-              </div>
-              <div className="wide-item cursor-pointer" onClick={() => handleNavigation('/platform', 'intelligence')}>
-                <div>
-                  <FiShield size={52} className="icon" />
-                </div>
-                <div className="title">
-                  <p>1iQ Intel</p>
-                </div>
-                <div className="wide-description">
-                  <p>Predictive Analytics | Risk & Data Defense</p>
-                </div>
-                <div>
-                  <IoIosArrowRoundForward className="right-icon" />
-                </div>
-              </div>
+            </div>
+
+            <div className="link-animation-two" style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '40px' }}>
+              <a
+                className={`link ${location.pathname === '/get-started' ? 'active' : ''}`}
+                href="#"
+                onClick={(e) => { e.preventDefault(); handleNavigation('/get-started'); }}
+              >
+                <span>Get Started</span>
+                <span>Get Started</span>
+              </a>
+              <a
+                className={`link ${location.pathname === '/learn-more' ? 'active' : ''}`}
+                href="#"
+                onClick={(e) => { e.preventDefault(); handleNavigation('/learn-more'); }}
+              >
+                <span>Learn More</span>
+                <span>Learn More</span>
+              </a>
             </div>
           </div>
         </div>

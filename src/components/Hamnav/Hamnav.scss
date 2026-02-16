@@ -196,7 +196,8 @@
     transform: translateY(0%);
 
     .menu-links a,
-    .menu-links-wide .wide-item {
+    .menu-links-wide .wide-item,
+    .menu-links-wide a {
       opacity: 1;
       transform: translateY(0);
 
@@ -234,28 +235,29 @@
         }
       }
 
-      .link {
+    }
+
+    .link {
+      span {
+        color: rgba(0, 0, 0, 0.5);
+        transition: color 0.3s ease;
+      }
+
+      &.active {
         span {
-          color: rgba(0, 0, 0, 0.5);
-          transition: color 0.3s ease;
+          color: black;
+          font-weight: 600;
         }
+      }
 
-        &.active {
-          span {
-            color: black;
-            font-weight: 600;
-          }
+      &:hover {
+        span {
+          color: black;
         }
+      }
 
-        &:hover {
-          span {
-            color: black;
-          }
-        }
-
-        svg {
-          transition: transform 0.3s ease;
-        }
+      svg {
+        transition: transform 0.3s ease;
       }
     }
 
@@ -368,7 +370,8 @@
   }
 
   .menu-links a,
-  .menu-links-wide .wide-item {
+  .menu-links-wide .wide-item,
+  .menu-links-wide a {
     //display: block;
     // text-decoration: none;
     //color: black;

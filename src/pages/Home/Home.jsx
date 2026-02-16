@@ -67,20 +67,22 @@ const Home = () => {
         {/* Hero Section with Video Background */}
         <HeroSection heroRef={heroRef} />
 
-        {/* Industries Banner */}
-        <IndustriesBanner />
-
-        {/* Core Value Pillars Section */}
-        <CoreValuePillars />
-
-        {/* 3D Model Section */}
-        <ThreeDSection />
 
         {/* Features Section */}
         <FeaturesSection />
 
         {/* Brand Carousel */}
         <BrandCarousel />
+
+        {/* 3D Model Section */}
+        <ThreeDSection />
+
+        {/* Industries Banner */}
+        <IndustriesBanner />
+        {/* Core Value Pillars Section */}
+        <CoreValuePillars />
+
+
 
         {/* Footer */}
         <Footer />

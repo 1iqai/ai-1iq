@@ -22,7 +22,8 @@ import "./CoreField.scss";
 import '../../components/Shared/CardDetails/CardDetails';
 import CardDetails from "../../components/Shared/CardDetails/CardDetails";
 import CardDetailsOnly from "../../components/Shared/CardDetailsOnly/CardDetailsOnly";
-import AccordionRow  from "../../components/Shared/AccordionRow/AccordionRow";
+import AccordionRow from "../../components/Shared/AccordionRow/AccordionRow";
+import ImageStack from "../../components/Shared/ImageStack/ImageStack";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -193,7 +194,7 @@ const CoreField = () => {
 
     return (
         <>
-        {/* <div ref={pageRef} className="app relative w-full overflow-x-hidden"> */}
+            {/* <div ref={pageRef} className="app relative w-full overflow-x-hidden"> */}
             {/* Navigation Component */}
             {/* <Navigation heroRef={heroRef} /> */}
 
@@ -256,7 +257,7 @@ const CoreField = () => {
 
                         {/* Feature Cards Grid */}
                         {/* <div className="capabilities__grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-                            {/* {coreCapabilities.map((capability, index) => (
+                        {/* {coreCapabilities.map((capability, index) => (
                                 // <div key={index} className="capability__card bg-white border-2 border-black p-8 hover:bg-[#f0f2e9] transition-all duration-300">
                                 //     <div className="capability__icon mb-4">
                                 //         {capability.icon}
@@ -270,22 +271,43 @@ const CoreField = () => {
                                 // </div>
                                   
                             ))} */}
-                            
+
                         {/* </div> */}
                         <CardDetails
-                                sectionTitle="1iQ Core"
-                                cards={coreCapabilities.map(capability => ({
-                                    cardTitle: capability.title,
-                                    cardText: capability.description
-                                }))}
-                        />
+                            sectionTitle="1iQ Core"
+                            cards={coreCapabilities.map(capability => ({
+                                cardTitle: capability.title,
+                                cardText: capability.description
+                            }))}
+                        >
+
+                            {/* Images */}
+                            <ImageStack
+                                images={[
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_core.jpeg", alt: "1iQ Core Interface" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_field.jpeg", alt: "1iQ Grant Interface" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_grant.jpeg", alt: "1iQ AI Interface" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" },
+                                ]}
+                                width="70%"
+                            />
+                            <ImageStack
+                                isMobile={true}
+                                images={[
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_mobile_1.jpeg", alt: "1iQ AI Mobile" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_mobile_2.jpeg", alt: "1iQ AI Mobile" }
+                                ]}
+                                height="30%"
+                                width="33%"
+                            />
+                        </CardDetails>
                     </div>
                 </div>
             </section>
 
             {/* Field Operations Section - White Background */}
             <section
-                 id="field" 
+                id="field"
                 ref={fieldOpsRef}
                 className="field__section relative w-full bg-white py-24 md:py-32"
             >
@@ -300,7 +322,7 @@ const CoreField = () => {
                             <p className="field__description text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12">
                                 Streamline field operations with real-time coordination, intelligent scheduling, and seamless communication between teams. From dispatch to completion, ensure every operation runs smoothly and efficiently.
                             </p> */}
-                            
+
                             {/* Field Operations Mockup Showcase */}
                             <div className="field__mockup-showcase mb-12">
                                 <div className="field__mockup-container max-w-6xl mx-auto">
@@ -393,7 +415,7 @@ const CoreField = () => {
                                     {/* Bottom Feature Summary */}
                                     <div className="mt-12 text-center">
                                         <div className="inline-flex items-center justify-center gap-2  px-6 py-3">
-                                           
+
                                             <span className="text-sm font-medium text-gray-700">Seamless coordination across desktop and mobile</span>
                                         </div>
                                     </div>
@@ -438,7 +460,7 @@ const CoreField = () => {
 
             {/* Footer */}
             {/* <Footer /> */}
-        {/* </div> */}
+            {/* </div> */}
         </>
     );
 };

@@ -21,7 +21,7 @@ const AngledDivider = () => (
   </svg>
 );
 
-const CardDetails = ({ sectionTitle = "Key Figures", cards = [] }) => {
+const CardDetails = ({ sectionTitle = "Key Figures", cards = [], children }) => {
   return (
     <div className="container mx-auto px-8 relative">
       {/* 1. The Angled Divider at the very top */}
@@ -29,11 +29,12 @@ const CardDetails = ({ sectionTitle = "Key Figures", cards = [] }) => {
 
       <div className="card-details">
         {/* Section Title */}
-        {sectionTitle && (
-          <div className="section-title">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">{sectionTitle}</h3>
-          </div>
-        )}
+        <div className="section-title">
+          {sectionTitle && (
+            <h3 className="text-2xl mr-3  md:text-3xl lg:text-4xl font-bold">{sectionTitle}</h3>
+          )}
+          {children}
+        </div>
 
         {/* Content Rows */}
         <div className="cards-wrapper">

@@ -285,13 +285,11 @@ const CoreField = () => {
                             <ImageStack
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_core.jpeg", alt: "1iQ Core Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_field.jpeg", alt: "1iQ Grant Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_grant.jpeg", alt: "1iQ AI Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" },
+
                                 ]}
-                                width="70%"
+                                width="100%"
                             />
-                            <ImageStack
+                            {/* <ImageStack
                                 isMobile={true}
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_mobile_1.jpeg", alt: "1iQ AI Mobile" },
@@ -299,7 +297,7 @@ const CoreField = () => {
                                 ]}
                                 height="30%"
                                 width="33%"
-                            />
+                            /> */}
                         </CardDetails>
                     </div>
                 </div>

@@ -329,7 +329,7 @@ const CoreField = () => {
                                         <div className="field__mockup-primary">
                                             <div className="relative">
                                                 <img
-                                                    src="/assets/img/1iq_app_screenshots/1iq_field.jpeg"
+                                                    src="/assets/img/mockups/LaptopMock_1.png"
                                                     alt="1iQ Field Operations Dashboard"
                                                     className="w-full h-auto rounded-lg"
                                                 />

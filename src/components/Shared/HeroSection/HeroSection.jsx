@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PortalButton from "../PortalButton/PortalButton";
 import "./HeroSection.scss";
 
 // Register GSAP plugins
@@ -81,9 +82,16 @@ const HeroSection = ({ heroRef }) => {
               <span className="hero__title-line block mt-2">Builds Tomorrow</span>
             </h2>
           </div>
+          <div className="flex justify-center mt-8">
+            <PortalButton
+              label="Speak to the team"
+              redirectTo="/schedule"
+              showDivider={false}
+            />
+          </div>
         </div>
       </div>
-
+      
       {/* Scroll Indicator - Bottom Center */}
       <div className="hero__scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="hero__scroll-container flex flex-col items-center space-y-2">

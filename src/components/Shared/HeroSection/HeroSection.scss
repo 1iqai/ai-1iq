@@ -1,3 +1,25 @@
 .hero__heading-container {
     top: 44%;
+
+    .portal-btn-container .portal-btn {
+        color: #fff;
+
+        .icon-btn .icon-container {
+            background-color: rgba(255, 255, 255, 0.15);
+
+            .arrows-container .primary-icon,
+            .arrows-container .secondary-icon {
+                fill: #fff;
+            }
+        }
+
+        &:hover .icon-btn .icon-container {
+            background-color: #fff;
+
+            .arrows-container .primary-icon,
+            .arrows-container .secondary-icon {
+                fill: #111827;
+            }
+        }
+    }
 }

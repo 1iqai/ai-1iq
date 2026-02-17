@@ -10,11 +10,9 @@ const INDUSTRIES = [
   "Public Sector & Smart Cities",
   "Healthcare Facilities",
   "Energy & Utilities",
-  "Transportation & Rail", 
+  "Transportation & Rail",
   "Data Centers & Tech Campuses",
 ];
-
-
 
 gsap.registerPlugin(ScrollTrigger);
 

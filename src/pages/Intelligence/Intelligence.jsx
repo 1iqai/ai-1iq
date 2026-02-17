@@ -20,6 +20,7 @@ import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
 import PortalButton from "../../components/Shared/PortalButton/PortalButton";
 import AccordionRow from "../../components/Shared/AccordionRow/AccordionRow";
+import ImageStack from "../../components/Shared/ImageStack/ImageStack";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -172,7 +173,7 @@ const Intelligence = () => {
 
     return (
         <>
-        {/* <div ref={pageRef} className="app relative w-full overflow-x-hidden">*/}
+            {/* <div ref={pageRef} className="app relative w-full overflow-x-hidden">*/}
             {/* Navigation Component */}
             {/* <Navigation heroRef={heroRef} /> */}
 
@@ -198,7 +199,7 @@ const Intelligence = () => {
                         </p>
 
                         {/* Hero Image */}
-                        {/* <div className="hero__image mt-16">
+            {/* <div className="hero__image mt-16">
                             <div className="border-2 border-black rounded-lg overflow-hidden">
                                 <video
                                     src="/assets/video/intel_1.mp4"
@@ -217,7 +218,7 @@ const Intelligence = () => {
 
             {/* Key Features Section - Light Gray Background */}
             <section
-                id="intelligence"  
+                id="intelligence"
                 ref={featuresRef}
                 className="features__section relative w-full bg-gray-50 py-24 md:py-32"
             >
@@ -254,7 +255,14 @@ const Intelligence = () => {
                                 cardTitle: feature.title,
                                 cardText: feature.description
                             }))}
-                        />
+                        >
+                            {/* <ImageStack
+                                images={[
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_intel.jpeg", alt: "1iQ Intel Interface" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" }
+                                ]}
+                            /> */}
+                        </CardDetails>
                     </div>
                 </div>
             </section>
@@ -297,12 +305,12 @@ const Intelligence = () => {
                         </div> */}
                         {
                             advancedCapabilities.map((capability, index) => (
-                              <AccordionRow key={index} item={{
+                                <AccordionRow key={index} item={{
                                     number: index + 1,
                                     title: capability.title,
                                     subtitle: capability.subtitle,
                                     description: capability.description
-                              }} />
+                                }} />
                             ))
                         }
                     </div>
@@ -347,14 +355,22 @@ const Intelligence = () => {
                                 cardTitle: application.title,
                                 cardText: application.description
                             }))}
-                        />
+                        >
+                            {/* <ImageStack
+                                isMobile={true}
+                                images={[
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_mobile_1.jpeg", alt: "1iQ Mobile Interface 1" },
+                                    { src: "/assets/img/1iq_app_screenshots/1iq_mobile_2.jpeg", alt: "1iQ Mobile Interface 2" }
+                                ]}
+                            /> */}
+                        </CardDetails>
                     </div>
                 </div>
             </section>
 
             {/* Footer */}
             {/* <Footer /> */}
-        {/* </div> */}
+            {/* </div> */}
         </>
     );
 };

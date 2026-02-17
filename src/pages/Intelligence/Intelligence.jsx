@@ -256,12 +256,11 @@ const Intelligence = () => {
                                 cardText: feature.description
                             }))}
                         >
-                            {/* <ImageStack
+                            <ImageStack
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_intel.jpeg", alt: "1iQ Intel Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" }
                                 ]}
-                            /> */}
+                            />
                         </CardDetails>
                     </div>
                 </div>

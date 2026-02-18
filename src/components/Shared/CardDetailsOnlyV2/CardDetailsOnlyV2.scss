@@ -1,0 +1,87 @@
+@use "../../../responsive" as *;
+
+.card-details-only-v2 {
+    display: grid;
+    border-top: 1px solid #e0e0e0;
+    padding-bottom: 32px;
+
+    @include laptop {
+        grid-template-columns: repeat(8, 1fr);
+        padding-bottom: 48px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        padding-top: 32px;
+        margin-bottom: 16px;
+
+        @include tablet {
+            font-size: 32px;
+        }
+
+        @include laptop {
+            grid-column: 1 / span 8;
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+    }
+
+    .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 32px;
+
+        @include laptop {
+            grid-column: 1 / span 8;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 48px;
+            padding-bottom: 48px;
+        }
+
+        .content-left {
+            @include laptop {
+                grid-column: 1 / span 4;
+            }
+
+            .card-text {
+                font-size: 18px;
+                line-height: 1.6;
+                color: rgba(0, 0, 0, 0.8);
+                font-weight: 300;
+
+                @include tablet {
+                    font-size: 20px;
+                }
+
+                @include laptop {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        .content-right {
+            @include laptop {
+                grid-column: 5 / span 4;
+                display: flex;
+                align-items: center;
+            }
+
+            .side-image {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                object-fit: cover;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+                &:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.3), 0 5px 15px rgba(0, 102, 255, 0.2);
+                }
+            }
+        }
+    }
+}

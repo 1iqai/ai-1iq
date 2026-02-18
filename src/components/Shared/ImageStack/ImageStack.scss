@@ -1,0 +1,26 @@
+.image-stack-container {
+    .image-stack__img {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        &:hover {
+            transform: scale(1.03) translateY(-10px);
+            z-index: 10;
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4),
+                0 0 20px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5) !important;
+        }
+    }
+}
+
+/* Mobile adjustments */
+.image-stack-container--mobile {
+    .image-stack__img {
+        &:hover {
+            transform: scale(1.05);
+            /* Slightly more zoom on mobile if interacted with */
+        }
+    }
+}

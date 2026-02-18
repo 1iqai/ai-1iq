@@ -74,13 +74,20 @@ const HeroSection = ({ heroRef }) => {
         {/* Center - Main Heading with horizontal line */}
         <div className="hero__heading-container absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-8">
           <div className="hero__heading-line h-px w-full bg-white/40 mb-5" />
-          <div className="hero__heading-content flex items-center justify-center space-y-6 items-start">
+          <div className="hero__heading-content flex flex-col items-center justify-center space-y-6">
             {/* Full-width horizontal line above heading */}
             <h2 className="hero__title text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white leading-none tracking-tight">
               Where Intelligence
               <br />
               <span className="hero__title-line block mt-2">Builds Tomorrow</span>
             </h2>
+
+            <PortalButton
+              label="Speak to Team"
+              className="hero__cta-button"
+              redirectTo="/schedule"
+              showDivider={false}
+            />
           </div>
           <div className="flex justify-center mt-8">
             <PortalButton

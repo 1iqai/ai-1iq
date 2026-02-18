@@ -14,7 +14,9 @@ import {
     FaPlay
 } from "react-icons/fa";
 import CardDetails from "../../components/Shared/CardDetails/CardDetails";
+import CardDetailsV2 from "../../components/Shared/CardDetailsV2/CardDetailsV2";
 import CardDetailsOnly from "../../components/Shared/CardDetailsOnly/CardDetailsOnly";
+import CardDetailsOnlyV2 from "../../components/Shared/CardDetailsOnlyV2/CardDetailsOnlyV2";
 import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
@@ -256,13 +258,20 @@ const Intelligence = () => {
                                 cardText: feature.description
                             }))}
                         >
-                            {/* <ImageStack
+                            <ImageStack
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_intel.jpeg", alt: "1iQ Intel Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" }
                                 ]}
-                            /> */}
+                            />
                         </CardDetails>
+                        <div className="flex justify-center mt-12">
+                            <PortalButton
+                                label="Contact to Sales"
+                                redirectTo="/contact-us"
+                                showDivider={true}
+                                className="cta-portal-btn"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -282,9 +291,10 @@ const Intelligence = () => {
                                 Our intelligence platform combines cutting-edge machine learning with industry-specific knowledge to deliver insights that were previously impossible. From predictive analytics to automated decision-making, experience the future of construction management.
                             </p>
                         </div> */}
-                        <CardDetailsOnly
+                        <CardDetailsOnlyV2
                             sectionTitle="Advanced Capabilities"
                             cardText="Our intelligence platform combines cutting-edge machine learning with industry-specific knowledge to deliver insights that were previously impossible. From predictive analytics to automated decision-making, experience the future of construction management."
+                            image="/assets/img/1iq_app_screenshots/1iq_grant.jpeg"
                         />
 
                         {/* Capabilities Cards */}
@@ -313,6 +323,14 @@ const Intelligence = () => {
                                 }} />
                             ))
                         }
+                        <div className="flex justify-center mt-12">
+                            <PortalButton
+                                label="Contact to Sales"
+                                redirectTo="/contact-us"
+                                showDivider={true}
+                                className="cta-portal-btn"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -349,12 +367,13 @@ const Intelligence = () => {
                                 </div>
                             ))}
                         </div> */}
-                        <CardDetails
+                        <CardDetailsV2
                             sectionTitle="Real-World Applications"
                             cards={intelligenceApplications.map(application => ({
                                 cardTitle: application.title,
                                 cardText: application.description
                             }))}
+                            image="/assets/img/1iq_app_screenshots/1iq_ai.jpeg"
                         >
                             {/* <ImageStack
                                 isMobile={true}
@@ -363,7 +382,15 @@ const Intelligence = () => {
                                     { src: "/assets/img/1iq_app_screenshots/1iq_mobile_2.jpeg", alt: "1iQ Mobile Interface 2" }
                                 ]}
                             /> */}
-                        </CardDetails>
+                        </CardDetailsV2>
+                        <div className="flex justify-center mt-12">
+                            <PortalButton
+                                label="Contact to Sales"
+                                redirectTo="/contact-us"
+                                showDivider={true}
+                                className="cta-portal-btn"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

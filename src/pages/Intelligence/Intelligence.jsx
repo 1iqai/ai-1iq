@@ -323,14 +323,14 @@ const Intelligence = () => {
                                 }} />
                             ))
                         }
-                        <div className="flex justify-center mt-12">
+                        {/* <div className="flex justify-center mt-12">
                             <PortalButton
                                 label="Contact to Sales"
                                 redirectTo="/contact-us"
                                 showDivider={true}
                                 className="cta-portal-btn"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
@@ -383,14 +383,14 @@ const Intelligence = () => {
                                 ]}
                             /> */}
                         </CardDetailsV2>
-                        <div className="flex justify-center mt-12">
+                        {/* <div className="flex justify-center mt-12">
                             <PortalButton
                                 label="Contact to Sales"
                                 redirectTo="/contact-us"
                                 showDivider={true}
                                 className="cta-portal-btn"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

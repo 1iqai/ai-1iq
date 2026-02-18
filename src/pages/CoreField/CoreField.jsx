@@ -237,7 +237,7 @@ const CoreField = () => {
 
             {/* Hero Section - White Background */}
             <section
-                className="hero__section relative w-full bg-white py-12 md:py-32"
+                className="hero__section relative w-full bg-white py-5 md:py-15"
             >
                 <div className="container mx-auto px-8">
                     <div className="hero__content text-center max-w-4xl mx-auto">
@@ -317,7 +317,9 @@ const CoreField = () => {
                                     { src: "/assets/img/1iq_app_screenshots/1iq_core.jpeg", alt: "1iQ Core Interface" },
 
                                 ]}
+                                height="100%"
                                 width="100%"
+                                
                             />
                             {/* <ImageStack
                                 isMobile={true}
@@ -364,24 +366,24 @@ const CoreField = () => {
                                 <div className="field__mockup-container max-w-6xl mx-auto">
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                         {/* Field Operations Desktop */}
-                                        <div className="field__mockup-primary">
+                                        <div className="field__mockup-primary overflow-hidden rounded-lg">
                                             <div className="relative">
                                                 <img
-                                                    src="/assets/img/mockups/LaptopMock_1.png"
+                                                    src="assets/img/1iq_app_screenshots/1iq_field_mockup.png"
                                                     alt="1iQ Field Operations Dashboard"
-                                                    className="w-full h-auto rounded-lg"
+                                                    className="w-full h-auto rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
                                                 />
 
                                             </div>
                                         </div>
 
                                         {/* Field Operations Mobile */}
-                                        <div className="field__mockup-mobile">
+                                        <div className="field__mockup-mobile overflow-hidden rounded-2xl">
                                             <div className="relative max-w-sm mx-auto">
                                                 <img
-                                                    src="/assets/img/mockups/MobileMock_1.png"
+                                                    src="assets/img/1iq_app_screenshots/1iq_mobile_mockup.png"
                                                     alt="1iQ Field Mobile App"
-                                                    className="w-full h-auto rounded-2xl"
+                                                    className="w-full h-auto rounded-2xl transition-transform duration-300 ease-in-out hover:scale-105"
                                                 />
                                             </div>
                                         </div>

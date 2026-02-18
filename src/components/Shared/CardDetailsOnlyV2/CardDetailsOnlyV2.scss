@@ -51,6 +51,7 @@
                 line-height: 1.6;
                 color: rgba(0, 0, 0, 0.8);
                 font-weight: 300;
+                text-align: justify;
 
                 @include tablet {
                     font-size: 20px;
@@ -79,7 +80,6 @@
 
                 &:hover {
                     transform: translateY(-8px) scale(1.02);
-                    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.3), 0 5px 15px rgba(0, 102, 255, 0.2);
                 }
             }
         }

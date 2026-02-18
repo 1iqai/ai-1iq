@@ -83,7 +83,7 @@ const HeroSection = ({ heroRef }) => {
             </h2>
 
             <PortalButton
-              label="Speak to Team"
+              label="Speak to the Team"
               className="hero__cta-button"
               redirectTo="/schedule"
               showDivider={false}

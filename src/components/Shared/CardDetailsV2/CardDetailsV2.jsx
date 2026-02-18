@@ -35,11 +35,12 @@ const CardDetailsV2 = ({ sectionTitle = "Key Figures", cards = [], image }) => {
                     <div className="cards-wrapper">
                         {cards.map((card, index) => (
                             <div key={index} className="card">
-                                <p className="card-text">{card.cardText}</p>
                                 <div className="card-value-group">
                                     <h2 className="card-title">{card.cardTitle}</h2>
                                     {card.date && <span className="card-date">{card.date}</span>}
                                 </div>
+                                <p className="card-text">{card.cardText}</p>
+
                             </div>
                         ))}
                     </div>

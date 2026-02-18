@@ -80,6 +80,36 @@ const CoreField = () => {
             subtitle: "Comprehensive progress monitoring",
             description: "Comprehensive progress monitoring with real-time updates, milestone tracking, and automated reporting capabilities.",
             icon: <FaClipboardCheck className="text-3xl" />
+        },
+        {
+            title: "Live Updates",
+            subtitle: "Real-time status changes",
+            description: "Real-time status changes and instant notifications keep everyone informed and updated.",
+            icon: <FaArrowRight className="text-3xl" />
+        },
+        {
+            title: "Performance Metrics",
+            subtitle: "Real-time productivity tracking",
+            description: "Track productivity and efficiency in real-time to gain actionable insights into your field operations.",
+            icon: <FaChartLine className="text-3xl" />
+        },
+        {
+            title: "Field Control",
+            subtitle: "Manage operations from the field",
+            description: "Manage operations, teams, and equipment directly from the field, ensuring seamless execution.",
+            icon: <FaBrain className="text-3xl" />
+        },
+        {
+            title: "Task Management",
+            subtitle: "Assign and track jobs on the go",
+            description: "Assign, track, and complete jobs on the go, providing flexibility for your mobile workforce.",
+            icon: <FaClipboardCheck className="text-3xl" />
+        },
+        {
+            title: "Cross-Platform Coordination",
+            subtitle: "Seamless desktop and mobile sync",
+            description: "Seamless coordination across desktop and mobile devices ensures a unified experience for the entire team.",
+            icon: <FaUsers className="text-3xl" />
         }
     ];
 
@@ -285,13 +315,11 @@ const CoreField = () => {
                             <ImageStack
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_core.jpeg", alt: "1iQ Core Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_field.jpeg", alt: "1iQ Grant Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_grant.jpeg", alt: "1iQ AI Interface" },
-                                    { src: "/assets/img/1iq_app_screenshots/1iq_ai.jpeg", alt: "1iQ AI Interface" },
+
                                 ]}
-                                width="70%"
+                                width="100%"
                             />
-                            <ImageStack
+                            {/* <ImageStack
                                 isMobile={true}
                                 images={[
                                     { src: "/assets/img/1iq_app_screenshots/1iq_mobile_1.jpeg", alt: "1iQ AI Mobile" },
@@ -299,8 +327,16 @@ const CoreField = () => {
                                 ]}
                                 height="30%"
                                 width="33%"
-                            />
+                            /> */}
                         </CardDetails>
+                        <div className="flex justify-center mt-12">
+                            <PortalButton
+                                label="Contact to Sales"
+                                redirectTo="/contact-us"
+                                showDivider={true}
+                                className="cta-portal-btn"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -336,36 +372,6 @@ const CoreField = () => {
                                                     className="w-full h-auto rounded-lg"
                                                 />
 
-                                                {/* Field Operations Feature Callouts */}
-                                                <div className="absolute top-3 right-4 max-w-[240px]">
-                                                    <div className="field-callout field-callout--align-right">
-                                                        <div className="field-callout__header">
-                                                            <p className="field-callout__title">Live Updates</p>
-                                                            <div className="field-callout__icon-wrapper">
-                                                                <div className="field-callout__icon">
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--primary" />
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--secondary" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p className="field-callout__description">Real-time status changes and instant notifications</p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="absolute -bottom-10 right-4 max-w-[240px]">
-                                                    <div className="field-callout field-callout--align-right">
-                                                        <div className="field-callout__header">
-                                                            <p className="field-callout__title">Performance Metrics</p>
-                                                            <div className="field-callout__icon-wrapper">
-                                                                <div className="field-callout__icon">
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--primary" />
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--secondary" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p className="field-callout__description">Track productivity and efficiency in real-time</p>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
 
@@ -377,46 +383,7 @@ const CoreField = () => {
                                                     alt="1iQ Field Mobile App"
                                                     className="w-full h-auto rounded-2xl"
                                                 />
-
-                                                {/* Mobile Field Features */}
-                                                <div className="absolute -top-3 left-2 max-w-[200px]">
-                                                    <div className="field-callout">
-                                                        <div className="field-callout__header">
-                                                            <p className="field-callout__title">Field Control</p>
-                                                            <div className="field-callout__icon-wrapper">
-                                                                <div className="field-callout__icon">
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--primary" />
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--secondary" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p className="field-callout__description">Manage operations, teams, and equipment from the field</p>
-                                                    </div>
-                                                </div>
-
-                                                <div className="absolute -bottom-15 left-2 max-w-[200px]">
-                                                    <div className="field-callout field-callout--align-right">
-                                                        <div className="field-callout__header">
-                                                            <p className="field-callout__title">Task Management</p>
-                                                            <div className="field-callout__icon-wrapper">
-                                                                <div className="field-callout__icon">
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--primary" />
-                                                                    <GoArrowRight aria-hidden="true" className="field-callout__arrow field-callout__arrow--secondary" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p className="field-callout__description">Assign, track, and complete jobs on the go</p>
-                                                    </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Bottom Feature Summary */}
-                                    <div className="mt-12 text-center">
-                                        <div className="inline-flex items-center justify-center gap-2  px-6 py-3">
-
-                                            <span className="text-sm font-medium text-gray-700">Seamless coordination across desktop and mobile</span>
                                         </div>
                                     </div>
                                 </div>
@@ -454,6 +421,14 @@ const CoreField = () => {
                                 </>
                             ))
                         }
+                        <div className="flex justify-center mt-12">
+                            <PortalButton
+                                label="Contact to Sales"
+                                redirectTo="/contact-us"
+                                showDivider={true}
+                                className="cta-portal-btn"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

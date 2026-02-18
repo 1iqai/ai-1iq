@@ -1,9 +1,10 @@
 import React from 'react';
+import './ImageStack.scss';
 
 const ImageStack = ({ images = [], height, width, isMobile = false }) => {
     if (isMobile) {
         return (
-            <div className="mt-8 pr-8 flex flex-wrap gap-4">
+            <div className="image-stack-container image-stack-container--mobile mt-8 pr-8 flex flex-wrap gap-4">
                 {images.map((img, index) => (
                     <img
                         key={index}
@@ -13,7 +14,7 @@ const ImageStack = ({ images = [], height, width, isMobile = false }) => {
                             height: height || 'auto',
                             width: width || 'auto'
                         }}
-                        className="rounded-xl shadow-2xl border border-gray-200 object-cover"
+                        className="image-stack__img rounded-xl shadow-2xl border border-gray-200 object-cover"
                     />
                 ))}
             </div>
@@ -21,7 +22,7 @@ const ImageStack = ({ images = [], height, width, isMobile = false }) => {
     }
 
     return (
-        <>
+        <div className="image-stack-container">
             {images.map((img, index) => (
                 <div key={index} className="mt-8 pr-8">
                     <img
@@ -31,11 +32,11 @@ const ImageStack = ({ images = [], height, width, isMobile = false }) => {
                             height: height || 'auto',
                             width: width || '100%'
                         }}
-                        className="w-full h-auto rounded-xl shadow-2xl border border-gray-200"
+                        className="image-stack__img w-full h-auto rounded-xl shadow-2xl border border-gray-200"
                     />
                 </div>
             ))}
-        </>
+        </div>
     );
 };
 

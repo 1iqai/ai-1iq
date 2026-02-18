@@ -22,7 +22,7 @@ const Navigation = ({ heroRef }) => {
     if (!logoRef.current || !heroRef?.current) return;
     // Set initial large logo
     gsap.set(logoRef.current, {
-      scale: 1.5,
+      scale: 1.1,
       transformOrigin: "top left"
     });
 

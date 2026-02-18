@@ -275,9 +275,10 @@ const Platform = () => {
           },
         ]}
       /> */}
-      
-        <CoreField />
-        <Intelligence />
+
+      <CoreField />
+
+      <Intelligence />
       <Footer />
 
       {/* Key Features Section - Light Gray Background */}

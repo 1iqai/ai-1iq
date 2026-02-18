@@ -83,15 +83,16 @@ const HeroSection = ({ heroRef }) => {
             </h2>
 
             <PortalButton
-              label="Speak to Team"
+              label="Speak to the Team"
               className="hero__cta-button"
               redirectTo="/schedule"
               showDivider={false}
             />
           </div>
+          
         </div>
       </div>
-
+      
       {/* Scroll Indicator - Bottom Center */}
       <div className="hero__scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="hero__scroll-container flex flex-col items-center space-y-2">

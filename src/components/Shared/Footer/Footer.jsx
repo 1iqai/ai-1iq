@@ -51,14 +51,14 @@ const Footer = () => {
                 redirectTo="/schedule"
                 showDivider={true}
                 fullWidth
-                className="cta__portal-btn"
+                className="cta__portal-btn portal-btn--classic"
               />
               <PortalButton
                 label="Get Started"
                 redirectTo="/get-started"
                 showDivider={true}
                 fullWidth
-                className="cta__portal-btn mt-4"
+                className="cta__portal-btn portal-btn--classic mt-4"
               />
             </div>
           </div>

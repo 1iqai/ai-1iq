@@ -89,13 +89,7 @@ const HeroSection = ({ heroRef }) => {
               showDivider={false}
             />
           </div>
-          <div className="flex justify-center mt-8">
-            <PortalButton
-              label="Speak to the team"
-              redirectTo="/schedule"
-              showDivider={false}
-            />
-          </div>
+          
         </div>
       </div>
       

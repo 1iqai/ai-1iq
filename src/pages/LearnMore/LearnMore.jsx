@@ -25,7 +25,7 @@ const LearnMore = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.constructiondive.com%2Ffeeds%2Fnews%2F');
+                const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.constructiondive.com%2Ffeeds%2Fnews');
                 const data = await response.json();
 
                 if (data.status === 'ok') {

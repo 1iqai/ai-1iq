@@ -211,7 +211,7 @@ const Navigation = ({ heroRef }) => {
           </svg>
         </button> */}
 
-        <div className="navigation__actions">
+        <div className={`navigation__actions ${isLogoOnBrightSection ? 'navigation__actions--dark' : ''}`}>
           <div className="navigation__profile-icon" onClick={() => navigate('https://app.1iq.ai/')}>
             <img src="/assets/person-svgrepo-com.svg" alt="Profile" />
           </div>

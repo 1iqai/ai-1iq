@@ -1,0 +1,120 @@
+@use "../../../responsive" as *;
+
+.card-details-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 24px;
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #0f172a; // Deep slate black
+            letter-spacing: -0.02em;
+            margin: 0;
+            line-height: 1;
+            text-align: center;
+
+            @include laptop {
+                font-size: 100px; // Massive font size per user request
+            }
+        }
+    }
+
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        width: 100%;
+    }
+
+    .section-media {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img,
+        >div {
+            width: 80%;
+
+            @include laptop {
+                width: 50%; // Match CardDetails resizing
+            }
+
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); // Add professional shadow to the image
+        }
+    }
+
+    .cards-wrapper {
+        display: grid;
+        gap: 24px;
+        width: 100%;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        @include laptop {
+            grid-template-columns: repeat(3, 1fr); // Optimal 3-col grid for bottom line cards
+        }
+    }
+
+    .feature-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: #ffffff;
+        padding: 32px;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0; // Clean, structural border
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08); // Sleek modern shadow
+            border-color: #cbd5e1;
+        }
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.3;
+            margin: 0;
+            color: #0f172a;
+
+            @include tablet {
+                font-size: 22px;
+            }
+        }
+
+        .card-text {
+            font-size: 15px;
+            color: #475569; // Slate 600
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .card-date {
+            display: block;
+            font-size: 13px;
+            color: #64748b;
+        }
+    }
+}

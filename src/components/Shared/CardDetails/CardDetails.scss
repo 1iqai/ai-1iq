@@ -1,0 +1,147 @@
+@use "../../../responsive" as *;
+
+.angled-divider {
+  display: none; // Hiding the divider to match the clean design
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+
+  @include laptop {
+    flex-direction: row;
+    align-items: stretch; // Allows left rail to stretch to height of content
+    gap: 80px;
+  }
+
+  // 1. Section Title (Vertical Left side)
+  .section-title {
+    margin-bottom: 24px;
+    text-align: center;
+
+    @include laptop {
+      position: relative;
+      width: 100px; // Space for the vertical text
+      flex-shrink: 0;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a; // Deep slate black
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1;
+
+      @include laptop {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        font-size: 100px; // Editorial massive vertical text
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // 2. The Content Area (Right side)
+  .section-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    min-width: 0;
+  }
+
+  // 3. Media Wrappers
+  .section-media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    // We target the image wrappers passed via children
+    >div,
+    >img {
+      width: 80%; // Slightly reduced on mobile
+
+      @include laptop {
+        width: 50%; // Exactly half size on desktop
+      }
+
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); // Add professional shadow to the image
+    }
+  }
+
+  // 4. Feature Cards Grid
+  .cards-wrapper {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr); // 2-column grid for features
+      gap: 32px;
+    }
+  }
+
+  // 5. Individual Feature Card Styling
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0; // Clean, structural border
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08); // Sleek modern shadow
+      border-color: #cbd5e1;
+    }
+
+    .card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    // Feature Title
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.3;
+      margin: 0;
+      color: #0f172a;
+
+      @include tablet {
+        font-size: 22px;
+      }
+    }
+
+    // Description
+    .card-text {
+      font-size: 15px;
+      color: #475569; // Slate 600
+      line-height: 1.6;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .card-date {
+      display: block;
+      font-size: 13px;
+      color: #64748b;
+    }
+  }
+}

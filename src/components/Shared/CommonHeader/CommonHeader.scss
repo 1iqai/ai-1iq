@@ -1,0 +1,85 @@
+@use "../../../responsive" as *;
+
+.header-dark {
+  color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  height: 42vh;
+  justify-content: center;
+  /* Shifted up from flex-end */
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 64px;
+  overflow: hidden;
+
+  @include tablet {
+    height: 42vh;
+  }
+
+  @include laptop {
+    height: 42vh;
+  }
+
+  // Dark overlay
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .header-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .section-header {
+    max-width: 1600px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 24px;
+    position: relative;
+    z-index: 2;
+
+    .wrapper {
+      grid-column: 1 / -1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      /* Bolder to match screenshot */
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+
+      @include laptop {
+        font-size: 64px;
+        /* Slightly larger to match the requested visual */
+      }
+    }
+
+    p {
+      margin-top: 18px;
+    }
+  }
+}

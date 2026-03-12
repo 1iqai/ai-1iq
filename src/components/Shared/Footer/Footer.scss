@@ -1,0 +1,237 @@
+@import "../../../_responsive.scss";
+
+.footer {
+  padding-bottom: 24px;
+  background-color: #bcbfb0;
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 24px;
+
+    @include laptop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .company {
+      @include laptop {
+        grid-column: span 4;
+      }
+    }
+
+    .newsletter {
+      @include laptop {
+        grid-column: span 4;
+      }
+
+      label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px 0;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000;
+
+        &:focus {
+          outline: none;
+          border-bottom: 1px solid #5f5f5f;
+        }
+      }
+    }
+
+    .logo {
+      @include laptop {
+        grid-column: span 4;
+      }
+
+      img {
+        max-width: 110px;
+      }
+    }
+  }
+
+  .footer-middle {
+    padding: 24px 24px 24px 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include laptop {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    &-title {
+      color: #5f5f5f;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .col-one {
+      @include laptop {
+        grid-column: auto;
+      }
+
+      .portal-btn-container {
+        max-width: 100%;
+
+        @include tablet {
+          max-width: 270px;
+        }
+      }
+    }
+
+    .col-two {
+      @include laptop {
+        grid-column: auto;
+        display: flex;
+        justify-content: center;
+      }
+
+      .footer-main-links {
+        .footer-links {
+          a {
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+            position: relative;
+            text-decoration: none;
+            color: #000;
+
+            &:not(:last-child) {
+              margin-bottom: 8px;
+            }
+
+            &:hover span:last-child {
+              transition: transform 0.3s ease;
+              transform: translateY(0%);
+            }
+
+            &:hover span:first-child {
+              transform: translateY(-100%);
+            }
+
+            span {
+              font-size: 24px;
+
+              @include tablet {
+                font-size: 28px;
+              }
+
+              @include laptop {
+                font-size: 32px;
+              }
+
+              font-weight: 600;
+              margin: 0;
+              padding: 0;
+              transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+              display: block;
+
+              &:last-child {
+                position: absolute;
+                transform: translateY(100%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .col-four {
+      @include tablet {
+        grid-column: span 2;
+      }
+
+      @include laptop {
+        grid-column: auto;
+      }
+
+      .footer-links {
+        a {
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          color: #333;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+
+          &:hover {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    padding: 32px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 14px;
+    color: #555;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .social {
+      display: flex;
+      gap: 24px;
+
+      .icon {
+        color: #080808;
+        font-size: 20px;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .address {
+
+      @include tablet {
+        order: 1;
+        max-width: 50%;
+      }
+    }
+
+    .terms,
+    .policy {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .legal-links {
+      display: flex;
+      gap: 24px;
+    }
+  }
+}

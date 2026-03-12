@@ -1,0 +1,115 @@
+@use "../responsive" as *;
+
+.navigation {
+    // Existing styles are largely handled by Tailwind utility classes on the container in JSX,
+    // but we can start moving them here if desired. For now, focus on the new elements.
+
+    &__actions {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: end;
+        gap: 12px; // slightly tighter on mobile
+
+        @include tablet {
+            flex-direction: row;
+            gap: 16px;
+        }
+    }
+
+    &__profile-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 42px;
+        width: 30px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        img {
+            height: 35px;
+            width: 35px;
+            opacity: 0.8;
+            filter: brightness(0) invert(1);
+        }
+
+        @include laptop {
+            height: 50px;
+            width: 50px;
+
+            img {
+                height: 35px;
+                width: 35px;
+            }
+        }
+    }
+
+    &__request-btn {
+        display: flex;
+        align-items: center;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: white;
+        padding: 0 16px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: background 0.2s, box-shadow 0.2s, color 0.4s ease;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @include laptop {
+            height: 50px;
+            padding: 0 24px;
+            font-size: 12px;
+        }
+    }
+
+    // Dark foreground when scrolled onto bright background
+    &__actions--dark {
+        .navigation__profile-icon {
+            img {
+                filter: brightness(0) invert(0);
+            }
+        }
+
+        .navigation__request-btn {
+            color: black;
+        }
+
+        .hamnav {
+            color: black;
+
+            #nav-toggle span,
+            #nav-toggle span::before,
+            #nav-toggle span::after {
+                background: black;
+            }
+        }
+    }
+
+    &__profile-icon img {
+        transition: filter 0.4s ease;
+    }
+}

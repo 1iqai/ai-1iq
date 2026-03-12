@@ -1,0 +1,75 @@
+@use "../../../responsive" as *;
+
+.card-details-only {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding-top: 48px;
+  padding-bottom: 24px;
+
+  @include laptop {
+    flex-direction: row;
+    align-items: stretch; // Allow left rail to match height
+    gap: 80px;
+    padding-top: 80px;
+  }
+
+  // 1. Section Title (Vertical Left side)
+  .section-title {
+    margin-bottom: 24px;
+    text-align: center;
+
+    @include laptop {
+      position: relative;
+      width: 100px; // Fixed width for the rail
+      min-height: 480px; // Ensure there's vertical space for the massive rotated text
+      flex-shrink: 0;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: #0f172a; // Deep slate black
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1;
+
+      @include laptop {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        font-size: 100px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // 2. The Content Area (Right Rail)
+  .section-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Vertically center the paragraph relative to the title
+    min-width: 0;
+  }
+
+  // 3. Text Content
+  .content-text {
+    p {
+      font-size: 18px;
+      color: #475569;
+      line-height: 1.8;
+      max-width: 900px; // Keep lines readable
+      margin: 0;
+
+      @include laptop {
+        font-size: 20px;
+      }
+    }
+  }
+}

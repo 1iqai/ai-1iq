@@ -4,36 +4,36 @@
   .portal-btn {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 8px 10px 8px 24px;
+    gap: 32px;
+    padding: 12px 14px 12px 42px;
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.15em;
+    font-size: 15px;
+    letter-spacing: 0.18em;
     text-align: start;
     cursor: pointer;
-    color: rgba(255, 255, 255, 0.95);
-    background: linear-gradient(145deg, rgba(40, 45, 45, 0.85), rgba(15, 20, 20, 0.95));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+    background: linear-gradient(145deg, rgba(30, 35, 35, 0.85), rgba(10, 15, 15, 0.95));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 9999px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-      0 0 30px rgba(59, 130, 246, 0.25),
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(59, 130, 246, 0.15),
       inset 0 1px 1px rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5),
-        0 0 45px rgba(59, 130, 246, 0.5),
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(59, 130, 246, 0.35),
         inset 0 1px 1px rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
     }
 
     &:active {
       transform: translateY(1px) scale(0.98);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(59, 130, 246, 0.2);
     }
 
     p {
@@ -51,13 +51,13 @@
         aspect-ratio: 1;
         display: flex;
         justify-content: center;
-        width: 44px;
-        min-height: 44px;
+        width: 48px;
+        min-height: 48px;
         overflow: hidden;
         position: relative;
         border-radius: 50%;
         background-color: transparent;
-        border: 1px solid rgba(59, 130, 246, 0.4);
+        border: 1px solid rgba(59, 130, 246, 0.5);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         .arrows-container {
@@ -145,6 +145,47 @@
   .divider-container {
     display: none;
     /* Hide divider in favor of completely glassy button everywhere */
+  }
+}
+
+/* Secondary Outline style for gray transparent buttons */
+.portal-btn-container.portal-btn-container--outline {
+  .portal-btn {
+    padding: 12px 32px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Very subtle white overlay */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Solid grey-ish white border */
+    box-shadow: none;
+    /* No glow */
+    border-radius: 8px;
+    /* Slightly squared pill as shown in screenshot */
+    gap: 0;
+
+    p {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    /* Hide the icon right completely for this variant */
+    .icon-btn {
+      display: none;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 }
 

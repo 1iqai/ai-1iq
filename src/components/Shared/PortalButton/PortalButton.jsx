@@ -9,6 +9,7 @@ const PortalButton = ({
   redirectTo,
   showDivider = true,
   fullWidth = false,
+  outline = false,
   className = "",
   buttonClassName = "",
   onClick,
@@ -49,6 +50,7 @@ const PortalButton = ({
       className={[
         "portal-btn-container",
         fullWidth ? "portal-btn-container--full" : "",
+        outline ? "portal-btn-container--outline" : "",
         className,
       ]
         .filter(Boolean)

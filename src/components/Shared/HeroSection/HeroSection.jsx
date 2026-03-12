@@ -64,6 +64,14 @@ const HeroSection = ({ heroRef }) => {
               1iQ reclaims that time. Our AI automates scheduling, reporting, and analysis, returning 831 hours
               to every PM, every year. Stop drowning in paperwork. Start building.
             </p>
+            <div className="pt-4">
+              <PortalButton
+                label="REQUEST A DEMO"
+                outline={true}
+                showDivider={false}
+                redirectTo="/schedule"
+              />
+            </div>
           </div>
 
           {/* Right Column - Empty for balance */}
@@ -78,13 +86,14 @@ const HeroSection = ({ heroRef }) => {
             <h1 className="hero__title font-sans text-4xl md:text-6xl lg:text-[4.8rem] font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)] z-10">
               A New Generation Of Intelligence
               <br />
-              <span className="hero__title-line block text-2xl md:text-4xl lg:text-[2.6rem] text-blue-400 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                Real-time Management powered by AI
+              <span className="hero__title-line flex flex-col md:flex-row items-center justify-center md:items-baseline gap-2 md:gap-4 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
+                <span className="text-4xl md:text-6xl lg:text-[3.9rem] text-blue-400">Real-Time Management</span>
+                <span className="text-xl md:text-2xl lg:text-[1.3rem] text-blue-400">Powered by AI</span>
               </span>
             </h1>
 
             <PortalButton
-              label="Speak to the Team"
+              label="DEMO"
               className="hero__cta-button"
               redirectTo="/schedule"
               showDivider={false}

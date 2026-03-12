@@ -331,10 +331,9 @@ const Schedule = () => {
         <SuccessModal name={data.firstName || "there"} visible={showModal} countdown={countdown} />
 
         {/* ─── NATIVE PROGRESS FORM BAR ─── */}
-        <nav style={{
-          position: "sticky", top: 0, zIndex: 50, background: "rgba(255,255,255,0.92)",
-          backdropFilter: "blur(16px)", borderBottom: "1px solid #ecedf0",
-          padding: "0 32px", height: 64, display: "flex", alignItems: "center", justifyContent: "flex-end",
+        <nav className="sticky top-0 z-50 flex items-center justify-end px-4 md:px-8 h-16 border-b border-[#ecedf0]" style={{
+          background: "rgba(255,255,255,0.92)",
+          backdropFilter: "blur(16px)",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <ProgressBar step={step} total={5} />
@@ -347,7 +346,7 @@ const Schedule = () => {
         </nav>
 
         {/* ─── STEP INDICATORS ─── */}
-        <div style={{ maxWidth: 640, margin: "0 auto", padding: "28px 24px 0", display: "flex", alignItems: "center", justifyContent: "center", gap: 0 }}>
+        <div className="max-w-[640px] mx-auto pt-7 px-4 md:px-6 flex items-center justify-center">
           {STEPS.map((s, i) => (
             <div key={s.id} style={{ display: "flex", alignItems: "center" }}>
               <div onClick={() => { if (i + 1 <= step) setStep(i + 1); }}
@@ -366,7 +365,7 @@ const Schedule = () => {
                 }}>
                   {i + 1 < step ? "✓" : i + 1}
                 </div>
-                <span style={{
+                <span className="hidden sm:block" style={{
                   fontSize: "10px", fontWeight: 600, textTransform: "uppercase",
                   letterSpacing: "1px", whiteSpace: "nowrap",
                   color: i + 1 === step ? "#1a1d23" : "#9098a4",
@@ -375,9 +374,8 @@ const Schedule = () => {
                 </span>
               </div>
               {i < STEPS.length - 1 && (
-                <div style={{
-                  width: 36, height: 1.5, background: i + 1 < step ? "#1a1d23" : "#e0e2e5",
-                  margin: "0 6px", marginBottom: 20, transition: "background 0.3s ease",
+                <div className="w-[12px] sm:w-[36px] h-[1.5px] mx-1 sm:mx-1.5 mb-5 transition-colors duration-300" style={{
+                  background: i + 1 < step ? "#1a1d23" : "#e0e2e5",
                 }} />
               )}
             </div>
@@ -386,8 +384,8 @@ const Schedule = () => {
 
         {/* ─── FORM CARD ─── */}
         <form onSubmit={step === 5 ? handleSubmit : (e) => { e.preventDefault(); if (canProceed()) go(1); }}>
-          <div ref={containerRef} style={{ maxWidth: 640, margin: "0 auto", padding: "24px 20px 40px" }}>
-            <div style={{ background: "#ffffff", borderRadius: "12px", border: "1px solid #d8dbe0", padding: "40px 36px" }}>
+          <div ref={containerRef} className="max-w-[640px] mx-auto px-4 md:px-5 py-6 pb-10">
+            <div className="bg-white rounded-xl border border-[#d8dbe0] p-6 md:p-9">
               <div key={step} style={{ marginBottom: 32, animation: "slideIn 0.4s ease forwards" }}>
                 <h2 style={{
                   fontFamily: "'Playfair Display', Georgia, serif", fontSize: "28px", fontWeight: 800,
@@ -405,7 +403,7 @@ const Schedule = () => {
                 animation: "slideIn 0.45s ease 0.04s forwards", opacity: 0,
               }}>
                 {step === 1 && (<>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     <Field label="First Name" value={data.firstName} onChange={set("firstName")} placeholder="Jane" required />
                     <Field label="Last Name" value={data.lastName} onChange={set("lastName")} placeholder="Smith" required />
                   </div>
@@ -423,7 +421,7 @@ const Schedule = () => {
                 {step === 3 && (<>
                   <div><SectionLabel required>Project Types</SectionLabel><ChipGroup options={PROJECT_TYPES} selected={data.projectTypes} onToggle={toggleMulti("projectTypes")} /></div>
                   <div><SectionLabel>Current Tools &amp; Software</SectionLabel><ChipGroup options={CURRENT_TOOLS} selected={data.currentTools} onToggle={toggleMulti("currentTools")} /></div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     <Field label="Active Projects" value={data.activeProjects} onChange={set("activeProjects")} placeholder="e.g. 12" />
                     <Field label="Field Team Size" value={data.teamSize} onChange={set("teamSize")} placeholder="e.g. 45" />
                   </div>
@@ -442,11 +440,8 @@ const Schedule = () => {
           </div>
 
           {/* ─── BOTTOM BAR ─── */}
-          <div style={{
-            position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 40,
+          <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-between items-center px-4 py-3 md:px-7 md:py-3.5 border-t border-[#ecedf0]" style={{
             background: "rgba(255,255,255,0.94)", backdropFilter: "blur(16px)",
-            borderTop: "1px solid #ecedf0", padding: "14px 28px",
-            display: "flex", justifyContent: "space-between", alignItems: "center",
           }}>
             <button type="button" onClick={() => go(-1)} disabled={step === 1} style={{
               display: "flex", alignItems: "center", gap: 0, borderRadius: "100px",

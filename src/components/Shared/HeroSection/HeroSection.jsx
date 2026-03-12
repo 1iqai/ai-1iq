@@ -57,10 +57,10 @@ const HeroSection = ({ heroRef }) => {
           {/* Left Column - Subtitle */}
           <div className="hero__subtitle space-y-4">
             <p className="hero__subtitle-label text-white text-xs lg:text-sm font-medium tracking-wide uppercase">
-              The AI Engine for High-Performance Construction
+              AN AI ENGINE FOR HIGH-PERFORMANCE MANAGEMENT
             </p>
             <p className="hero__subtitle-text text-white/70 text-xs lg:text-sm leading-relaxed max-w-lg">
-              Construction project managers burn 1,220 hours a year—almost 60% of their time—on admin and paperwork.
+              Project managers burn 1,220 hours a year—almost 60% of their time—on admin and paperwork.
               1iQ reclaims that time. Our AI automates scheduling, reporting, and analysis, returning 831 hours
               to every PM, every year. Stop drowning in paperwork. Start building.
             </p>
@@ -75,11 +75,11 @@ const HeroSection = ({ heroRef }) => {
           <div className="hero__heading-line h-px w-full bg-white/40 mb-5" />
           <div className="hero__heading-content flex flex-col items-center justify-center space-y-6">
             {/* Massive Hero Headline */}
-            <h1 className="hero__title font-sans text-5xl md:text-7xl lg:text-[6.5rem] font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)] z-10">
-              Reclaim 831 Hours
+            <h1 className="hero__title font-sans text-4xl md:text-6xl lg:text-[4.8rem] font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)] z-10">
+              A New Generation Of Intelligence
               <br />
-              <span className="hero__title-line block text-4xl md:text-6xl lg:text-[5rem] text-blue-400 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                Per PM, Per Year
+              <span className="hero__title-line block text-2xl md:text-4xl lg:text-[2.6rem] text-blue-400 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
+                Real-time Management powered by AI
               </span>
             </h1>
 

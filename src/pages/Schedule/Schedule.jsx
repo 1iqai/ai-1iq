@@ -262,7 +262,7 @@ const Schedule = () => {
       <CommonHeader
         ref={heroRef}
         title={"Get Started"}
-        text={"Interested in solving your problems with 1iQ software?"}
+        text={"Ready to experience 1iQ? Tell us about your team and we'll be in touch."}
       ></CommonHeader>
 
       <div className="w-full min-h-screen bg-white pb-32" style={{ fontFamily: "'Inter', sans-serif", color: "#1a1d23" }}>

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import gsap from "gsap";
 import Lenis from "lenis";
@@ -60,7 +60,7 @@ function App() {
         <Route path="/learn-more" element={<LearnMore />} />
         {/* <Route path="/core-field" element={<CoreField />} />
         <Route path="/intelligence" element={<Intelligence />} /> */}
-        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/contact-us" element={<Navigate to="/schedule" replace />} />
         <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
         <Route path="/builder-application" element={<BuilderForm />} />
         <Route path="/get-started" element={<GetStarted />} />

@@ -121,52 +121,143 @@ function SectionLabel({ children, required, hint }) {
   );
 }
 
-function SuccessModal({ name, visible, countdown }) {
+/* ═══════════════════════════════════════════════════════
+   LOI TERMS MODAL
+   ═══════════════════════════════════════════════════════ */
+const LOI_DATE = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+
+function LOIModal({ name, company, visible, onAccept, onDecline }) {
+  const [agreed, setAgreed] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const scrollRef = useRef(null);
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    if (el.scrollTop + el.clientHeight >= el.scrollHeight - 40) setHasScrolled(true);
+  };
+
   if (!visible) return null;
+
   return (
     <div style={{
-      position: "fixed", inset: 0, background: "rgba(26,29,35,0.4)", backdropFilter: "blur(12px)",
-      zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center",
-      animation: "fadeIn 0.3s ease forwards",
+      position: "fixed", inset: 0, zIndex: 1000,
+      background: "rgba(10, 12, 18, 0.72)", backdropFilter: "blur(14px)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      padding: "16px", animation: "fadeIn 0.25s ease forwards",
     }}>
       <div style={{
-        background: "#ffffff", borderRadius: "16px", padding: "52px 48px 44px", maxWidth: 480, width: "92%",
-        textAlign: "center", boxShadow: "0 32px 100px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.04)",
-        animation: "popIn 0.4s cubic-bezier(.34,1.56,.64,1) forwards", border: "1px solid #e8eaed",
+        background: "#ffffff", borderRadius: "16px", width: "100%", maxWidth: 680,
+        maxHeight: "90vh", display: "flex", flexDirection: "column",
+        boxShadow: "0 40px 120px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.06)",
+        border: "1px solid #e0e2e8", animation: "popIn 0.35s cubic-bezier(.34,1.4,.64,1) forwards",
       }}>
-        <div style={{
-          width: 68, height: 68, borderRadius: "50%", background: "#ffffff",
-          border: "2px solid #1a1d23", display: "flex", alignItems: "center",
-          justifyContent: "center", margin: "0 auto 28px",
-          animation: "scaleCheck 0.5s ease 0.15s forwards", transform: "scale(0.5)", opacity: 0,
-        }}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a1d23" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "30px", fontWeight: 800, color: "#1a1d23", margin: "0 0 10px", letterSpacing: "-0.5px", lineHeight: 1.2 }}>
-          You're All Set
-        </h2>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "15px", color: "#5a5f6b", lineHeight: 1.7, margin: "0 0 32px", letterSpacing: "-0.1px" }}>
-          Thanks, <strong style={{ color: "#1a1d23", fontWeight: 600 }}>{name}</strong>. Our team will review your information and reach out shortly to get your 1iQ experience started.
-        </p>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "12px 20px", borderRadius: "8px", background: "#f7f7f5", border: "1px solid #e8eaed", marginBottom: 24 }}>
-          <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#1a1d23", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 700, color: "#ffffff" }}>
-            {countdown}
+
+        {/* ── Header ── */}
+        <div style={{ padding: "28px 32px 20px", borderBottom: "1px solid #ecedf0", flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+            <div style={{ width: 6, height: 28, background: "#1a1d23", borderRadius: 3 }} />
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", color: "#9098a4" }}>
+              LETTER OF INTENT
+            </span>
           </div>
-          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#5a5f6b", fontWeight: 450 }}>
-            Redirecting to your dashboard...
-          </span>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "22px", fontWeight: 800, color: "#1a1d23", margin: "0 0 4px", letterSpacing: "-0.3px" }}>
+            1iQ Platform Access Agreement
+          </h2>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#9098a4", margin: 0 }}>
+            Effective Date: {LOI_DATE} &nbsp;·&nbsp; Applicant: <strong style={{ color: "#5a5f6b" }}>{name}{company ? `, ${company}` : ""}</strong>
+          </p>
         </div>
-        <div>
-          <a href="https://app.1iq.ai/" style={{ display: "inline-flex", alignItems: "center", gap: 0, textDecoration: "none", borderRadius: "100px", overflow: "hidden", background: "#2d3039" }}>
-            <span style={{ padding: "14px 24px 14px 28px", fontFamily: "'Inter', sans-serif", fontSize: "12.5px", fontWeight: 600, color: "#ffffff", letterSpacing: "1.2px", textTransform: "uppercase" }}>
-              Go to Dashboard
+
+        {/* ── Scrollable Body ── */}
+        <div ref={scrollRef} onScroll={handleScroll} style={{
+          flex: 1, overflowY: "auto", padding: "28px 32px",
+          fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#3a3f4a",
+          lineHeight: 1.75, letterSpacing: "-0.05px",
+        }}>
+          <p style={{ margin: "0 0 24px", color: "#5a5f6b" }}>
+            This Letter of Intent ("LOI") is entered into as of the Effective Date above between <strong style={{ color: "#1a1d23" }}>1iQ Inc.</strong> ("Company") and the individual or entity identified above ("Applicant"). By accepting this LOI, Applicant agrees to the following terms governing access to the 1iQ platform.
+          </p>
+
+          {[
+            {
+              num: "1.", title: "Intent & Purpose",
+              body: "This LOI confirms Applicant's intent to access and evaluate the 1iQ AI-powered project management platform (the \u201cPlatform\u201d). Access is granted for the purpose of assessing suitability for Applicant's internal construction or project management operations. This LOI does not constitute a binding commercial agreement but establishes the foundational terms under which access is extended.",
+            },
+            {
+              num: "2.", title: "Scope of Access",
+              body: "1iQ hereby grants Applicant a limited, non-exclusive, non-transferable right to access the Platform for internal evaluation and/or operational use. Access may be expanded, restricted, or terminated by 1iQ at its sole discretion with reasonable notice. Applicant may not sublicense, resell, or otherwise transfer access rights to any third party.",
+            },
+            {
+              num: "3.", title: "Confidentiality",
+              body: "Applicant acknowledges that all Platform features, data models, workflows, AI methodologies, and proprietary algorithms constitute trade secrets and confidential information of 1iQ Inc. Applicant agrees not to disclose, copy, reverse-engineer, or otherwise misappropriate any confidential information of 1iQ. This obligation survives termination of access.",
+            },
+            {
+              num: "4.", title: "Acceptable Use",
+              body: "Applicant shall use the Platform solely for lawful business purposes consistent with Applicant's stated intentions in the access application. Applicant shall not: (a) attempt to circumvent security controls; (b) upload malicious code; (c) use the Platform to compete with 1iQ; (d) harvest or scrape data in bulk; or (e) share login credentials with unauthorized individuals.",
+            },
+            {
+              num: "5.", title: "Intellectual Property",
+              body: "All intellectual property rights in and to the Platform, including but not limited to software, algorithms, user interfaces, documentation, trademarks, and trade dress, remain the exclusive property of 1iQ Inc. No rights are transferred to Applicant except the limited access right described herein. Any feedback provided by Applicant may be freely used by 1iQ without obligation.",
+            },
+            {
+              num: "6.", title: "Limitation of Liability",
+              body: "TO THE MAXIMUM EXTENT PERMITTED BY LAW, 1iQ Inc. SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO APPLICANT'S ACCESS TO OR USE OF THE PLATFORM. 1iQ's total aggregate liability shall not exceed the greater of (a) amounts paid by Applicant to 1iQ in the thirty (30) days preceding the claim, or (b) one hundred U.S. dollars ($100).",
+            },
+            {
+              num: "7.", title: "Governing Law & Dispute Resolution",
+              body: "This LOI shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. Any dispute arising under this LOI shall be resolved by binding arbitration in Los Angeles County, California, under the rules of the American Arbitration Association. The prevailing party shall be entitled to recover reasonable attorneys' fees.",
+            },
+          ].map((s) => (
+            <div key={s.num} style={{ marginBottom: 24 }}>
+              <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", fontWeight: 700, color: "#1a1d23", letterSpacing: "1.2px", textTransform: "uppercase", margin: "0 0 8px", display: "flex", gap: 8 }}>
+                <span style={{ color: "#9098a4" }}>{s.num}</span> {s.title}
+              </h3>
+              <p style={{ margin: 0, color: "#5a5f6b" }}>{s.body}</p>
+            </div>
+          ))}
+
+          <div style={{ borderTop: "1px solid #ecedf0", paddingTop: 20, marginTop: 8, color: "#9098a4", fontSize: "12px" }}>
+            By accepting below, Applicant represents that they have the authority to bind themselves and/or their organization to the terms of this Letter of Intent.
+          </div>
+        </div>
+
+        {/* ── Footer ── */}
+        <div style={{ padding: "20px 32px 24px", borderTop: "1px solid #ecedf0", flexShrink: 0, background: "#fafafa", borderRadius: "0 0 16px 16px" }}>
+          {/* Agree checkbox */}
+          <label style={{ display: "flex", alignItems: "flex-start", gap: 12, cursor: "pointer", marginBottom: 20 }}>
+            <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} style={{ width: 18, height: 18, marginTop: 2, accentColor: "#1a1d23", cursor: "pointer", flexShrink: 0 }} />
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "13.5px", color: "#3a3f4a", lineHeight: 1.5 }}>
+              I have read, understood, and agree to the terms of this Letter of Intent on behalf of myself and/or my organization.
             </span>
-            <span style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.12)", borderRadius: "50%", margin: "4px 4px 4px 0" }}>
-              <ArrowIcon size={14} color="#ffffff" />
-            </span>
-          </a>
+          </label>
+
+          {/* Buttons */}
+          <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
+            <button onClick={onDecline} style={{
+              padding: "12px 24px", borderRadius: "100px",
+              border: "1px solid #d8dbe0", background: "#ffffff",
+              fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600,
+              color: "#5a5f6b", letterSpacing: "1px", textTransform: "uppercase",
+              cursor: "pointer", transition: "all 0.18s ease",
+            }}>
+              Decline
+            </button>
+            <button onClick={agreed ? onAccept : undefined} disabled={!agreed} style={{
+              display: "flex", alignItems: "center", gap: 0, borderRadius: "100px",
+              border: "none", overflow: "hidden",
+              background: agreed ? "#1a1d23" : "#d0d3db",
+              cursor: agreed ? "pointer" : "not-allowed",
+              transition: "background 0.2s ease",
+            }}>
+              <span style={{ padding: "12px 20px 12px 24px", fontFamily: "'Inter', sans-serif", fontSize: "11px", fontWeight: 600, color: "#ffffff", letterSpacing: "1.2px", textTransform: "uppercase" }}>
+                Accept &amp; Continue
+              </span>
+              <span style={{ width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", background: agreed ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.05)", borderRadius: "50%", margin: "3px 3px 3px 0" }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -175,8 +266,7 @@ function SuccessModal({ name, visible, countdown }) {
 
 const Schedule = () => {
   const [step, setStep] = useState(1);
-  const [showModal, setShowModal] = useState(false);
-  const [countdown, setCountdown] = useState(5);
+  const [showLOI, setShowLOI] = useState(false);
   const [sending, setSending] = useState(false);
   const containerRef = useRef(null);
   const heroRef = useRef(null);
@@ -194,12 +284,8 @@ const Schedule = () => {
     ...d, [field]: d[field].includes(val) ? d[field].filter((v) => v !== val) : [...d[field], val],
   }));
 
-  useEffect(() => {
-    if (!showModal) return;
-    if (countdown <= 0) { window.open("https://app.1iq.ai/", "_self"); return; }
-    const t = setTimeout(() => setCountdown((c) => c - 1), 1000);
-    return () => clearTimeout(t);
-  }, [showModal, countdown]);
+  const handleAccept = () => { window.open("https://app.1iq.ai/", "_self"); };
+  const handleDecline = () => { setShowLOI(false); };
 
   const canProceed = () => {
     switch (step) {
@@ -242,7 +328,7 @@ const Schedule = () => {
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
       const responseData = await response.json();
       if (responseData.success) {
-        setShowModal(true);
+        setShowLOI(true);
       } else {
         alert("There was an error submitting the form. Please try again.");
       }
@@ -268,7 +354,13 @@ const Schedule = () => {
       <div className="w-full min-h-screen bg-white pb-32" style={{ fontFamily: "'Inter', sans-serif", color: "#1a1d23" }}>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
 
-        <SuccessModal name={data.firstName || "there"} visible={showModal} countdown={countdown} />
+        <LOIModal
+          name={data.firstName || "there"}
+          company={data.companyName}
+          visible={showLOI}
+          onAccept={handleAccept}
+          onDecline={handleDecline}
+        />
 
         {/* ─── PROGRESS NAV BAR ─── */}
         <nav className="sticky top-0 z-50 flex items-center justify-end px-4 md:px-8 h-16 border-b border-[#ecedf0]" style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(16px)" }}>

@@ -175,38 +175,72 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
           fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#3a3f4a",
           lineHeight: 1.75, letterSpacing: "-0.05px",
         }}>
-          <p style={{ margin: "0 0 24px", color: "#5a5f6b" }}>
-            This Letter of Intent ("LOI") is entered into as of the Effective Date above between <strong style={{ color: "#1a1d23" }}>1iQ Inc.</strong> ("Company") and the individual or entity identified above ("Applicant"). By accepting this LOI, Applicant agrees to the following terms governing access to the 1iQ platform.
+
+          {/* ── Formal letter metadata ── */}
+          <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid #ecedf0", fontSize: "13px", color: "#9098a4", lineHeight: 1.8 }}>
+            <div style={{ marginBottom: 4 }}>30 January 2026</div>
+            <div style={{ marginBottom: 4 }}>Via Electronic Mail</div>
+            <div style={{ marginTop: 12, color: "#5a5f6b" }}>
+              <strong style={{ color: "#1a1d23" }}>1iQ, LLC</strong><br />
+              Los Angeles, California
+            </div>
+            <div style={{ marginTop: 8, color: "#5a5f6b" }}>
+              Attn: <strong style={{ color: "#1a1d23" }}>{name}{company ? `, ${company}` : ""}</strong>
+            </div>
+            <div style={{ marginTop: 8, fontWeight: 600, color: "#3a3f4a" }}>Re: Letter of Intent for Services to be Provided</div>
+          </div>
+
+          {/* ── Salutation ── */}
+          <p style={{ margin: "0 0 16px", color: "#3a3f4a" }}>
+            Dear {name || "Ladies and Gentlemen"}:
+          </p>
+
+          {/* ── Opening paragraph ── */}
+          <p style={{ margin: "0 0 28px", color: "#5a5f6b" }}>
+            This letter of intent (<strong style={{ color: "#1a1d23" }}>"LOI"</strong>) sets out the principal terms of a potential contract for services being considered by{" "}
+            <strong style={{ color: "#1a1d23" }}>{name}{company ? ` / ${company}` : ""}</strong> (<strong style={{ color: "#1a1d23" }}>"Customer"</strong>) for use of the 1iQ platform and services (as defined in Section 2) from 1iQ, LLC a Wyoming limited liability company (<strong style={{ color: "#1a1d23" }}>"1iQ"</strong>). The possible contract is referred to as the <strong style={{ color: "#1a1d23" }}>"AI SaaS Agreement"</strong> or <strong style={{ color: "#1a1d23" }}>"Definitive Agreement"</strong> and Customer and 1iQ are referred to collectively as the <strong style={{ color: "#1a1d23" }}>"Parties"</strong> and each, individually, as a <strong style={{ color: "#1a1d23" }}>"Party"</strong>.
           </p>
 
           {[
             {
-              num: "1.", title: "Intent & Purpose",
-              body: "This LOI confirms Applicant's intent to access and evaluate the 1iQ AI-powered project management platform (the \u201cPlatform\u201d). Access is granted for the purpose of assessing suitability for Applicant's internal construction or project management operations. This LOI does not constitute a binding commercial agreement but establishes the foundational terms under which access is extended.",
+              num: "1.",
+              title: "Nonbinding",
+              body: `Except for the provisions of Section 3, Section 4, Section 5, Section 6, Section 7, Section 8, and the requirement of this Section 1 regarding entry into negotiations, this LOI is not binding on the Parties; it is only an expression of basic terms and conditions that the Parties presently intend to incorporate in a formal written agreement that will govern the Transaction (an "AI SaaS Agreement" or "Definitive Agreement"). No binding agreement shall exist with respect to the Transaction unless and until the Definitive Agreement has been duly executed and delivered by both Parties. As soon as practicable following the acceptance and approval of this LOI by the Seller, the Parties shall enter into good faith negotiations with the objective of executing the Definitive Agreement within sixty (60) business days thereafter. 1iQ shall prepare the initial draft of the Definitive Agreement.`,
             },
             {
-              num: "2.", title: "Scope of Access",
-              body: "1iQ hereby grants Applicant a limited, non-exclusive, non-transferable right to access the Platform for internal evaluation and/or operational use. Access may be expanded, restricted, or terminated by 1iQ at its sole discretion with reasonable notice. Applicant may not sublicense, resell, or otherwise transfer access rights to any third party.",
+              num: "2.",
+              title: "Supply of Services",
+              body: `It is the present intention of the Parties that, upon execution of the Definitive Agreement, Customer would purchase, subscribe for, or otherwise contract for and 1iQ would sell, provide, or otherwise contract for the services set out in the attached Exhibit A ("Term Sheet"), at the price, terms, and other material qualifiers set out therein. The Definitive Agreement shall contain such covenants, conditions, indemnities, representations, and warranties as the Parties shall mutually agree.`,
             },
             {
-              num: "3.", title: "Confidentiality",
-              body: "Applicant acknowledges that all Platform features, data models, workflows, AI methodologies, and proprietary algorithms constitute trade secrets and confidential information of 1iQ Inc. Applicant agrees not to disclose, copy, reverse-engineer, or otherwise misappropriate any confidential information of 1iQ. This obligation survives termination of access.",
+              num: "3.",
+              title: "Confidentiality",
+              body: `Each Party agrees to keep confidential all non-public information disclosed by the other Party in connection with the Transaction, including but not limited to the existence and terms of this LOI. Neither Party shall disclose such information to any third party without the prior written consent of the disclosing Party, except as required by law. This obligation of confidentiality shall survive the termination or expiration of this LOI.`,
             },
             {
-              num: "4.", title: "Acceptable Use",
-              body: "Applicant shall use the Platform solely for lawful business purposes consistent with Applicant's stated intentions in the access application. Applicant shall not: (a) attempt to circumvent security controls; (b) upload malicious code; (c) use the Platform to compete with 1iQ; (d) harvest or scrape data in bulk; or (e) share login credentials with unauthorized individuals.",
+              num: "4.",
+              title: "Exclusivity",
+              body: `During the period commencing on the date of this LOI and ending sixty (60) business days thereafter (the "Exclusivity Period"), Customer agrees not to solicit, initiate, encourage, or participate in any discussions or negotiations with any third party regarding any transaction that is substantially similar to the Transaction contemplated herein. 1iQ agrees to negotiate exclusively with Customer during the Exclusivity Period.`,
             },
             {
-              num: "5.", title: "Intellectual Property",
-              body: "All intellectual property rights in and to the Platform, including but not limited to software, algorithms, user interfaces, documentation, trademarks, and trade dress, remain the exclusive property of 1iQ Inc. No rights are transferred to Applicant except the limited access right described herein. Any feedback provided by Applicant may be freely used by 1iQ without obligation.",
+              num: "5.",
+              title: "Expenses",
+              body: `Each Party shall bear its own costs, fees, and expenses (including legal, accounting, and advisory fees) incurred in connection with the negotiation, preparation, and execution of this LOI and the Definitive Agreement, unless otherwise agreed in writing by the Parties.`,
             },
             {
-              num: "6.", title: "Limitation of Liability",
-              body: "TO THE MAXIMUM EXTENT PERMITTED BY LAW, 1iQ Inc. SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO APPLICANT'S ACCESS TO OR USE OF THE PLATFORM. 1iQ's total aggregate liability shall not exceed the greater of (a) amounts paid by Applicant to 1iQ in the thirty (30) days preceding the claim, or (b) one hundred U.S. dollars ($100).",
+              num: "6.",
+              title: "No Obligation to Complete Transaction",
+              body: `Except as expressly set forth herein, nothing in this LOI shall obligate either Party to complete the Transaction or to enter into the Definitive Agreement. Either Party may withdraw from negotiations at any time without liability to the other Party, subject to the binding provisions of this LOI.`,
             },
             {
-              num: "7.", title: "Governing Law & Dispute Resolution",
-              body: "This LOI shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. Any dispute arising under this LOI shall be resolved by binding arbitration in Los Angeles County, California, under the rules of the American Arbitration Association. The prevailing party shall be entitled to recover reasonable attorneys' fees.",
+              num: "7.",
+              title: "Governing Law",
+              body: `This LOI shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws provisions. Any dispute arising out of or relating to this LOI shall be resolved exclusively in the courts of competent jurisdiction located in Los Angeles County, California, and each Party hereby submits to the personal jurisdiction of such courts.`,
+            },
+            {
+              num: "8.",
+              title: "Entire Agreement; Amendments",
+              body: `This LOI constitutes the entire agreement of the Parties with respect to the subject matter hereof and supersedes all prior and contemporaneous agreements, representations, warranties, and understandings, whether oral or written, relating to such subject matter. This LOI may not be amended except by a written instrument signed by both Parties.`,
             },
           ].map((s) => (
             <div key={s.num} style={{ marginBottom: 24 }}>
@@ -218,8 +252,9 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
           ))}
 
           <div style={{ borderTop: "1px solid #ecedf0", paddingTop: 20, marginTop: 8, color: "#9098a4", fontSize: "12px" }}>
-            By accepting below, Applicant represents that they have the authority to bind themselves and/or their organization to the terms of this Letter of Intent.
+            By accepting below, Customer represents that they have the full authority to bind themselves and their organization to the terms of this Letter of Intent, and acknowledges receipt of the foregoing.
           </div>
+
         </div>
 
         {/* ── Footer ── */}

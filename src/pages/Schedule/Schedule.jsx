@@ -126,7 +126,7 @@ function SectionLabel({ children, required, hint }) {
    ═══════════════════════════════════════════════════════ */
 const LOI_DATE = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
-function LOIModal({ name, company, visible, onAccept, onDecline }) {
+function LOIModal({ name, company, jobTitle, hqLocation, visible, onAccept, onDecline }) {
   const [agreed, setAgreed] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const scrollRef = useRef(null);
@@ -165,7 +165,7 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
             1iQ Platform Access Agreement
           </h2>
           <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#9098a4", margin: 0 }}>
-            Effective Date: {LOI_DATE} &nbsp;·&nbsp; Applicant: <strong style={{ color: "#5a5f6b" }}>{name}{company ? `, ${company}` : ""}</strong>
+            Effective Date: {LOI_DATE} &nbsp;·&nbsp; Applicant: <strong style={{ color: "#5a5f6b" }}>{name}{jobTitle ? `, ${jobTitle}` : ""}{company ? ` — ${company}` : ""}{hqLocation ? `, ${hqLocation}` : ""}</strong>
           </p>
         </div>
 
@@ -185,7 +185,10 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
               Los Angeles, California
             </div>
             <div style={{ marginTop: 8, color: "#5a5f6b" }}>
-              Attn: <strong style={{ color: "#1a1d23" }}>{name}{company ? `, ${company}` : ""}</strong>
+              Attn: <strong style={{ color: "#1a1d23" }}>{name}</strong>
+              {jobTitle && <span style={{ color: "#5a5f6b" }}>, {jobTitle}</span>}
+              {company && <><br /><span style={{ color: "#5a5f6b" }}>{company}</span></>}
+              {hqLocation && <span style={{ color: "#9098a4" }}> · {hqLocation}</span>}
             </div>
             <div style={{ marginTop: 8, fontWeight: 600, color: "#3a3f4a" }}>Re: Letter of Intent for Services to be Provided</div>
           </div>
@@ -392,6 +395,8 @@ const Schedule = () => {
         <LOIModal
           name={data.firstName || "there"}
           company={data.companyName}
+          jobTitle={data.jobTitle}
+          hqLocation={data.hqLocation}
           visible={showLOI}
           onAccept={handleAccept}
           onDecline={handleDecline}

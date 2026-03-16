@@ -326,7 +326,7 @@ const Intelligence = () => {
                   cardText: "When something changes on site, 1iQ Gantt updates the full schedule automatically — 5 minutes, not 5 days.",
                 },
                 ...advancedCapabilities.map(capability => ({
-                  cardTitle: capability.title === "AI Schedule Generator" ? "5-Minute Schedule Updates" : capability.title,
+                  cardTitle: capability.title === "The Schedule That Runs Itself" ? "5-Minute Schedule Updates" : capability.title,
                   cardText: capability.description
                 }))
               ]}

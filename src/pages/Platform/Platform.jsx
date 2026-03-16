@@ -287,33 +287,30 @@ const Platform = () => {
         ]}
       /> */}
 
-      {/* One Platform. Four Capabilities. Overview Section */}
-      <section className="relative w-full bg-white py-16 md:py-24 border-t border-gray-100">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6" style={{ fontFamily: 'Outfit, sans-serif' }}>
-              One Platform. Four Capabilities.
-            </h2>
-            <p className="text-black/70 text-xl md:text-2xl leading-relaxed font-light mb-16 max-w-3xl mx-auto">
-              1iQ is designed to be adopted together or rolled out by need. Most teams start with Core and Intel, then expand to Field and Gantt as adoption grows.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div className="bg-gray-50 border-2 border-black p-8">
-                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Core</h3>
-                <p className="text-black/70 text-base font-light leading-relaxed">Central command: document management, workflow automation, real-time visibility.</p>
-              </div>
-              <div className="bg-gray-50 border-2 border-black p-8">
-                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Field</h3>
-                <p className="text-black/70 text-base font-light leading-relaxed">Field-to-office: real-time data capture, mobile sync, progress tracking.</p>
-              </div>
-              <div className="bg-gray-50 border-2 border-black p-8">
-                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Intel</h3>
-                <p className="text-black/70 text-base font-light leading-relaxed">Reporting engine: automated summaries, dashboards, AI-powered analysis.</p>
-              </div>
-              <div className="bg-gray-50 border-2 border-black p-8">
-                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Gantt</h3>
-                <p className="text-black/70 text-base font-light leading-relaxed">Scheduling brain: AI-generated schedules that update in 5 minutes, not 5 days.</p>
-              </div>
+      {/* ADDITION 2 — Sub-Product Architecture Explanation */}
+      <section className="platform-architecture">
+        <div className="platform-architecture__inner">
+          <p className="platform-architecture__eyebrow">THE PLATFORM</p>
+          <h2 className="platform-architecture__title">One Platform. Four Capabilities.</h2>
+          <p className="platform-architecture__intro">
+            1iQ is designed to be adopted together or rolled out by need. Most teams start with Core and Intel, then add Field and Gantt as adoption grows. All four are available from day one.
+          </p>
+          <div className="platform-architecture__grid">
+            <div className="platform-architecture__module">
+              <span className="platform-architecture__module-tag">1iQ Core</span>
+              <p className="platform-architecture__module-desc">The central command layer. Document management, workflow automation, and real-time project visibility.</p>
+            </div>
+            <div className="platform-architecture__module">
+              <span className="platform-architecture__module-tag">1iQ Field</span>
+              <p className="platform-architecture__module-desc">The field-to-office connection. Real-time data capture and mobile sync — without chasing subcontractors.</p>
+            </div>
+            <div className="platform-architecture__module">
+              <span className="platform-architecture__module-tag">1iQ Intel</span>
+              <p className="platform-architecture__module-desc">The reporting engine. Automated summaries, dashboards, and AI-powered analysis — replacing manual PowerPoint and Excel work.</p>
+            </div>
+            <div className="platform-architecture__module">
+              <span className="platform-architecture__module-tag">1iQ Gantt</span>
+              <p className="platform-architecture__module-desc">The scheduling brain. AI-generated schedules that update in 5 minutes instead of 5 days.</p>
             </div>
           </div>
         </div>

@@ -132,16 +132,7 @@ const BrandCarousel = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-10">
-                <PortalButton
-                    label="Speak to the team"
 
-                    redirectTo="/contact-us"
-                    showDivider={true}
-                // className="cta__portal-btn"
-
-                />
-            </div>
 
         </section>
     );

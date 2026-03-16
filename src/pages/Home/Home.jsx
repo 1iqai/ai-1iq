@@ -9,6 +9,7 @@ import ThreeDSection from "../../components/ThreeDSection";
 import FeaturesSection from "../../components/Shared/FeaturesSection/FeaturesSection";
 import Footer from "../../components/Shared/Footer/Footer";
 import BrandCarousel from "../../components/Shared/BrandCarousel/BrandCarousel";
+import ROICalculator from "../../components/ROICalculator";
 
 // import gsap from "gsap";
 // import { useGSAP } from "@gsap/react";
@@ -67,6 +68,9 @@ const Home = () => {
         {/* Hero Section with Video Background */}
         <HeroSection heroRef={heroRef} />
 
+        {/* ROI Calculator Section */}
+        <ROICalculator />
+
 
         {/* Features Section */}
         <FeaturesSection />
@@ -82,7 +86,44 @@ const Home = () => {
         {/* Core Value Pillars Section */}
         <CoreValuePillars />
 
+        {/* ADDITION 3 — Testimonial Placeholder */}
+        <section className="testimonial-section">
+          <div className="testimonial-section__inner">
+            <svg className="testimonial-section__quote-mark" width="40" height="32" viewBox="0 0 40 32" fill="none">
+              <path d="M0 32V19.2C0 8.533 5.867 2.133 17.6 0L19.2 3.2C13.6 4.267 10.4 7.467 9.6 12.8H16V32H0ZM24 32V19.2C24 8.533 29.867 2.133 41.6 0L43.2 3.2C37.6 4.267 34.4 7.467 33.6 12.8H40V32H24Z" fill="#4a9eff" fillOpacity="0.2"/>
+            </svg>
+            {/* PLACEHOLDER — replace with real client quote when available */}
+            <blockquote className="testimonial-section__quote">
+              "1iQ didn't just save us time — it changed how our PMs think about their week. The reporting alone recovered two full days per month, per person."
+            </blockquote>
+            {/* PLACEHOLDER — replace with real name, title, and company */}
+            <cite className="testimonial-section__attribution">
+              <span className="testimonial-section__name">Senior Project Executive</span>
+              <span className="testimonial-section__company">Commercial Construction, Southwest US</span>
+            </cite>
+          </div>
+        </section>
 
+        {/* ADDITION 1 — Positioning Statement Section */}
+        <section className="positioning-section">
+          <div className="positioning-section__inner">
+            <p className="positioning-section__eyebrow">A NEW CATEGORY OF SOFTWARE</p>
+            <div className="positioning-section__statements">
+              <p className="positioning-section__line">CRMs manage customers.</p>
+              <p className="positioning-section__line">ERPs manage finances.</p>
+              <p className="positioning-section__line positioning-section__line--highlight">1iQ manages project intelligence.</p>
+            </div>
+            <p className="positioning-section__body">
+              Every construction firm runs some version of a CRM and an ERP. Neither one knows what's happening on site. 1iQ is the layer that does — connecting field activity, scheduling, reporting, and risk into a single live intelligence platform built specifically for construction operations.
+            </p>
+            <a href="/platform" className="positioning-section__cta">
+              Explore the Platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </section>
 
         {/* Footer */}
         <Footer />

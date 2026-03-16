@@ -141,3 +141,216 @@ section {
     background: black;
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   POSITIONING STATEMENT SECTION
+══════════════════════════════════════════════════════ */
+
+.positioning-section {
+  background: #ffffff;
+  padding: 96px 48px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.positioning-section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.positioning-section__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #4a9eff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.positioning-section__statements {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.positioning-section__line {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.35);
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.positioning-section__line--highlight {
+  font-weight: 700;
+  color: #0d0d0d;
+}
+
+.positioning-section__body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.55);
+  max-width: 600px;
+  margin: 0;
+}
+
+.positioning-section__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d0d0d;
+  text-decoration: none;
+  border-bottom: 2px solid #0d0d0d;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.positioning-section__cta:hover {
+  color: #4a9eff;
+  border-color: #4a9eff;
+}
+
+@media (max-width: 768px) {
+  .positioning-section { padding: 64px 24px; }
+  .positioning-section__line { font-size: 28px; }
+}
+
+/* ══════════════════════════════════════════════════════
+   PLATFORM ARCHITECTURE SECTION
+══════════════════════════════════════════════════════ */
+
+.platform-architecture {
+  background: #f8f8f8;
+  padding: 80px 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.platform-architecture__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.platform-architecture__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #4a9eff;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.platform-architecture__title {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: #0d0d0d;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.platform-architecture__intro {
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 0 48px;
+}
+
+.platform-architecture__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.platform-architecture__module {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.platform-architecture__module-tag {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a9eff;
+  letter-spacing: 0.03em;
+}
+
+.platform-architecture__module-desc {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .platform-architecture__grid { grid-template-columns: 1fr 1fr; }
+  .platform-architecture { padding: 64px 24px; }
+}
+
+@media (max-width: 560px) {
+  .platform-architecture__grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════
+   TESTIMONIAL SECTION
+══════════════════════════════════════════════════════ */
+
+.testimonial-section {
+  background: #0d0d0d;
+  padding: 80px 48px;
+}
+
+.testimonial-section__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.testimonial-section__quote-mark {
+  opacity: 0.6;
+}
+
+.testimonial-section__quote {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400;
+  color: white;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.testimonial-section__attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-style: normal;
+}
+
+.testimonial-section__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonial-section__company {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 768px) {
+  .testimonial-section { padding: 64px 24px; }
+}

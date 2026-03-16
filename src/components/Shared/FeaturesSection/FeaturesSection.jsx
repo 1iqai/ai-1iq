@@ -59,23 +59,23 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: <FaChartBar className="w-10 h-10" />,
-      title: 'Scheduling Time Recovered',
-      description: 'Replaces MS Project and P6 manual entry. Save 332 hours previously spent building and updating schedules.',
+      title: 'Schedules That Stop Breaking',
+      description: "Your PMs shouldn't be rebuilding the schedule every time a sub misses a day. 1iQ updates it automatically from live field data, saving 332 hours a year of manual P6 and MS Project entry.",
     },
     {
       icon: <FaSyncAlt className="w-10 h-10" />,
-      title: 'Reporting Automated',
-      description: 'Replaces Excel and PowerPoint manual compiling. Save 182 hours building dashboards and status reports.',
+      title: 'Reports That Write Themselves',
+      description: "The Monday morning status report shouldn't take all of Sunday night. 1iQ reads every dashboard and writes the summary, saving 182 hours a year that used to disappear into Excel and PowerPoint.",
     },
     {
       icon: <FaRobot className="w-10 h-10" />,
-      title: 'Instant Lookups & Analysis',
-      description: 'Stop digging through emails and Procore docs. AI search saves 109 hours of pure lookup time.',
+      title: 'Every Answer. Instantly.',
+      description: 'How many hours does your team spend hunting through email threads to find a decision from six weeks ago? 1iQ has read every data point on the project. Just ask it. Saves 109 hours of pure lookup time per year.',
     },
     {
       icon: <FaShieldAlt className="w-10 h-10" />,
-      title: 'Admin & Doc Mgmt Streamlined',
-      description: 'Automate data entry, RFIs, submittals, and daily logs. Save 208 hours a year on pure admin.',
+      title: 'The Admin That Runs Itself',
+      description: 'RFIs, submittals, daily logs, data entry. The invisible tax that eats 208 hours of every PM\'s year. 1iQ handles it automatically so your team can focus on what actually needs a human.',
     },
     {
       icon: <FaMobileAlt className="w-10 h-10" />,
@@ -117,10 +117,10 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div ref={titleRef} className="features-section__header text-center mb-8 md:mb-16">
           <h2 className="header-title features-section__title mb-4">
-            The Bottom Line Savings
+            What 1iQ Returns to Every PM
           </h2>
           <p className="header-subtitle features-section__subtitle">
-            Each PM gets back 831 hours—that's 21 weeks or 40% of their year returned to field leadership.
+            Right now, your best PMs are spending more time on admin than they are running jobs. 1iQ changes that, returning 831 hours, 21 weeks, and 40% of their year back to the work that actually moves projects forward.
           </p>
         </div>
 

@@ -37,39 +37,29 @@ const Intelligence = () => {
   // Key features data
   const keyFeatures = [
     {
-      title: "Automated Report Summarization",
+      title: "Your Weekly Report. Written Before You Wake Up.",
       description: (
-        <>
-          Stop manually pulling data into PowerPoint. 1iQ reads all your dashboards and writes weekly summaries in real time, saving{" "}
-          <strong className="text-2xl font-black text-black tracking-tight">182 hours</strong> per PM.
-        </>
+        "1iQ Intel reads every dashboard and writes the weekly summary automatically — saving 182 hours a year, per PM."
       ),
       icon: <FaChartLine className="text-3xl" />,
     },
     {
-      title: "Direct Cost Savings",
+      title: "Time Recovered Is Money Recovered.",
       description: (
-        <>
-          Reclaim recovered time and avoid costly delays. Unlock an expected{" "}
-          <strong className="text-2xl font-black text-black tracking-tight">$71,397</strong> per PM in direct, fully-loaded labor savings.
-        </>
+        "Across scheduling, reporting, and admin automation, the expected recovery is $71,397 per PM, per year."
       ),
       icon: <FaMicrochip className="text-3xl" />,
     },
     {
-      title: "Massive Revenue Uplift",
+      title: "Capacity You Already Have.",
       description: (
-        <>
-          By eliminating paperwork, each PM can take on 1 extra project per year, unlocking{" "}
-          <strong className="text-2xl font-black text-black tracking-tight">$350k</strong> in new gross profit capacity without new hires.
-        </>
+        "With reporting automated, each PM gains capacity for one more project a year — $350k in new gross profit, no new hires."
       ),
       icon: <FaBrain className="text-3xl" />,
     },
     {
-      title: "Unified Intelligence Platform",
-      description:
-        "Replace multiple redundant tools with one AI-driven system that connects every team, task, budget, and report securely in real time.",
+      title: "One Source of Truth.",
+      description: "One AI driven system replaces every disconnected tool — every team, task, budget, and document connected live.",
       icon: <FaShieldAlt className="text-3xl" />,
     },
   ];
@@ -77,12 +67,9 @@ const Intelligence = () => {
   // Advanced capabilities data
   const advancedCapabilities = [
     {
-      title: "AI Schedule Generator",
+      title: "The Schedule That Runs Itself",
       description: (
-        <>
-          Drop scheduling time from 336 hours a year to just <strong className="text-2xl font-black text-black tracking-tight">4 hours</strong>. Generate complete schedule updates in{" "}
-          <strong className="font-extrabold border-b-2 border-black">5 minutes</strong> with automatic field data.
-        </>
+        "When something changes on site, 1iQ Gantt updates the full schedule automatically — 5 minutes, not 5 days."
       ),
       subtitle: (
         <span className="text-black font-bold tracking-tight">Save <span className="font-bold">332 Hours</span> Annually on Scheduling</span>
@@ -90,9 +77,9 @@ const Intelligence = () => {
       icon: <FaSatellite className="text-3xl" />,
     },
     {
-      title: "Dynamic Timeline Adjustments",
+      title: "When Plans Change, 1iQ Adjusts.",
       description:
-        "Continuously adjusts workflows, timelines, and resources based on live site data to keep your projects perfectly aligned and efficient.",
+        "1iQ Gantt continuously adjusts timelines and resources based on live site data — keeping projects on track when plans change.",
       subtitle: "Predictive Delays and Scheduling",
       icon: <FaNetworkWired className="text-3xl" />,
     },
@@ -101,25 +88,25 @@ const Intelligence = () => {
   // Applications data
   const intelligenceApplications = [
     {
-      title: "The Ultimate Reality",
+      title: "The Math Is Simple.",
       description: (
         <>
-          For a team of 5 PMs, the net benefit is <strong className="text-2xl font-black text-black tracking-tight">$2.1M</strong> in Year 1. That's{" "}
-          <strong className="text-black font-bold">4,156 hours</strong> recovered and <strong className="text-2xl font-black text-black tracking-tight">$25 million</strong> in new capacity.
+          For a team of five project managers, the net benefit is <strong className="text-2xl font-black text-black tracking-tight">$2.1M</strong> in Year 1. That's{" "}
+          <strong className="text-black font-bold">4,156 hours</strong> recovered, $71,397 in direct savings per PM, and <strong className="text-2xl font-black text-black tracking-tight">$25 million</strong> in new project capacity. From a tool that was already in your budget.
         </>
       ),
       icon: <FaEye className="text-3xl" />,
     },
     {
-      title: "Zero Friction Onboarding",
+      title: "Already In Your Budget. Ready Day One.",
       description:
-        "The 1iQ project fee is baked directly into the budget. True out-of-pocket cost is just $1,000 per PM for onboarding.",
+        "1iQ is structured as a 2.5% project soft cost, already in your budget. Out of pocket cost is $1,000 per PM, per year.",
       icon: <FaCog className="text-3xl" />,
     },
     {
-      title: "Audit-Ready Data Trails",
+      title: "Every Decision. Documented.",
       description:
-        "Secure data management that ensures absolute accountability and eliminates post-mortem finger-pointing completely.",
+        "Every change, decision, and communication logged, searchable, and audit-ready.",
       icon: <FaLock className="text-3xl" />,
     },
   ];
@@ -221,7 +208,7 @@ const Intelligence = () => {
       {/* <CommonHeader
                 ref={heroRef}
                 title="1iQ Intelligence"
-                text="Advanced AI-Powered Analytics"
+                text="Advanced AI Powered Analytics"
             /> */}
 
       {/* Hero Section - White Background */}
@@ -231,11 +218,11 @@ const Intelligence = () => {
                 <div className="container mx-auto px-8">
                     <div className="hero__content text-center max-w-4xl mx-auto">
                         <h1 className="hero__title text-black text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight mb-8">
-                            Advanced AI-Powered Analytics
+                            Advanced AI Powered Analytics
                         </h1>
 
                         <p className="hero__description text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12 max-w-3xl mx-auto">
-                            Harness the power of artificial intelligence and machine learning to transform your construction projects into intelligent, self-optimizing operations that predict, adapt, and evolve in real-time.
+                            Harness the power of artificial intelligence and machine learning to transform your construction projects into intelligent, self optimizing operations that predict, adapt, and evolve in real time.
                         </p>
 
                         {/* Hero Image */}
@@ -306,10 +293,10 @@ const Intelligence = () => {
             </CardDetails>
             <div className="flex justify-center mt-12">
               <PortalButton
-                label="Contact to Sales"
-                redirectTo="/contact-us"
-                showDivider={true}
-                className="cta-portal-btn"
+                label="Launch Free Trial"
+                redirectTo="https://app.1iq.ai"
+                showDivider={false}
+                className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
               />
             </div>
           </div>
@@ -335,11 +322,11 @@ const Intelligence = () => {
               sectionTitle="1iQ Gantt"
               cards={[
                 {
-                  cardTitle: "AI Schedule Generator",
-                  cardText: <>Revolutionize your scheduling with our AI Schedule Generator. Drop scheduling time from <strong className="font-black text-black tracking-tight">336 hours</strong> down to <strong className="font-black text-black text-xl tracking-tight">4 hours</strong> per year, keeping your projects completely in sync without the manual headache.</>
+                  cardTitle: "The Schedule That Runs Itself",
+                  cardText: "When something changes on site, 1iQ Gantt updates the full schedule automatically — 5 minutes, not 5 days.",
                 },
                 ...advancedCapabilities.map(capability => ({
-                  cardTitle: capability.title,
+                  cardTitle: capability.title === "AI Schedule Generator" ? "5-Minute Schedule Updates" : capability.title,
                   cardText: capability.description
                 }))
               ]}
@@ -352,14 +339,14 @@ const Intelligence = () => {
                 />
               </div>
             </CardDetails>
-            {/* <div className="flex justify-center mt-12">
-                            <PortalButton
-                                label="Contact to Sales"
-                                redirectTo="/contact-us"
-                                showDivider={true}
-                                className="cta-portal-btn"
-                            />
-                        </div> */}
+            <div className="flex justify-center mt-12">
+              <PortalButton
+                label="Launch Free Trial"
+                redirectTo="https://app.1iq.ai"
+                showDivider={false}
+                className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
+              />
+            </div>
           </div>
         </div>
       </section>

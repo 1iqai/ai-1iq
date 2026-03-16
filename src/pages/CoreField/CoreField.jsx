@@ -37,47 +37,33 @@ const CoreField = () => {
   // Core platform capabilities data
   const coreCapabilities = [
     {
-      title: "Document Management Streamlined",
-      description: (
-        <>
-          Automate data entry, RFIs, submittals, and daily logs to save you up to{" "}
-          <strong className="text-2xl font-black text-black tracking-tight">208 hours</strong> a year, perfectly freeing up your PMs.
-        </>
-      ),
+      title: "RFIs and Submittals. Handled.",
+      description: "1iQ Core automates RFIs, submittals, daily logs, and data entry — saving 208 hours of your PM's year.",
       icon: <FaClipboardCheck className="text-3xl" />,
     },
     {
-      title: "Instant Lookups & Analysis",
-      description: (
-        <>
-          Stop digging through emails and Procore docs. Our AI project chat tool instantly retrieves answers, saving{" "}
-          <strong className="text-2xl font-black text-black tracking-tight">109 hours</strong> per year.
-        </>
-      ),
+      title: "The Answer Is Already There. Just Ask.",
+      description: "Ask 1iQ Core any question about the project — it has read every email, log, and change order. Saves 109 hours a year.",
       icon: <FaBrain className="text-3xl" />,
     },
     {
-      title: "Intelligent Workflow Automation",
-      description:
-        "Centralize fragmented tools into one platform so every handoff, update, and dependency is always automatically in sync.",
+      title: "Handoffs That Don't Drop Balls",
+      description: "Every task handoff and dependency updates automatically — no one needs to chase it.",
       icon: <FaRobot className="text-3xl" />,
     },
     {
-      title: "Real-Time Central Command",
-      description:
-        "Get comprehensive, real-time visibility into project performance, budgets, and metrics to eliminate lag in decision-making.",
+      title: "Everything in One Place. Always Current.",
+      description: "Budgets, schedules, performance, and milestones — all live, all in one place.",
       icon: <FaChartLine className="text-3xl" />,
     },
     {
-      title: "Live Project Communication",
-      description:
-        "Seamlessly interact directly with your project data. Just ask the AI—it has read every document, drawing, and correspondence.",
+      title: "Ask Your Project Anything",
+      description: "1iQ Core reads every document on the job and flags risks before they become problems.",
       icon: <FaUsers className="text-3xl" />,
     },
     {
-      title: "Predictive Risk Reduction",
-      description:
-        "Catch cost overruns and prevent schedule delays with live alerts before they ever become severe blockers in the field.",
+      title: "Know What's Coming Before It Costs You",
+      description: "1iQ Core spots the patterns behind cost overruns and schedule delays early, before there's still time to act.",
       icon: <FaShieldAlt className="text-3xl" />,
     },
   ];
@@ -85,31 +71,27 @@ const CoreField = () => {
   // Field operations capabilities data
   const fieldCapabilities = [
     {
-      title: "Effortless Data Capture",
+      title: "No More Manual Data Entry. Ever.",
       subtitle: "Automated reporting from the jobsite",
-      description:
-        "Eliminate manual data entry. Field data flows automatically directly into the platform, ensuring zero lag between site work and decision-making.",
+      description: "Field teams report once — that data flows automatically into schedules, dashboards, and reports with zero manual re-entry.",
       icon: <FaBox className="text-3xl" />,
     },
     {
-      title: "Continuous Mobile Sync",
+      title: "Your Site in Your Pocket",
       subtitle: "Equip every field team instantly",
-      description:
-        "Provide field teams with instant mobile reporting tools that seamlessly sync with the central command dashboard.",
+      description: "Daily logs, RFI submissions, and site updates sync to central command in real time from any device.",
       icon: <FaUsers className="text-3xl" />,
     },
     {
-      title: "Live Actionable Updates",
+      title: "Every Trade. Always in Sync.",
       subtitle: "Real-time status changes",
-      description:
-        "Eliminate idle time and miscommunication between trades, maintaining continuous momentum across all project phases.",
+      description: "Live updates to every trade eliminate idle time and miscommunication across all project phases.",
       icon: <FaArrowRight className="text-3xl" />,
     },
     {
-      title: "Automated Progress Tracking",
+      title: "Progress Reports That Chase Themselves",
       subtitle: "Comprehensive progress monitoring",
-      description:
-        "Monitor milestones and automatically generate progress reports without needing to chase down subcontractors for updates.",
+      description: "1iQ Field monitors milestones and generates progress reports automatically — no follow-up emails required.",
       icon: <FaClipboardCheck className="text-3xl" />,
     },
   ];
@@ -253,23 +235,19 @@ const CoreField = () => {
               Central Command Intelligence
             </h1>
 
+            <p className="hero__description text-center text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12 max-w-3xl mx-auto">
+              1iQ unifies your entire project operation into a single AI powered command layer. Scheduling, reporting, field data, and document management all flow into one place, so your team makes faster decisions with complete information, not fragmented tools and email chains.
+            </p>
+
             {/* Hero Buttons */}
-            <div className="hero__buttons flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="hero__buttons flex justify-center">
               <PortalButton
                 label="Get Started"
                 redirectTo="/get-started"
                 showDivider={true}
-                fullWidth
+                fullWidth={false}
                 className="hero__portal-btn"
                 icon={<FaArrowRight />}
-              />
-              <PortalButton
-                label="Schedule Demo"
-                redirectTo="/schedule"
-                showDivider={true}
-                fullWidth
-                className="hero__portal-btn"
-                icon={<FaPlay />}
               />
             </div>
           </div>
@@ -343,10 +321,10 @@ const CoreField = () => {
             </CardDetails>
             <div className="flex justify-center mt-12">
               <PortalButton
-                label="Contact to Sales"
-                redirectTo="/contact-us"
-                showDivider={true}
-                className="cta-portal-btn"
+                label="Launch Free Trial"
+                redirectTo="https://app.1iq.ai"
+                showDivider={false}
+                className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
               />
             </div>
           </div>
@@ -365,8 +343,8 @@ const CoreField = () => {
               sectionTitle="1iQ Field"
               cards={[
                 {
-                  cardTitle: "Streamline the Field",
-                  cardText: "Streamline field operations with real-time coordination, intelligent scheduling, and seamless communication between teams. From dispatch to completion, ensure every operation runs smoothly and efficiently."
+                  cardTitle: "Field to Office. Zero Lag.",
+                  cardText: "1iQ Field syncs live site data directly into the platform — every decision made on today's information, not last week's."
                 },
                 ...fieldCapabilities.map(capability => ({
                   cardTitle: capability.title,
@@ -384,10 +362,10 @@ const CoreField = () => {
             </CardDetails>
             <div className="flex justify-center mt-12">
               <PortalButton
-                label="Contact to Sales"
-                redirectTo="/contact-us"
-                showDivider={true}
-                className="cta-portal-btn"
+                label="Launch Free Trial"
+                redirectTo="https://app.1iq.ai"
+                showDivider={false}
+                className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
               />
             </div>
           </div>

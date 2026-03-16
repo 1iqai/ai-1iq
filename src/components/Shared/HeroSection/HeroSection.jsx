@@ -57,10 +57,10 @@ const HeroSection = ({ heroRef }) => {
           {/* Left Column - Subtitle */}
           <div className="hero__subtitle space-y-4">
             <p className="hero__subtitle-label text-white text-xs lg:text-sm font-medium tracking-wide uppercase">
-              AN AI ENGINE FOR HIGH-PERFORMANCE MANAGEMENT
+              AN AI ENGINE FOR HIGH PERFORMANCE MANAGEMENT
             </p>
             <p className="hero__subtitle-text text-white/70 text-xs lg:text-sm leading-relaxed max-w-lg">
-              Project managers burn 1,220 hours a year—almost 60% of their time—on admin and paperwork.
+              Project managers burn 1,220 hours a year. Almost 60% of their time goes to admin and paperwork.
               1iQ reclaims that time. Our AI automates scheduling, reporting, and analysis, returning 831 hours
               to every PM, every year. Stop drowning in paperwork. Start building.
             </p>
@@ -84,10 +84,10 @@ const HeroSection = ({ heroRef }) => {
           <div className="hero__heading-content flex flex-col items-center justify-center space-y-6">
             {/* Massive Hero Headline */}
             <h1 className="hero__title font-sans text-4xl md:text-6xl lg:text-[4.8rem] font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)] z-10">
-              A New Generation Of Intelligence
+              Your Best PMs Are Buried in Paperwork.
               <br />
               <span className="hero__title-line flex flex-col md:flex-row items-center justify-center md:items-baseline gap-2 md:gap-4 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                <span className="text-4xl md:text-6xl lg:text-[3.9rem] text-blue-400">Real-Time Management</span>
+                <span className="text-4xl md:text-6xl lg:text-[3.9rem] text-blue-400">1iQ Gives Them Back 831 Hours a Year.</span>
                 <span className="text-xl md:text-2xl lg:text-[1.3rem] text-blue-400">Powered by AI</span>
               </span>
             </h1>

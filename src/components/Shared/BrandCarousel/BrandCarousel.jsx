@@ -116,9 +116,9 @@ const BrandCarousel = () => {
     return (
         <section ref={sectionRef} className="brand-carousel pb-24 mb-24 pt-0 md:pt-8 mt-0">
             <div ref={headerRef} className="brand-carousel__header">
-                <h2 className="header-title brand-carousel__heading">Trusted by Teams Across Industries</h2>
+                <h2 className="header-title brand-carousel__heading">The Brands That Trusted Us to Build Their Spaces</h2>
                 <p className="header-subtitle brand-carousel__subheading">
-                    From global brands to growing builders, 1iQ supports teams working on projects of every size.
+                    From flagship retail to Amazon fulfillment centers. These are the construction projects that ran on 1iQ.
                 </p>
             </div>
 

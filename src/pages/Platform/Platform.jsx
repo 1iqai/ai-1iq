@@ -242,7 +242,7 @@ const Platform = () => {
               Reclaim What Matters.
             </h2>
             <p className="hero__description text-center md:text-justify text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12 w-full mt-0 md:mt-4">
-              Your project managers are burning <strong className="font-black text-black text-3xl mx-1 tracking-tight">1,220 hours</strong> every year on administrative friction. The 1iQ Platform is the centralized AI engine designed to aggressively automate workflows, eliminate delays, and return <strong className="font-black text-black text-3xl mx-1 tracking-tight border-b-4 border-black">831 hours</strong> of pure building time back to your team.
+              Every hour your PMs spend on admin is an hour they're not running the job. 1iQ is the AI platform built specifically for construction, automating the scheduling, reporting, and document work that's quietly consuming 30 weeks of every PM's year.
             </p>
 
             <div className="flex justify-center mt-8 mb-16">
@@ -286,6 +286,38 @@ const Platform = () => {
           },
         ]}
       /> */}
+
+      {/* One Platform. Four Capabilities. Overview Section */}
+      <section className="relative w-full bg-white py-16 md:py-24 border-t border-gray-100">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-6" style={{ fontFamily: 'Outfit, sans-serif' }}>
+              One Platform. Four Capabilities.
+            </h2>
+            <p className="text-black/70 text-xl md:text-2xl leading-relaxed font-light mb-16 max-w-3xl mx-auto">
+              1iQ is designed to be adopted together or rolled out by need. Most teams start with Core and Intel, then expand to Field and Gantt as adoption grows.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div className="bg-gray-50 border-2 border-black p-8">
+                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Core</h3>
+                <p className="text-black/70 text-base font-light leading-relaxed">Central command: document management, workflow automation, real-time visibility.</p>
+              </div>
+              <div className="bg-gray-50 border-2 border-black p-8">
+                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Field</h3>
+                <p className="text-black/70 text-base font-light leading-relaxed">Field-to-office: real-time data capture, mobile sync, progress tracking.</p>
+              </div>
+              <div className="bg-gray-50 border-2 border-black p-8">
+                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Intel</h3>
+                <p className="text-black/70 text-base font-light leading-relaxed">Reporting engine: automated summaries, dashboards, AI-powered analysis.</p>
+              </div>
+              <div className="bg-gray-50 border-2 border-black p-8">
+                <h3 className="text-black text-xl font-black tracking-tight mb-2">1iQ Gantt</h3>
+                <p className="text-black/70 text-base font-light leading-relaxed">Scheduling brain: AI-generated schedules that update in 5 minutes, not 5 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <CoreField />
 

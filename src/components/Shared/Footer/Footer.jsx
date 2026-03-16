@@ -82,21 +82,21 @@ const Footer = () => {
                   <span>1iQ Platform</span>
                   <span>1iQ Platform</span>
                 </a>
-                <a href="#" onClick={(e) =>{
+                <a href="/platform" onClick={(e) =>{
                    e.preventDefault();
                    handleNavigation('/platform', 'core');
                 }}>
                   <span>1iQ Core</span>
                   <span>1iQ Core</span>
                 </a>
-                <a href="#" onClick={(e) =>{
+                <a href="/platform" onClick={(e) =>{
                    e.preventDefault();
                    handleNavigation('/platform', 'field');
                 }}>
                   <span>1iQ Field</span>
                   <span>1iQ Field</span>
                 </a>
-                <a href="#" onClick={(e) => {
+                <a href="/platform" onClick={(e) => {
                    e.preventDefault();
                    handleNavigation('/platform', 'intelligence');
                 }}>
@@ -111,7 +111,7 @@ const Footer = () => {
               <p className="footer-middle-title mb-[32px] text-[14px] font-medium">CAPABILITIES</p>
               <div className="footer-links">
                 <a className="link" href="">
-                  Real-Time Data Sync
+                  Real Time Data Sync
                 </a>
                 <a className="link" href="">
                   Digital Twin Integration
@@ -129,7 +129,7 @@ const Footer = () => {
                   Developer API Access
                 </a>
                 <a className="link" href="">
-                  Multi-Project Control
+                  Multi Project Control
                 </a>
               </div>
             </div>

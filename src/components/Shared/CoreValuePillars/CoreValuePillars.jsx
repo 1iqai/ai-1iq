@@ -7,34 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
   {
-    title: 'AI Schedule Generator',
-    summary:
-      'Drop scheduling time from 336 hours a year to just 4. Data flows automatically from the field—no more chasing subs.',
-    bullets: [
-      'Generates full updates in 5 minutes.',
-      'Saves 332 hours per year, per PM.',
-      'Recovers $22,625 in direct labor cost.'
-    ]
+    title: 'Schedules That Update Themselves',
+    summary: 'When something changes on site, 1iQ updates the schedule automatically. 332 hours of manual entry, returned.'
   },
   {
-    title: 'AI Report Summarization',
-    summary:
-      'Stop manually pulling data into PowerPoint. 1iQ reads all your dashboards and writes weekly summaries in real time.',
-    bullets: [
-      'Reduces reporting from 208 to 26 hours.',
-      'Saves 182 hours per year, per PM.',
-      'Recovers $12,403 in direct labor cost.'
-    ]
+    title: 'Reports That Write Themselves',
+    summary: '1iQ reads every dashboard and writes the weekly summary automatically. 182 hours of reporting time, returned.'
   },
   {
-    title: 'AI Project Chat',
-    summary:
-      'Never dig through emails or Procore logs again. Just ask the AI. It has read every document on the project.',
-    bullets: [
-      'Reduces lookup time from 156 to 47 hours.',
-      'Saves 109 hours per year, per PM.',
-      'Recovers $7,442 in direct labor cost.'
-    ]
+    title: 'Every Answer. Already There.',
+    summary: '1iQ has read every document, email, and log on the project. Stop hunting. Just ask.'
   }
 ];
 
@@ -186,10 +168,10 @@ const CoreValuePillars = () => {
       <div className="core-pillars__container max-w-6xl mx-auto px-6 md:px-10 flex flex-col gap-12 mt-12 md:mt-3">
         <div ref={titleRef} className="core-pillars__header flex flex-col gap-4 md:gap-6">
           <h2 className="core-pillars__title text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
-            Core Value Pillars
+            How 1iQ Gives the Time Back
           </h2>
           <p className="core-pillars__subtitle text-lg md:text-xl text-neutral-600 font-normal max-w-xl">
-            Operational guardrails that scale every ambitious build.
+            Three things every PM spends too much time on. Three things 1iQ handles automatically.
           </p>
         </div>
 
@@ -221,14 +203,7 @@ const CoreValuePillars = () => {
                   <p className="pillar-slide__summary text-sm md:text-base lg:text-lg text-neutral-700 mb-6 md:mb-8">
                     {pillar.summary}
                   </p>
-                  <ul className="pillar-slide__list grid gap-3 md:gap-4 text-sm md:text-base text-neutral-900">
-                    {pillar.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2 md:gap-3">
-                        <span className="mt-1.5 md:mt-2 h-1.5 w-1.5 rounded-full bg-black flex-shrink-0" aria-hidden="true" />
-                        <span className="leading-relaxed">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+
                 </div>
               </article>
             ))}

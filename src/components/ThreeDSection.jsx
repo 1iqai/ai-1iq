@@ -44,24 +44,24 @@ function ScrollCards() {
 
   const cards = [
     {
-      title: "The Problem We Solve",
-      description: "Project managers burn nearly 60% of their year—1,220 hours—on scheduling, reporting, lookups, and admin. That's 30 full weeks of non-building work.",
+      title: "The Real Cost of Running a Job",
+      description: "A senior PM on a $50M project shouldn't be rebuilding a schedule at 10pm because a sub didn't show. They shouldn't be pulling together a status deck on Sunday so the Monday meeting looks good. But almost every one of them is. That's not a people problem. It's what happens when the tools haven't kept up with the work.",
     },
     {
-      title: "Cost Savings (The Easy Part)",
-      description: "1iQ gives back 831 hours. Across admin savings, delay avoidance, and rework reduction, the expected direct savings are $71,397 per PM per year.",
+      title: "831 Hours. Returned.",
+      description: "When the admin runs itself, your PMs get back 21 weeks a year. At $68/hr fully loaded, that's $71,397 in recovered value per PM, before you count a single delay avoided or rework prevented.",
     },
     {
-      title: "Revenue Uplift (The Bigger Part)",
-      description: "Because they aren't drowning in paperwork, each PM can take on 1 extra project per year. No new hires needed. That's pure new profit.",
+      title: "One More Project Per PM. Every Year.",
+      description: "When your PMs aren't buried in paperwork, they have capacity for another job. A $5M project at 7% margin is $350k in new gross profit, per PM, per year. No new hires. No overtime. Just capacity that was already there.",
     },
     {
-      title: "What It Costs (The Key Insight)",
-      description: "1iQ acts as a 2.5% project soft cost, already baked into the budget. The true out-of-pocket cost to your firm is just $1,000 per PM for onboarding.",
+      title: "More Projects. Fewer Errors. No Extra Headcount.",
+      description: "When AI handles the scheduling, reporting, and admin automatically, your PMs operate at a different level. Faster decisions, greater precision, and the bandwidth to take on more work simultaneously. That's not just efficiency. That's how your firm scales revenue without scaling costs.",
     },
     {
-      title: "The Ultimate Reality",
-      description: "For a team of 5 PMs, the net benefit is $2.1M in Year 1. That's 4,156 hours recovered, unlocking $25 million in new project revenue capacity.",
+      title: "5 PMs. $2.1M. Year One.",
+      description: "For a team of five project managers, the net benefit is $2.1M in Year 1. That's 4,156 hours recovered and $25 million in new project capacity unlocked. From a tool that was already in your budget.",
     }
   ];
 

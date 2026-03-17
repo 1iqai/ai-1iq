@@ -7,56 +7,56 @@ const MODULES = [
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_core_new.jpeg",
     title: "Everything in One Place. Always Current.",
     description:
-      "Budgets, schedules, team performance, milestones — all visible, all live. 1iQ Core is the central command layer that connects every document, decision, and data point across your project operation.",
+      "Budgets, schedules, team performance, and milestones are all visible and live. 1iQ Core is the central command layer that connects every document, decision, and data point across your project operation.",
     features: [
-      "RFIs and submittals handled automatically — saves 208 hours per PM per year",
+      "RFIs and submittals handled automatically, saving 208 hours per PM per year",
       "AI project chat answers any question about the job instantly",
       "Predictive risk alerts flag cost overruns before they escalate",
       "Live dashboards replace the Friday report with real-time visibility",
     ],
-    screenshotAlt: "1iQ Core — Central Command Dashboard",
+    screenshotAlt: "1iQ Core: Central Command Dashboard",
   },
   {
     tag: "1iQ Field",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_field_mockup.png",
     title: "Field to Office. Zero Lag.",
     description:
-      "What happens on site shouldn't take 48 hours to reach the office. 1iQ Field syncs real-time data from the field directly into the platform — so every decision gets made on today's information, not last week's.",
+      "What happens on site shouldn't take 48 hours to reach the office. 1iQ Field syncs real-time data from the field directly into the platform, ensuring every decision gets made on today's information, not last week's.",
     features: [
-      "Field teams report once — data flows automatically into schedules and dashboards",
+      "Field teams report once and data flows automatically into schedules and dashboards",
       "Mobile sync keeps every trade updated without phone calls or follow-ups",
       "Automated progress tracking monitors milestones without chasing subs",
       "Live updates eliminate idle time between trades across all project phases",
     ],
-    screenshotAlt: "1iQ Field — Mobile Field Sync Interface",
+    screenshotAlt: "1iQ Field: Mobile Field Sync Interface",
   },
   {
     tag: "1iQ Intel",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_intel_new.jpeg",
     title: "Your Weekly Report. Written Before You Wake Up.",
     description:
-      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary — complete, accurate, ready to send. What used to take half a day takes nothing. Saves 182 hours a year, per PM.",
+      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary, which is complete, accurate, and ready to send. What used to take half a day takes nothing. Saves 182 hours a year, per PM.",
     features: [
       "Automated report summarization replaces manual PowerPoint and Excel work",
       "AI-powered analysis surfaces risks and opportunities across your portfolio",
       "Expected direct savings: $71,397 per PM per year in recovered time and costs",
-      "One source of truth — replaces fragmented tools with a single live system",
+      "One source of truth that replaces fragmented tools with a single live system",
     ],
-    screenshotAlt: "1iQ Intel — Automated Reporting Dashboard",
+    screenshotAlt: "1iQ Intel: Automated Reporting Dashboard",
   },
   {
     tag: "1iQ Gantt",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_grant.jpeg",
     title: "The Schedule That Runs Itself.",
     description:
-      "Field data flows directly into 1iQ Gantt. When something changes on site, the schedule reflects it automatically — complete and accurate in 5 minutes, not rebuilt over days.",
+      "Field data flows directly into 1iQ Gantt. When something changes on site, the schedule reflects it automatically, remaining complete and accurate in 5 minutes, not rebuilt over days.",
     features: [
       "Drops scheduling time from 336 hours a year down to 4",
       "Predictive delay detection flags critical path risks before they hit",
-      "Dynamic timeline adjustments based on live field data — no manual input",
+      "Dynamic timeline adjustments based on live field data with no manual input required",
       "5-minute schedule updates replace days of manual P6 and MS Project entry",
     ],
-    screenshotAlt: "1iQ Gantt — AI Schedule Generator",
+    screenshotAlt: "1iQ Gantt: AI Schedule Generator",
   },
 ];
 

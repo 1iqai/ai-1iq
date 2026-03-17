@@ -68,6 +68,52 @@ const Home = () => {
         {/* Hero Section with Video Background */}
         <HeroSection heroRef={heroRef} />
 
+        {/* ── Value Blocks ── */}
+        <section className="value-blocks">
+          <div className="value-blocks__header">
+            <h2 className="value-blocks__title">What 1iQ actually does.</h2>
+          </div>
+          <div className="value-blocks__grid">
+
+            <div className="value-block">
+              <div className="value-block__bar" />
+              <div className="value-block__content">
+                <h3 className="value-block__heading">
+                  Field activity becomes intelligence, instantly.
+                </h3>
+                <p className="value-block__desc">
+                  The moment work happens on site, 1iQ converts it into real-time analytics your team can act on immediately.
+                </p>
+              </div>
+            </div>
+
+            <div className="value-block">
+              <div className="value-block__bar" />
+              <div className="value-block__content">
+                <h3 className="value-block__heading">
+                  Schedules that rewrite themselves.
+                </h3>
+                <p className="value-block__desc">
+                  Completed tasks trigger automatic date adjustments, timeline shifts, and team alerts with no human in the loop required.
+                </p>
+              </div>
+            </div>
+
+            <div className="value-block">
+              <div className="value-block__bar" />
+              <div className="value-block__content">
+                <h3 className="value-block__heading">
+                  Stop waiting for someone to tell you what's happening.
+                </h3>
+                <p className="value-block__desc">
+                  1iQ tells you first with live data, live alerts, and decisions that don't wait for Monday's meeting.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         {/* ROI Calculator Section */}
         <ROICalculator />
 
@@ -94,7 +140,7 @@ const Home = () => {
             </svg>
             {/* PLACEHOLDER — replace with real client quote when available */}
             <blockquote className="testimonial-section__quote">
-              "1iQ didn't just save us time — it changed how our PMs think about their week. The reporting alone recovered two full days per month, per person."
+              "1iQ didn't just save us time; it changed how our PMs think about their week. The reporting alone recovered two full days per month, per person."
             </blockquote>
             {/* PLACEHOLDER — replace with real name, title, and company */}
             <cite className="testimonial-section__attribution">
@@ -114,7 +160,7 @@ const Home = () => {
               <p className="positioning-section__line positioning-section__line--highlight">1iQ manages project intelligence.</p>
             </div>
             <p className="positioning-section__body">
-              Every construction firm runs some version of a CRM and an ERP. Neither one knows what's happening on site. 1iQ is the layer that does — connecting field activity, scheduling, reporting, and risk into a single live intelligence platform built specifically for construction operations.
+              Every construction firm runs some version of a CRM and an ERP. Neither one knows what's happening on site. 1iQ is the layer that does, connecting field activity, scheduling, reporting, and risk into a single live intelligence platform built specifically for construction operations.
             </p>
             <a href="/platform" className="positioning-section__cta">
               Explore the Platform

@@ -300,7 +300,7 @@ const Platform = () => {
               <div className="hiw-step__number">01</div>
               <h3 className="hiw-step__title">Field Activity</h3>
               <p className="hiw-step__desc">
-                Subcontractors, PMs, and site teams work as normal. 1iQ observes — no new workflows, no behavior change required.
+                Subcontractors, PMs, and site teams work as normal. 1iQ observes with no new workflows and no behavior change required.
               </p>
             </div>
 
@@ -372,7 +372,7 @@ const Platform = () => {
               <div className="hiw-step__number">04</div>
               <h3 className="hiw-step__title">Live Project Intelligence</h3>
               <p className="hiw-step__desc">
-                Executives and PMs see every project in real time. Schedules, budgets, risks, and contractor performance — all in one place.
+                Executives and PMs see every project in real time, including schedules, budgets, risks, and contractor performance.
               </p>
             </div>
 
@@ -380,34 +380,7 @@ const Platform = () => {
         </div>
       </section>
 
-      {/* ADDITION 2 — Sub-Product Architecture Explanation */}
-      <section className="platform-architecture">
-        <div className="platform-architecture__inner">
-          <p className="platform-architecture__eyebrow">THE PLATFORM</p>
-          <h2 className="platform-architecture__title">One Platform. Four Capabilities.</h2>
-          <p className="platform-architecture__intro">
-            1iQ is designed to be adopted together or rolled out by need. Most teams start with Core and Intel, then add Field and Gantt as adoption grows. All four are available from day one.
-          </p>
-          <div className="platform-architecture__grid">
-            <div className="platform-architecture__module">
-              <span className="platform-architecture__module-tag">1iQ Core</span>
-              <p className="platform-architecture__module-desc">The central command layer. Document management, workflow automation, and real-time project visibility.</p>
-            </div>
-            <div className="platform-architecture__module">
-              <span className="platform-architecture__module-tag">1iQ Field</span>
-              <p className="platform-architecture__module-desc">The field-to-office connection. Real-time data capture and mobile sync — without chasing subcontractors.</p>
-            </div>
-            <div className="platform-architecture__module">
-              <span className="platform-architecture__module-tag">1iQ Intel</span>
-              <p className="platform-architecture__module-desc">The reporting engine. Automated summaries, dashboards, and AI-powered analysis — replacing manual PowerPoint and Excel work.</p>
-            </div>
-            <div className="platform-architecture__module">
-              <span className="platform-architecture__module-tag">1iQ Gantt</span>
-              <p className="platform-architecture__module-desc">The scheduling brain. AI-generated schedules that update in 5 minutes instead of 5 days.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <PlatformSlider />
 
@@ -421,7 +394,7 @@ const Platform = () => {
               The Layer Your<br />Stack Was Missing
             </h2>
             <p className="intelligence-layer__body">
-              Your team already uses tools for scheduling, field reporting, and project management. 1iQ doesn't replace them — it sits above them, reading everything and turning fragmented activity into structured intelligence.
+              Your team already uses tools for scheduling, field reporting, and project management. 1iQ doesn't replace them; it sits above them, reading everything and turning fragmented activity into structured intelligence.
             </p>
             <p className="intelligence-layer__body">
               Most construction software captures data. 1iQ understands it.

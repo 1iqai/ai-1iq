@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "obsidian": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "obsidian-mcp",
+        "C:\\Users\\nssin\\Documents\\claude_brain\\claude_brain"
+      ],
+      "env": {}
+    }
+  }
+}

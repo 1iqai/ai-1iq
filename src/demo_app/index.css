@@ -1,0 +1,486 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
+@theme {
+  /* Font Family Definitions */
+  --font-heading: "Poppins", "Inter", "system-ui", "sans-serif";
+  --font-body: "Inter", "system-ui", "-apple-system", "sans-serif";
+  --font-caption: "Inter", "system-ui", "sans-serif";
+  --font-button: "Poppins", "Inter", "sans-serif";
+  --font-brand: "Poppins", "system-ui", "sans-serif";
+
+  /* Color Palette Definitions */
+  --color-brand-primary-50: #eff6ff;
+  --color-brand-primary-100: #dbeafe;
+  --color-brand-primary-200: #bfdbfe;
+  --color-brand-primary-300: #93c5fd;
+  --color-brand-primary-400: #60a5fa;
+  --color-brand-primary-500: #3b82f6;
+  --color-brand-primary-600: #2563eb;
+  --color-brand-primary-700: #1d4ed8;
+  --color-brand-primary-800: #1e40af;
+  --color-brand-primary-900: #1e3a8a;
+
+  --color-brand-secondary-50: #faf5ff;
+  --color-brand-secondary-100: #f3e8ff;
+  --color-brand-secondary-200: #e9d5ff;
+  --color-brand-secondary-300: #d8b4fe;
+  --color-brand-secondary-400: #c084fc;
+  --color-brand-secondary-500: #a855f7;
+  --color-brand-secondary-600: #9333ea;
+  --color-brand-secondary-700: #7c3aed;
+  --color-brand-secondary-800: #6b21a8;
+  --color-brand-secondary-900: #581c87;
+
+  --color-brand-accent-50: #ecfdf5;
+  --color-brand-accent-100: #d1fae5;
+  --color-brand-accent-200: #a7f3d0;
+  --color-brand-accent-300: #6ee7b7;
+  --color-brand-accent-400: #34d399;
+  --color-brand-accent-500: #10b981;
+  --color-brand-accent-600: #059669;
+  --color-brand-accent-700: #047857;
+  --color-brand-accent-800: #065f46;
+  --color-brand-accent-900: #064e3b;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  --color-bg-primary-light: #ffffff;
+  --color-bg-primary-dark: #0f172a;
+
+  --color-bg-secondary-light: #f8fafc;
+  --color-bg-secondary-dark: #1e293b;
+
+  --color-bg-accent-light: #f1f5f9;
+  --color-bg-accent-dark: #334155;
+
+  --color-txt-primary-light: #1e293b;
+  --color-txt-primary-dark: #f8fafc;
+  --color-txt-secondary-light: #64748b;
+  --color-txt-secondary-dark: #cbd5e1;
+  --color-txt-muted-light: #94a3b8;
+  --color-txt-muted-dark: #94a3b8;
+  --color-heading-primary-light: #0f172a;
+  --color-heading-primary-dark: #ffffff;
+  --color-heading-accent-light: #3b82f6;
+  --color-heading-accent-dark: #60a5fa;
+
+  --color-interactive-primary-light: #3b82f6;
+  --color-interactive-primary-dark: #60a5fa;
+  --color-interactive-hover-light: #2563eb;
+  --color-interactive-hover-dark: #3b82f6;
+}
+
+/* 2. Your Existing CSS Variables for Light/Dark Mode */
+/*
+  This is still the recommended way to handle light/dark mode
+  with Tailwind's `class` dark mode strategy.
+*/
+@layer base {
+  :root {
+    /* Light mode variables */
+    --bg-primary-light: #ffffff;
+    --bg-secondary-light: #f8fafc;
+    --bg-accent-light: #f1f5f9;
+    --txt-primary-light: #1e293b;
+    --txt-secondary-light: #64748b;
+    --heading-primary-light: #0f172a;
+    --heading-accent-light: #3b82f6;
+    --interactive-primary-light: #3b82f6;
+    --interactive-hover-light: #2563eb;
+  }
+
+  .dark {
+    --bg-primary-light: #0f172a;
+    --bg-secondary-light: #1e293b;
+    --bg-accent-light: #334155;
+    --txt-primary-light: #f8fafc;
+    --txt-secondary-light: #cbd5e1;
+    --heading-primary-light: #ffffff;
+    --heading-accent-light: #60a5fa;
+    --interactive-primary-light: #60a5fa;
+    --interactive-hover-light: #3b82f6;
+  }
+
+  /* ... rest of your base styles here ... */
+  /* Scoped resets for demo app dashboard */
+  .demo-scope {
+    @apply font-body transition-colors duration-300;
+    background-color: var(--bg-primary-light);
+    color: var(--txt-primary-light);
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .demo-scope h1,
+  .demo-scope h2,
+  .demo-scope h3,
+  .demo-scope h4,
+  .demo-scope h5,
+  .demo-scope h6 {
+    @apply font-heading font-semibold;
+    color: var(--heading-primary-light);
+  }
+}
+
+/* className="flex-1 overflow-y-auto overscroll-contain"
+            style={{ scrollbarWidth: 'thin', scrollbarColor: '#cbd5e0 #f7fafc' }}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()} */
+
+/* ✅ Modern Component Classes */
+@layer components {
+  /* Modern Button Variants */
+  .btn-primary {
+    @apply font-button bg-gradient-to-r from-brand-primary-500 to-brand-primary-600 hover:from-brand-primary-600 hover:to-brand-primary-700 text-white font-medium py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  .scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: var(--interactive-primary-light) var(--bg-secondary-light);
+    overflow-y: auto;
+    flex: -1;
+  }
+
+  /* .main-content {
+    @apply h-screen
+  } */
+
+  .btn-secondary {
+    background-color: var(--bg-accent-light);
+    color: var(--txt-primary-light);
+    @apply font-button border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 font-medium py-3 px-8 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  .btn-outline {
+    border: 2px solid var(--interactive-primary-light);
+    color: var(--interactive-primary-light);
+    @apply font-button hover:text-white font-medium py-3 px-8 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200;
+  }
+  .btn-outline:hover {
+    background-color: var(--interactive-primary-light);
+  }
+
+  /* Modern Card Component */
+  .card {
+    background-color: var(--bg-primary-light);
+    @apply border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg hover:shadow-xl p-8 transition-all duration-300 backdrop-blur-sm;
+  }
+
+  /* Modern Typography */
+  .heading-xl {
+    @apply font-heading text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-brand-primary-600 via-brand-secondary-600 to-brand-accent-500 bg-clip-text text-transparent leading-tight;
+  }
+
+  .heading-lg {
+    color: var(--heading-primary-light);
+    @apply font-heading text-3xl md:text-5xl font-bold;
+  }
+
+  .heading-accent {
+    color: var(--heading-accent-light);
+    @apply font-heading text-2xl md:text-3xl font-bold;
+  }
+
+  .text-body {
+    color: var(--txt-primary-light);
+    @apply font-body leading-relaxed;
+  }
+
+  .text-muted {
+    color: var(--txt-secondary-light);
+    @apply font-body;
+  }
+
+  /* Modern Layout Classes */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-8 lg:py-16;
+  }
+
+  /* ✅ NEW: Dashboard-specific padding */
+  .dashboard-padding {
+    @apply pt-4 pb-4 px-2 sm:px-2 lg:px-2;
+  }
+
+  .scrollbar {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #334155 transparent; /* Firefox */
+  }
+
+  .page-bg {
+    background: linear-gradient(
+      135deg,
+      var(--bg-secondary-light) 0%,
+      var(--bg-primary-light) 100%
+    );
+    @apply min-h-screen transition-all duration-500;
+  }
+
+  /* Modern Glassmorphism Effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 dark:bg-gray-800/10 border border-white/20 dark:border-gray-700/20 rounded-2xl shadow-2xl;
+  }
+
+  /* Modern Gradient Backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-brand-primary-500 via-brand-primary-600 to-brand-secondary-600;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-brand-secondary-500 via-brand-secondary-600 to-brand-accent-500;
+  }
+}
+
+/* ✅ Modern Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+
+/* ✅ Modern Animations (extended for speaking indicator) */
+@layer utilities {
+  .speaking {
+    animation: pulse 1.5s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  } /* Using brand-accent-500 (green) for visibility */
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* ✅ Modern Emoji Animation Styles */
+/* ✅ Balloon-Like Emoji Animation Styles (Added Globally) */
+@keyframes balloonRise {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) translateX(0) scale(0.8); /* Start further down for pronounced bottom-to-top */
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(30px) translateX(5px) scale(1); /* Gentle sway right, rising */
+  }
+  30% {
+    transform: translateY(-20px) translateX(-3px) scale(1); /* Sway left, continuing upward */
+  }
+  50% {
+    transform: translateY(-100px) translateX(4px) scale(1); /* Sway right, midway up */
+  }
+  70% {
+    transform: translateY(-180px) translateX(-2px) scale(1); /* Sway left, nearing top */
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-250px) translateX(1px) scale(1); /* Almost off-screen */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) translateX(0) scale(0.9); /* Fully risen to top and faded */
+  }
+}
+
+.emoji-float {
+  animation: balloonRise 6s ease-in-out forwards; /* Slower speed (6s) for gentle balloon float */
+  z-index: 9999 !important; /* Ensure high z-index to appear on top */
+}
+
+/* ✅ NEW: Random Crossing Paths for Emojis (Veering left/right to cross) */
+@keyframes randomCross {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-8px); /* Veer left early */
+  }
+  60% {
+    transform: translateX(10px); /* Cross to right midway */
+  }
+  90% {
+    transform: translateX(-5px); /* Veer back slightly */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.emoji-random-cross {
+  animation: randomCross 6s ease-in-out forwards; /* Matches rise duration for synchronized crossing/random paths */
+}
+
+/* ✅ Simplified Sender Name Animation */
+@keyframes senderRise {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+.emoji-sender-float {
+  animation: senderRise 6s ease-in-out forwards; /* Match balloon speed */
+  z-index: 9999 !important;
+}
+
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+}
+
+/* Internet Explorer / Edge (legacy) */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset; /* Use your light background color */
+  -webkit-text-fill-color: #000000; /* Use your light theme text color */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #1e293b inset;
+  -webkit-text-fill-color: #ffffff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(40%) sepia(100%) saturate(500%) hue-rotate(180deg);
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.custom-toast {
+  font-family: "Inter", sans-serif;
+}
+
+.toastify__toast--success {
+  background-color: #e6fffa;
+  color: #0e1580;
+}
+
+.toastify__toast--error {
+  background-color: #ffe6e6;
+  color: #303ac5;
+}
+
+.recharts-wrapper:focus,
+.recharts-surface:focus,
+.recharts-layer:focus,
+.recharts-rectangle:focus,
+.recharts-sector:focus,
+.recharts-pie-sector:focus {
+  outline: none !important;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+.custom-select__menu-list::-webkit-scrollbar {
+  width: 8px; /* thin */
+  height: 8px; /* for horizontal if it appears */
+}
+
+.custom-select__menu-list::-webkit-scrollbar-track {
+  background: transparent; /* or a subtle color */
+}
+
+.custom-select__menu-list::-webkit-scrollbar-thumb {
+  background-color: rgb(99 102 241); /* thumb color (your indigo) */
+  border-radius: 999px; /* pill shape */
+  border: 2px solid transparent; /* gives visual padding */
+  background-clip: content-box; /* keeps border effect */
+}
+
+.custom-select__menu-list:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(79 70 229); /* a bit darker on hover */
+}
+
+/* Optional: use dark track in dark mode (if you have a body.dark class) */
+.dark .custom-select__menu-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Firefox */
+.custom-select__menu-list {
+  scrollbar-width: thin; /* thin | auto | none */
+  scrollbar-color: rgb(99 102 241) transparent;
+}
+
+/* If you toggle a dark class on the root */
+.dark .custom-select__menu-list {
+  scrollbar-color: rgb(99 102 241) rgba(255, 255, 255, 0.06);
+}
+
+.scrollbar-custom {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #334155 transparent; /* Firefox */
+}
+
+.scrollbar-custom-dark {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #bec4ca transparent; /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #101828;
+  border-radius: 4px;
+}

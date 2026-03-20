@@ -1,0 +1,254 @@
+
+.gantt_layout {
+    border-radius: 8px;
+    padding-bottom: 4px;
+}
+
+.gantt_scale_day_vertical {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gantt-grid-header-word-wrap {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    line-height: 1.2;
+    padding: 5px;
+    font-size: 11px;
+}
+
+.gantt-header-modified {
+    font-size: 14px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+}
+
+.gantt-duration-header {
+    font-size: 10px;
+}
+
+.gantt_task_drag {
+    display: none !important;
+}
+
+/* Sort indicator - show only single active arrow beside text */
+.gantt_grid_head_cell {
+    cursor: pointer;
+    overflow: hidden;
+    filter: blur(4px);
+    user-select: none;
+}
+
+/* Hide the default sort container by default */
+.gantt_grid_head_cell .gantt_sort {
+    display: none !important;
+    position: static;
+    margin: 0 auto;
+}
+
+/* Show only when actively sorted - ascending (▲) */
+.gantt_grid_head_cell.gantt_asc .gantt_sort,
+.gantt_grid_head_cell .gantt_sort.gantt_asc {
+    display: block !important;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+/* Show only when actively sorted - descending (▼) */
+.gantt_grid_head_cell.gantt_desc .gantt_sort,
+.gantt_grid_head_cell .gantt_sort.gantt_desc {
+    display: block !important;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+/* Dark mode sort indicators */
+.dark .gantt_grid_head_cell .gantt_sort {
+    opacity: 0.8;
+}
+
+/* Today marker line - dotted style with MUI primary color */
+.gantt_today_marker {
+    position: absolute;
+    top: 0;
+    border-left: 2px dashed #1976d2;
+    z-index: 1;
+}
+
+.gantt_task_scale .gantt_scale_cell {
+    font-size: 10px;
+}
+
+.gantt_grid_data .gantt_cell,
+.gantt-date-cell {
+    font-size: 12px;
+}
+
+/* ========================================
+   DARK MODE OVERRIDES FOR GANTT CHART
+   Using MUI CSS Variables
+   ======================================== */
+
+/* Main container background */
+.dark .gantt_container {
+    background-color: var(--mui-palette-background-default);
+}
+
+/* Grid panel (left side with task list) */
+.dark .gantt_grid,
+.dark .gantt_grid_data {
+    background-color: var(--mui-palette-background-default);
+}
+
+/* Grid header cells */
+.dark .gantt_grid_head_cell {
+    background-color: var(--mui-palette-background-surface);
+    color: var(--mui-palette-text-primary);
+    border-color: var(--mui-palette-divider);
+}
+
+/* Grid data cells */
+.dark .gantt_cell {
+    color: var(--mui-palette-text-primary);
+    border-color: var(--mui-palette-divider);
+}
+
+/* Grid rows */
+.dark .gantt_row {
+    background-color: var(--mui-palette-background-default);
+    border-color: var(--mui-palette-divider);
+}
+
+.dark .gantt_row.odd {
+    background-color: var(--mui-palette-background-surface);
+}
+
+/* Timeline area (right side) */
+.dark .gantt_task_bg,
+.dark .gantt_task_row {
+    background-color: var(--mui-palette-background-default);
+    border-color: var(--mui-palette-divider);
+}
+
+.dark .gantt_task_row.odd {
+    background-color: var(--mui-palette-background-surface);
+}
+
+/* Timeline scale header */
+.dark .gantt_task_scale,
+.dark .gantt_scale_cell {
+    background-color: var(--mui-palette-background-surface);
+    color: var(--mui-palette-text-primary);
+    border-color: var(--mui-palette-divider);
+}
+
+/* Grid scale (header row) */
+.dark .gantt_grid_scale {
+    background-color: var(--mui-palette-background-surface);
+    border-color: var(--mui-palette-divider);
+}
+
+/* Scrollbars */
+.dark .gantt_hor_scroll,
+.dark .gantt_ver_scroll {
+    background-color: var(--mui-palette-background-default);
+}
+
+/* Layout borders */
+.dark .gantt_layout_cell {
+    border-color: var(--mui-palette-divider);
+}
+
+/* Today marker - use primary color for dark mode visibility */
+.dark .gantt_today_marker {
+    border-left-color: var(--mui-palette-primary-main);
+}
+
+/* Links (dependency lines) if enabled */
+.dark .gantt_task_link {
+    border-color: var(--mui-palette-text-secondary);
+}
+
+/* Hover states for dark mode */
+.dark .gantt_row:hover,
+.dark .gantt_row:hover .gantt_cell {
+    background-color: rgba(0, 115, 230, 0.15) !important;
+}
+
+.dark .gantt_task_row:hover {
+    background-color: rgba(0, 115, 230, 0.15) !important;
+}
+
+/* Selected row state */
+.dark .gantt_row.gantt_selected,
+.dark .gantt_row.gantt_selected .gantt_cell {
+    background-color: rgba(0, 115, 230, 0.25) !important;
+}
+
+.dark .gantt_task_row.gantt_selected {
+    background-color: rgba(0, 115, 230, 0.25) !important;
+}
+
+/* ========================================
+   FULLSCREEN MODE STYLES (Browser Native)
+   ======================================== */
+
+/* Fullscreen container - takes over entire viewport */
+:fullscreen,
+:-webkit-full-screen {
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: var(--mui-palette-background-default, #ffffff);
+}
+
+/* Gantt container in fullscreen */
+:fullscreen .gantt_container,
+:-webkit-full-screen .gantt_container {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--mui-palette-background-default, #ffffff);
+}
+
+/* Dark mode fullscreen */
+.dark :fullscreen,
+.dark :-webkit-full-screen {
+    background-color: var(--mui-palette-background-default, #171728);
+}
+
+.dark :fullscreen .gantt_container,
+.dark :-webkit-full-screen .gantt_container {
+    background-color: var(--mui-palette-background-default, #171728);
+}
+
+/* ========================================
+   TOOLTIP STYLES
+   ======================================== */
+
+/* Base tooltip styles */
+.gantt_tooltip {
+    color: var(--mui-palette-text-primary);
+    background-color: var(--mui-palette-background-surface);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+}
+
+/* Dark mode tooltip */
+.dark .gantt_tooltip {
+    background-color: var(--mui-palette-background-surface, #0C0C20);
+    color: var(--mui-palette-text-primary, #e2e8f0);
+    border: 1px solid var(--mui-palette-divider, #3d454f);
+}
+
+/* Ensure tooltip is visible in fullscreen mode */
+:fullscreen .gantt_tooltip,
+:-webkit-full-screen .gantt_tooltip {
+    z-index: 10000 !important;
+    position: fixed !important;
+}

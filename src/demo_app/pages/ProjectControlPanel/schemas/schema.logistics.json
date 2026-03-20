@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "1.1",
+  "industry": "Logistics",
+  "title": "Schedule Generator - Logistics",
+  "sections": [
+    {
+      "id": "projectInfo",
+      "title": "Project Information",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "projectName",
+          "type": "text",
+          "label": "Project Name",
+          "required": false,
+          "placeholder": "e.g., Equipment Delivery Phase 1"
+        },
+        {
+          "id": "industry",
+          "type": "select",
+          "label": "Industry",
+          "required": true,
+          "default": "Logistics",
+          "options": [
+            "Construction (Design + Build)",
+            "Landscape Design + Construction",
+            "Architecture Design",
+            "Logistics",
+            "Entertainment Production + Deployment"
+          ]
+        },
+        {
+          "id": "projectStartDate",
+          "type": "date",
+          "label": "Start Date",
+          "required": true
+        },
+        {
+          "id": "marketYear",
+          "type": "select",
+          "label": "Market Year",
+          "required": true,
+          "default": 2026,
+          "options": [
+            2024,
+            2025,
+            2026,
+            2027
+          ]
+        },
+        {
+          "id": "origin",
+          "type": "text",
+          "label": "Origin (City/Country)",
+          "required": true,
+          "placeholder": "e.g., Miami, USA"
+        },
+        {
+          "id": "destination",
+          "type": "text",
+          "label": "Destination (City/Country)",
+          "required": true,
+          "placeholder": "e.g., Los Angeles, USA"
+        },
+        {
+          "id": "logisticsType",
+          "type": "select",
+          "label": "Logistics Type",
+          "required": true,
+          "default": "Materials Procurement + Delivery",
+          "options": [
+            "Materials Procurement + Delivery",
+            "Equipment Mobilization",
+            "International Shipping",
+            "Last-Mile Delivery Only"
+          ]
+        },
+        {
+          "id": "transportModes",
+          "type": "multiSelect",
+          "label": "Transport Modes",
+          "required": true,
+          "default": [
+            "Truck"
+          ],
+          "options": [
+            "Truck",
+            "Sea",
+            "Air",
+            "Rail"
+          ]
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": true,
+          "default": "USD",
+          "options": [
+            "USD",
+            "EUR",
+            "GBP",
+            "NGN",
+            "AED",
+            "GHS",
+            "KES",
+            "ZAR",
+            "INR",
+            "SGD",
+            "AUD",
+            "CAD",
+            "BRL",
+            "MXN"
+          ]
+        },
+        {
+          "id": "customsRequired",
+          "type": "toggle",
+          "label": "Customs / Import Clearance Required",
+          "required": true,
+          "default": false
+        },
+        {
+          "id": "deliveryConstraints",
+          "type": "multiSelect",
+          "label": "Delivery Constraints",
+          "required": false,
+          "default": [],
+          "options": [
+            "Daytime Only",
+            "Weekend Restricted",
+            "Limited Staging",
+            "Crane Required",
+            "Escort / Permits Required",
+            "Occupied Site"
+          ]
+        },
+        {
+          "id": "bufferPreference",
+          "type": "select",
+          "label": "Risk Buffer Preference",
+          "required": true,
+          "default": "Medium",
+          "options": [
+            "Low",
+            "Medium",
+            "High"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projectPrompt",
+      "title": "Project Prompt",
+      "columns": 1,
+      "fields": [
+        {
+          "id": "projectPrompt",
+          "type": "textarea",
+          "label": "Project Prompt",
+          "required": false,
+          "rows": 3,
+          "placeholder": "Optional: special handling requirements, time-sensitive deliveries, coordination needs, etc."
+        }
+      ]
+    }
+  ]
+}

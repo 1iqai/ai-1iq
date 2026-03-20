@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1",
+  "industry": "Construction (Design + Build)",
+  "title": "Schedule Generator - Construction",
+  "sections": [
+    {
+      "id": "projectInfo",
+      "title": "Project Information",
+      "columns": 3,
+      "fields": [
+        { "id": "projectName", "type": "text", "label": "Project Name", "required": false, "placeholder": "e.g., Oakwood Residence" },
+        {
+          "id": "industry",
+          "type": "select",
+          "label": "Industry",
+          "required": true,
+          "default": "Construction (Design + Build)",
+          "options": [
+            "Construction (Design + Build)",
+            "Landscape Design + Construction",
+            "Architecture Design",
+            "Logistics",
+            "Entertainment Production + Deployment"
+          ]
+        },
+        { "id": "projectLocation", "type": "text", "label": "Project Location", "required": true, "placeholder": "e.g., Los Angeles, CA" },
+        { "id": "projectStartDate", "type": "date", "label": "Project Start Date", "required": true },
+        {
+          "id": "marketYear",
+          "type": "select",
+          "label": "Market Year",
+          "required": true,
+          "default": 2026,
+          "options": [2024, 2025, 2026, 2027]
+        },
+        {
+          "id": "projectType",
+          "type": "select",
+          "label": "Project Type",
+          "required": true,
+          "default": "Ground-up New Build",
+          "options": ["Ground-up New Build", "Addition", "Remodel", "Tenant Improvement", "Core & Shell"]
+        },
+        {
+          "id": "buildingType",
+          "type": "select",
+          "label": "Construction Type",
+          "required": true,
+          "default": "Type V (Wood Frame)",
+          "options": [
+            "Type I (Fire Resistive)",
+            "Type II (Non-Combustible)",
+            "Type III (Ordinary)",
+            "Type IV (Heavy Timber)",
+            "Type V (Wood Frame)"
+          ]
+        },
+        {
+          "id": "occupancyType",
+          "type": "select",
+          "label": "Occupancy Category",
+          "required": true,
+          "default": "R-3 Single-Family",
+          "options": [
+            "R-1 Hotel",
+            "R-2 Multi-Family",
+            "R-3 Single-Family",
+            "B Business",
+            "M Mercantile",
+            "A Assembly",
+            "S Storage",
+            "U Utility"
+          ]
+        },
+        { "id": "stories", "type": "number", "label": "Number of Stories", "required": true, "default": 1, "min": 1 },
+        { "id": "totalArea", "type": "number", "label": "Total Area (sq ft)", "required": true, "default": 2000, "min": 1 },
+        {
+          "id": "finishLevel",
+          "type": "select",
+          "label": "Finish Quality",
+          "required": true,
+          "default": "Standard",
+          "options": ["Basic", "Standard", "High-End", "Luxury"]
+        }
+      ]
+    },
+    {
+      "id": "projectPrompt",
+      "title": "Project Prompt",
+      "columns": 1,
+      "fields": [
+        { "id": "projectPrompt", "type": "textarea", "label": "Project Prompt", "required": false, "rows": 3, "placeholder": "Provide a brief description of your project (optional)" }
+      ]
+    }
+  ]
+}

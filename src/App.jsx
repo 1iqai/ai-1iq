@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import gsap from "gsap";
 import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +19,8 @@ import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Platform from "./pages/Platform/Platform";
 import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
+
+const DemoAppWrapper = lazy(() => import("./components/DemoAppWrapper"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,6 +69,11 @@ function App() {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
+        <Route path="/demo/*" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <DemoAppWrapper />
+          </Suspense>
+        } />
       </Routes>
     </div>
   );

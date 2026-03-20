@@ -68,69 +68,134 @@ const Home = () => {
         {/* Hero Section with Video Background */}
         <HeroSection heroRef={heroRef} />
 
+        {/* Industries Banner */}
+        <IndustriesBanner />
+
         {/* ── Value Blocks ── */}
         <section className="value-blocks">
-          <div className="value-blocks__header">
-            <h2 className="value-blocks__title">What 1iQ actually does.</h2>
-          </div>
-          <div className="value-blocks__grid">
 
-            <div className="value-block">
-              <div className="value-block__bar" />
-              <div className="value-block__content">
-                <h3 className="value-block__heading">
-                  Field activity becomes intelligence, instantly.
-                </h3>
-                <p className="value-block__desc">
-                  The moment work happens on site, 1iQ converts it into real-time analytics your team can act on immediately.
-                </p>
-              </div>
+          {/* Subtle background texture */}
+          <div className="value-blocks__bg" aria-hidden="true" />
+
+          <div className="value-blocks__inner">
+            <div className="value-blocks__header">
+              <h2 className="value-blocks__title">What 1iQ actually does.</h2>
             </div>
 
-            <div className="value-block">
-              <div className="value-block__bar" />
-              <div className="value-block__content">
-                <h3 className="value-block__heading">
-                  Schedules that rewrite themselves.
-                </h3>
-                <p className="value-block__desc">
-                  Completed tasks trigger automatic date adjustments, timeline shifts, and team alerts with no human in the loop required.
-                </p>
-              </div>
-            </div>
+            <div className="value-blocks__grid">
 
-            <div className="value-block">
-              <div className="value-block__bar" />
-              <div className="value-block__content">
-                <h3 className="value-block__heading">
-                  Stop waiting for someone to tell you what's happening.
-                </h3>
-                <p className="value-block__desc">
-                  1iQ tells you first with live data, live alerts, and decisions that don't wait for Monday's meeting.
-                </p>
+              {/* Block 1 */}
+              <div className="value-block">
+                <div className="value-block__num">01</div>
+                <div className="value-block__content">
+                  <h3 className="value-block__heading">
+                    Field activity becomes intelligence. INSTANTLY.
+                  </h3>
+                  <p className="value-block__desc">
+                    Site activity converts to live project data the moment it happens.
+                  </p>
+                </div>
+                <div className="value-block__footer">
+                  <span className="value-block__pill">Real-Time Capture</span>
+                </div>
               </div>
-            </div>
 
+              {/* Block 2 */}
+              <div className="value-block value-block--mid">
+                <div className="value-block__num">02</div>
+                <div className="value-block__content">
+                  <h3 className="value-block__heading">
+                    Schedules that rewrite themselves.
+                  </h3>
+                  <p className="value-block__desc">
+                    Tasks close. Timelines adjust. No one touches a thing.
+                  </p>
+                </div>
+                <div className="value-block__footer">
+                  <span className="value-block__pill">Auto-Scheduling</span>
+                </div>
+              </div>
+
+              {/* Block 3 */}
+              <div className="value-block">
+                <div className="value-block__num">03</div>
+                <div className="value-block__content">
+                  <h3 className="value-block__heading">
+                    Stop waiting for someone to tell you what's happening.
+                  </h3>
+                  <p className="value-block__desc">
+                    Live alerts surface issues before anyone sends an update.
+                  </p>
+                </div>
+                <div className="value-block__footer">
+                  <span className="value-block__pill">Proactive Alerts</span>
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
 
         {/* ROI Calculator Section */}
         <ROICalculator />
 
+        {/* ── What 1iQ Returns ── */}
+        <section className="returns-section">
+          <div className="returns-section__inner">
 
-        {/* Features Section */}
-        <FeaturesSection />
+            <div className="returns-section__header">
+              <p className="returns-section__eyebrow">THE RETURN</p>
+              <h2 className="returns-section__title">What 1iQ Returns to Every PM</h2>
+            </div>
+
+            <div className="returns-grid">
+
+              <div className="returns-card">
+                <span className="returns-card__stat">332 hrs</span>
+                <h3 className="returns-card__heading">Schedules That Stop Breaking</h3>
+                <p className="returns-card__desc">Live field data. No manual P6 entry.</p>
+              </div>
+
+              <div className="returns-card">
+                <span className="returns-card__stat">182 hrs</span>
+                <h3 className="returns-card__heading">Reports That Write Themselves</h3>
+                <p className="returns-card__desc">Automated summaries. Every week. Zero effort.</p>
+              </div>
+
+              <div className="returns-card">
+                <span className="returns-card__stat">109 hrs</span>
+                <h3 className="returns-card__heading">Every Answer. Instantly.</h3>
+                <p className="returns-card__desc">Ask 1iQ. It has read every document on the job.</p>
+              </div>
+
+              <div className="returns-card">
+                <span className="returns-card__stat">208 hrs</span>
+                <h3 className="returns-card__heading">The Admin That Runs Itself</h3>
+                <p className="returns-card__desc">RFIs, submittals, daily logs — handled automatically.</p>
+              </div>
+
+              <div className="returns-card returns-card--accent">
+                <span className="returns-card__stat">$71,397</span>
+                <h3 className="returns-card__heading">Direct Cost Savings</h3>
+                <p className="returns-card__desc">Per PM. Per year. Expected scenario.</p>
+              </div>
+
+              <div className="returns-card returns-card--accent">
+                <span className="returns-card__stat">$350K</span>
+                <h3 className="returns-card__heading">New Revenue Per PM</h3>
+                <p className="returns-card__desc">One extra project a year. Already in your capacity.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
 
         {/* Brand Carousel */}
         <BrandCarousel />
 
         {/* 3D Model Section */}
         <ThreeDSection />
-
-        {/* Industries Banner */}
-        <IndustriesBanner />
-        {/* Core Value Pillars Section */}
-        <CoreValuePillars />
 
         {/* ADDITION 3 — Testimonial Placeholder */}
         <section className="testimonial-section">

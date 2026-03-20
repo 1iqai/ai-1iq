@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.1",
+  "industry": "Architecture Design",
+  "title": "Schedule Generator - Architecture",
+  "sections": [
+    {
+      "id": "projectInfo",
+      "title": "Project Information",
+      "columns": 3,
+      "fields": [
+        { "id": "projectName", "type": "text", "label": "Project Name", "required": false, "placeholder": "e.g., Modern Office Complex" },
+        {
+          "id": "industry",
+          "type": "select",
+          "label": "Industry",
+          "required": true,
+          "default": "Architecture Design",
+          "options": [
+            "Construction (Design + Build)",
+            "Landscape Design + Construction",
+            "Architecture Design",
+            "Logistics",
+            "Entertainment Production + Deployment"
+          ]
+        },
+        { "id": "projectLocation", "type": "text", "label": "Project Location", "required": true, "placeholder": "City, Region, Country" },
+        { "id": "projectStartDate", "type": "date", "label": "Project Start Date", "required": true },
+        {
+          "id": "marketYear",
+          "type": "select",
+          "label": "Market Year",
+          "required": true,
+          "default": 2026,
+          "options": [2024, 2025, 2026, 2027]
+        },
+        {
+          "id": "projectType",
+          "type": "select",
+          "label": "Project Type",
+          "required": true,
+          "default": "New Design",
+          "options": ["New Design", "Renovation Design", "Tenant Improvement Design"]
+        },
+        {
+          "id": "buildingUse",
+          "type": "select",
+          "label": "Building Use",
+          "required": true,
+          "default": "Residential",
+          "options": ["Residential", "Commercial", "Mixed-Use", "Industrial", "Institutional"]
+        },
+        { "id": "grossArea", "type": "number", "label": "Gross Area", "required": true, "min": 1, "default": 2000 },
+        {
+          "id": "areaUnit",
+          "type": "select",
+          "label": "Area Unit",
+          "required": true,
+          "default": "sq ft",
+          "options": ["sq ft", "m2"]
+        },
+        {
+          "id": "deliverableLevel",
+          "type": "select",
+          "label": "Deliverable Level",
+          "required": true,
+          "default": "Permit Set",
+          "options": ["Concept Package", "Schematic Set", "Design Development Set", "Permit Set", "Full Construction Documents", "Issued for Bid"]
+        },
+        { "id": "reviewCycles", "type": "number", "label": "Client Review Cycles", "required": true, "default": 2, "min": 0, "max": 10 },
+        {
+          "id": "consultantCoordination",
+          "type": "multiSelect",
+          "label": "Consultant Coordination",
+          "required": true,
+          "default": ["Structural"],
+          "options": ["Structural", "MEP", "Civil", "Landscape", "Interiors", "Lighting Designer", "Acoustics"]
+        }
+      ]
+    },
+    {
+      "id": "projectPrompt",
+      "title": "Project Prompt",
+      "columns": 1,
+      "fields": [
+        { "id": "projectPrompt", "type": "textarea", "label": "Project Prompt", "required": false, "rows": 3, "placeholder": "Optional: design constraints, sustainability goals, phasing requirements, etc." }
+      ]
+    }
+  ]
+}

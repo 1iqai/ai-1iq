@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
@@ -303,6 +304,7 @@ function LOIModal({ name, company, jobTitle, hqLocation, visible, onAccept, onDe
 }
 
 const Schedule = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [showLOI, setShowLOI] = useState(false);
   const [sending, setSending] = useState(false);
@@ -322,7 +324,7 @@ const Schedule = () => {
     ...d, [field]: d[field].includes(val) ? d[field].filter((v) => v !== val) : [...d[field], val],
   }));
 
-  const handleAccept = () => { window.open("https://app.1iq.ai/", "_self"); };
+  const handleAccept = () => { navigate("/demo"); };
   const handleDecline = () => { setShowLOI(false); };
 
   const canProceed = () => {

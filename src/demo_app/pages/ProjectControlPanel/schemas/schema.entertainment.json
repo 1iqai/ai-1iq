@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "1.0",
+  "industry": "Entertainment Production + Deployment",
+  "title": "Schedule Generator - Entertainment (Lean)",
+  "description": "Lean global schema for entertainment project setup, deployment, strike, and delivery.",
+  "sections": [
+    {
+      "id": "projectInfo",
+      "title": "Project Information",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "projectName",
+          "type": "text",
+          "label": "Project Name",
+          "required": false,
+          "placeholder": "e.g., Brand Launch Pop-Up"
+        },
+        {
+          "id": "industry",
+          "type": "select",
+          "label": "Industry",
+          "required": true,
+          "default": "Entertainment Production + Deployment",
+          "options": [
+            "Construction (Design + Build)",
+            "Landscape Design + Construction",
+            "Architecture Design",
+            "Logistics",
+            "Entertainment Production + Deployment"
+          ]
+        },
+        {
+          "id": "projectFormat",
+          "type": "select",
+          "label": "Project Format",
+          "required": true,
+          "default": "Live Event",
+          "options": [
+            "Film / TV",
+            "Commercial / Branded Content",
+            "Live Event",
+            "Touring",
+            "Experiential / Pop-Up Activation"
+          ],
+          "help": "Select the format that best matches the production type."
+        },
+        {
+          "id": "projectLocation",
+          "type": "text",
+          "label": "Primary Location",
+          "required": true,
+          "placeholder": "City, Country"
+        },
+        {
+          "id": "timeZone",
+          "type": "text",
+          "label": "Time Zone",
+          "required": true,
+          "placeholder": "e.g., UTC+1"
+        },
+        {
+          "id": "projectStartDate",
+          "type": "date",
+          "label": "Project Start Date",
+          "required": true
+        },
+        {
+          "id": "targetGoLiveDate",
+          "type": "date",
+          "label": "Target Go-Live / First Show Date",
+          "required": false,
+          "help": "If provided, the schedule will work backward from this date."
+        },
+        {
+          "id": "marketYear",
+          "type": "select",
+          "label": "Market Year",
+          "required": true,
+          "default": 2026,
+          "options": [2024, 2025, 2026, 2027]
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": true,
+          "default": "USD",
+          "options": [
+            "USD",
+            "EUR",
+            "GBP",
+            "AED",
+            "NGN",
+            "ZAR",
+            "KES",
+            "INR",
+            "SGD",
+            "AUD",
+            "CAD",
+            "BRL",
+            "MXN"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scopeAndScale",
+      "title": "Scope & Scale",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "projectScale",
+          "type": "select",
+          "label": "Project Scale",
+          "required": true,
+          "default": "Medium",
+          "options": ["Small", "Medium", "Large"],
+          "help": "Controls crew size, setup duration, and strike effort."
+        },
+        {
+          "id": "locationsCount",
+          "type": "select",
+          "label": "Locations Count",
+          "required": true,
+          "default": "Single Location",
+          "options": ["Single Location", "2–5 Locations", "6+ Locations"],
+          "help": "Affects mobilization, permits, and travel sequencing."
+        },
+        {
+          "id": "buildComplexity",
+          "type": "select",
+          "label": "Build Complexity",
+          "required": true,
+          "default": "Light",
+          "options": ["None", "Light", "Moderate", "Heavy"],
+          "help": "Defines whether work is load-in only or includes scenic/set construction."
+        },
+        {
+          "id": "deploymentUnits",
+          "type": "number",
+          "label": "Deployment Units",
+          "required": true,
+          "min": 1,
+          "default": 1,
+          "help": "Shoot days, show days, episodes, or tour stops."
+        }
+      ]
+    },
+    {
+      "id": "approvalsAndConstraints",
+      "title": "Approvals & Constraints",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "permitsProcess",
+          "type": "select",
+          "label": "Permits Process",
+          "required": true,
+          "default": "Medium",
+          "options": ["Low", "Medium", "High"],
+          "help": "Controls approval durations and resubmittal buffers."
+        },
+        {
+          "id": "laborProcess",
+          "type": "select",
+          "label": "Labor / Union Process",
+          "required": true,
+          "default": "Medium",
+          "options": ["Low", "Medium", "High"],
+          "help": "Controls working hours, overtime risk, and turnaround days."
+        },
+        {
+          "id": "venueConstraints",
+          "type": "select",
+          "label": "Venue Window Constraints",
+          "required": true,
+          "default": "Flexible",
+          "options": [
+            "Flexible",
+            "Fixed Dates",
+            "Night / Overnight Only",
+            "Weekend Only"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "procurementAndRisk",
+      "title": "Procurement & Risk",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "equipmentLeadProfile",
+          "type": "select",
+          "label": "Equipment Lead Profile",
+          "required": true,
+          "default": "Standard",
+          "options": ["Standard", "Specialty", "Long-lead"]
+        },
+        {
+          "id": "vendorAvailabilityRisk",
+          "type": "select",
+          "label": "Vendor Availability Risk",
+          "required": true,
+          "default": "Medium",
+          "options": ["Low", "Medium", "High"]
+        },
+        {
+          "id": "talentAvailabilityRisk",
+          "type": "select",
+          "label": "Talent Availability Risk",
+          "required": true,
+          "default": "Medium",
+          "options": ["Low", "Medium", "High"]
+        }
+      ]
+    },
+    {
+      "id": "costing",
+      "title": "Costing",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "costingMode",
+          "type": "select",
+          "label": "Costing Mode",
+          "required": true,
+          "default": "Allowance Only",
+          "options": ["Allowance Only", "User Cost Basis", "Cost API"]
+        },
+        {
+          "id": "userCostPerUnit",
+          "type": "number",
+          "label": "User Cost Basis (per unit)",
+          "required": false,
+          "min": 0,
+          "visibleWhen": {
+            "field": "costingMode",
+            "equals": "User Cost Basis"
+          }
+        },
+        {
+          "id": "contingencyPercent",
+          "type": "number",
+          "label": "Contingency (%)",
+          "required": true,
+          "default": 10,
+          "min": 0,
+          "max": 50
+        }
+      ]
+    },
+    {
+      "id": "projectPrompt",
+      "title": "Project Prompt",
+      "columns": 1,
+      "fields": [
+        {
+          "id": "projectPrompt",
+          "type": "textarea",
+          "label": "Project Prompt",
+          "required": false,
+          "rows": 3,
+          "placeholder": "Optional: blackout dates, rehearsal requirements, talent windows, union notes, fixed premiere dates, venue access limitations."
+        }
+      ]
+    }
+  ]
+}

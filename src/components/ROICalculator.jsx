@@ -72,6 +72,11 @@ function Slider({ label, value, min, max, step, onChange, format }) {
       </div>
       <div className="roi-slider__track">
         <div className="roi-slider__fill" style={{ width: `${pct}%` }} />
+        <div className="roi-slider__knob" style={{ left: `${pct}%` }}>
+          <span className="roi-slider__knob-grip" />
+          <span className="roi-slider__knob-grip" />
+          <span className="roi-slider__knob-grip" />
+        </div>
         <input
           type="range"
           min={min}
@@ -105,12 +110,11 @@ export default function ROICalculator() {
     <section className="roi-section">
       {/* Header */}
       <div className="roi-section__header">
-        <p className="roi-section__eyebrow">SEE YOUR NUMBER</p>
         <h2 className="roi-section__title">
-          What Does 1iQ Return<br />to Your Firm?
+          What is manual work actually costing you?
         </h2>
         <p className="roi-section__subtitle">
-          Adjust your team size and project budget. Your real-time ROI updates instantly.
+          Most firms have no idea. Put in your numbers and find out in 30 seconds.
         </p>
       </div>
 

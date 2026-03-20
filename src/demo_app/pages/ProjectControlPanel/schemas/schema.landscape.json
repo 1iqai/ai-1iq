@@ -1,0 +1,280 @@
+{
+  "schemaVersion": "1.3",
+  "industry": "Landscape Design + Construction",
+  "title": "Schedule Generator - Landscape",
+  "description": "Landscape design + construction schema with consolidated drivers.",
+  "sections": [
+    {
+      "id": "projectInfo",
+      "title": "Project Information",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "projectName",
+          "type": "text",
+          "label": "Project Name",
+          "required": false,
+          "placeholder": "e.g., Courtyard Upgrade Phase 1"
+        },
+        {
+          "id": "industry",
+          "type": "select",
+          "label": "Industry",
+          "required": true,
+          "default": "Landscape Design + Construction",
+          "options": [
+            "Construction (Design + Build)",
+            "Landscape Design + Construction",
+            "Architecture Design",
+            "Logistics",
+            "Entertainment Production + Deployment"
+          ]
+        },
+        {
+          "id": "projectLocation",
+          "type": "text",
+          "label": "Project Location",
+          "required": true,
+          "placeholder": "City, Region, Country"
+        },
+        {
+          "id": "projectStartDate",
+          "type": "date",
+          "label": "Project Start Date",
+          "required": true
+        },
+        {
+          "id": "marketYear",
+          "type": "select",
+          "label": "Market Year",
+          "required": true,
+          "default": 2026,
+          "options": [2024, 2025, 2026, 2027]
+        },
+        {
+          "id": "landscapeArea",
+          "type": "number",
+          "label": "Landscape Area",
+          "required": true,
+          "min": 0,
+          "default": 500
+        },
+        {
+          "id": "areaUnit",
+          "type": "select",
+          "label": "Area Unit",
+          "required": true,
+          "default": "m2",
+          "options": ["m2", "sq ft"]
+        },
+        {
+          "id": "siteComplexity",
+          "type": "select",
+          "label": "Site Complexity",
+          "required": true,
+          "default": "Moderate",
+          "options": ["Simple", "Moderate", "Complex"],
+          "help": "Rolls up slope, soil, drainage, and access conditions into one setting."
+        },
+        {
+          "id": "climateProfile",
+          "type": "select",
+          "label": "Climate Profile",
+          "required": false,
+          "default": "Unknown",
+          "options": [
+            "Tropical Wet",
+            "Tropical Savanna",
+            "Arid / Desert",
+            "Mediterranean",
+            "Temperate Oceanic",
+            "Humid Subtropical",
+            "Continental",
+            "Subarctic / Alpine",
+            "Monsoon",
+            "Unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scopeAndControls",
+      "title": "Scope & Controls",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "scopePackage",
+          "type": "select",
+          "label": "Scope Package",
+          "required": true,
+          "default": "Hardscape + Softscape",
+          "options": [
+            "Softscape only",
+            "Hardscape + Softscape",
+            "Full siteworks",
+            "Custom"
+          ],
+          "help": "Choose Custom only if you need to specify individual scope items."
+        },
+        {
+          "id": "hardscapeIntensity",
+          "type": "select",
+          "label": "Hardscape Intensity",
+          "required": false,
+          "default": "Moderate",
+          "options": ["Minimal", "Moderate", "Extensive"],
+          "visibleWhen": {
+            "field": "scopePackage",
+            "in": ["Hardscape + Softscape", "Full siteworks", "Custom"]
+          }
+        },
+        {
+          "id": "plantingIntensity",
+          "type": "select",
+          "label": "Planting Intensity",
+          "required": false,
+          "default": "Moderate",
+          "options": ["Minimal", "Moderate", "Extensive", "Specimen"],
+          "visibleWhen": {
+            "field": "scopePackage",
+            "in": ["Softscape only", "Hardscape + Softscape", "Full siteworks", "Custom"]
+          }
+        },
+        {
+          "id": "approvalProcess",
+          "type": "select",
+          "label": "Approval Process",
+          "required": true,
+          "default": "Medium",
+          "options": ["Low", "Medium", "High"],
+          "help": "Controls review durations, resubmittal buffers, and schedule risk."
+        },
+        {
+          "id": "procurementProfile",
+          "type": "select",
+          "label": "Procurement Profile",
+          "required": true,
+          "default": "Mixed",
+          "options": ["Standard", "Mixed", "Long-lead", "Custom"],
+          "help": "Standard = mostly stocked items, Long-lead = specimens or custom materials likely."
+        },
+        {
+          "id": "costingMode",
+          "type": "select",
+          "label": "Costing Mode",
+          "required": true,
+          "default": "Allowance Only",
+          "options": ["Allowance Only", "User Cost Basis", "Cost API"]
+        },
+        {
+          "id": "userCostPerArea",
+          "type": "number",
+          "label": "User Cost Basis (cost per area)",
+          "required": false,
+          "min": 0,
+          "visibleWhen": {
+            "field": "costingMode",
+            "equals": "User Cost Basis"
+          }
+        },
+        {
+          "id": "contingencyPercent",
+          "type": "number",
+          "label": "Contingency (%)",
+          "required": true,
+          "default": 10,
+          "min": 0,
+          "max": 50
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "title": "Advanced (Optional)",
+      "columns": 3,
+      "fields": [
+        {
+          "id": "expectedApprovalDurationDays",
+          "type": "number",
+          "label": "Approval Duration Override (days)",
+          "required": false,
+          "min": 0,
+          "help": "Optional override if you know the expected approval review duration."
+        },
+        {
+          "id": "customScope_irrigation",
+          "type": "toggle",
+          "label": "Irrigation",
+          "required": false,
+          "default": true,
+          "visibleWhen": { "field": "scopePackage", "equals": "Custom" }
+        },
+        {
+          "id": "customScope_lighting",
+          "type": "toggle",
+          "label": "Lighting",
+          "required": false,
+          "default": false,
+          "visibleWhen": { "field": "scopePackage", "equals": "Custom" }
+        },
+        {
+          "id": "customScope_grading",
+          "type": "toggle",
+          "label": "Grading",
+          "required": false,
+          "default": true,
+          "visibleWhen": { "field": "scopePackage", "equals": "Custom" }
+        },
+        {
+          "id": "customScope_drainage",
+          "type": "toggle",
+          "label": "Drainage",
+          "required": false,
+          "default": true,
+          "visibleWhen": { "field": "scopePackage", "equals": "Custom" }
+        },
+        {
+          "id": "customScope_structures",
+          "type": "toggle",
+          "label": "Structures",
+          "required": false,
+          "default": false,
+          "visibleWhen": { "field": "scopePackage", "equals": "Custom" }
+        },
+        {
+          "id": "customLeadTimePlants",
+          "type": "select",
+          "label": "Plants Lead Time (Custom)",
+          "required": false,
+          "default": "Medium",
+          "options": ["Short", "Medium", "Long"],
+          "visibleWhen": { "field": "procurementProfile", "equals": "Custom" }
+        },
+        {
+          "id": "customLeadTimeHardscape",
+          "type": "select",
+          "label": "Hardscape Lead Time (Custom)",
+          "required": false,
+          "default": "Medium",
+          "options": ["Short", "Medium", "Long"],
+          "visibleWhen": { "field": "procurementProfile", "equals": "Custom" }
+        }
+      ]
+    },
+    {
+      "id": "projectPrompt",
+      "title": "Project Prompt",
+      "columns": 1,
+      "fields": [
+        {
+          "id": "projectPrompt",
+          "type": "textarea",
+          "label": "Project Prompt",
+          "required": false,
+          "rows": 3,
+          "placeholder": "Optional: planting season constraints, phased delivery, protected trees, limited staging, fast-track goals, etc."
+        }
+      ]
+    }
+  ]
+}

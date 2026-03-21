@@ -171,13 +171,13 @@ const Home = () => {
               <div className="returns-card">
                 <span className="returns-card__stat">208 hrs</span>
                 <h3 className="returns-card__heading">The Admin That Runs Itself</h3>
-                <p className="returns-card__desc">RFIs, submittals, daily logs — handled automatically.</p>
+                <p className="returns-card__desc">RFIs, reporting, daily logs are handled automatically.</p>
               </div>
 
               <div className="returns-card returns-card--accent">
-                <span className="returns-card__stat">$71,397</span>
-                <h3 className="returns-card__heading">Direct Cost Savings</h3>
-                <p className="returns-card__desc">Per PM. Per year. Expected scenario.</p>
+                <span className="returns-card__stat">See Your Number</span>
+                <h3 className="returns-card__heading">Direct Savings Per PM</h3>
+                <p className="returns-card__desc">Your savings depend on your PM rate. Use the calculator above to find your exact figure.</p>
               </div>
 
               <div className="returns-card returns-card--accent">

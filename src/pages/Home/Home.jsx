@@ -209,8 +209,9 @@ const Home = () => {
             </blockquote>
             {/* PLACEHOLDER — replace with real name, title, and company */}
             <cite className="testimonial-section__attribution">
-              <span className="testimonial-section__name">Senior Project Executive</span>
-              <span className="testimonial-section__company">Commercial Construction, Southwest US</span>
+              <span className="testimonial-section__name">Bamshad Akhbari — CEO</span>
+              <span className="testimonial-section__company">Halifax Construction &amp; Development</span>
+              <span className="testimonial-section__company">Los Angeles, CA</span>
             </cite>
           </div>
         </section>

@@ -342,12 +342,18 @@ section {
 
 .testimonial-section__name {
   font-size: 15px;
-  font-weight: 700;
-  color: white;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .testimonial-section__company {
   font-size: 13px;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonial-section__company + .testimonial-section__company {
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.45);
 }
 
@@ -1144,13 +1150,6 @@ section {
 }
 
 /* ── Individual block ── */
-@keyframes vb-float {
-  0%   { transform: translateY(-4px)  rotate(-0.5deg) scale(1);    }
-  25%  { transform: translateY(-10px) rotate( 0.4deg) scale(1.01); }
-  50%  { transform: translateY(-16px) rotate(-0.3deg) scale(1.02); }
-  75%  { transform: translateY(-8px)  rotate( 0.5deg) scale(1.01); }
-  100% { transform: translateY(-4px)  rotate(-0.5deg) scale(1);    }
-}
 
 .value-block {
   position: relative;
@@ -1163,7 +1162,6 @@ section {
   gap: 20px;
   overflow: hidden;
   cursor: default;
-  animation: vb-float 3s ease-in-out infinite;
   box-shadow:
     0 10px 36px rgba(0, 0, 0, 0.07),
     0 0 0 1px rgba(74, 158, 255, 0.08),
@@ -1175,13 +1173,9 @@ section {
     background 0.3s ease;
 }
 
-/* Stagger each card — wide offsets for independent feel */
-.value-blocks__grid .value-block:nth-child(1) { animation-delay: 0s; }
-.value-blocks__grid .value-block:nth-child(2) { animation-delay: -1s; }
-.value-blocks__grid .value-block:nth-child(3) { animation-delay: -2s; }
+
 
 .value-block:hover {
-  animation-play-state: paused;
   transform: translateY(-14px);
   border-color: rgba(74, 158, 255, 0.4);
   background: #f2f7ff;

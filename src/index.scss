@@ -1319,16 +1319,15 @@ section {
   overflow: hidden;
 }
 
-/* Ambient glow */
 .returns-section::before {
   content: '';
   position: absolute;
   bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
+  width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(74, 158, 255, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1356,96 +1355,235 @@ section {
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 700;
   color: white;
-  margin: 0;
+  margin: 0 0 10px;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-/* Grid */
-.returns-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-/* Card */
-.returns-card {
-  background: #0a0a0f;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  transition: background 0.2s ease;
-}
-
-.returns-card:hover {
-  background: rgba(74, 158, 255, 0.04);
-}
-
-/* Stat number — the hero of each card */
-.returns-card__stat {
-  font-size: 36px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  color: white;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.returns-card--accent .returns-card__stat {
-  background: linear-gradient(135deg, #ffffff 30%, #7bbfff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Heading */
-.returns-card__heading {
+.returns-section__sub {
   font-size: 15px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  line-height: 1.3;
-}
-
-/* Description */
-.returns-card__desc {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.42);
   margin: 0;
   line-height: 1.5;
 }
 
-/* Bottom row accent cards */
-.returns-card--accent {
-  background: rgba(74, 158, 255, 0.04);
+/* ── Two-column wrapper ── */
+.returns-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
-.returns-card--accent:hover {
-  background: rgba(74, 158, 255, 0.08);
+/* ══════════════════════════════
+   LEFT — Hours visual
+══════════════════════════════ */
+
+.returns-hours__hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .returns-grid {
-    grid-template-columns: 1fr 1fr;
+.returns-hours__total {
+  font-size: clamp(72px, 8vw, 112px);
+  font-weight: 900;
+  color: #4a9eff;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.returns-hours__label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.48);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Stacked horizontal bar */
+.returns-bar {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.returns-bar__segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  flex-shrink: 0;
+  transition: filter 0.2s ease;
+
+  &:hover {
+    filter: brightness(1.15);
   }
+}
 
+.returns-bar__segment--1 { background: #1a4b8c; }
+.returns-bar__segment--2 { background: #2563b0; }
+.returns-bar__segment--3 { background: #3b82d8; }
+.returns-bar__segment--4 { background: #6baeff; }
+
+.returns-bar__tip {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Legend */
+.returns-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.returns-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.returns-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.returns-legend__dot--1 { background: #1a4b8c; }
+.returns-legend__dot--2 { background: #2563b0; }
+.returns-legend__dot--3 { background: #3b82d8; }
+.returns-legend__dot--4 { background: #6baeff; }
+
+.returns-legend__text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.4;
+
+  strong {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 700;
+  }
+}
+
+/* ══════════════════════════════
+   RIGHT — Financial impact
+══════════════════════════════ */
+
+.returns-financial {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 8px;
+}
+
+.returns-financial__headline {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.returns-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.returns-metric__value {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 900;
+  color: #4a9eff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.returns-metric__label {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.3;
+}
+
+.returns-metric__sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.5;
+}
+
+.returns-financial__note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.32);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.returns-financial__roi-link {
+  color: rgba(74, 158, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #4a9eff;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
   .returns-section {
     padding: 64px 24px;
   }
-}
 
-@media (max-width: 560px) {
-  .returns-grid {
+  .returns-two-col {
     grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .returns-hours__total {
+    font-size: 80px;
   }
 }
+
+@media (max-width: 480px) {
+  .returns-section {
+    padding: 48px 16px;
+  }
+
+  .returns-bar {
+    height: 36px;
+  }
+
+  .returns-bar__tip {
+    font-size: 9px;
+  }
+
+  .returns-hours__total {
+    font-size: 64px;
+  }
+}
+
 
 /* ══════════════════════════════════════════════════════
    VPM CARDS  —  "How Your Virtual PM Works" card grid

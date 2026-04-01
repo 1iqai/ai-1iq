@@ -1,181 +1,110 @@
-import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import gsap from "gsap";
+import React from "react";
 import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
-import { FaCalendarAlt, FaEnvelope, FaHandshake, FaTools, FaArrowRight } from "react-icons/fa";
+import "./GetStarted.scss";
+import { useRef } from "react";
+
+/* ── SVG Icons ── */
+const CalendarIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+);
+
+const HandshakeIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.77.78L12 21l7.65-7.99.77-.78a5.4 5.4 0 0 0 0-7.65z"/>
+  </svg>
+);
+
+const ToolsIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+  </svg>
+);
+
+const cards = [
+  {
+    id: "schedule-demo",
+    icon: <CalendarIcon />,
+    title: "Schedule Demo",
+    description: "See 1iQ in action. Book a personalized demo with our product experts.",
+    cta: "GET STARTED →",
+    href: "https://calendly.com/ck-1iq/30min",
+    external: true,
+  },
+  {
+    id: "partnership-inquiry",
+    icon: <HandshakeIcon />,
+    title: "Partnership Inquiry",
+    description: "Join our partner ecosystem. Let's grow and innovate together.",
+    cta: "GET STARTED →",
+    href: "/partnership-inquiry",
+    external: false,
+  },
+  {
+    id: "builder-application",
+    icon: <ToolsIcon />,
+    title: "Builder Application",
+    description: "Building the future? Apply for our builder program and access exclusive tools.",
+    cta: "GET STARTED →",
+    href: "/builder-application",
+    external: false,
+  },
+];
 
 const GetStarted = () => {
-    const heroRef = useRef(null);
-    const containerRef = useRef(null);
+  const heroRef = useRef(null);
 
-    const cards = [
-        {
-            title: "Schedule Demo",
-            description: "See 1iQ in action. Book a personalized demo with our product experts.",
-            icon: <FaCalendarAlt className="text-5xl mb-6" />,
-            link: "/schedule",
-            theme: "dark"
-        },
-        {
-            title: "Contact Sales",
-            description: "Ready to transform your operations? Let's discuss pricing and implementation.",
-            icon: <FaEnvelope className="text-5xl mb-6" />,
-            link: "/contact-us",
-            theme: "light"
-        },
-        {
-            title: "Partnership Inquiry",
-            description: "Join our partner ecosystem. Let's grow and innovate together.",
-            icon: <FaHandshake className="text-5xl mb-6" />,
-            link: "/partnership-inquiry",
-            theme: "light"
-        },
-        {
-            title: "Builder Application",
-            description: "Building the future? Apply for our builder program and access exclusive tools.",
-            icon: <FaTools className="text-5xl mb-6" />,
-            link: "/builder-application",
-            theme: "light"
-        }
-    ];
+  return (
+    <div className="get-started-page">
+      <Navigation heroRef={heroRef} />
 
-    useEffect(() => {
-        // Disable scroll snap for this page
-        document.documentElement.style.scrollSnapType = "none";
+      <CommonHeader
+        ref={heroRef}
+        title="Get Started"
+        text="Choose your path to intelligent construction management."
+      />
 
-        const ctx = gsap.context(() => {
-            // Initial staggered entry animation
-            gsap.fromTo(".get-started-card",
-                {
-                    y: 100,
-                    opacity: 0,
-                    scale: 0.9
-                },
-                {
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1,
-                    stagger: 0.15,
-                    ease: "power4.out",
-                    delay: 0.2,
-                    clearProps: "transform" // Only clear transform to avoid layout issues, keep opacity
-                }
-            );
-        }, containerRef);
+      <main className="get-started-cards">
+        {cards.map((card) =>
+          card.external ? (
+            <a
+              key={card.id}
+              id={card.id}
+              href={card.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gs-card"
+            >
+              <div className="gs-card__icon">{card.icon}</div>
+              <h2 className="gs-card__title">{card.title}</h2>
+              <p className="gs-card__desc">{card.description}</p>
+              <span className="gs-card__cta">{card.cta}</span>
+            </a>
+          ) : (
+            <a
+              key={card.id}
+              id={card.id}
+              href={card.href}
+              className="gs-card"
+            >
+              <div className="gs-card__icon">{card.icon}</div>
+              <h2 className="gs-card__title">{card.title}</h2>
+              <p className="gs-card__desc">{card.description}</p>
+              <span className="gs-card__cta">{card.cta}</span>
+            </a>
+          )
+        )}
+      </main>
 
-        return () => {
-            ctx.revert();
-            // Re-enable scroll snap when leaving
-            document.documentElement.style.scrollSnapType = "y mandatory";
-        };
-    }, []);
-
-    const handleMouseEnter = (e, color) => {
-        const card = e.currentTarget;
-        const icon = card.querySelector('.card-icon');
-        const arrow = card.querySelector('.card-arrow');
-
-        gsap.to(card, {
-            y: -10,
-            scale: 1.02,
-            duration: 0.4,
-            ease: "power2.out",
-            boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
-        });
-
-        gsap.to(icon, {
-            scale: 1.2,
-            rotate: 5,
-            duration: 0.4,
-            ease: "back.out(1.7)"
-        });
-
-        gsap.to(arrow, {
-            x: 5,
-            opacity: 1,
-            duration: 0.3
-        });
-    };
-
-    const handleMouseLeave = (e) => {
-        const card = e.currentTarget;
-        const icon = card.querySelector('.card-icon');
-        const arrow = card.querySelector('.card-arrow');
-
-        gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.4,
-            ease: "power2.out",
-            boxShadow: "none"
-        });
-
-        gsap.to(icon, {
-            scale: 1,
-            rotate: 0,
-            duration: 0.4,
-            ease: "power2.out"
-        });
-
-        gsap.to(arrow, {
-            x: 0,
-            duration: 0.3
-        });
-    };
-
-    return (
-        <div className="app relative w-full min-h-screen flex flex-col bg-white">
-            <Navigation heroRef={heroRef} />
-
-            <CommonHeader
-                ref={heroRef}
-                title="Get Started"
-                text="Choose your path to intelligent construction management."
-            />
-
-            <main ref={containerRef} className="flex-grow w-full py-6 md:py-12 md:py-20 px-4 md:px-8">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-                        {cards.map((card, index) => (
-                            <Link
-                                to={card.link}
-                                key={index}
-                                onMouseEnter={(e) => handleMouseEnter(e, card.theme)}
-                                onMouseLeave={handleMouseLeave}
-                                className={`get-started-card group relative flex flex-col justify-between p-6 md:p-8 lg:p-10 border-2 border-black transition-colors duration-300 min-h-[300px] md:min-h-[400px]
-                                    ${card.theme === 'dark'
-                                        ? 'bg-[#f0f2e9] text-black hover:bg-white'
-                                        : 'bg-white text-black hover:bg-[#f0f2e9]'
-                                    }`}
-                            >
-                                <div>
-                                    <div className="card-icon mb-4 md:mb-6 origin-left inline-block">
-                                        {React.cloneElement(card.icon, { className: "text-4xl md:text-5xl" })}
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 leading-tight">
-                                        {card.title}
-                                    </h3>
-                                    <p className="text-base md:text-lg leading-relaxed opacity-90 text-gray-600">
-                                        {card.description}
-                                    </p>
-                                </div>
-
-                                <div className="mt-6 md:mt-10 flex items-center gap-3 text-sm md:text-base font-bold uppercase tracking-wider">
-                                    <span>Get Started</span>
-                                    <FaArrowRight className="card-arrow transform transition-transform duration-300" />
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </main>
-
-            <Footer />
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 
 export default GetStarted;

@@ -162,50 +162,102 @@ const Home = () => {
             <div className="returns-section__header">
               <p className="returns-section__eyebrow">THE RETURN</p>
               <h2 className="returns-section__title">What 1iQ Returns to Every PM</h2>
+              <p className="returns-section__sub">The breakdown of 831 hours — and where the real value lives.</p>
             </div>
 
-            <div className="returns-grid">
+            <div className="returns-two-col">
 
-              <div className="returns-card">
-                <span className="returns-card__stat">332 hrs</span>
-                <h3 className="returns-card__heading">Schedules That Stop Breaking</h3>
-                <p className="returns-card__desc">Live field data. No manual P6 entry.</p>
+              {/* ── LEFT: Hours visual ── */}
+              <div className="returns-hours">
+                <div className="returns-hours__hero">
+                  <span className="returns-hours__total">831</span>
+                  <span className="returns-hours__label">Hours Returned to Every PM Annually</span>
+                </div>
+
+                {/* Stacked bar */}
+                <div className="returns-bar" aria-label="Hour breakdown bar chart">
+                  <div className="returns-bar__segment returns-bar__segment--1" style={{width: '40%'}}>
+                    <span className="returns-bar__tip">332 hrs</span>
+                  </div>
+                  <div className="returns-bar__segment returns-bar__segment--2" style={{width: '22%'}}>
+                    <span className="returns-bar__tip">182 hrs</span>
+                  </div>
+                  <div className="returns-bar__segment returns-bar__segment--3" style={{width: '13%'}}>
+                    <span className="returns-bar__tip">109 hrs</span>
+                  </div>
+                  <div className="returns-bar__segment returns-bar__segment--4" style={{width: '25%'}}>
+                    <span className="returns-bar__tip">208 hrs</span>
+                  </div>
+                </div>
+
+                {/* Legend */}
+                <ul className="returns-legend">
+                  <li className="returns-legend__item">
+                    <span className="returns-legend__dot returns-legend__dot--1" />
+                    <span className="returns-legend__text"><strong>332 hrs</strong> — Schedules That Stop Breaking</span>
+                  </li>
+                  <li className="returns-legend__item">
+                    <span className="returns-legend__dot returns-legend__dot--2" />
+                    <span className="returns-legend__text"><strong>182 hrs</strong> — Reports That Write Themselves</span>
+                  </li>
+                  <li className="returns-legend__item">
+                    <span className="returns-legend__dot returns-legend__dot--3" />
+                    <span className="returns-legend__text"><strong>109 hrs</strong> — Every Answer. Instantly</span>
+                  </li>
+                  <li className="returns-legend__item">
+                    <span className="returns-legend__dot returns-legend__dot--4" />
+                    <span className="returns-legend__text"><strong>208 hrs</strong> — The Admin That Runs Itself</span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="returns-card">
-                <span className="returns-card__stat">182 hrs</span>
-                <h3 className="returns-card__heading">Reports That Write Themselves</h3>
-                <p className="returns-card__desc">Automated summaries. Every week. Zero effort.</p>
-              </div>
+              {/* ── RIGHT: Financial impact ── */}
+              <div className="returns-financial">
+                <h3 className="returns-financial__headline">Here's What That Means</h3>
 
-              <div className="returns-card">
-                <span className="returns-card__stat">109 hrs</span>
-                <h3 className="returns-card__heading">Every Answer. Instantly.</h3>
-                <p className="returns-card__desc">Ask 1iQ. It has read every document on the job.</p>
-              </div>
+                <div className="returns-metric">
+                  <span className="returns-metric__value">$71,397</span>
+                  <span className="returns-metric__label">Direct Savings Per PM</span>
+                  <span className="returns-metric__sub">Based on fully loaded PM rate</span>
+                </div>
 
-              <div className="returns-card">
-                <span className="returns-card__stat">208 hrs</span>
-                <h3 className="returns-card__heading">The Admin That Runs Itself</h3>
-                <p className="returns-card__desc">RFIs, reporting, daily logs are handled automatically.</p>
-              </div>
+                <div className="returns-metric">
+                  <span className="returns-metric__value">$350,000</span>
+                  <span className="returns-metric__label">New Revenue Per PM</span>
+                  <span className="returns-metric__sub">One extra project per year — already in your capacity</span>
+                </div>
 
-              <div className="returns-card returns-card--accent">
-                <span className="returns-card__stat">See Your Number</span>
-                <h3 className="returns-card__heading">Direct Savings Per PM</h3>
-                <p className="returns-card__desc">Your savings depend on your PM rate. Use the calculator above to find your exact figure.</p>
-              </div>
+                <div className="returns-metric">
+                  <span className="returns-metric__value">$2.1M</span>
+                  <span className="returns-metric__label">Year 1 Net Benefit</span>
+                  <span className="returns-metric__sub">For a 5-PM team</span>
+                </div>
 
-              <div className="returns-card returns-card--accent">
-                <span className="returns-card__stat">$350K</span>
-                <h3 className="returns-card__heading">New Revenue Per PM</h3>
-                <p className="returns-card__desc">One extra project a year. Already in your capacity.</p>
+                <p className="returns-financial__note">
+                  Numbers based on industry averages.{' '}
+                  <a
+                    href="#roi-calculator"
+                    className="returns-financial__roi-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const target = document.getElementById('roi-calculator');
+                      if (!target) return;
+                      if (window.lenis) {
+                        window.lenis.scrollTo(target);
+                      } else {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                  >
+                    Use the ROI calculator to see your firm's exact figures.
+                  </a>
+                </p>
               </div>
 
             </div>
-
           </div>
         </section>
+
 
         {/* Brand Carousel */}
         <BrandCarousel />

@@ -107,7 +107,7 @@ export default function ROICalculator() {
   );
 
   return (
-    <section className="roi-section">
+    <section id="roi-calculator" className="roi-section">
       {/* Header */}
       <div className="roi-section__header">
         <h2 className="roi-section__title">

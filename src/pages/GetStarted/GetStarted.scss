@@ -1,0 +1,82 @@
+/* ══════════════════════════════════════════════════════
+   GET STARTED PAGE
+══════════════════════════════════════════════════════ */
+
+$blue: #4a9eff;
+$navy: #ffffff;
+$card-bg: #111c29;
+
+.get-started-page {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ── Cards section ── */
+.get-started-cards {
+  padding: 64px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── Individual card ── */
+.gs-card {
+  width: 100%;
+  max-width: 600px;
+  background: $card-bg;
+  border-radius: 12px;
+  border-left: 2px solid $blue;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  transition: background 0.2s ease, border-left-color 0.2s ease;
+
+  &:hover {
+    background: #162030;
+    border-left-color: lighten($blue, 10%);
+  }
+}
+
+/* ── Icon ── */
+.gs-card__icon {
+  color: $blue;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+}
+
+/* ── Title ── */
+.gs-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ── Description ── */
+.gs-card__desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── CTA ── */
+.gs-card__cta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $blue;
+  margin-top: 4px;
+}

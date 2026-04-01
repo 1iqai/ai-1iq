@@ -1100,235 +1100,211 @@ section {
 }
 
 /* ══════════════════════════════════════════════════════
-   VALUE BLOCKS
+   VALUE BLOCKS  —  split layout with product mockup
 ══════════════════════════════════════════════════════ */
 
 .value-blocks {
   background: #ffffff;
-  padding: 96px 48px;
+  padding: 100px 48px;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle radial glow top-center — adds depth to white bg */
+/* Background glow */
 .value-blocks__bg {
   position: absolute;
-  top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+  top: -80px;
+  right: -100px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse, rgba(74, 158, 255, 0.06) 0%, transparent 65%);
   pointer-events: none;
 }
 
 .value-blocks__inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.value-blocks__header {
-  margin-bottom: 56px;
+/* ── Split layout ── */
+.value-blocks__split {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ── Left copy panel ── */
+.value-blocks__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.value-blocks__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4a9eff;
+  margin: 0;
 }
 
 .value-blocks__title {
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 700;
-  color: #0d0d0d;
+  font-size: clamp(32px, 3.8vw, 52px);
+  font-weight: 800;
+  color: #0a0a0a;
   margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
-/* Grid */
-.value-blocks__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* ── Individual block ── */
-
-.value-block {
-  position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(74, 158, 255, 0.2);
-  border-radius: 20px;
-  padding: 36px 32px 28px;
+.value-blocks__features {
   display: flex;
   flex-direction: column;
+  gap: 0;
+}
+
+/* ── Individual feature row ── */
+.vb-feature {
+  display: flex;
   gap: 20px;
-  overflow: hidden;
-  cursor: default;
-  box-shadow:
-    0 10px 36px rgba(0, 0, 0, 0.07),
-    0 0 0 1px rgba(74, 158, 255, 0.08),
-    0 -2px 0 0 #4a9eff inset;
-  background: #f8fbff;
-  transition:
-    box-shadow 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  transition: background 0.2s ease;
 }
 
-
-
-.value-block:hover {
-  transform: translateY(-14px);
-  border-color: rgba(74, 158, 255, 0.4);
-  background: #f2f7ff;
-  box-shadow:
-    0 20px 52px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(74, 158, 255, 0.15),
-    0 -2px 0 0 #4a9eff inset;
+.vb-feature:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
 
-/* Top blue line — always visible */
-.value-block::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: #4a9eff;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-  border-radius: 20px 20px 0 0;
+/* Ghost number */
+.vb-feature__num {
+  font-size: 13px;
+  font-weight: 800;
+  color: #4a9eff;
+  letter-spacing: 0.05em;
+  min-width: 28px;
+  padding-top: 3px;
+  flex-shrink: 0;
+  opacity: 0.6;
 }
 
-.value-block:hover::before {
-  opacity: 1;
-}
-
-/* Middle block accent */
-.value-block--mid {
-  background: #0d0d0d;
-  border-color: rgba(74, 158, 255, 0.35);
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.3),
-    0 -2px 0 0 #4a9eff inset;
-  transform: translateY(-4px);
-}
-
-.value-block--mid::before {
-  opacity: 0.8;
-}
-
-.value-block--mid:hover {
-  background: #111827;
-  border-color: rgba(74, 158, 255, 0.5);
-  box-shadow:
-    0 20px 56px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(74, 158, 255, 0.25),
-    0 0 40px rgba(74, 158, 255, 0.1),
-    0 -2px 0 0 #4a9eff inset;
-  transform: translateY(-8px);
-}
-
-.value-block--mid:hover::before {
-  opacity: 1;
-}
-
-/* Number — large ghost, top-right of card */
-.value-block__num {
-  position: absolute;
-  top: -10px;
-  right: 16px;
-  font-size: 96px;
-  font-weight: 900;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.05);
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  user-select: none;
-  transition: color 0.3s ease;
-  font-variant-numeric: tabular-nums;
-}
-
-.value-block--mid .value-block__num {
-  color: rgba(255, 255, 255, 0.05);
-}
-
-.value-block:hover .value-block__num {
-  color: rgba(74, 158, 255, 0.1);
-}
-
-/* Content */
-.value-block__content {
+.vb-feature__body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   flex: 1;
 }
 
-.value-block__heading {
-  font-size: 18px;
-  font-weight: 700;
-  color: #0d0d0d;
-  line-height: 1.3;
-  margin: 0;
-  letter-spacing: -0.01em;
+.vb-feature__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.value-block--mid .value-block__heading {
-  color: #ffffff;
-}
-
-.value-block__desc {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  line-height: 1.65;
-  margin: 0;
-}
-
-.value-block--mid .value-block__desc {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-/* Footer pill */
-.value-block__footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.value-block--mid .value-block__footer {
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-.value-block__pill {
+.vb-feature__pill {
   display: inline-block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #4a9eff;
   background: rgba(74, 158, 255, 0.08);
-  border: 1px solid rgba(74, 158, 255, 0.18);
+  border: 1px solid rgba(74, 158, 255, 0.2);
   border-radius: 100px;
-  padding: 4px 10px;
+  padding: 3px 10px;
+  width: fit-content;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .value-blocks__grid {
+.vb-feature__heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.vb-feature__desc {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── Right mockup panel ── */
+.value-blocks__mockup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Soft blue ambient glow behind the device image */
+.value-blocks__mockup-glow {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 75%;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(74, 158, 255, 0.18) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.value-blocks__mockup-img {
+  width: 100%;
+  max-width: 620px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  /* Subtle drop shadow to lift the device off the page */
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.12));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.value-blocks__mockup-img:hover {
+  transform: translateY(-6px) scale(1.01);
+  filter: drop-shadow(0 32px 60px rgba(0, 0, 0, 0.16));
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .value-blocks__split {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 56px;
   }
 
-  .value-block--mid {
+  .value-blocks__mockup {
     order: -1;
   }
 
-  .value-block {
-    padding: 28px 24px 22px;
+  .value-blocks__mockup-img {
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .value-blocks {
-    padding: 64px 24px;
+    padding: 72px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .value-blocks__title {
+    font-size: 30px;
+  }
+
+  .value-blocks__mockup-img {
+    max-width: 100%;
+  }
+
+  .value-blocks {
+    padding: 56px 20px;
   }
 }
 
@@ -1468,5 +1444,318 @@ section {
 @media (max-width: 560px) {
   .returns-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   VPM CARDS  —  "How Your Virtual PM Works" card grid
+══════════════════════════════════════════════════════ */
+
+$blue: #4a9eff;
+$blue-faint: rgba(74, 158, 255, 0.04);
+$blue-border: rgba(74, 158, 255, 0.5);
+$blue-border-intel: rgba(74, 158, 255, 0.85);
+
+.vpm-cards {
+  background: #0d1b2a;
+  padding: 80px 0 72px;
+}
+
+.vpm-cards__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── Left-aligned header ── */
+.vpm-cards__header {
+  margin-bottom: 36px;
+}
+
+.vpm-cards__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $blue;
+  margin: 0 0 14px;
+}
+
+.vpm-cards__title {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 10px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.vpm-cards__subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Row containers ── */
+.vpm-cards__row {
+  gap: 16px;
+}
+
+/* Row 1: 4-column grid */
+.vpm-cards__row--four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Row 2: 3 cards centered, same width as row 1 cards */
+.vpm-cards__row--three {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  .vpm-card {
+    flex: 0 0 calc((100% - 3 * 16px) / 4);
+  }
+}
+
+/* ── Individual card ── */
+.vpm-card {
+  background: #1a2535;
+  border-radius: 12px;
+  border-left: 2px solid $blue-border;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    border-left-color: $blue;
+    background: #1e2c40;
+  }
+}
+
+/* ── Intelligence cards (04, 05, 06) ── */
+.vpm-card--intel {
+  border-left-color: $blue-border-intel;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 158, 255, 0.06) 0%,
+    #1a2535 50%
+  );
+
+  &:hover {
+    border-left-color: $blue;
+    background: linear-gradient(
+      135deg,
+      rgba(74, 158, 255, 0.09) 0%,
+      #1e2c40 50%
+    );
+  }
+
+  .vpm-card__icon {
+    filter: drop-shadow(0 0 5px rgba(74, 158, 255, 0.35));
+  }
+}
+
+/* ── Card step number ── */
+.vpm-card__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $blue;
+  line-height: 1;
+}
+
+/* ── Card icon ── */
+.vpm-card__icon {
+  width: 20px;
+  height: 20px;
+  color: $blue;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+}
+
+/* ── Card title ── */
+.vpm-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ── Card description ── */
+.vpm-card__desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .vpm-cards__row--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vpm-cards__row--three {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .vpm-card {
+      flex: 0 0 calc(50% - 8px);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .vpm-cards {
+    padding: 56px 0 48px;
+  }
+
+  .vpm-cards__inner {
+    padding: 0 20px;
+  }
+
+  .vpm-cards__row--four {
+    grid-template-columns: 1fr;
+  }
+
+  .vpm-cards__row--three {
+    .vpm-card {
+      flex: 0 0 100%;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   IL DIAGRAM  —  "WHERE 1iQ FITS" architecture diagram
+══════════════════════════════════════════════════════ */
+
+$blue: #4a9eff;
+
+/* Diagram wrapper */
+.il-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* ── Top: dominant 1iQ block ── */
+.il-diagram__top {
+  width: 100%;
+}
+
+.il-1iq-block {
+  background: $blue;
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 8px 32px rgba(74, 158, 255, 0.25);
+}
+
+.il-1iq-block__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.il-1iq-block__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.il-1iq-block__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.il-1iq-block__pill {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.80);
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* ── Connector lines ── */
+.il-diagram__connectors {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20%;
+  height: 28px;
+  align-items: stretch;
+}
+
+.il-connector {
+  width: 1px;
+  background: rgba(74, 158, 255, 0.55);
+  flex-shrink: 0;
+}
+
+/* ── Bottom: 2×2 tool cards ── */
+.il-diagram__tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.il-tool-card {
+  background: #111c29;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  svg {
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+  }
+}
+
+.il-tool-card__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+.il-tool-card__sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.3;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .il-1iq-block__pill {
+    display: none;
+  }
+
+  .il-diagram__connectors {
+    padding: 0 15%;
   }
 }

@@ -54,7 +54,7 @@ const Footer = () => {
                 className="cta__portal-btn portal-btn--classic"
               />
               <PortalButton
-                label="Get Started"
+                label="Learn More"
                 redirectTo="/get-started"
                 showDivider={true}
                 fullWidth
@@ -110,28 +110,14 @@ const Footer = () => {
             <div>
               <p className="footer-middle-title mb-[32px] text-[14px] font-medium">CAPABILITIES</p>
               <div className="footer-links">
-                <a className="link" href="">
-                  Real Time Data Sync
-                </a>
-                <a className="link" href="">
-                  Digital Twin Integration
-                </a>
-                <a className="link" href="">
-                  Predictive Conflict Resolution
-                </a>
-                <a className="link" href="">
-                  Workflow Automation
-                </a>
-                <a className="link" href="">
-                  Project Portfolio Intelligence
-                </a>
-                <a className="link" href="">
-                  Developer API Access
-                </a>
-                <a className="link" href="">
-                  Multi Project Control
-                </a>
+                <a className="link">Real Time Data Sync</a>
+                <a className="link">Digital Twin Integration</a>
+                <a className="link">Predictive Conflict Resolution</a>
+                <a className="link">Workflow Automation</a>
+                <a className="link">Project Portfolio Intelligence</a>
+                <a className="link">Multi Project Control</a>
               </div>
+
             </div>
           </div>
         </div>

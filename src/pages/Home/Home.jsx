@@ -78,58 +78,74 @@ const Home = () => {
           <div className="value-blocks__bg" aria-hidden="true" />
 
           <div className="value-blocks__inner">
-            <div className="value-blocks__header">
-              <h2 className="value-blocks__title">What 1iQ actually does.</h2>
-            </div>
 
-            <div className="value-blocks__grid">
+            {/* Split layout: content left, mockup right */}
+            <div className="value-blocks__split">
 
-              {/* Block 1 */}
-              <div className="value-block">
-                <div className="value-block__num">01</div>
-                <div className="value-block__content">
-                  <h3 className="value-block__heading">
-                    Field activity becomes intelligence. INSTANTLY.
-                  </h3>
-                  <p className="value-block__desc">
-                    Site activity converts to live project data the moment it happens.
-                  </p>
-                </div>
-                <div className="value-block__footer">
-                  <span className="value-block__pill">Real-Time Capture</span>
+              {/* LEFT — heading + feature list */}
+              <div className="value-blocks__copy">
+                <p className="value-blocks__eyebrow">THE PLATFORM</p>
+                <h2 className="value-blocks__title">What 1iQ actually does.</h2>
+
+                <div className="value-blocks__features">
+
+                  <div className="vb-feature">
+                    <div className="vb-feature__num">01</div>
+                    <div className="vb-feature__body">
+                      <div className="vb-feature__header">
+                        <span className="vb-feature__pill">Real-Time Capture</span>
+                        <h3 className="vb-feature__heading">
+                          Field activity becomes intelligence. Instantly.
+                        </h3>
+                      </div>
+                      <p className="vb-feature__desc">
+                        Site activity converts to live project data the moment it happens — no manual entry, no lag.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="vb-feature">
+                    <div className="vb-feature__num">02</div>
+                    <div className="vb-feature__body">
+                      <div className="vb-feature__header">
+                        <span className="vb-feature__pill">Auto-Scheduling</span>
+                        <h3 className="vb-feature__heading">
+                          Schedules that rewrite themselves.
+                        </h3>
+                      </div>
+                      <p className="vb-feature__desc">
+                        Tasks close. Timelines adjust. No one touches a thing.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="vb-feature">
+                    <div className="vb-feature__num">03</div>
+                    <div className="vb-feature__body">
+                      <div className="vb-feature__header">
+                        <span className="vb-feature__pill">Proactive Alerts</span>
+                        <h3 className="vb-feature__heading">
+                          Stop waiting to find out what's wrong.
+                        </h3>
+                      </div>
+                      <p className="vb-feature__desc">
+                        Live alerts surface issues before anyone sends an update or makes a call.
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
               </div>
 
-              {/* Block 2 */}
-              <div className="value-block value-block--mid">
-                <div className="value-block__num">02</div>
-                <div className="value-block__content">
-                  <h3 className="value-block__heading">
-                    Schedules that rewrite themselves.
-                  </h3>
-                  <p className="value-block__desc">
-                    Tasks close. Timelines adjust. No one touches a thing.
-                  </p>
-                </div>
-                <div className="value-block__footer">
-                  <span className="value-block__pill">Auto-Scheduling</span>
-                </div>
-              </div>
-
-              {/* Block 3 */}
-              <div className="value-block">
-                <div className="value-block__num">03</div>
-                <div className="value-block__content">
-                  <h3 className="value-block__heading">
-                    Stop waiting for someone to tell you what's happening.
-                  </h3>
-                  <p className="value-block__desc">
-                    Live alerts surface issues before anyone sends an update.
-                  </p>
-                </div>
-                <div className="value-block__footer">
-                  <span className="value-block__pill">Proactive Alerts</span>
-                </div>
+              {/* RIGHT — multi-device product mockup */}
+              <div className="value-blocks__mockup">
+                <div className="value-blocks__mockup-glow" aria-hidden="true" />
+                <img
+                  src="/assets/img/mockups/MultiDeviceMock.png"
+                  alt="1iQ project management platform across desktop, laptop, tablet, and mobile"
+                  className="value-blocks__mockup-img"
+                  loading="lazy"
+                />
               </div>
 
             </div>

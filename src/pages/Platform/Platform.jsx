@@ -273,116 +273,129 @@ const Platform = () => {
         </div>
       </section>
 
-      {/* ── How the Platform Works ── */}
-      <section className="how-it-works">
-        <div className="how-it-works__inner">
+      {/* ── How Your Virtual PM Works ── */}
+      <section className="vpm-cards">
+        <div className="vpm-cards__inner">
 
-          <div className="how-it-works__header">
-            <p className="how-it-works__eyebrow">THE SYSTEM</p>
-            <h2 className="how-it-works__title">How the Platform Works</h2>
-            <p className="how-it-works__subtitle">
-              Four layers. One continuous loop. From the moment something happens on site to the moment your team acts on it.
-            </p>
+          {/* Left-aligned header */}
+          <div className="vpm-cards__header">
+            <p className="vpm-cards__eyebrow">THE SYSTEM</p>
+            <h2 className="vpm-cards__title">How Your Virtual PM Works</h2>
+            <p className="vpm-cards__subtitle">From project creation to stakeholder reporting — fully automated.</p>
           </div>
 
-          <div className="how-it-works__flow">
+          {/* Row 1 — 4 cards */}
+          <div className="vpm-cards__row vpm-cards__row--four">
 
-            {/* Step 1 */}
-            <div className="hiw-step">
-              <div className="hiw-step__icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            {/* 01 */}
+            <div className="vpm-card">
+              <span className="vpm-card__num">01</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <h3 className="vpm-card__title">Instant Setup</h3>
+              <p className="vpm-card__desc">Generate a full schedule and task costs in minutes.</p>
+            </div>
+
+            {/* 02 */}
+            <div className="vpm-card">
+              <span className="vpm-card__num">02</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <div className="hiw-step__number">01</div>
-              <h3 className="hiw-step__title">Field Activity</h3>
-              <p className="hiw-step__desc">
-                Subcontractors, PMs, and site teams work as normal. 1iQ observes with no new workflows and no behavior change required.
-              </p>
+              <h3 className="vpm-card__title">Field Activity</h3>
+              <p className="vpm-card__desc">Teams work as normal. 1iQ observes everything.</p>
             </div>
 
-            {/* Connector */}
-            <div className="hiw-connector">
-              <div className="hiw-connector__line" />
-              <svg className="hiw-connector__arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 0L12 12H0L6 0Z" transform="rotate(90 6 6)"/>
-              </svg>
-            </div>
-
-            {/* Step 2 */}
-            <div className="hiw-step">
-              <div className="hiw-step__icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            {/* 03 */}
+            <div className="vpm-card">
+              <span className="vpm-card__num">03</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <ellipse cx="12" cy="5" rx="9" ry="3"/>
                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
                 </svg>
               </div>
-              <div className="hiw-step__number">02</div>
-              <h3 className="hiw-step__title">Passive Data Capture</h3>
-              <p className="hiw-step__desc">
-                1iQ automatically converts jobsite activity into structured project data. No manual entry. No chasing subs for updates.
-              </p>
+              <h3 className="vpm-card__title">Passive Capture</h3>
+              <p className="vpm-card__desc">Site activity becomes structured data automatically.</p>
             </div>
 
-            {/* Connector */}
-            <div className="hiw-connector">
-              <div className="hiw-connector__line" />
-              <svg className="hiw-connector__arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 0L12 12H0L6 0Z" transform="rotate(90 6 6)"/>
-              </svg>
-            </div>
-
-            {/* Step 3 */}
-            <div className="hiw-step hiw-step--accent">
-              <div className="hiw-step__icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            {/* 04 — intelligence */}
+            <div className="vpm-card vpm-card--intel">
+              <span className="vpm-card__num">04</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                 </svg>
               </div>
-              <div className="hiw-step__number">03</div>
-              <h3 className="hiw-step__title">1iQ AI Engine</h3>
-              <p className="hiw-step__desc">
-                Machine learning analyzes schedules, production rates, and risk signals. Delays are flagged before they happen.
-              </p>
-              <span className="hiw-step__badge">The Intelligence Layer</span>
-            </div>
-
-            {/* Connector */}
-            <div className="hiw-connector">
-              <div className="hiw-connector__line" />
-              <svg className="hiw-connector__arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 0L12 12H0L6 0Z" transform="rotate(90 6 6)"/>
-              </svg>
-            </div>
-
-            {/* Step 4 */}
-            <div className="hiw-step">
-              <div className="hiw-step__icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="7" height="7"/>
-                  <rect x="14" y="3" width="7" height="7"/>
-                  <rect x="14" y="14" width="7" height="7"/>
-                  <rect x="3" y="14" width="7" height="7"/>
-                </svg>
-              </div>
-              <div className="hiw-step__number">04</div>
-              <h3 className="hiw-step__title">Live Project Intelligence</h3>
-              <p className="hiw-step__desc">
-                Executives and PMs see every project in real time, including schedules, budgets, risks, and contractor performance.
-              </p>
+              <h3 className="vpm-card__title">AI Analysis</h3>
+              <p className="vpm-card__desc">Schedules, risks, and delays analysed in real time.</p>
             </div>
 
           </div>
+
+          {/* Row 2 — 3 cards centered */}
+          <div className="vpm-cards__row vpm-cards__row--three">
+
+            {/* 05 — intelligence */}
+            <div className="vpm-card vpm-card--intel">
+              <span className="vpm-card__num">05</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <h3 className="vpm-card__title">Auto-Scheduling</h3>
+              <p className="vpm-card__desc">Tasks close. Timelines adjust. Automatically.</p>
+            </div>
+
+            {/* 06 — intelligence */}
+            <div className="vpm-card vpm-card--intel">
+              <span className="vpm-card__num">06</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <h3 className="vpm-card__title">Project Chat</h3>
+              <p className="vpm-card__desc">Ask anything. Get answers and AI recommendations.</p>
+            </div>
+
+            {/* 07 */}
+            <div className="vpm-card">
+              <span className="vpm-card__num">07</span>
+              <div className="vpm-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <h3 className="vpm-card__title">Stakeholder Reports</h3>
+              <p className="vpm-card__desc">Every report written automatically, for every audience.</p>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
 
-
       <PlatformSlider />
+
 
       {/* ── The Intelligence Layer ── */}
       <section className="intelligence-layer">
@@ -394,80 +407,95 @@ const Platform = () => {
               The Layer Your<br />Stack Was Missing
             </h2>
             <p className="intelligence-layer__body">
-              Your team already uses tools for scheduling, field reporting, and project management. 1iQ doesn't replace them; it sits above them, reading everything and turning fragmented activity into structured intelligence.
+              Your team already uses tools for scheduling, field reporting, and project management. 1iQ doesn't replace them — it sits above them as the intelligence layer, connecting everything your tools capture and turning fragmented activity into live, structured decisions.
             </p>
             <p className="intelligence-layer__body">
-              Most construction software captures data. 1iQ understands it.
+              Most construction software stores data. Your Virtual PM acts on it.
             </p>
             <a href="https://calendly.com/ck-1iq/30min" target="_blank" rel="noopener noreferrer" className="intelligence-layer__cta">
-              See How It Connects
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+              See How It Connects →
             </a>
           </div>
 
+          {/* ── Right: layered architecture diagram ── */}
           <div className="intelligence-layer__right">
+            <div className="il-diagram">
 
-            {/* 1iQ at the top */}
-            <div className="il-platform">
-              <div className="il-platform__badge">
-                <span className="il-platform__dot" />
-                1iQ Platform
+              {/* Top — 1iQ dominant block */}
+              <div className="il-diagram__top">
+                <div className="il-1iq-block">
+                  <div className="il-1iq-block__left">
+                    {/* 1iQ logomark */}
+                    <div className="il-1iq-block__logo">
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                        <rect width="32" height="32" rx="6" fill="rgba(255,255,255,0.15)"/>
+                        <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif">1iQ</text>
+                      </svg>
+                    </div>
+                    <span className="il-1iq-block__name">1iQ — Your Virtual PM</span>
+                  </div>
+                  <span className="il-1iq-block__pill">INTELLIGENCE LAYER</span>
+                </div>
               </div>
-              <p className="il-platform__label">Intelligence Layer</p>
-              <div className="il-platform__lines">
-                <div className="il-platform__line" />
-                <div className="il-platform__line" />
-                <div className="il-platform__line" />
-                <div className="il-platform__line" />
+
+              {/* Connector lines */}
+              <div className="il-diagram__connectors" aria-hidden="true">
+                <div className="il-connector" />
+                <div className="il-connector" />
+                <div className="il-connector" />
+                <div className="il-connector" />
+              </div>
+
+              {/* Bottom — tool cards 2×2 grid */}
+              <div className="il-diagram__tools">
+
+                <div className="il-tool-card">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  <span className="il-tool-card__label">Scheduling Tools</span>
+                  <span className="il-tool-card__sub">MS Project, P6</span>
+                </div>
+
+                <div className="il-tool-card">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                  </svg>
+                  <span className="il-tool-card__label">Project Management</span>
+                  <span className="il-tool-card__sub">Procore, Autodesk</span>
+                </div>
+
+                <div className="il-tool-card">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                  </svg>
+                  <span className="il-tool-card__label">Field Reporting</span>
+                  <span className="il-tool-card__sub">Daily logs, RFIs</span>
+                </div>
+
+                <div className="il-tool-card">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  <span className="il-tool-card__label">Communication</span>
+                  <span className="il-tool-card__sub">Email, Teams, Slack</span>
+                </div>
+
               </div>
             </div>
-
-            {/* Tools below */}
-            <div className="il-tools">
-              <div className="il-tool">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                <span>Scheduling Tools</span>
-                <span className="il-tool__example">MS Project, P6</span>
-              </div>
-              <div className="il-tool">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <polyline points="10 9 9 9 8 9"/>
-                </svg>
-                <span>Project Management</span>
-                <span className="il-tool__example">Procore, Autodesk</span>
-              </div>
-              <div className="il-tool">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                  <polyline points="2 17 12 22 22 17"/>
-                  <polyline points="2 12 12 17 22 12"/>
-                </svg>
-                <span>Field Reporting</span>
-                <span className="il-tool__example">Daily logs, RFIs</span>
-              </div>
-              <div className="il-tool">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
-                <span>Communication</span>
-                <span className="il-tool__example">Email, Teams, Slack</span>
-              </div>
-            </div>
-
           </div>
+
         </div>
       </section>
+
 
       <Footer />
 

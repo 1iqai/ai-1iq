@@ -1,10 +1,10 @@
 .industries-banner {
   width: 100%;
   margin-top: 12px;
-  background: #0d0d0d;
+  background: #f2f3f5;
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #4a9eff;
+  border-bottom: 1px solid rgba(74, 158, 255, 0.15);
 
   &__inner {
     display: flex;
@@ -19,7 +19,7 @@
     letter-spacing: 0.1em;
     font-size: 1.2em;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.4);
+    color: #4a9eff;
     white-space: nowrap;
   }
 
@@ -42,7 +42,7 @@
     font-size: clamp(0.95rem, 1vw + 0.4rem, 1.35rem);
     font-weight: 400;
     text-transform: none;
-    color: rgba(255, 255, 255, 0.6);
+    color: #4a9eff;
   }
 
   &__text {
@@ -53,7 +53,7 @@
     width: 6px;
     height: 6px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(74, 158, 255, 0.4);
     margin-left: clamp(1rem, 2vw, 2.5rem);
   }
 }

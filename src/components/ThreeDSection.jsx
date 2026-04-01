@@ -44,24 +44,24 @@ function ScrollCards() {
 
   const cards = [
     {
-      title: "The Real Cost of Running a Job",
-      description: "A senior PM on a $50M project shouldn't be rebuilding a schedule at 10pm because a sub didn't show. They shouldn't be pulling together a status deck on Sunday so the Monday meeting looks good. But almost every one of them is. That's not a people problem. It's what happens when the tools haven't kept up with the work.",
+      title: "Your PM Shouldn't Be Doing This.",
+      description: "Rebuilding a schedule at 10pm. Pulling a status deck on Sunday. That's not project management. That's administration. And it's consuming 60% of their week.",
     },
     {
-      title: "831 Hours. Returned.",
-      description: "When the admin runs itself, your PMs get back 21 weeks a year. At $68/hr fully loaded, that's $71,397 in recovered value per PM, before you count a single delay avoided or rework prevented.",
+      title: "It Tracks. So They Don't Have To.",
+      description: "Field activity converts to live project data the moment it happens. No manual entry. No chasing subs for updates. The virtual PM handles it.",
     },
     {
-      title: "One More Project Per PM. Every Year.",
-      description: "When your PMs aren't buried in paperwork, they have capacity for another job. A $5M project at 7% margin is $350k in new gross profit, per PM, per year. No new hires. No overtime. Just capacity that was already there.",
+      title: "The Schedule Rewrites Itself.",
+      description: "A task closes. The timeline adjusts. Affected teams get alerted. No one touches a thing.",
     },
     {
-      title: "More Projects. Fewer Errors. No Extra Headcount.",
-      description: "When AI handles the scheduling, reporting, and admin automatically, your PMs operate at a different level. Faster decisions, greater precision, and the bandwidth to take on more work simultaneously. That's not just efficiency. That's how your firm scales revenue without scaling costs.",
+      title: "Ask Your Project Anything.",
+      description: "Chat directly with your project data. Uncover risks, surface issues, and get AI recommendations before anyone has to send an update.",
     },
     {
-      title: "5 PMs. $2.1M. Year One.",
-      description: "For a team of five project managers, the net benefit is $2.1M in Year 1. That's 4,156 hours recovered and $25 million in new project capacity unlocked. From a tool that was already in your budget.",
+      title: "Reports That Write Themselves.",
+      description: "1iQ generates stakeholder summaries automatically tailored to each audience, from site updates to executive briefings. Your PMs never write another status report.",
     }
   ];
 

@@ -5,27 +5,30 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortalButton from "../PortalButton/PortalButton";
 import "./HeroSection.scss";
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ heroRef }) => {
   const navigate = useNavigate();
   const overlayRef = useRef(null);
-  const contentRef = useRef(null);
+  const blockRef = useRef(null);
 
   useEffect(() => {
-    // Create GSAP context for proper cleanup
     const ctx = gsap.context(() => {
+      gsap.from(blockRef.current, {
+        y: 28,
+        autoAlpha: 0,
+        duration: 1.1,
+        ease: "power3.out",
+        delay: 0.2,
+      });
     }, heroRef);
-
-    // Cleanup function
     return () => ctx.revert();
   }, []);
 
   return (
     <section
       ref={heroRef}
-      className="hero relative h-screen w-full overflow-hidden bg-black"
+      className="hero"
     >
       {/* Video Background */}
       <video
@@ -33,94 +36,56 @@ const HeroSection = ({ heroRef }) => {
         loop
         muted
         playsInline
-        className="hero__video absolute inset-0 w-full h-full object-cover"
+        className="hero__video"
       >
-        <source
-          src="/assets/Hero.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
+        <source src="/assets/Hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay for text readability */}
-      <div ref={overlayRef} className="hero__overlay absolute inset-0 bg-black/50" />
+      {/* Dark overlay */}
+      <div ref={overlayRef} className="hero__overlay" />
 
-      {/* Hero Content - Brutalist Typography */}
-      <div
-        ref={contentRef}
-        className="hero__content relative h-full flex flex-col justify-between px-8 py-8"
-      >
-        {/* Left Side Content - Bottom Left */}
-        <div className="hero__spacer flex-1" />
+      {/* Centered lower-hero content block */}
+      <div className="hero__content">
+        <div ref={blockRef} className="hero__block">
 
-        <div className="hero__subtitle-container grid grid-cols-1 lg:grid-cols-2 gap-8 mb-0">
-          {/* Left Column - Subtitle */}
-          <div className="hero__subtitle space-y-4">
-            <p className="hero__subtitle-label text-white text-xs lg:text-sm font-medium tracking-wide uppercase">
-              AN AI ENGINE FOR HIGH PERFORMANCE MANAGEMENT
-            </p>
-            <p className="hero__subtitle-text text-white/70 text-xs lg:text-sm leading-relaxed max-w-lg">
-              Project managers burn 1,220 hours a year. Almost 60% of their time goes to admin and paperwork.
-              1iQ reclaims that time. Our AI automates scheduling, reporting, and analysis, returning 831 hours
-              to every PM, every year. Stop drowning in paperwork. Start building.
-            </p>
-            <div className="pt-4">
-              <PortalButton
-                label="REQUEST A DEMO"
-                outline={true}
-                showDivider={false}
-                redirectTo="/schedule"
-              />
-            </div>
-          </div>
 
-          {/* Right Column - Empty for balance */}
-          <div />
-        </div>
 
-        {/* Center - Main Heading with horizontal line */}
-        <div className="hero__heading-container absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-8">
-          <div className="hero__heading-line h-px w-full bg-white/40 mb-5" />
-          <div className="hero__heading-content flex flex-col items-center justify-center space-y-6">
-            {/* Massive Hero Headline */}
-            <h1 className="hero__title font-sans text-4xl md:text-6xl lg:text-[4.8rem] font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)] z-10">
-              Your Best PMs Are Buried in Paperwork.
-              <br />
-              <span className="hero__title-line flex flex-col md:flex-row items-center justify-center md:items-baseline gap-2 md:gap-4 mt-2 md:mt-4 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]">
-                <span className="text-4xl md:text-6xl lg:text-[3.9rem] text-blue-400">1iQ Gives Them Back 831 Hours a Year.</span>
-                <span className="text-xl md:text-2xl lg:text-[1.3rem] text-blue-400">Powered by AI</span>
-              </span>
-            </h1>
+          {/* Main headline */}
+          <h1 className="hero__title">Your Virtual Project Manager</h1>
 
-            <PortalButton
-              label="DEMO"
-              className="hero__cta-button"
-              redirectTo="/schedule"
-              showDivider={false}
-            />
-          </div>
+          {/* Subheadline */}
+          <p className="hero__sub">
+            Eliminate manual tracking, follow-ups, and schedule coordination.
+          </p>
+
+          {/* CTA */}
+          <PortalButton
+            label="BOOK A DEMO"
+            redirectTo="/schedule"
+            className="hero-portal-btn"
+          />
 
         </div>
       </div>
 
-      {/* Scroll Indicator - Bottom Center */}
-      <div className="hero__scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="hero__scroll-container flex flex-col items-center space-y-2">
-          <div className="hero__scroll-line hidden lg:block w-px h-12 bg-white/30" />
-          <svg
-            className="hero__scroll-icon w-4 h-4 text-white/60 animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
+      {/* Scroll indicator */}
+      <div className="hero__scroll">
+        <div className="hero__scroll-line" />
+        <svg
+          className="hero__scroll-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
       </div>
     </section>
   );

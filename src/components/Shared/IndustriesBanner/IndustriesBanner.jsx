@@ -4,13 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./IndustriesBanner.scss";
 
 const INDUSTRIES = [
+  "Residential Construction",
   "Commercial Construction",
-  "Industrial & Infrastructure",
+  "Industrial Construction",
+  "Architecture & Engineering",
   "Real Estate Development",
-  "Public Sector & Smart Cities",
-  "Healthcare Facilities",
-  "Energy & Utilities",
-  "Transportation & Rail",
+  "Government & Public Works",
+  "Oil & Gas & Energy",
   "Data Centers & Tech Campuses",
 ];
 

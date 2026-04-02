@@ -4,6 +4,31 @@
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box; /* prevent unexpected layout shifts */
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .brand-carousel__track {
+    animation: none !important;
+  }
+}
+
+/* Mobile: hide scrollbar chrome, use native momentum scroll */
+@media (pointer: coarse) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -webkit-overflow-scrolling: touch; /* momentum scroll on iOS */
+  }
 }
 
 html {
@@ -749,6 +774,8 @@ section {
 .platform-slider {
   background: #ffffff;
   padding: 96px 48px;
+  touch-action: pan-y;              /* allow native vertical scroll on mobile */
+  overscroll-behavior: contain;     /* prevent pull-to-refresh when swiping carousel */
 }
 
 .platform-slider__inner {
@@ -829,6 +856,12 @@ section {
   gap: 64px;
   align-items: center;
   min-height: 420px;
+  /* GPU layer — prevents layout thrashing during animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .platform-slider__slide--enter {
@@ -944,6 +977,9 @@ section {
 /* Screenshot (right side) */
 .ps-screenshot {
   width: 100%;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 
 .ps-screenshot__browser {

@@ -65,21 +65,25 @@ const BrandCarousel = () => {
             });
         };
 
-        // Wait for images to load to get correct width
-        // Simple timeout for now, but could use onLoad on images
-        const timeoutId = setTimeout(createMarquee, 100);
+        // Use rAF to wait until after paint so layout widths are accurate
+        const rafId = requestAnimationFrame(createMarquee);
 
+        let resizeTimer;
         const handleResize = () => {
-            marqueeTween.current?.kill();
-            createMarquee();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                marqueeTween.current?.kill();
+                createMarquee();
+            }, 150);
         };
 
-        window.addEventListener("resize", handleResize);
+        window.addEventListener('resize', handleResize, { passive: true });
 
         return () => {
-            window.removeEventListener("resize", handleResize);
+            window.removeEventListener('resize', handleResize);
+            cancelAnimationFrame(rafId);
+            clearTimeout(resizeTimer);
             marqueeTween.current?.kill();
-            clearTimeout(timeoutId);
         };
     }, []);
 

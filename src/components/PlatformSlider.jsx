@@ -73,7 +73,7 @@ function ScreenshotPlaceholder({ alt, src }) {
         </div>
         <div className="ps-screenshot__content">
           {src ? (
-            <img src={src} alt={alt} className="ps-screenshot__img" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <img src={src} alt={alt} loading="lazy" decoding="async" className="ps-screenshot__img" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           ) : (
             <div className="ps-screenshot__placeholder">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2">
@@ -112,15 +112,49 @@ export default function PlatformSlider() {
   const prev = () => goTo(active === 0 ? MODULES.length - 1 : active - 1);
   const next = () => goTo(active === MODULES.length - 1 ? 0 : active + 1);
 
-  // Keyboard navigation
+  // Stable refs so event listeners don't re-attach on every state change
+  const activeRef = useRef(active);
+  const animatingRef = useRef(animating);
+  useEffect(() => { activeRef.current = active; }, [active]);
+  useEffect(() => { animatingRef.current = animating; }, [animating]);
+
+  // Keyboard navigation — attached once
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === "ArrowLeft") prev();
-      if (e.key === "ArrowRight") next();
+      if (e.key === 'ArrowLeft') goTo(activeRef.current === 0 ? MODULES.length - 1 : activeRef.current - 1);
+      if (e.key === 'ArrowRight') goTo(activeRef.current === MODULES.length - 1 ? 0 : activeRef.current + 1);
     };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [active, animating]);
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Touch swipe — passive listeners for zero jank
+  const touchStartX = useRef(null);
+  useEffect(() => {
+    const slider = document.querySelector('.platform-slider');
+    if (!slider) return;
+
+    const onTouchStart = (e) => {
+      touchStartX.current = e.changedTouches[0].clientX;
+    };
+    const onTouchEnd = (e) => {
+      if (touchStartX.current === null) return;
+      const delta = e.changedTouches[0].clientX - touchStartX.current;
+      touchStartX.current = null;
+      if (Math.abs(delta) < 40) return; // ignore small taps
+      if (delta < 0) goTo(activeRef.current === MODULES.length - 1 ? 0 : activeRef.current + 1);
+      else goTo(activeRef.current === 0 ? MODULES.length - 1 : activeRef.current - 1);
+    };
+
+    slider.addEventListener('touchstart', onTouchStart, { passive: true });
+    slider.addEventListener('touchend', onTouchEnd, { passive: true });
+    return () => {
+      slider.removeEventListener('touchstart', onTouchStart);
+      slider.removeEventListener('touchend', onTouchEnd);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const module = MODULES[active];
 

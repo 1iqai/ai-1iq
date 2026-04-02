@@ -29,6 +29,8 @@
         overflow: hidden;
         width: 100%;
         position: relative;
+        overscroll-behavior: contain;   /* prevents scroll chaining on mobile */
+        touch-action: pan-y;            /* native vertical scroll, no JS blocking */
 
         // Fade edges
         &::before,
@@ -58,6 +60,10 @@
         align-items: center;
         gap: clamp(3rem, 6vw, 8rem);
         will-change: transform;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
         padding: 1rem 0;
     }
 

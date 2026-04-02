@@ -26,15 +26,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
+    // On mobile/touch devices, skip Lenis — native scroll is faster
+    const isTouchDevice = () =>
+      window.matchMedia('(pointer: coarse)').matches ||
+      'ontouchstart' in window;
+
     const lenis = new Lenis({
-      lerp: 0.08,
+      lerp: 0.1,
       smoothWheel: true,
-      smoothTouch: false,
+      smoothTouch: false,   // always false — mobile browsers handle touch natively
+      touchAction: 'pan-y', // allow native pan-y on touch
     });
     window.lenis = lenis;
 
     const handleLenisScroll = () => ScrollTrigger.update();
-    lenis.on("scroll", handleLenisScroll);
+    lenis.on('scroll', handleLenisScroll);
 
     const raf = (time) => {
       lenis.raf(time * 1000);
@@ -43,8 +49,20 @@ function App() {
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
+    // Debounced resize handler — mobile fires resize on orientation change
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+
     return () => {
-      lenis.off("scroll", handleLenisScroll);
+      clearTimeout(resizeTimer);
+      window.removeEventListener('resize', handleResize);
+      lenis.off('scroll', handleLenisScroll);
       lenis.destroy();
       window.lenis = null;
       gsap.ticker.remove(raf);

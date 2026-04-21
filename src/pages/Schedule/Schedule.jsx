@@ -1,10 +1,147 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
+import jsPDF from "jspdf";
 import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
 import "./Schedule.scss";
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LOI PDF GENERATOR
+   ═══════════════════════════════════════════════════════════════ */
+const LOI_SECTIONS = [
+  { num: "1.", title: "Nonbinding", body: "Except for the provisions of Sections 3-8, this LOI is not binding on the Parties; it is only an expression of basic terms and conditions that the Parties presently intend to incorporate in a formal written agreement. No binding agreement shall exist unless and until a Definitive Agreement has been duly executed and delivered by both Parties." },
+  { num: "2.", title: "Supply of Services", body: "It is the present intention of the Parties that, upon execution of the Definitive Agreement, Customer would purchase, subscribe for, or otherwise contract for 1iQ platform services at the price, terms, and other material qualifiers mutually agreed upon." },
+  { num: "3.", title: "Confidentiality", body: "Each Party agrees to keep confidential all non-public information disclosed by the other Party in connection with the Transaction, including but not limited to the existence and terms of this LOI. This obligation shall survive the termination or expiration of this LOI." },
+  { num: "4.", title: "Exclusivity", body: "During the period commencing on the date of this LOI and ending sixty (60) business days thereafter, Customer agrees not to solicit, initiate, or participate in discussions with any third party regarding any substantially similar transaction." },
+  { num: "5.", title: "Expenses", body: "Each Party shall bear its own costs, fees, and expenses incurred in connection with the negotiation, preparation, and execution of this LOI and the Definitive Agreement, unless otherwise agreed in writing." },
+  { num: "6.", title: "No Obligation to Complete Transaction", body: "Nothing in this LOI shall obligate either Party to complete the Transaction or to enter into the Definitive Agreement. Either Party may withdraw from negotiations at any time without liability, subject to the binding provisions hereof." },
+  { num: "7.", title: "Governing Law", body: "This LOI shall be governed by and construed in accordance with the laws of the State of California. Any dispute shall be resolved exclusively in the courts of Los Angeles County, California." },
+  { num: "8.", title: "Entire Agreement; Amendments", body: "This LOI constitutes the entire agreement of the Parties with respect to the subject matter hereof and supersedes all prior agreements. This LOI may not be amended except by a written instrument signed by both Parties." },
+];
+
+function buildLOIPdf(data, acceptedAt) {
+  const doc = new jsPDF({ unit: "pt", format: "letter" });
+  const PW = doc.internal.pageSize.getWidth();
+  const PH = doc.internal.pageSize.getHeight();
+  const ML = 72, MR = 72, CW = PW - ML - MR;
+  let y = 72;
+
+  const dark  = [26, 29, 35];
+  const mid   = [90, 95, 107];
+  const muted = [144, 152, 164];
+  const faint = [236, 237, 240];
+  const blue  = [30, 100, 200];
+
+  doc.setFillColor(...blue);
+  doc.rect(0, 0, PW, 6, "F");
+
+  doc.setFont("helvetica", "bold"); doc.setFontSize(22); doc.setTextColor(...dark);
+  doc.text("1iQ", ML, y);
+
+  y += 28; doc.setFont("helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(...muted);
+  doc.text("LETTER OF INTENT", ML, y);
+
+  y += 18; doc.setFont("helvetica", "bold"); doc.setFontSize(20); doc.setTextColor(...dark);
+  doc.text("1iQ Platform Access Agreement", ML, y);
+
+  y += 18; doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(...muted);
+  const effDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+  const applicant = `${data.firstName} ${data.lastName}${data.company ? " — " + data.company : ""}`;
+  doc.text(`Effective Date: ${effDate}   |   Applicant: ${applicant}`, ML, y);
+
+  y += 16; doc.setDrawColor(...faint); doc.line(ML, y, PW - MR, y);
+
+  y += 20; doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(...muted);
+  const addrLines = [
+    "30 January 2026", "Via Electronic Mail", "",
+    "1iQ, LLC", "Los Angeles, California", "",
+    `Attn: ${data.firstName} ${data.lastName}`,
+    ...(data.company ? [data.company] : []),
+    "", "Re: Letter of Intent for Services to be Provided",
+  ];
+  addrLines.forEach((line) => { if (line === "") { y += 5; return; } doc.text(line, ML, y); y += 13; });
+
+  y += 8; doc.setDrawColor(...faint); doc.line(ML, y, PW - MR, y);
+
+  y += 18; doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(...dark);
+  doc.text(`Dear ${data.firstName || "Sir/Madam"}:`, ML, y);
+
+  y += 14;
+  const intro = `This letter of intent ("LOI") sets out the principal terms of a potential contract for services being considered by ${data.firstName} ${data.lastName}${data.company ? " / " + data.company : ""} ("Customer") for use of the 1iQ platform and services from 1iQ, LLC, a Wyoming limited liability company ("1iQ").`;
+  const introLines = doc.splitTextToSize(intro, CW);
+  doc.setTextColor(...mid); doc.text(introLines, ML, y);
+  y += introLines.length * 13 + 16;
+
+  LOI_SECTIONS.forEach((s) => {
+    if (y > PH - 150) { doc.addPage(); y = 72; }
+    doc.setFont("helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(...muted);
+    doc.text(s.num, ML, y);
+    doc.setTextColor(...dark); doc.text(s.title.toUpperCase(), ML + 20, y);
+    y += 13;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(...mid);
+    const bodyLines = doc.splitTextToSize(s.body, CW);
+    doc.text(bodyLines, ML, y);
+    y += bodyLines.length * 13 + 16;
+  });
+
+  if (y > PH - 170) { doc.addPage(); y = 72; }
+  y += 8; doc.setDrawColor(...faint); doc.line(ML, y, PW - MR, y);
+  y += 16; doc.setFont("helvetica", "italic"); doc.setFontSize(9); doc.setTextColor(...muted);
+  const authLine = doc.splitTextToSize("By accepting below, Customer represents that they have the full authority to bind themselves and their organization to the terms of this Letter of Intent.", CW);
+  doc.text(authLine, ML, y);
+  y += authLine.length * 13 + 20;
+
+  doc.setFillColor(248, 249, 250); doc.setDrawColor(...faint);
+  doc.roundedRect(ML, y, CW, 95, 6, 6, "FD");
+  y += 18; doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...blue);
+  doc.text("ELECTRONICALLY ACCEPTED", ML + 16, y);
+  y += 16; doc.setTextColor(...dark);
+  [["Full Name:", `${data.firstName} ${data.lastName}`], ["Company:", data.company || "-"], ["Work Email:", data.email], ["Accepted At:", acceptedAt]].forEach(([label, value]) => {
+    doc.setFont("helvetica", "bold"); doc.text(label, ML + 16, y);
+    doc.setFont("helvetica", "normal"); doc.text(value, ML + 100, y);
+    y += 14;
+  });
+
+  const totalPages = doc.getNumberOfPages();
+  for (let p = 1; p <= totalPages; p++) {
+    doc.setPage(p);
+    doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(...muted);
+    doc.text("1iQ, LLC  |  Los Angeles, CA  |  info@1iq.ai  |  www.1iq.ai", ML, PH - 34);
+    doc.text(`Page ${p} of ${totalPages}`, PW - MR, PH - 34, { align: "right" });
+    doc.setDrawColor(...faint); doc.line(ML, PH - 46, PW - MR, PH - 46);
+  }
+  return doc;
+}
+
+function generateAndDeliverPDF(data, acceptedAt) {
+  const doc = buildLOIPdf(data, acceptedAt);
+  const fileName = `1iQ-LOI_${data.lastName}_${data.firstName}.pdf`.replace(/\s+/g, "_");
+  doc.save(fileName);
+  return doc.output("blob");
+}
+
+async function sendLOIEmail({ formData: fd, pdfBlob, acceptedAt, toEmail, subject }) {
+  const form = new FormData();
+  form.append("access_key", "aff2eb3e-c155-4a3d-987e-bf059301f9b3");
+  form.append("subject", subject);
+  form.append("from_name", "1iQ Platform");
+  form.append("First Name", fd.firstName);
+  form.append("Last Name", fd.lastName);
+  form.append("Work Email", fd.email);
+  form.append("Phone", fd.phone || "-");
+  form.append("Company Name", fd.company);
+  form.append("Number of Project Managers", fd.pmCount || "-");
+  form.append("LOI Accepted", "YES");
+  form.append("LOI Version", "v1 - 30 January 2026");
+  form.append("Accepted At", acceptedAt);
+  if (toEmail) form.append("to_email", toEmail);
+  form.append("attachment", pdfBlob, "1iQ-LOI-Agreement.pdf");
+  const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: form });
+  return res.json();
+}
 
 /* ═══════════════════════════════════════════════════════════════
    POST-LOI  "LOADING INTELLIGENCE"  SCREEN
@@ -307,9 +444,37 @@ const Schedule = () => {
   };
 
   // Called when the user clicks "Accept & Continue" on the LOI
-  const handleLOIAccept = () => {
-    setShowLOI(false);    // close the modal
+  const handleLOIAccept = async () => {
+    setShowLOI(false);    // close the modal immediately
     setShowLoader(true);  // show the 1iQ loading intelligence screen
+
+    const acceptedAt = new Date().toLocaleString("en-US", {
+      year: "numeric", month: "long", day: "numeric",
+      hour: "2-digit", minute: "2-digit", second: "2-digit",
+      timeZoneName: "short",
+    });
+
+    try {
+      // 1. Generate PDF — auto-downloads to the user's browser
+      const pdfBlob = generateAndDeliverPDF(data, acceptedAt);
+
+      // 2. Email to ADMIN (your web3forms account default email)
+      await sendLOIEmail({
+        formData: data, pdfBlob, acceptedAt, toEmail: null,
+        subject: `LOI Accepted — ${data.firstName} ${data.lastName} / ${data.company}`,
+      });
+
+      // 3. Email confirmation to the SUBMITTER
+      //    Requires web3forms Pro plan to deliver to a different address.
+      //    On free plan the admin copy above still goes through.
+      await sendLOIEmail({
+        formData: data, pdfBlob, acceptedAt, toEmail: data.email,
+        subject: `Your 1iQ Platform LOI — ${data.company || data.firstName}`,
+      });
+    } catch (err) {
+      // Non-blocking — loading screen continues regardless
+      console.error("LOI PDF/email error:", err);
+    }
   };
 
   // Called when the loading screen animation finishes

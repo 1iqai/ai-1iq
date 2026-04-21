@@ -21,19 +21,16 @@
   }
 }
 
-/* Mobile: hide scrollbar chrome, use native momentum scroll */
+/* Mobile: hide scrollbar chrome */
 @media (pointer: coarse) {
   ::-webkit-scrollbar {
     display: none;
-  }
-  body {
-    -webkit-overflow-scrolling: touch; /* momentum scroll on iOS */
   }
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  touch-action: pan-y; /* ensure vertical scroll passes through on mobile */
 }
 
 body {
@@ -43,13 +40,12 @@ body {
   background-color: white;
   color: #111827;
   overflow-x: hidden;
-  overflow-y: scroll;
+  touch-action: pan-y;
 }
 
-/* Section snap styling */
+/* Sections — no snap to allow free scrolling on all devices */
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  /* scroll-snap removed: was causing glitch/bounce on mobile */
 }
 
 .snap-section {

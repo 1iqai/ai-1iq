@@ -34,8 +34,8 @@ const cards = [
     title: "Schedule Demo",
     description: "See 1iQ in action. Book a personalized demo with our product experts.",
     cta: "GET STARTED →",
-    href: "https://calendly.com/ck-1iq/30min",
-    external: true,
+    href: "/schedule",
+    external: false,
   },
   {
     id: "partnership-inquiry",

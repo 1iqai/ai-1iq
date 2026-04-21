@@ -1,9 +1,124 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import gsap from "gsap";
 import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
 import "./Schedule.scss";
+
+/* ═══════════════════════════════════════════════════════════════
+   POST-LOI  "LOADING INTELLIGENCE"  SCREEN
+   Shown after the user accepts the LOI — mirrors the global
+   LoadingScreen animation, then navigates to the home page.
+   ═══════════════════════════════════════════════════════════════ */
+function PostLOILoader({ onDone }) {
+  const containerRef = useRef(null);
+  const logoRef = useRef(null);
+  const textRef = useRef(null);
+  const dotsRef = useRef([]);
+
+  useEffect(() => {
+    if (!containerRef.current || !logoRef.current || !textRef.current) return;
+
+    // Set hidden initial states
+    gsap.set(logoRef.current, { opacity: 0, scale: 0.5, rotation: -10, filter: "blur(10px)" });
+    gsap.set(textRef.current, { opacity: 0, y: 20, filter: "blur(5px)" });
+    gsap.set(dotsRef.current, { opacity: 0, scale: 0, rotation: 180 });
+
+    const tl = gsap.timeline();
+    tl.to(logoRef.current, {
+      opacity: 1, scale: 1, rotation: 0, filter: "blur(0px)",
+      duration: 1.2, ease: "back.out(1.7)",
+    })
+    .to(textRef.current, {
+      opacity: 1, y: 0, filter: "blur(0px)",
+      duration: 0.8, ease: "power3.out",
+    }, "-=0.6")
+    .to(dotsRef.current, {
+      opacity: 1, scale: 1, rotation: 0,
+      duration: 0.6, stagger: 0.1, ease: "back.out(1.5)",
+    }, "-=0.3");
+
+    // Pulsing dots loop
+    const dotsLoop = gsap.timeline({ repeat: -1 });
+    dotsLoop
+      .to(dotsRef.current, { scale: 1.3, duration: 0.4, stagger: 0.1, ease: "power2.inOut" })
+      .to(dotsRef.current, { scale: 1, duration: 0.4, stagger: 0.1, ease: "power2.inOut" });
+
+    // Exit after 2.5 s then call onDone
+    const exitTimer = setTimeout(() => {
+      gsap.to(dotsRef.current, { opacity: 0, scale: 0, rotation: -180, duration: 0.5, stagger: 0.05, ease: "back.in(1.5)" });
+      gsap.to(textRef.current, { opacity: 0, y: -20, filter: "blur(5px)", duration: 0.8, ease: "power3.in", delay: 0.1 });
+      gsap.to(logoRef.current, { opacity: 0, scale: 0.5, rotation: 10, filter: "blur(10px)", duration: 1, ease: "back.in(1.7)", delay: 0.2 });
+      gsap.to(containerRef.current, {
+        opacity: 0, duration: 0.6, ease: "power2.in", delay: 0.5,
+        onComplete: onDone,
+      });
+    }, 2500);
+
+    return () => {
+      clearTimeout(exitTimer);
+      tl.kill();
+      dotsLoop.kill();
+    };
+  }, [onDone]);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: "fixed", inset: 0, zIndex: 10000,
+        background: "linear-gradient(135deg, #000000 0%, #0a0a0a 100%)",
+        display: "flex", justifyContent: "center", alignItems: "center",
+        overflow: "hidden",
+      }}
+    >
+      {/* Rotating radial glow (same as LoadingScreen) */}
+      <div style={{
+        position: "absolute", top: "-50%", left: "-50%",
+        width: "200%", height: "200%",
+        background: "radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)",
+        animation: "loi-rotate 20s linear infinite",
+        pointerEvents: "none",
+      }} />
+      <div style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+        <div style={{ marginBottom: "2rem", perspective: "1000px" }}>
+          <img
+            ref={logoRef}
+            src="/assets/1iQ-White.png"
+            alt="1iQ Logo"
+            style={{ height: "10rem", width: "auto", transformOrigin: "center center" }}
+          />
+        </div>
+        <div
+          ref={textRef}
+          style={{
+            fontSize: "1.25rem", fontWeight: 400,
+            color: "rgba(255,255,255,0.9)", marginBottom: "1.5rem",
+            fontFamily: "'Inter', sans-serif", letterSpacing: "0.01em",
+          }}
+        >
+          Loading intelligence…
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem" }}>
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              ref={(el) => { dotsRef.current[i] = el; }}
+              style={{
+                width: 10, height: 10, borderRadius: "50%",
+                background: "linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.8) 100%)",
+                boxShadow: "0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(255,255,255,0.1)",
+                display: "inline-block",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+      <style>{`@keyframes loi-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
 
 /* ═══════════════════════════════════════════════════════════════
    LOI TERMS MODAL  (kept from original)
@@ -146,6 +261,7 @@ const Schedule = () => {
   const navigate = useNavigate();
   const heroRef = useRef(null);
   const [showLOI, setShowLOI] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const [sending, setSending] = useState(false);
   const [focused, setFocused] = useState(null);
 
@@ -190,6 +306,20 @@ const Schedule = () => {
     }
   };
 
+  // Called when the user clicks "Accept & Continue" on the LOI
+  const handleLOIAccept = () => {
+    setShowLOI(false);    // close the modal
+    setShowLoader(true);  // show the 1iQ loading intelligence screen
+  };
+
+  // Called when the loading screen animation finishes
+  const handleLoaderDone = () => {
+    setShowLoader(false);
+    // Navigate to home and scroll to the very top
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
   const inputStyle = (field) => ({
     width: "100%",
     padding: "13px 16px",
@@ -221,9 +351,12 @@ const Schedule = () => {
         name={data.firstName || "there"}
         company={data.company}
         visible={showLOI}
-        onAccept={() => navigate("/demo")}
+        onAccept={handleLOIAccept}
         onDecline={() => setShowLOI(false)}
       />
+
+      {/* ── Post-LOI Loading Intelligence Screen ── */}
+      {showLoader && <PostLOILoader onDone={handleLoaderDone} />}
 
       {/* ── Demo Booking Section ── */}
       <section className="demo-booking">

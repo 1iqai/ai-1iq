@@ -232,18 +232,28 @@ const ThreeDSection = () => {
   const sectionRef = useRef(null);
   const scrollProgressRef = useRef(0);
   const timelineRef = useRef(null);
-  // Create GSAP ScrollTrigger for this section
-  useEffect(() => {
-    if (!sectionRef.current) return;
+  const [isMobile, setIsMobile] = useState(false);
 
-    // Create GSAP ScrollTrigger for this section
+  useEffect(() => {
+    // Detect touch/mobile — skip heavy 3D and pinned scroll on mobile
+    const checkMobile = () =>
+      window.matchMedia('(pointer: coarse)').matches ||
+      'ontouchstart' in window ||
+      window.innerWidth < 768;
+    setIsMobile(checkMobile());
+  }, []);
+
+  useEffect(() => {
+    if (!sectionRef.current || isMobile) return;
+
+    // Desktop only: pin the section and drive the 3D animation with scroll
     const ctx = gsap.context(() => {
       const dummy = { value: 0 };
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top", // When section top hits viewport top
-          end: "+=1500%", // Extended scroll for slower, more synchronized animation
+          start: "top top",
+          end: "+=1500%",
           pin: true,
           scrub: 1,
           invalidateOnRefresh: true,
@@ -264,19 +274,26 @@ const ThreeDSection = () => {
     }, sectionRef);
 
     return () => {
-      // Cleanup on unmount
       timelineRef.current?.scrollTrigger?.kill();
       timelineRef.current?.kill();
       timelineRef.current = null;
       ctx.revert();
     };
-  }, []);
+  }, [isMobile]);
+
+  // Mobile: render a simple static card section without 3D or pinning
+  if (isMobile) {
+    return (
+      <section ref={sectionRef} className="three-d-section-mobile">
+        <ScrollCards />
+      </section>
+    );
+  }
 
   return (
     <section ref={sectionRef} className="three-d-section relative h-screen w-full bg-gradient-to-b from-white to-gray-100">
-      {/* React Three Fiber Canvas */}
-      <Canvas shadows dpr={[1, 2]} className="three-d-section__canvas w-full h-full">
-        {/* Lighting */}
+      {/* React Three Fiber Canvas — desktop only */}
+      <Canvas shadows dpr={[1, 1.5]} className="three-d-section__canvas w-full h-full">
         <ambientLight intensity={0.5} />
         <directionalLight
           position={[10, 10, 5]}
@@ -285,32 +302,11 @@ const ThreeDSection = () => {
           shadow-mapSize={[1024, 1024]}
         />
         <pointLight position={[-10, -10, -5]} intensity={0.5} />
-
-        {/* Environment for reflections */}
         <Environment preset="city" />
-
-        {/* 3D Model with scroll-based animations */}
         <Suspense fallback={null}>
           <Model scrollProgressRef={scrollProgressRef} />
         </Suspense>
-
-        {/* Post-processing effects */}
-        {/* <EffectComposer enableNormalPass={true}> */}
-
-        {/* <ToneMapping adaptive={true} resolution={1024} /> */}
-        {/* <Bloom
-            intensity={0.5}           // Strength of the bloom effect
-            luminanceThreshold={0.3}  // Minimum brightness to bloom
-            luminanceSmoothing={0.9}  // Smoothness of the transition
-            height={300}              // Resolution of the bloom effect
-          /> */}
-
-        {/* </EffectComposer> */}
-
       </Canvas>
-
-      {/* Transparent Scroll Cards */}
-
       <ScrollCards />
     </section>
   );

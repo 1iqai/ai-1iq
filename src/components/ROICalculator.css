@@ -393,6 +393,8 @@
   padding: 16px 28px;
   border-radius: 100px;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
   transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   box-shadow: 0 4px 24px rgba(74, 158, 255, 0.3);
 }

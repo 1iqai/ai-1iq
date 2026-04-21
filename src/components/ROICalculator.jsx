@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ROICalculator.css";
 
 // ─── Formatting helpers ───────────────────────────────────────────────────────
@@ -97,6 +98,7 @@ function Slider({ label, value, min, max, step, onChange, format }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function ROICalculator() {
+  const navigate = useNavigate();
   const [numPMs, setNumPMs] = useState(5);
   const [salary, setSalary] = useState(105_000);
   const [projectBudget, setProjectBudget] = useState(5_000_000);
@@ -211,13 +213,12 @@ export default function ROICalculator() {
           </div>
 
           {/* CTA */}
-          {/* CTA */}
-          <a href="https://calendly.com/ck-1iq/30min" target="_blank" rel="noopener noreferrer" className="roi-cta">
+          <button onClick={() => navigate("/schedule")} className="roi-cta">
             Book Your ROI Walkthrough
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,28 +20,49 @@ import Platform from "./pages/Platform/Platform";
 import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
 
-const DemoAppWrapper = lazy(() => import("./components/DemoAppWrapper"));
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
-    // On mobile/touch devices, skip Lenis — native scroll is faster
-    const isTouchDevice = () =>
+    // On touch/mobile: skip Lenis entirely — native momentum scroll is smoother
+    // and Lenis's RAF loop causes jank/bounce on iOS/Android even with smoothTouch:false
+    const isTouchDevice =
       window.matchMedia('(pointer: coarse)').matches ||
       'ontouchstart' in window;
 
+    if (isTouchDevice) {
+      // Native scroll: just keep ScrollTrigger in sync on resize
+      let resizeTimer;
+      const handleResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
+      };
+      window.addEventListener('resize', handleResize, { passive: true });
+      window.addEventListener('orientationchange', () => {
+        setTimeout(() => ScrollTrigger.refresh(), 300);
+      });
+      window.lenis = null;
+      return () => {
+        clearTimeout(resizeTimer);
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+
+    // Desktop only — Lenis smooth wheel scroll
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
-      smoothTouch: false,   // always false — mobile browsers handle touch natively
-      touchAction: 'pan-y', // allow native pan-y on touch
+      smoothTouch: false,
+      touchAction: 'pan-y',
     });
     window.lenis = lenis;
 
     const handleLenisScroll = () => ScrollTrigger.update();
     lenis.on('scroll', handleLenisScroll);
 
+    // GSAP ticker passes seconds; lenis.raf() expects milliseconds
     const raf = (time) => {
       lenis.raf(time * 1000);
     };
@@ -49,13 +70,10 @@ function App() {
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
-    // Debounced resize handler — mobile fires resize on orientation change
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 150);
+      resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 150);
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
@@ -87,11 +105,7 @@ function App() {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
-        <Route path="/demo/*" element={
-          <Suspense fallback={<div>Loading...</div>}>
-            <DemoAppWrapper />
-          </Suspense>
-        } />
+        <Route path="/demo/*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   );

@@ -3,6 +3,54 @@
   scroll-snap-stop: normal;
 }
 
+/* Mobile fallback — no 3D canvas, no pin, just scrollable cards */
+.three-d-section-mobile {
+  background: linear-gradient(to bottom, #ffffff, #f3f4f6);
+  padding: 64px 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: auto;
+  position: relative;
+
+  /* Override the absolute-positioned scroll-cards for mobile stack */
+  .scroll-cards-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    pointer-events: all;
+  }
+
+  .scroll-cards-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  /* On mobile, show all cards stacked (not absolute positioned) */
+  .scroll-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+}
+
+
 .scroll-cards-container {
   position: absolute;
   top: 0;

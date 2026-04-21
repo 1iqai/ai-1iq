@@ -30,12 +30,14 @@ const HeroSection = ({ heroRef }) => {
       ref={heroRef}
       className="hero"
     >
-      {/* Video Background */}
+      {/* Video Background — autoPlay/playsInline required for mobile autoplay */}
       <video
         autoPlay
         loop
         muted
         playsInline
+        preload="none"
+        x-webkit-airplay="allow"
         className="hero__video"
       >
         <source src="/assets/Hero.mp4" type="video/mp4" />

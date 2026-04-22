@@ -118,7 +118,8 @@ function buildLOIPdf(data, acceptedAt) {
 
 function generateAndDeliverPDF(data, acceptedAt) {
   const doc = buildLOIPdf(data, acceptedAt);
-  const fileName = `1iQ-LOI_${data.lastName}_${data.firstName}.pdf`.replace(/\s+/g, "_");
+  const dateStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const fileName = `1iQ-LOI_${data.company || "Client"}_${dateStr}.pdf`.replace(/\s+/g, "_");
   doc.save(fileName);
   return doc.output("blob");
 }

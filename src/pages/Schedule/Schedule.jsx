@@ -124,11 +124,13 @@ function generateAndDeliverPDF(data, acceptedAt) {
   return doc.output("blob");
 }
 
-async function sendLOIEmail({ formData: fd, pdfBlob, acceptedAt, toEmail, subject }) {
+// ccEmails: semicolon-separated string of addresses to CC (web3forms Pro `ccemail` field)
+async function sendLOIEmail({ formData: fd, pdfBlob, acceptedAt, ccEmails, subject }) {
   const form = new FormData();
   form.append("access_key", "aff2eb3e-c155-4a3d-987e-bf059301f9b3");
   form.append("subject", subject);
   form.append("from_name", "1iQ Platform");
+  form.append("replyto", fd.email);
   form.append("First Name", fd.firstName);
   form.append("Last Name", fd.lastName);
   form.append("Work Email", fd.email);
@@ -138,7 +140,8 @@ async function sendLOIEmail({ formData: fd, pdfBlob, acceptedAt, toEmail, subjec
   form.append("LOI Accepted", "YES");
   form.append("LOI Version", "v1 - 30 January 2026");
   form.append("Accepted At", acceptedAt);
-  if (toEmail) form.append("to_email", toEmail);
+  // `ccemail` is the web3forms Pro field for CC recipients (semicolon-separated)
+  if (ccEmails) form.append("ccemail", ccEmails);
   form.append("attachment", pdfBlob, "1iQ-LOI-Agreement.pdf");
   const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: form });
   return res.json();
@@ -432,12 +435,13 @@ const Schedule = () => {
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
       const result = await response.json();
       if (result.success) {
-        // Also notify admin@1iq.ai of the new form submission
+        // CC admin@1iq.ai on the form submission notification (web3forms Pro ccemail)
         const adminCopy = new FormData();
         adminCopy.append("access_key", "aff2eb3e-c155-4a3d-987e-bf059301f9b3");
-        adminCopy.append("to_email", "admin@1iq.ai");
+        adminCopy.append("ccemail", "admin@1iq.ai");
         adminCopy.append("subject", `New Demo Request — ${data.firstName} ${data.lastName} / ${data.company}`);
         adminCopy.append("from_name", "1iQ Platform");
+        adminCopy.append("replyto", data.email);
         Object.entries(payload).forEach(([key, value]) => {
           if (value && value.toString().trim() !== "") adminCopy.append(key, value);
         });
@@ -469,21 +473,12 @@ const Schedule = () => {
       // 1. Generate PDF — auto-downloads to the user's browser
       const pdfBlob = generateAndDeliverPDF(data, acceptedAt);
 
-      // 2. Email to ADMIN (your web3forms account default email)
+      // Single submission: primary goes to account owner (ck@1iq.ai),
+      // ccemail delivers copies to submitter + admin@1iq.ai in one call.
+      const ccList = `${data.email};admin@1iq.ai`;
       await sendLOIEmail({
-        formData: data, pdfBlob, acceptedAt, toEmail: null,
-        subject: `LOI Accepted — ${data.firstName} ${data.lastName} / ${data.company}`,
-      });
-
-      // 3. Email confirmation to the SUBMITTER
-      await sendLOIEmail({
-        formData: data, pdfBlob, acceptedAt, toEmail: data.email,
-        subject: `Your 1iQ Platform LOI — ${data.company || data.firstName}`,
-      });
-
-      // 4. Send signed LOI PDF to admin@1iq.ai
-      await sendLOIEmail({
-        formData: data, pdfBlob, acceptedAt, toEmail: "admin@1iq.ai",
+        formData: data, pdfBlob, acceptedAt,
+        ccEmails: ccList,
         subject: `LOI Accepted — ${data.firstName} ${data.lastName} / ${data.company}`,
       });
     } catch (err) {

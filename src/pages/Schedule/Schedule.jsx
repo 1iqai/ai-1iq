@@ -432,6 +432,16 @@ const Schedule = () => {
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
       const result = await response.json();
       if (result.success) {
+        // Also notify admin@1iq.ai of the new form submission
+        const adminCopy = new FormData();
+        adminCopy.append("access_key", "aff2eb3e-c155-4a3d-987e-bf059301f9b3");
+        adminCopy.append("to_email", "admin@1iq.ai");
+        adminCopy.append("subject", `New Demo Request — ${data.firstName} ${data.lastName} / ${data.company}`);
+        adminCopy.append("from_name", "1iQ Platform");
+        Object.entries(payload).forEach(([key, value]) => {
+          if (value && value.toString().trim() !== "") adminCopy.append(key, value);
+        });
+        fetch("https://api.web3forms.com/submit", { method: "POST", body: adminCopy }).catch(() => {});
         setShowLOI(true);
       } else {
         alert("There was an error submitting the form. Please try again.");
@@ -466,11 +476,15 @@ const Schedule = () => {
       });
 
       // 3. Email confirmation to the SUBMITTER
-      //    Requires web3forms Pro plan to deliver to a different address.
-      //    On free plan the admin copy above still goes through.
       await sendLOIEmail({
         formData: data, pdfBlob, acceptedAt, toEmail: data.email,
         subject: `Your 1iQ Platform LOI — ${data.company || data.firstName}`,
+      });
+
+      // 4. Send signed LOI PDF to admin@1iq.ai
+      await sendLOIEmail({
+        formData: data, pdfBlob, acceptedAt, toEmail: "admin@1iq.ai",
+        subject: `LOI Accepted — ${data.firstName} ${data.lastName} / ${data.company}`,
       });
     } catch (err) {
       // Non-blocking — loading screen continues regardless

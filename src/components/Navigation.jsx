@@ -15,6 +15,7 @@ const Navigation = ({ heroRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogoOnBrightSection, setIsLogoOnBrightSection] = useState(false);
   const logoRef = useRef(null);
+  const siblingRef = useRef(null);
   const hoverInTweenRef = useRef(null);
   const hoverOutTweenRef = useRef(null);
   const isHoveringLogoRef = useRef(false);
@@ -217,8 +218,9 @@ const Navigation = ({ heroRef }) => {
             <img src="/assets/person-svgrepo-com.svg" alt="Profile" />
           </div>
 
-          <MetalFx preset="chromatic" strength={1}>
+          <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
             <button
+              ref={siblingRef}
               className="navigation__request-btn"
               onClick={() => navigate('/schedule')}
             >

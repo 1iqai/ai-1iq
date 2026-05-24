@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { MetalFx } from "metal-fx";
 import "./ROICalculator.css";
@@ -88,6 +88,7 @@ function Slider({ label, value, min, max, step, onChange, format }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function ROICalculator() {
   const navigate = useNavigate();
+  const siblingRef = useRef(null);
   const [projectBudget, setProjectBudget] = useState(20_000_000);
   const [consultantFee, setConsultantFee] = useState(75_000);
   const [overrunRisk, setOverrunRisk] = useState(25);
@@ -196,8 +197,12 @@ export default function ROICalculator() {
             </span>
           </div>
 
-          <MetalFx preset="chromatic" strength={1}>
-            <button onClick={() => navigate("/schedule")} className="roi-cta">
+          <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
+            <button
+              ref={siblingRef}
+              onClick={() => navigate("/schedule")}
+              className="roi-cta"
+            >
               Run a Free Feasibility Analysis
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>

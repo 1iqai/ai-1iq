@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
 import { MetalFx } from "metal-fx";
@@ -17,6 +17,7 @@ const PortalButton = ({
   ...buttonProps
 }) => {
   const navigate = useNavigate();
+  const siblingRef = useRef(null);
   const Component = href ? "a" : "button";
   const componentProps = { ...buttonProps };
 
@@ -57,8 +58,9 @@ const PortalButton = ({
         .filter(Boolean)
         .join(" ")}
     >
-      <MetalFx preset="chromatic" strength={1}>
+      <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
         <Component
+          ref={siblingRef}
           className={["portal-btn", buttonClassName].filter(Boolean).join(" ")}
           {...componentProps}
         >

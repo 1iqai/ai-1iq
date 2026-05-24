@@ -2,10 +2,87 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import PortalButton from "../PortalButton/PortalButton";
 import "./HeroSection.scss";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const STAGGER = 0.02;
+const cn = (...classes) => classes.filter(Boolean).join(" ");
+
+const TextRoll = ({ children, className, center = false }) => {
+  return (
+    <motion.span
+      initial="initial"
+      whileHover="hovered"
+      className={cn("relative inline-block overflow-hidden", className)}
+      style={{
+        lineHeight: 1.1,
+        paddingBottom: "0.08em",
+      }}
+    >
+      <span className="block">
+        {children.split("").map((l, i) => {
+          const delay = center
+            ? STAGGER * Math.abs(i - (children.length - 1) / 2)
+            : STAGGER * i;
+
+          return (
+            <motion.span
+              variants={{
+                initial: {
+                  y: 0,
+                },
+                hovered: {
+                  y: "-100%",
+                },
+              }}
+              transition={{
+                ease: [0.16, 1, 0.3, 1],
+                duration: 0.6,
+                delay,
+              }}
+              className="inline-block"
+              key={i}
+            >
+              {l === " " ? "\u00A0" : l}
+            </motion.span>
+          );
+        })}
+      </span>
+      <span className="absolute inset-0 block">
+        {children.split("").map((l, i) => {
+          const delay = center
+            ? STAGGER * Math.abs(i - (children.length - 1) / 2)
+            : STAGGER * i;
+
+          return (
+            <motion.span
+              variants={{
+                initial: {
+                  y: "100%",
+                },
+                hovered: {
+                  y: 0,
+                },
+              }}
+              transition={{
+                ease: [0.16, 1, 0.3, 1],
+                duration: 0.6,
+                delay,
+              }}
+              className="inline-block"
+              key={i}
+            >
+              {l === " " ? "\u00A0" : l}
+            </motion.span>
+          );
+        })}
+      </span>
+    </motion.span>
+  );
+};
 
 const HeroSection = ({ heroRef }) => {
   const navigate = useNavigate();
@@ -47,7 +124,9 @@ const HeroSection = ({ heroRef }) => {
       <div className="hero__content">
         <div ref={blockRef} className="hero__block">
 
-          <h1 className="hero__title">Real-Time Intelligence for Real Estate Development</h1>
+          <h1 className="hero__title">
+            <TextRoll center>Real-Time Intelligence for Real Estate Development</TextRoll>
+          </h1>
 
           <p className="hero__sub">
             1iQ gives developers and investors live visibility into project risk, capital exposure, and execution performance, without depending on consultants or filtered reports.

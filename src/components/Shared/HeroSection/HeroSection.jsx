@@ -46,7 +46,7 @@ const TextRoll = ({ children, className, center = false }) => {
               className="inline-block"
               key={i}
             >
-              {l === " " ? "\u00A0" : l}
+              {l}
             </motion.span>
           );
         })}
@@ -75,7 +75,7 @@ const TextRoll = ({ children, className, center = false }) => {
               className="inline-block"
               key={i}
             >
-              {l === " " ? "\u00A0" : l}
+              {l}
             </motion.span>
           );
         })}
@@ -125,7 +125,11 @@ const HeroSection = ({ heroRef }) => {
         <div ref={blockRef} className="hero__block">
 
           <h1 className="hero__title">
-            <TextRoll center>Real-Time Intelligence for Real Estate Development</TextRoll>
+            {"Real-Time Intelligence for Real Estate Development".split(" ").map((word, i) => (
+              <span key={i} className="inline-block" style={{ whiteSpace: "nowrap", marginRight: "0.26em" }}>
+                <TextRoll center>{word}</TextRoll>
+              </span>
+            ))}
           </h1>
 
           <p className="hero__sub">

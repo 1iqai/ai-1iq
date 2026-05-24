@@ -161,7 +161,7 @@ export default function ROICalculator() {
             <span className="roi-stat__number">
               {results.roiMultiple}x
             </span>
-            <p className="roi-stat__label">Return on 1iQ investment — this project</p>
+            <p className="roi-stat__label">Return on 1iQ investment for this project</p>
           </div>
 
           <div className="roi-stat-grid">

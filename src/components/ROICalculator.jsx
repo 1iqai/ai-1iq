@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { MetalFx } from "metal-fx";
 import "./ROICalculator.css";
 
 // ─── Formatting helpers ───────────────────────────────────────────────────────
@@ -195,12 +196,14 @@ export default function ROICalculator() {
             </span>
           </div>
 
-          <button onClick={() => navigate("/schedule")} className="roi-cta">
-            Run a Free Feasibility Analysis
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
+          <MetalFx preset="chromatic" strength={1}>
+            <button onClick={() => navigate("/schedule")} className="roi-cta">
+              Run a Free Feasibility Analysis
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </MetalFx>
 
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MetalFx } from "metal-fx";
 import Hamnav from "./Hamnav/Hamnav";
 import "./Navigation.scss";
 
@@ -216,12 +217,14 @@ const Navigation = ({ heroRef }) => {
             <img src="/assets/person-svgrepo-com.svg" alt="Profile" />
           </div>
 
-          <button
-            className="navigation__request-btn"
-            onClick={() => navigate('/schedule')}
-          >
-            Free Feasibility Analysis
-          </button>
+          <MetalFx preset="chromatic" strength={1}>
+            <button
+              className="navigation__request-btn"
+              onClick={() => navigate('/schedule')}
+            >
+              Free Feasibility Analysis
+            </button>
+          </MetalFx>
 
           <Hamnav />
         </div>

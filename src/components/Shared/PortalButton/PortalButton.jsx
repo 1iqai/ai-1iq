@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
+import { MetalFx } from "metal-fx";
 import "./PortalButton.scss";
 
 const PortalButton = ({
@@ -56,20 +57,22 @@ const PortalButton = ({
         .filter(Boolean)
         .join(" ")}
     >
-      <Component
-        className={["portal-btn", buttonClassName].filter(Boolean).join(" ")}
-        {...componentProps}
-      >
-        <p className="tracking-widest uppercase">{label}</p>
-        <div className="icon-btn">
-          <div className="icon-container">
-            <div className="arrows-container">
-              <GoArrowUpRight className="icon primary-icon" />
-              <GoArrowUpRight className="icon secondary-icon" />
+      <MetalFx preset="chromatic" strength={1}>
+        <Component
+          className={["portal-btn", buttonClassName].filter(Boolean).join(" ")}
+          {...componentProps}
+        >
+          <p className="tracking-widest uppercase">{label}</p>
+          <div className="icon-btn">
+            <div className="icon-container">
+              <div className="arrows-container">
+                <GoArrowUpRight className="icon primary-icon" />
+                <GoArrowUpRight className="icon secondary-icon" />
+              </div>
             </div>
           </div>
-        </div>
-      </Component>
+        </Component>
+      </MetalFx>
       {showDivider && (
         <div className="divider-container">
           <div className="divider right"></div>

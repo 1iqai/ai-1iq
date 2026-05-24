@@ -4,14 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./IndustriesBanner.scss";
 
 const INDUSTRIES = [
-  "Residential Construction",
-  "Commercial Construction",
-  "Industrial Construction",
-  "Architecture & Engineering",
-  "Real Estate Development",
-  "Government & Public Works",
-  "Oil & Gas & Energy",
+  "Multifamily Development",
+  "Hospitality & Mixed-Use",
+  "Industrial & Logistics",
   "Data Centers & Tech Campuses",
+  "Commercial Real Estate",
+  "Family Office Development",
+  "Private Equity Real Estate",
+  "Ground-Up Construction",
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,11 +52,9 @@ const IndustriesBanner = () => {
             if (Number.isNaN(numericValue)) {
               return value;
             }
-
             if (numericValue >= 0) {
               return `${numericValue - loopWidth}px`;
             }
-
             return `${numericValue}px`;
           },
         },
@@ -120,7 +118,7 @@ const IndustriesBanner = () => {
   return (
     <section ref={sectionRef} className="industries-banner">
       <div ref={innerRef} className="industries-banner__inner">
-        <span ref={labelRef} className="industries-banner__label">Industries Served</span>
+        <span ref={labelRef} className="industries-banner__label">Asset Classes Served</span>
         <div className="industries-banner__viewport">
           <div className="industries-banner__track" ref={trackRef}>
             {repeatedIndustries.map((industry, index) => (

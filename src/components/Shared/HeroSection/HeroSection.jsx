@@ -30,7 +30,6 @@ const HeroSection = ({ heroRef }) => {
       ref={heroRef}
       className="hero"
     >
-      {/* Video Background — autoPlay/playsInline required for mobile autoplay */}
       <video
         autoPlay
         loop
@@ -43,26 +42,19 @@ const HeroSection = ({ heroRef }) => {
         <source src="/assets/Hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay */}
       <div ref={overlayRef} className="hero__overlay" />
 
-      {/* Centered lower-hero content block */}
       <div className="hero__content">
         <div ref={blockRef} className="hero__block">
 
+          <h1 className="hero__title">Real-Time Intelligence for Real Estate Development</h1>
 
-
-          {/* Main headline */}
-          <h1 className="hero__title">Your Virtual Project Manager</h1>
-
-          {/* Subheadline */}
           <p className="hero__sub">
-            Eliminate manual tracking, follow-ups, and schedule coordination.
+            1iQ gives developers and investors live visibility into project risk, capital exposure, and execution performance — without depending on consultants or filtered reports.
           </p>
 
-          {/* CTA */}
           <PortalButton
-            label="BOOK A DEMO"
+            label="RUN A FREE FEASIBILITY ANALYSIS"
             redirectTo="/schedule"
             className="hero-portal-btn"
           />
@@ -70,7 +62,6 @@ const HeroSection = ({ heroRef }) => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="hero__scroll">
         <div className="hero__scroll-line" />
         <svg

@@ -10,55 +10,43 @@ const fmt = (n) =>
     ? `$${Math.round(n / 1_000)}K`
     : `$${Math.round(n)}`;
 
-const fmtHours = (n) =>
-  n >= 1_000 ? `${(n / 1_000).toFixed(1)}K` : `${Math.round(n)}`;
+// ─── Core calculation engine — Developer ROI Model ────────────────────────────
+function calcROI({ projectBudget, consultantFee, overrunRisk }) {
+  // 1iQ fee — 2.5% capped at $1.25M for projects above $50M
+  const iqFee = projectBudget > 50_000_000
+    ? 1_250_000
+    : projectBudget * 0.025;
 
-// ─── Core calculation engine (mirrors Executive_ROI sheet — Expected scenario) ─
-function calcROI({ numPMs, salary, projectBudget }) {
-  const burdenMultiplier = 1.35;
-  const workHours = 2080;
-  const hourlyRate = (salary * burdenMultiplier) / workHours;
+  // Feasibility study savings vs traditional consultant ($50K–$200K)
+  const feasibilitySavings = Math.min(consultantFee, 200_000);
 
-  // Time savings per PM per year (from Traditional_vs_1iQ sheet)
-  const schedulingHoursSaved = 332;   // 336 traditional → 4 with 1iQ
-  const reportingHoursSaved = 182;    // 208 traditional → 26 with 1iQ
-  const chatHoursSaved = 109.2;       // 156 traditional → 46.8 with 1iQ
-  const adminHoursSaved = 208;        // 520 traditional → 312 with 1iQ
-  const totalHoursPerPM = schedulingHoursSaved + reportingHoursSaved + chatHoursSaved + adminHoursSaved;
-  // = 831 hours
+  // Overrun protection — industry average 20–30% overrun on mid-market projects
+  // 1iQ's predictive layer targets catching 50% of that exposure
+  const overrunExposure = projectBudget * (overrunRisk / 100);
+  const overrunProtection = overrunExposure * 0.5;
 
-  // Labor savings (hourly rate × hours saved)
-  const laborSavingsPerPM = totalHoursPerPM * hourlyRate;
+  // Investor reporting labor savings — estimated $75K/yr average
+  const reportingSavings = 75_000;
 
-  // Non-time-based savings — Expected/Mid scenario (from Executive_ROI sheet)
-  const delayAvoidancePerPM = 10_000;   // 2 delay days × $5K/day
-  const reworkAvoidancePerPM = 8_000;   // CII research: tech reduces rework cost
+  // Owner's rep / consultant savings — $180K–$300K/yr replaced by 1iQ
+  const ownerRepSavings = Math.min(projectBudget * 0.015, 240_000);
 
-  // Total direct savings
-  const directSavingsPerPM = laborSavingsPerPM + delayAvoidancePerPM + reworkAvoidancePerPM;
-  const totalDirectSavings = directSavingsPerPM * numPMs;
+  // Total benefit
+  const totalBenefit = feasibilitySavings + overrunProtection + reportingSavings + ownerRepSavings;
 
-  // Revenue upside — 1 extra project per PM per year at 7% gross margin
-  const newRevenueCapacity = numPMs * 1 * projectBudget * 0.07;
-
-  // True cost (fee embedded in project budget as 2.5% soft cost)
-  const onboardingCost = numPMs * 1_000;
-  const trueOutOfPocket = onboardingCost;
-
-  // Net Year 1 benefit
-  const netBenefitYear1 = totalDirectSavings + newRevenueCapacity - trueOutOfPocket;
-
-  // ROI %
-  const roi = (netBenefitYear1 / trueOutOfPocket) * 100;
+  // Net ROI
+  const netBenefit = totalBenefit - iqFee;
+  const roiMultiple = totalBenefit / iqFee;
 
   return {
-    hoursGivenBack: Math.round(totalHoursPerPM * numPMs),
-    totalDirectSavings: Math.round(totalDirectSavings),
-    newRevenueCapacity: Math.round(newRevenueCapacity),
-    netBenefitYear1: Math.round(netBenefitYear1),
-    trueOutOfPocket,
-    roi: Math.round(roi),
-    hourlyRate: hourlyRate.toFixed(2),
+    iqFee: Math.round(iqFee),
+    feasibilitySavings: Math.round(feasibilitySavings),
+    overrunProtection: Math.round(overrunProtection),
+    reportingSavings: Math.round(reportingSavings),
+    ownerRepSavings: Math.round(ownerRepSavings),
+    totalBenefit: Math.round(totalBenefit),
+    netBenefit: Math.round(netBenefit),
+    roiMultiple: roiMultiple.toFixed(1),
   };
 }
 
@@ -99,68 +87,67 @@ function Slider({ label, value, min, max, step, onChange, format }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function ROICalculator() {
   const navigate = useNavigate();
-  const [numPMs, setNumPMs] = useState(5);
-  const [salary, setSalary] = useState(105_000);
-  const [projectBudget, setProjectBudget] = useState(5_000_000);
+  const [projectBudget, setProjectBudget] = useState(20_000_000);
+  const [consultantFee, setConsultantFee] = useState(75_000);
+  const [overrunRisk, setOverrunRisk] = useState(25);
 
   const results = useMemo(
-    () => calcROI({ numPMs, salary, projectBudget }),
-    [numPMs, salary, projectBudget]
+    () => calcROI({ projectBudget, consultantFee, overrunRisk }),
+    [projectBudget, consultantFee, overrunRisk]
   );
 
   return (
     <section id="roi-calculator" className="roi-section">
-      {/* Header */}
+
       <div className="roi-section__header">
         <h2 className="roi-section__title">
-          What is manual work actually costing you?
+          What is your capital exposure on this project?
         </h2>
         <p className="roi-section__subtitle">
-          Most firms have no idea. Put in your numbers and find out in 30 seconds.
+          Put in your numbers and see the 1iQ ROI case in 30 seconds.
         </p>
       </div>
 
-      {/* Calculator layout */}
       <div className="roi-layout">
 
         {/* ── Left: Inputs ── */}
         <div className="roi-inputs">
-          <p className="roi-inputs__label">YOUR TEAM</p>
+          <p className="roi-inputs__label">YOUR PROJECT</p>
 
           <Slider
-            label="Number of Project Managers"
-            value={numPMs}
-            min={1}
-            max={50}
-            step={1}
-            onChange={setNumPMs}
-            format={(v) => `${v} PM${v !== 1 ? "s" : ""}`}
-          />
-
-          <Slider
-            label="Average PM Salary"
-            value={salary}
-            min={60_000}
-            max={200_000}
-            step={5_000}
-            onChange={setSalary}
-            format={(v) => `$${(v / 1_000).toFixed(0)}K`}
-          />
-
-          <Slider
-            label="Average Project Budget"
+            label="Total Project Budget"
             value={projectBudget}
-            min={1_000_000}
-            max={50_000_000}
-            step={1_000_000}
+            min={5_000_000}
+            max={200_000_000}
+            step={5_000_000}
             onChange={setProjectBudget}
             format={(v) =>
               v >= 1_000_000 ? `$${(v / 1_000_000).toFixed(0)}M` : `$${v / 1_000}K`
             }
           />
 
+          <Slider
+            label="Annual Consultant / Owner's Rep Fees"
+            value={consultantFee}
+            min={25_000}
+            max={500_000}
+            step={25_000}
+            onChange={setConsultantFee}
+            format={(v) => `$${(v / 1_000).toFixed(0)}K`}
+          />
+
+          <Slider
+            label="Estimated Overrun Risk"
+            value={overrunRisk}
+            min={5}
+            max={40}
+            step={5}
+            onChange={setOverrunRisk}
+            format={(v) => `${v}%`}
+          />
+
           <p className="roi-inputs__footnote">
-            Based on FMI, ENR, and CII industry research. Expected scenario.{" "}
+            Based on McKinsey, FMI, and CII industry research.{" "}
             <a href="/platform" className="roi-inputs__link">
               See full methodology →
             </a>
@@ -170,55 +157,51 @@ export default function ROICalculator() {
         {/* ── Right: Results ── */}
         <div className="roi-results">
 
-          {/* Top stat — Hours */}
           <div className="roi-stat roi-stat--primary">
             <span className="roi-stat__number">
-              {fmtHours(results.hoursGivenBack)}
+              {results.roiMultiple}x
             </span>
-            <span className="roi-stat__unit">hrs</span>
-            <p className="roi-stat__label">Hours given back to your team annually</p>
+            <p className="roi-stat__label">Return on 1iQ investment — this project</p>
           </div>
 
-          {/* Grid of 3 supporting stats */}
           <div className="roi-stat-grid">
             <div className="roi-stat roi-stat--secondary">
               <span className="roi-stat__number roi-stat__number--sm">
-                {fmt(results.totalDirectSavings)}
+                {fmt(results.feasibilitySavings)}
               </span>
-              <p className="roi-stat__label">Direct labor &amp; cost savings, Year 1</p>
+              <p className="roi-stat__label">Feasibility study savings</p>
             </div>
 
             <div className="roi-stat roi-stat--secondary">
               <span className="roi-stat__number roi-stat__number--sm">
-                {fmt(results.newRevenueCapacity)}
+                {fmt(results.overrunProtection)}
               </span>
-              <p className="roi-stat__label">New project revenue capacity</p>
+              <p className="roi-stat__label">Overrun exposure protected</p>
             </div>
 
             <div className="roi-stat roi-stat--secondary roi-stat--highlight">
               <span className="roi-stat__number roi-stat__number--sm">
-                {fmt(results.netBenefitYear1)}
+                {fmt(results.totalBenefit)}
               </span>
-              <p className="roi-stat__label">Total net benefit, Year 1</p>
+              <p className="roi-stat__label">Total capital protection value</p>
             </div>
           </div>
 
-          {/* True cost callout */}
           <div className="roi-cost-callout">
-            <span className="roi-cost-callout__label">True out-of-pocket cost to your firm</span>
-            <span className="roi-cost-callout__value">{fmt(results.trueOutOfPocket)}</span>
+            <span className="roi-cost-callout__label">1iQ fee for this project</span>
+            <span className="roi-cost-callout__value">{fmt(results.iqFee)}</span>
             <span className="roi-cost-callout__note">
-              1iQ fee runs as a 2.5% project soft cost — already in your budget. You only pay $1,000/PM for onboarding.
+              2.5% of project budget — capped at $1.25M for projects above $50M. Priced against a full-time owner's rep at $180K–$300K/year.
             </span>
           </div>
 
-          {/* CTA */}
           <button onClick={() => navigate("/schedule")} className="roi-cta">
-            Book Your ROI Walkthrough
+            Run a Free Feasibility Analysis
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </button>
+
         </div>
       </div>
     </section>

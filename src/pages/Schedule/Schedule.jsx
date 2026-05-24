@@ -136,7 +136,7 @@ async function sendLOIEmail({ formData: fd, pdfBlob, acceptedAt, ccEmails, subje
   form.append("Work Email", fd.email);
   form.append("Phone", fd.phone || "-");
   form.append("Company Name", fd.company);
-  form.append("Number of Project Managers", fd.pmCount || "-");
+  form.append("Total Active Project Budget", fd.pmCount || "-");
   form.append("LOI Accepted", "YES");
   form.append("LOI Version", "v1 - 30 January 2026");
   form.append("Accepted At", acceptedAt);
@@ -379,12 +379,12 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
    DEMO BOOKING PAGE
    ═══════════════════════════════════════════════════════════════ */
 
-const PM_OPTIONS = ["1–3", "4–10", "11–25", "25+"];
+const PM_OPTIONS = ["<$5M", "$5M-$20M", "$20M-$50M", "$50M+"];
 
 const BULLETS = [
-  "Watch the schedule rewrite itself the moment a field task closes",
-  "See live project intelligence across every active job — no manual input",
-  "Get your team's ROI figure before the call ends",
+  "See real-time data ingestion from multiple construction management systems",
+  "Watch AI models predict project risks and resource bottlenecks live",
+  "Get technical architecture walkthrough and API integration roadmap",
 ];
 
 function DemoField({ label, id, children, required }) {
@@ -427,7 +427,7 @@ const Schedule = () => {
         "Work Email": data.email,
         "Phone": data.phone,
         "Company Name": data.company,
-        "Number of Project Managers": data.pmCount,
+        "Total Active Project Budget": data.pmCount,
       };
       Object.entries(payload).forEach(([key, value]) => {
         if (value && value.toString().trim() !== "") formData.append(key, value);
@@ -517,8 +517,8 @@ const Schedule = () => {
 
       <CommonHeader
         ref={heroRef}
-        title="Get Started"
-        text="Ready to experience 1iQ? Tell us about your team and we'll be in touch."
+        title="Technical Integration"
+        text="Ready to integrate 1iQ's AI infrastructure? Let's discuss your technical requirements and implementation roadmap."
       />
 
       {/* ── LOI Modal ── */}
@@ -540,10 +540,10 @@ const Schedule = () => {
           {/* ── LEFT: Value Prop ── */}
           <div className="demo-booking__left">
             <h2 className="demo-booking__headline">
-              See Your Virtual Project Manager in Action
+              Technical Deep Dive & Architecture Review
             </h2>
             <p className="demo-booking__subtext">
-              Book a 30-minute demo. See how 1iQ eliminates manual tracking, follow-ups, and schedule coordination — live on a real project.
+              Book a 30-minute technical demo. See how 1iQ's AI infrastructure processes construction data at scale, with live API demonstrations and integration planning.
             </p>
             <ul className="demo-booking__bullets">
               {BULLETS.map((b, i) => (
@@ -560,9 +560,9 @@ const Schedule = () => {
 
             {/* Badge row */}
             <div className="demo-booking__badges">
-              <span className="demo-booking__badge">30-min call</span>
-              <span className="demo-booking__badge">No commitment</span>
-              <span className="demo-booking__badge">Live demo</span>
+              <span className="demo-booking__badge">Technical demo</span>
+              <span className="demo-booking__badge">API walkthrough</span>
+              <span className="demo-booking__badge">Architecture review</span>
             </div>
           </div>
 
@@ -570,8 +570,8 @@ const Schedule = () => {
           <div className="demo-booking__right">
             <div className="demo-card">
               <div className="demo-card__header">
-                <p className="demo-card__eyebrow">Book a Demo</p>
-                <h3 className="demo-card__title">Tell us where to reach you</h3>
+                <p className="demo-card__eyebrow">Technical Demo</p>
+                <h3 className="demo-card__title">Connect with our engineering team</h3>
               </div>
 
               <form onSubmit={handleSubmit} className="demo-card__form" noValidate>
@@ -649,8 +649,8 @@ const Schedule = () => {
                   />
                 </DemoField>
 
-                {/* Number of Project Managers */}
-                <DemoField label="Number of Project Managers" id="pmCount">
+                {/* Total Active Project Budget */}
+                <DemoField label="Total Active Project Budget" id="pmCount">
                   <select
                     id="pmCount"
                     value={data.pmCount}
@@ -669,7 +669,7 @@ const Schedule = () => {
                       cursor: "pointer",
                     }}
                   >
-                    <option value="" disabled>Select range</option>
+                    <option value="" disabled>Select budget range</option>
                     {PM_OPTIONS.map((o) => (
                       <option key={o} value={o} style={{ background: "#0d1117", color: "#ffffff" }}>{o}</option>
                     ))}
@@ -687,7 +687,7 @@ const Schedule = () => {
                 </button>
 
                 <p className="demo-card__footnote">
-                  30 minutes. No commitment. We'll confirm within one business day.
+                  30-minute technical session. We'll confirm within one business day and send pre-call technical documentation.
                 </p>
               </form>
             </div>

@@ -36,27 +36,27 @@ const Platform = () => {
   // Key features data
   const keyFeatures = [
     {
-      title: "Neural Network Processing",
+      title: "Distributed ML Architecture",
       description:
-        "Advanced deep learning algorithms analyze millions of data points in real-time to identify patterns and predict optimal solutions.",
+        "Scalable deep learning infrastructure processes construction data across multiple projects simultaneously, enabling pattern recognition at enterprise scale.",
       icon: <FaBrain className="text-3xl" />,
     },
     {
-      title: "Predictive Analytics Engine",
+      title: "Real-time Analytics Pipeline",
       description:
-        "Machine learning models forecast project outcomes, resource requirements, and potential bottlenecks with remarkable accuracy.",
+        "Event-driven architecture delivers sub-second insights on project performance, resource optimization, and risk detection across your entire portfolio.",
       icon: <FaChartLine className="text-3xl" />,
     },
     {
-      title: "Smart Automation",
+      title: "Adaptive Intelligence Layer",
       description:
-        "Intelligent workflows automatically adapt to changing conditions, optimizing resource allocation and task scheduling.",
+        "Self-learning algorithms continuously optimize workflows based on historical project data, reducing manual intervention by 80%.",
       icon: <FaMicrochip className="text-3xl" />,
     },
     {
-      title: "Advanced Security",
+      title: "Enterprise Security Framework",
       description:
-        "Military-grade encryption and security protocols protect sensitive project data and ensure compliance with industry standards.",
+        "SOC 2 Type II compliant infrastructure with end-to-end encryption, role-based access controls, and comprehensive audit logging.",
       icon: <FaShieldAlt className="text-3xl" />,
     },
   ];
@@ -64,13 +64,13 @@ const Platform = () => {
   // Advanced capabilities data
   const advancedCapabilities = [
     {
-      title: "Real-Time Monitoring",
-      description: "Continuous surveillance of project metrics with instant alerts and automated response protocols.",
+      title: "Multi-tenant Cloud Infrastructure",
+      description: "Kubernetes-orchestrated microservices with auto-scaling capabilities supporting 10,000+ concurrent project connections.",
       icon: <FaSatellite className="text-3xl" />,
     },
     {
-      title: "Distributed Intelligence",
-      description: "Edge computing capabilities ensure seamless operation even in remote or disconnected environments.",
+      title: "Edge Computing Integration",
+      description: "Hybrid cloud-edge deployment ensures low-latency processing for field operations with offline-capable synchronization.",
       icon: <FaNetworkWired className="text-3xl" />,
     },
   ];
@@ -78,20 +78,20 @@ const Platform = () => {
   // Applications data
   const intelligenceApplications = [
     {
-      title: "Risk Assessment",
+      title: "Predictive Risk Modeling",
       description:
-        "AI-powered risk identification and mitigation strategies that adapt to evolving project conditions.",
+        "Monte Carlo simulations and Bayesian networks identify project risks with 92% accuracy, enabling proactive resource allocation.",
       icon: <FaEye className="text-3xl" />,
     },
     {
-      title: "Quality Control",
+      title: "Automated QA Pipelines",
       description:
-        "Automated quality assurance with intelligent defect detection and continuous improvement recommendations.",
+        "Computer vision and sensor fusion detect quality deviations in real-time, reducing rework costs by 60% across project portfolios.",
       icon: <FaCog className="text-3xl" />,
     },
     {
-      title: "Data Protection",
-      description: "Secure data management with blockchain-enabled tracking and immutable audit trails.",
+      title: "Compliance & Audit Engine",
+      description: "Immutable data provenance with cryptographic verification ensures regulatory compliance and transparent stakeholder reporting.",
       icon: <FaLock className="text-3xl" />,
     },
   ];
@@ -232,7 +232,7 @@ const Platform = () => {
       {/* Common Header Section - Black Background */}
       <CommonHeader
         ref={heroRef}
-        title="The 1iQ Platform"
+        title="Developer Platform"
       />
 
       {/* Hero Section - White Background */}
@@ -240,15 +240,15 @@ const Platform = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="hero__content max-w-4xl mx-auto flex flex-col items-center">
             <h2 className="text-black text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-8 text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
-              Reclaim What Matters.
+              Scale Construction Intelligence.
             </h2>
             <p className="hero__description text-center md:text-justify text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12 w-full mt-0 md:mt-4">
-              Every hour your PMs spend on admin is an hour they're not running the job. 1iQ is the AI platform built specifically for construction, automating the scheduling, reporting, and document work that's quietly consuming 30 weeks of every PM's year.
+              Traditional construction tech treats symptoms. 1iQ addresses the fundamental problem: fragmented data across disconnected tools. Our AI platform creates the missing intelligence layer, turning operational chaos into structured decisions that scale across your entire portfolio.
             </p>
 
             <div className="flex justify-center mt-8 mb-16">
               <PortalButton
-                label="Launch Your Free Trial"
+                label="Request API Access"
                 redirectTo="https://app.1iq.ai"
                 className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
                 showDivider={false}
@@ -279,9 +279,9 @@ const Platform = () => {
 
           {/* Left-aligned header */}
           <div className="vpm-cards__header">
-            <p className="vpm-cards__eyebrow">THE SYSTEM</p>
-            <h2 className="vpm-cards__title">How Your Virtual PM Works</h2>
-            <p className="vpm-cards__subtitle">From project creation to stakeholder reporting — fully automated.</p>
+            <p className="vpm-cards__eyebrow">THE ARCHITECTURE</p>
+            <h2 className="vpm-cards__title">How Intelligence Scales</h2>
+            <p className="vpm-cards__subtitle">From data ingestion to predictive insights — enterprise-ready AI infrastructure.</p>
           </div>
 
           {/* Row 1 — 4 cards */}
@@ -295,8 +295,8 @@ const Platform = () => {
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Instant Setup</h3>
-              <p className="vpm-card__desc">Generate a full schedule and task costs in minutes.</p>
+              <h3 className="vpm-card__title">Data Integration</h3>
+              <p className="vpm-card__desc">Connect existing systems via APIs. Zero migration required.</p>
             </div>
 
             {/* 02 */}
@@ -310,8 +310,8 @@ const Platform = () => {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Field Activity</h3>
-              <p className="vpm-card__desc">Teams work as normal. 1iQ observes everything.</p>
+              <h3 className="vpm-card__title">Passive Monitoring</h3>
+              <p className="vpm-card__desc">Real-time data streams from all connected sources.</p>
             </div>
 
             {/* 03 */}
@@ -324,8 +324,8 @@ const Platform = () => {
                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Passive Capture</h3>
-              <p className="vpm-card__desc">Site activity becomes structured data automatically.</p>
+              <h3 className="vpm-card__title">Data Processing</h3>
+              <p className="vpm-card__desc">ML pipelines transform raw inputs into actionable intelligence.</p>
             </div>
 
             {/* 04 — intelligence */}
@@ -336,8 +336,8 @@ const Platform = () => {
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">AI Analysis</h3>
-              <p className="vpm-card__desc">Schedules, risks, and delays analysed in real time.</p>
+              <h3 className="vpm-card__title">Predictive Analytics</h3>
+              <p className="vpm-card__desc">Pattern recognition identifies risks before they materialize.</p>
             </div>
 
           </div>
@@ -356,8 +356,8 @@ const Platform = () => {
                   <line x1="3" y1="10" x2="21" y2="10"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Auto-Scheduling</h3>
-              <p className="vpm-card__desc">Tasks close. Timelines adjust. Automatically.</p>
+              <h3 className="vpm-card__title">Intelligent Automation</h3>
+              <p className="vpm-card__desc">Adaptive algorithms optimize resource allocation dynamically.</p>
             </div>
 
             {/* 06 — intelligence */}
@@ -368,8 +368,8 @@ const Platform = () => {
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Project Chat</h3>
-              <p className="vpm-card__desc">Ask anything. Get answers and AI recommendations.</p>
+              <h3 className="vpm-card__title">Query Interface</h3>
+              <p className="vpm-card__desc">Natural language queries return structured insights.</p>
             </div>
 
             {/* 07 */}
@@ -384,8 +384,8 @@ const Platform = () => {
                   <polyline points="10 9 9 9 8 9"/>
                 </svg>
               </div>
-              <h3 className="vpm-card__title">Stakeholder Reports</h3>
-              <p className="vpm-card__desc">Every report written automatically, for every audience.</p>
+              <h3 className="vpm-card__title">Automated Reporting</h3>
+              <p className="vpm-card__desc">Custom dashboards and reports generated for all stakeholders.</p>
             </div>
 
           </div>
@@ -402,18 +402,18 @@ const Platform = () => {
         <div className="intelligence-layer__inner">
 
           <div className="intelligence-layer__left">
-            <p className="intelligence-layer__eyebrow">WHERE 1iQ FITS</p>
+            <p className="intelligence-layer__eyebrow">TECHNICAL ARCHITECTURE</p>
             <h2 className="intelligence-layer__title">
-              The Layer Your<br />Stack Was Missing
+              The Intelligence Layer<br />Your Stack Needs
             </h2>
             <p className="intelligence-layer__body">
-              Your team already uses tools for scheduling, field reporting, and project management. 1iQ doesn't replace them — it sits above them as the intelligence layer, connecting everything your tools capture and turning fragmented activity into live, structured decisions.
+              Your enterprise already runs on scheduling tools, project management platforms, and field reporting systems. 1iQ doesn't replace them — it connects them as the missing intelligence layer, transforming fragmented data silos into unified, actionable insights at scale.
             </p>
             <p className="intelligence-layer__body">
-              Most construction software stores data. Your Virtual PM acts on it.
+              Traditional construction software manages data. 1iQ makes it intelligent.
             </p>
             <a href="https://calendly.com/ck-1iq/30min" target="_blank" rel="noopener noreferrer" className="intelligence-layer__cta">
-              See How It Connects →
+              Technical Integration Demo →
             </a>
           </div>
 
@@ -432,7 +432,7 @@ const Platform = () => {
                         <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif">1iQ</text>
                       </svg>
                     </div>
-                    <span className="il-1iq-block__name">1iQ — Your Virtual PM</span>
+                    <span className="il-1iq-block__name">1iQ — AI Intelligence Platform</span>
                   </div>
                   <span className="il-1iq-block__pill">INTELLIGENCE LAYER</span>
                 </div>

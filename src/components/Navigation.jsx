@@ -220,7 +220,7 @@ const Navigation = ({ heroRef }) => {
             className="navigation__request-btn"
             onClick={() => navigate('/schedule')}
           >
-            Request a Demo
+            Free Feasibility Analysis
           </button>
 
           <Hamnav />

@@ -31,27 +31,27 @@ const cards = [
   {
     id: "schedule-demo",
     icon: <CalendarIcon />,
-    title: "Schedule Demo",
-    description: "See 1iQ in action. Book a personalized demo with our product experts.",
-    cta: "GET STARTED →",
+    title: "Technical Demo",
+    description: "Deep dive into 1iQ's AI architecture. Book a technical session with our engineering team.",
+    cta: "BOOK DEMO →",
     href: "/schedule",
     external: false,
   },
   {
     id: "partnership-inquiry",
     icon: <HandshakeIcon />,
-    title: "Partnership Inquiry",
-    description: "Join our partner ecosystem. Let's grow and innovate together.",
-    cta: "GET STARTED →",
+    title: "Strategic Partnership",
+    description: "Explore integration opportunities. Build the future of construction intelligence with us.",
+    cta: "EXPLORE PARTNERSHIP →",
     href: "/partnership-inquiry",
     external: false,
   },
   {
     id: "builder-application",
     icon: <ToolsIcon />,
-    title: "Builder Application",
-    description: "Building the future? Apply for our builder program and access exclusive tools.",
-    cta: "GET STARTED →",
+    title: "Developer Program",
+    description: "Join our early access program. Get SDK access, technical documentation, and dedicated support.",
+    cta: "APPLY NOW →",
     href: "/builder-application",
     external: false,
   },
@@ -66,8 +66,8 @@ const GetStarted = () => {
 
       <CommonHeader
         ref={heroRef}
-        title="Get Started"
-        text="Choose your path to intelligent construction management."
+        title="Developer Access"
+        text="Choose your integration path to 1iQ's AI infrastructure platform."
       />
 
       <main className="get-started-cards">

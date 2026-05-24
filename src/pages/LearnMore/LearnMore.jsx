@@ -162,8 +162,8 @@ const LearnMore = () => {
             {/* Common Header Section - Black Background */}
             <CommonHeader
                 ref={heroRef}
-                title="Learn More - 1iQ"
-                text="Discover the latest information in construction technology and operational intelligence."
+                title="Developer Resources"
+                text="Access technical documentation, industry insights, and integration opportunities for construction AI."
             />
 
             {/* Content Section - White Background */}
@@ -174,23 +174,23 @@ const LearnMore = () => {
                 <div className="container mx-auto px-8">
                     <div ref={missionRef} className="text-center max-w-4xl mx-auto mb-24">
                         <h2 className="mission__title text-black text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight mb-12">
-                            Join Our Mission
+                            Build The Future
                         </h2>
 
                         <div className="mission__content space-y-8">
                             <p className="mission__text text-black/80 text-xl md:text-2xl leading-relaxed font-light">
-                                We're always looking for bold thinkers and builders who see the future of operational intelligence differently.
+                                We're building the infrastructure layer that transforms fragmented construction data into intelligent, actionable systems at scale.
                             </p>
 
                             <div className="mission__opportunities grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
                                 {/* Card 1: For Builders & Innovators */}
                                 <div className="opportunity__card bg-white border-2 border-black p-8 hover:bg-[#f0f2e9] transition-all duration-300 flex justify-between flex-col">
-                                    <h3 className="opportunity__title text-2xl font-bold mb-3">For Builders & Innovators</h3>
+                                    <h3 className="opportunity__title text-2xl font-bold mb-3">For Developers & Engineers</h3>
                                     <p className="opportunity__subtitle text-lg mb-4 hover:opacity-90 transition-colors duration-300">
-                                        If you're exploring ideas, building tools, or running projects that align with 1iQ's mission—we'd love to hear from you.
+                                        Building construction tech solutions? Exploring AI applications? Working on data infrastructure at scale?
                                     </p>
                                     <p className="opportunity__body text-base mb-6 leading-relaxed hover:opacity-90 transition-colors duration-300">
-                                        We believe in supporting the next generation of builders through resources, mentorship, and funding opportunities.
+                                        Join our developer ecosystem. Access early APIs, technical documentation, and collaborate with our engineering team.
                                     </p>
                                     <button
                                         className="opportunity__button bg-black text-white px-6 py-3 border-2 border-white hover:bg-gray-200 hover:text-black transition-all duration-300"
@@ -199,21 +199,21 @@ const LearnMore = () => {
                                             window.scrollTo(0, 0);
                                         }}
                                     >
-                                        Apply Now
+                                        Join Program
                                     </button>
                                 </div>
 
                                 {/* Card 2: Career Opportunities */}
                                 <div className="opportunity__card bg-[#f0f2e9] text-black border-2 border-black p-8 hover:bg-white hover:text-black transition-all duration-300 flex justify-between flex-col">
-                                    <h3 className="opportunity__title text-2xl font-bold mb-3 hover:text-black">Career Opportunities</h3>
+                                    <h3 className="opportunity__title text-2xl font-bold mb-3 hover:text-black">Technical Partnerships</h3>
                                     <p className="opportunity__subtitle text-lg mb-4 hover:text-black hover:opacity-80 transition-colors duration-300">
-                                        Join our team of engineers, designers, and construction experts building the future of project intelligence.
+                                        Strategic integrations with construction software providers, data platforms, and AI infrastructure companies.
                                     </p>
                                     <p className="opportunity__body text-base mb-6 leading-relaxed hover:text-black hover:opacity-80 transition-colors duration-300">
-                                        Whether you're a seasoned professional or emerging talent, we offer growth opportunities in a cutting-edge environment.
+                                        Explore co-development opportunities, white-label solutions, and revenue-sharing partnerships.
                                     </p>
                                     <button className="opportunity__button bg-white text-black px-6 py-3 border-2 border-black hover:bg-gray-800 hover:text-white transition-all duration-300">
-                                        View Openings
+                                        Explore Partnerships
                                     </button>
                                 </div>
                             </div>
@@ -224,24 +224,24 @@ const LearnMore = () => {
                     <div ref={ctaRef} className="text-center max-w-2xl mx-auto mb-24">
                         <div className="cta__content space-y-6">
                             <h3 className="cta__title text-black text-3xl md:text-4xl font-bold leading-none">
-                                Ready to Shape the Future?
+                                Ready to Integrate?
                             </h3>
 
                             <p className="cta__text text-black/70 text-lg leading-relaxed">
-                                Join us in revolutionizing construction technology and building the future of operational intelligence.
+                                Connect with our technical team to discuss API access, partnership opportunities, and implementation roadmaps.
                             </p>
 
                             <div className="cta__buttons flex flex-col sm:flex-row gap-6 justify-center">
                                 <PortalButton
-                                    label="Contact Sales"
-                                    redirectTo="/contact-us"
+                                    label="Technical Demo"
+                                    redirectTo="/schedule"
                                     showDivider={true}
                                     fullWidth
                                     className="cta__portal-btn"
                                 />
                                 <PortalButton
-                                    label="Partnership Inquiry"
-                                    redirectTo="/partnership-inquiry"
+                                    label="Developer Program"
+                                    redirectTo="/builder-application"
                                     showDivider={true}
                                     fullWidth
                                     className="cta__portal-btn"

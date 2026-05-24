@@ -235,22 +235,22 @@ const Platform = () => {
         title="Developer Platform"
       />
 
-      {/* Hero Section - White Background */}
-      <section id="hero" className="hero__section relative w-full bg-white pt-8 pb-12 md:pt-12 md:pb-24">
+      {/* Hero Section - Dark dot grid background */}
+      <section id="hero" className="hero__section relative w-full bg-[#070707] text-white pt-16 pb-12 md:pt-24 md:pb-24 bg-dot-grid">
         <div className="container mx-auto px-6 md:px-12">
           <div className="hero__content max-w-4xl mx-auto flex flex-col items-center">
-            <h2 className="text-black text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-8 text-center" style={{ fontFamily: 'Outfit, sans-serif' }}>
+            <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-8 text-center font-space-grotesk">
               Scale Construction Intelligence.
             </h2>
-            <p className="hero__description text-center md:text-justify text-black/80 text-xl md:text-2xl leading-relaxed font-light mb-12 w-full mt-0 md:mt-4">
+            <p className="hero__description text-center text-neutral-400 text-xl md:text-2xl leading-relaxed font-light mb-12 w-full mt-0 md:mt-4 max-w-3xl">
               Traditional construction tech treats symptoms. 1iQ addresses the fundamental problem: fragmented data across disconnected tools. Our AI platform creates the missing intelligence layer, turning operational chaos into structured decisions that scale across your entire portfolio.
             </p>
 
             <div className="flex justify-center mt-8 mb-16">
               <PortalButton
                 label="Request API Access"
-                redirectTo="https://app.1iq.ai"
-                className="bg-black text-white px-10 py-4 font-bold text-xl rounded-full hover:bg-gray-800 transition-colors shadow-lg shadow-black/20"
+                href="https://app.1iq.ai"
+                className="hero-portal-btn"
                 showDivider={false}
               />
             </div>
@@ -281,7 +281,7 @@ const Platform = () => {
           <div className="vpm-cards__header">
             <p className="vpm-cards__eyebrow">THE ARCHITECTURE</p>
             <h2 className="vpm-cards__title">How Intelligence Scales</h2>
-            <p className="vpm-cards__subtitle">From data ingestion to predictive insights — enterprise-ready AI infrastructure.</p>
+            <p className="vpm-cards__subtitle">From data ingestion to predictive insights: enterprise-ready AI infrastructure.</p>
           </div>
 
           {/* Row 1 — 4 cards */}
@@ -407,7 +407,7 @@ const Platform = () => {
               The Intelligence Layer<br />Your Stack Needs
             </h2>
             <p className="intelligence-layer__body">
-              Your enterprise already runs on scheduling tools, project management platforms, and field reporting systems. 1iQ doesn't replace them — it connects them as the missing intelligence layer, transforming fragmented data silos into unified, actionable insights at scale.
+              Your enterprise already runs on scheduling tools, project management platforms, and field reporting systems. 1iQ doesn't replace them: it connects them as the missing intelligence layer, transforming fragmented data silos into unified, actionable insights at scale.
             </p>
             <p className="intelligence-layer__body">
               Traditional construction software manages data. 1iQ makes it intelligent.
@@ -432,7 +432,7 @@ const Platform = () => {
                         <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" fontFamily="system-ui, sans-serif">1iQ</text>
                       </svg>
                     </div>
-                    <span className="il-1iq-block__name">1iQ — AI Intelligence Platform</span>
+                    <span className="il-1iq-block__name">1iQ: AI Intelligence Platform</span>
                   </div>
                   <span className="il-1iq-block__pill">INTELLIGENCE LAYER</span>
                 </div>

@@ -4,10 +4,10 @@
 
 $blue: #4a9eff;
 $navy: #ffffff;
-$card-bg: #111c29;
+$card-bg: rgba(255, 255, 255, 0.03);
 
 .get-started-page {
-  background: #ffffff;
+  background: #070707;
   min-height: 100vh;
 }
 
@@ -17,7 +17,7 @@ $card-bg: #111c29;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 /* ── Individual card ── */
@@ -25,18 +25,22 @@ $card-bg: #111c29;
   width: 100%;
   max-width: 600px;
   background: $card-bg;
-  border-radius: 12px;
-  border-left: 2px solid $blue;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 4px solid $blue;
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   text-decoration: none;
-  transition: background 0.2s ease, border-left-color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: #162030;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
     border-left-color: lighten($blue, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
   }
 }
 

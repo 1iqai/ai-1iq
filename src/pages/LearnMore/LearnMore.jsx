@@ -166,55 +166,59 @@ const LearnMore = () => {
                 text="Access technical documentation, industry insights, and integration opportunities for construction AI."
             />
 
-            {/* Content Section - White Background */}
+            {/* Content Section - Dark dot grid background */}
             <section
                 ref={contentRef}
-                className="learn-more-content relative w-full bg-white py-24 md:py-32"
+                className="learn-more-content relative w-full bg-[#070707] text-white py-24 md:py-32 bg-dot-grid"
             >
                 <div className="container mx-auto px-8">
                     <div ref={missionRef} className="text-center max-w-4xl mx-auto mb-24">
-                        <h2 className="mission__title text-black text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight mb-12">
+                        <h2 className="mission__title text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-none tracking-tight mb-12 font-space-grotesk">
                             Build The Future
                         </h2>
 
                         <div className="mission__content space-y-8">
-                            <p className="mission__text text-black/80 text-xl md:text-2xl leading-relaxed font-light">
+                            <p className="mission__text text-neutral-400 text-xl md:text-2xl leading-relaxed font-light">
                                 We're building the infrastructure layer that transforms fragmented construction data into intelligent, actionable systems at scale.
                             </p>
 
                             <div className="mission__opportunities grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
                                 {/* Card 1: For Builders & Innovators */}
-                                <div className="opportunity__card bg-white border-2 border-black p-8 hover:bg-[#f0f2e9] transition-all duration-300 flex justify-between flex-col">
-                                    <h3 className="opportunity__title text-2xl font-bold mb-3">For Developers & Engineers</h3>
-                                    <p className="opportunity__subtitle text-lg mb-4 hover:opacity-90 transition-colors duration-300">
+                                <div className="opportunity__card p-8 transition-all duration-300 flex justify-between flex-col h-full rounded-2xl" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                                    <h3 className="opportunity__title text-2xl font-bold mb-3 text-white font-space-grotesk">For Developers & Engineers</h3>
+                                    <p className="opportunity__subtitle text-lg mb-4 text-neutral-300 transition-colors duration-300">
                                         Building construction tech solutions? Exploring AI applications? Working on data infrastructure at scale?
                                     </p>
-                                    <p className="opportunity__body text-base mb-6 leading-relaxed hover:opacity-90 transition-colors duration-300">
+                                    <p className="opportunity__body text-base mb-6 text-neutral-400 leading-relaxed transition-colors duration-300">
                                         Join our developer ecosystem. Access early APIs, technical documentation, and collaborate with our engineering team.
                                     </p>
-                                    <button
-                                        className="opportunity__button bg-black text-white px-6 py-3 border-2 border-white hover:bg-gray-200 hover:text-black transition-all duration-300"
-                                        onClick={() => {
-                                            navigate('/builder-application');
-                                            window.scrollTo(0, 0);
-                                        }}
-                                    >
-                                        Join Program
-                                    </button>
+                                    <div className="mt-auto flex justify-center">
+                                        <PortalButton
+                                            label="Join Program"
+                                            redirectTo="/builder-application"
+                                            className="hero-portal-btn w-full"
+                                            showDivider={false}
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* Card 2: Career Opportunities */}
-                                <div className="opportunity__card bg-[#f0f2e9] text-black border-2 border-black p-8 hover:bg-white hover:text-black transition-all duration-300 flex justify-between flex-col">
-                                    <h3 className="opportunity__title text-2xl font-bold mb-3 hover:text-black">Technical Partnerships</h3>
-                                    <p className="opportunity__subtitle text-lg mb-4 hover:text-black hover:opacity-80 transition-colors duration-300">
+                                <div className="opportunity__card p-8 transition-all duration-300 flex justify-between flex-col h-full rounded-2xl" style={{ background: "rgba(255, 255, 255, 0.03)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                                    <h3 className="opportunity__title text-2xl font-bold mb-3 text-white font-space-grotesk">Technical Partnerships</h3>
+                                    <p className="opportunity__subtitle text-lg mb-4 text-neutral-300 transition-colors duration-300">
                                         Strategic integrations with construction software providers, data platforms, and AI infrastructure companies.
                                     </p>
-                                    <p className="opportunity__body text-base mb-6 leading-relaxed hover:text-black hover:opacity-80 transition-colors duration-300">
+                                    <p className="opportunity__body text-base mb-6 text-neutral-400 leading-relaxed transition-colors duration-300">
                                         Explore co-development opportunities, white-label solutions, and revenue-sharing partnerships.
                                     </p>
-                                    <button className="opportunity__button bg-white text-black px-6 py-3 border-2 border-black hover:bg-gray-800 hover:text-white transition-all duration-300">
-                                        Explore Partnerships
-                                    </button>
+                                    <div className="mt-auto flex justify-center">
+                                        <PortalButton
+                                            label="Explore Partnerships"
+                                            redirectTo="/partnership-inquiry"
+                                            className="hero-portal-btn w-full"
+                                            showDivider={false}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -223,11 +227,11 @@ const LearnMore = () => {
                     {/* CTA Section */}
                     <div ref={ctaRef} className="text-center max-w-2xl mx-auto mb-24">
                         <div className="cta__content space-y-6">
-                            <h3 className="cta__title text-black text-3xl md:text-4xl font-bold leading-none">
+                            <h3 className="cta__title text-white text-3xl md:text-4xl font-bold leading-none font-space-grotesk">
                                 Ready to Integrate?
                             </h3>
 
-                            <p className="cta__text text-black/70 text-lg leading-relaxed">
+                            <p className="cta__text text-neutral-400 text-lg leading-relaxed">
                                 Connect with our technical team to discuss API access, partnership opportunities, and implementation roadmaps.
                             </p>
 
@@ -252,19 +256,19 @@ const LearnMore = () => {
 
                     {/* News Section */}
                     <div ref={newsRef} className="news__section mb-24">
-                        <div class="section__horizontal-border"></div>
+                        <div className="border-t border-[rgba(255,255,255,0.08)] mb-12"></div>
                         {/* News Content */}
                         <div className="news__content">
                             <div className="news__controls mb-8">
-                                <h3 className="news__headline text-2xl font-bold">Latest Construction News</h3>
+                                <h3 className="news__headline text-2xl font-bold text-white font-space-grotesk">Latest Construction News</h3>
                             </div>
 
                             {/* News Articles Grid */}
                             <div className="news__articles grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {newsArticles.map((article, index) => (
-                                    <article key={index} className="news__card bg-white border-2 border-black p-6 hover:bg-[#f0f2e9] transition-all duration-300 flex flex-col h-full">
+                                    <article key={index} className="news__card p-6 transition-all duration-300 flex flex-col h-full rounded-2xl" style={{ background: "rgba(255, 255, 255, 0.02)", border: "1px solid rgba(255, 255, 255, 0.08)" }}>
                                         {/* Image */}
-                                        <div className="mb-4 border-2 border-black overflow-hidden h-48 shrink-0 bg-gray-100">
+                                        <div className="mb-4 border border-[rgba(255,255,255,0.08)] overflow-hidden h-48 shrink-0 bg-gray-900 rounded-xl">
                                             <img
                                                 src={article.image}
                                                 alt={article.title}
@@ -276,16 +280,16 @@ const LearnMore = () => {
                                             />
                                         </div>
 
-                                        <div className="news__tag text-sm font-bold mb-3 uppercase tracking-wide">
+                                        <div className="news__tag text-sm font-bold mb-3 uppercase tracking-wide text-[#0066ff] font-space-mono">
                                             {article.tag}
                                         </div>
-                                        <h4 className="news__article-title text-lg font-bold mb-3 leading-tight">
+                                        <h4 className="news__article-title text-lg font-bold mb-3 leading-tight text-white font-space-grotesk">
                                             {article.title}
                                         </h4>
-                                        <div className="news__date text-sm mb-3 opacity-70 hover:opacity-80">
+                                        <div className="news__date text-sm mb-3 text-neutral-400">
                                             {article.date}
                                         </div>
-                                        <p className="news__description text-sm leading-relaxed mb-4 opacity-80 hover:opacity-90 flex-grow">
+                                        <p className="news__description text-sm leading-relaxed mb-4 text-neutral-400 flex-grow">
                                             {article.description}
                                         </p>
                                         <div className="mt-auto">
@@ -293,7 +297,7 @@ const LearnMore = () => {
                                                 href={article.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="news__read-more text-sm font-bold underline hover:no-underline inline-block"
+                                                className="news__read-more text-sm font-bold text-[#0066ff] hover:text-white underline hover:no-underline inline-block transition-colors"
                                             >
                                                 Read More
                                             </a>

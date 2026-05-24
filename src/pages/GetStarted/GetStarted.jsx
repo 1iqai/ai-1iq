@@ -61,7 +61,7 @@ const GetStarted = () => {
   const heroRef = useRef(null);
 
   return (
-    <div className="get-started-page">
+    <div className="get-started-page bg-dot-grid">
       <Navigation heroRef={heroRef} />
 
       <CommonHeader

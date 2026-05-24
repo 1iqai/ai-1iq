@@ -70,7 +70,7 @@ const TermsOfUse = () => {
     }, []);
 
     return (
-        <div ref={pageRef} className="app relative w-full overflow-x-hidden bg-white">
+        <div ref={pageRef} className="app relative w-full overflow-x-hidden bg-[#070707] text-white bg-mesh-grid">
             {/* Navigation Component */}
             <Navigation heroRef={heroRef} />
 
@@ -82,22 +82,22 @@ const TermsOfUse = () => {
             />
 
             {/* Content Section */}
-            <section className="terms-section relative w-full">
+            <section className="terms-section relative w-full py-12">
                 <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                     <div className="grid grid-cols-1 gap-16 pb-12">
                         {termsData.map((term, index) => (
                             <div
                                 key={index}
                                 ref={el => termsRef.current[index] = el}
-                                className="term-item grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 border-t border-gray-200 pt-12 hover:border-black transition-colors duration-300 group"
+                                className="term-item grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 border-t border-[rgba(255,255,255,0.08)] pt-12 hover:border-white transition-colors duration-300 group"
                             >
                                 <div className="md:col-span-4">
-                                    <h2 className="text-2xl md:text-3xl font-bold text-black group-hover:translate-x-2 transition-transform duration-300">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-white font-space-grotesk group-hover:translate-x-2 transition-transform duration-300">
                                         {term.title}
                                     </h2>
                                 </div>
                                 <div className="md:col-span-8">
-                                    <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-light">
+                                    <p className="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
                                         {term.content}
                                     </p>
                                 </div>

@@ -3,9 +3,11 @@ import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer/Footer";
+import { MetalFx } from "metal-fx";
 
 const BuilderForm = () => {
   const heroRef = useRef(null);
+  const submitRef = useRef(null);
   const [status, setStatus] = useState("");
 
   const {
@@ -46,7 +48,7 @@ const BuilderForm = () => {
         } catch (e) {
           console.warn("reset failed", e);
         }
-        alert("Thanks — your project inquiry was sent.");
+        alert("Thanks: your project inquiry was sent.");
       } else {
         console.error("web3forms error", json);
         setStatus("Error submitting form");
@@ -220,8 +222,16 @@ const BuilderForm = () => {
                 <textarea {...register("why1iq")} id="why1iq"></textarea>
               </div>
 
-              <div className="input-group">
-                <input type="submit" value="Submit" className="submit-btn mt-8" />
+              <div className="input-group flex justify-center mt-8">
+                <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[submitRef]}>
+                  <button
+                    ref={submitRef}
+                    type="submit"
+                    className="submit-btn"
+                  >
+                    Submit Inquiry
+                  </button>
+                </MetalFx>
               </div>
 
               {status && <p className="form-status">{status}</p>}

@@ -191,7 +191,7 @@ export default function ROICalculator() {
             <span className="roi-cost-callout__label">1iQ fee for this project</span>
             <span className="roi-cost-callout__value">{fmt(results.iqFee)}</span>
             <span className="roi-cost-callout__note">
-              2.5% of project budget — capped at $1.25M for projects above $50M. Priced against a full-time owner's rep at $180K–$300K/year.
+              2.5% of project budget, capped at $1.25M for projects above $50M. Priced against a full-time owner's rep at $180K to $300K per year.
             </span>
           </div>
 

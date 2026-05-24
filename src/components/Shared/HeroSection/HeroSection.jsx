@@ -50,7 +50,7 @@ const HeroSection = ({ heroRef }) => {
           <h1 className="hero__title">Real-Time Intelligence for Real Estate Development</h1>
 
           <p className="hero__sub">
-            1iQ gives developers and investors live visibility into project risk, capital exposure, and execution performance — without depending on consultants or filtered reports.
+            1iQ gives developers and investors live visibility into project risk, capital exposure, and execution performance, without depending on consultants or filtered reports.
           </p>
 
           <PortalButton

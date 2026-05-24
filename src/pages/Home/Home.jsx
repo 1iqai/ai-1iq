@@ -53,7 +53,7 @@ const Home = () => {
                         </h3>
                       </div>
                       <p className="vb-feature__desc">
-                        Your GC's field team logs updates through 1iQ's mobile app. Three taps — Start Task, Report Issue, End Task — and the data flows directly to your developer dashboard. No filtering. No delay. No consultant in between.
+                        Your GC's field team logs updates through 1iQ's mobile app. Three taps (Start Task, Report Issue, End Task) and the data flows directly to your developer dashboard. No filtering. No delay. No consultant in between.
                       </p>
                     </div>
                   </div>
@@ -68,7 +68,7 @@ const Home = () => {
                         </h3>
                       </div>
                       <p className="vb-feature__desc">
-                        1iQ generates full project schedules and execution risk models from minimal inputs — in any geographic market, in minutes. Replaces $50K–$200K in consultant feasibility fees.
+                        1iQ generates full project schedules and execution risk models from minimal inputs in any geographic market, in minutes. Replaces $50K to $200K in consultant feasibility fees.
                       </p>
                     </div>
                   </div>
@@ -83,7 +83,7 @@ const Home = () => {
                         </h3>
                       </div>
                       <p className="vb-feature__desc">
-                        AI continuously monitors schedule performance, budget variance, and field activity. Risk flags surface to your dashboard before your GC's next report — giving you days or weeks to act.
+                        AI continuously monitors schedule performance, budget variance, and field activity. Risk flags surface to your dashboard before your GC's next report, giving you days or weeks to act.
                       </p>
                     </div>
                   </div>
@@ -116,7 +116,7 @@ const Home = () => {
             <div className="returns-section__header">
               <p className="returns-section__eyebrow">THE ROI</p>
               <h2 className="returns-section__title">What 1iQ Returns to Every Developer</h2>
-              <p className="returns-section__sub">The capital protection case — on a single $20M project.</p>
+              <p className="returns-section__sub">The capital protection case for a single $20M project.</p>
             </div>
 
             <div className="returns-two-col">
@@ -146,19 +146,19 @@ const Home = () => {
                 <ul className="returns-legend">
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--1" />
-                    <span className="returns-legend__text"><strong>$190K+</strong> — Feasibility Study Savings</span>
+                    <span className="returns-legend__text"><strong>$190K+</strong>: Feasibility Study Savings</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--2" />
-                    <span className="returns-legend__text"><strong>$4M–6M</strong> — Overrun Exposure Protected</span>
+                    <span className="returns-legend__text"><strong>$4M to $6M</strong>: Overrun Exposure Protected</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--3" />
-                    <span className="returns-legend__text"><strong>$100K/yr</strong> — Investor Reporting Labor Saved</span>
+                    <span className="returns-legend__text"><strong>$100K/yr</strong>: Investor Reporting Labor Saved</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--4" />
-                    <span className="returns-legend__text"><strong>$300K/yr</strong> — Owner's Rep Fees Eliminated</span>
+                    <span className="returns-legend__text"><strong>$300K/yr</strong>: Owner's Rep Fees Eliminated</span>
                   </li>
                 </ul>
               </div>
@@ -181,7 +181,7 @@ const Home = () => {
 
                 <div className="returns-metric">
                   <span className="returns-metric__value">2x+</span>
-                  <span className="returns-metric__label">Net ROI Minimum — Year 1</span>
+                  <span className="returns-metric__label">Net ROI Minimum in Year 1</span>
                   <span className="returns-metric__sub">On a single avoided delay or overrun event</span>
                 </div>
 
@@ -216,7 +216,7 @@ const Home = () => {
         {/* 3D Model Section */}
         <ThreeDSection />
 
-        {/* Testimonial — replace with real developer quote when available */}
+        {/* Testimonial: replace with real developer quote when available */}
         <section className="testimonial-section">
           <div className="testimonial-section__inner">
             <svg className="testimonial-section__quote-mark" width="40" height="32" viewBox="0 0 40 32" fill="none">
@@ -243,7 +243,7 @@ const Home = () => {
               <p className="positioning-section__line positioning-section__line--highlight">1iQ gives you the unfiltered truth.</p>
             </div>
             <p className="positioning-section__body">
-              Real estate developers and investors make multi-million dollar capital decisions based on information that is weeks old, filtered through consultants, and fragmented across disconnected platforms. 1iQ is the operating intelligence layer that changes this — connecting live field data, AI risk analysis, feasibility modeling, and investor reporting in a single platform. Built for the developer. Not the contractor.
+              Real estate developers and investors make multi-million dollar capital decisions based on information that is weeks old, filtered through consultants, and fragmented across disconnected platforms. 1iQ is the operating intelligence layer that changes this by connecting live field data, AI risk analysis, feasibility modeling, and investor reporting in a single platform. Built for the developer. Not the contractor.
             </p>
             <a href="/platform" className="positioning-section__cta">
               Explore the Platform

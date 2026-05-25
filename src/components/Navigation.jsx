@@ -155,7 +155,7 @@ const Navigation = ({ heroRef }) => {
         onMouseEnter={handleLogoMouseEnter}
         onMouseLeave={handleLogoMouseLeave}
         onClick={handleLogoClick}
-        className="navigation__logo absolute top-5 left-10 cursor-pointer"
+        className="navigation__logo absolute top-5 left-10 cursor-pointer hidden md:block"
         style={{
           perspective: "1000px",
           transformOrigin: "top left"
@@ -191,7 +191,7 @@ const Navigation = ({ heroRef }) => {
       </div>
 
       {/* Top Navigation Bar */}
-      <div className="navigation__menu absolute top-5 right-4 md:right-10">
+      <div className="navigation__menu absolute top-5 left-4 right-4 md:left-auto md:right-10">
         {/* Hamburger Menu Button - Right */}
         {/* <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}

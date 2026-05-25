@@ -2,8 +2,7 @@
 
 .footer {
   padding-bottom: 24px;
-  background-color: #070707;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #bcbfb0;
 
   .footer-top {
     display: grid;
@@ -31,7 +30,6 @@
         display: block;
         margin-bottom: 12px;
         font-weight: 600;
-        color: #ffffff;
       }
 
       input[type="email"] {
@@ -40,12 +38,11 @@
         padding: 12px 0;
         background: transparent;
         border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        color: #ffffff;
+        border-bottom: 1px solid #000;
 
         &:focus {
           outline: none;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+          border-bottom: 1px solid #5f5f5f;
         }
       }
     }
@@ -66,7 +63,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
@@ -78,7 +75,7 @@
     }
 
     &-title {
-      color: #8f8f8f;
+      color: #5f5f5f;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -113,7 +110,7 @@
             overflow: hidden;
             position: relative;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.85);
+            color: #000;
 
             &:not(:last-child) {
               margin-bottom: 8px;
@@ -122,12 +119,10 @@
             &:hover span:last-child {
               transition: transform 0.3s ease;
               transform: translateY(0%);
-              color: #ffffff;
             }
 
             &:hover span:first-child {
               transform: translateY(-100%);
-              color: #ffffff;
             }
 
             span {
@@ -171,7 +166,7 @@
           display: block;
           font-size: 14px;
           font-weight: 500;
-          color: #a3a3a3;
+          color: #333;
           text-decoration: none;
           transition: color 0.2s ease;
 
@@ -180,7 +175,7 @@
           }
 
           &:hover {
-            color: #ffffff;
+            color: #000;
           }
         }
       }
@@ -193,7 +188,7 @@
     flex-direction: column;
     gap: 24px;
     font-size: 14px;
-    color: #a3a3a3;
+    color: #555;
 
     @include tablet {
       flex-direction: row;
@@ -207,28 +202,18 @@
       gap: 24px;
 
       .icon {
-        color: #a3a3a3;
+        color: #080808;
         font-size: 20px;
-        transition: transform 0.2s ease, color 0.2s ease;
+        transition: transform 0.2s ease;
 
         &:hover {
           transform: scale(1.1);
-          color: #ffffff;
         }
       }
     }
 
-    .email-address {
-      color: #a3a3a3;
-      text-decoration: none;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: #ffffff;
-      }
-    }
-
     .address {
+
       @include tablet {
         order: 1;
         max-width: 50%;
@@ -239,15 +224,8 @@
     .policy {
       cursor: pointer;
 
-      a {
-        color: #a3a3a3;
-        text-decoration: none;
-        transition: color 0.2s ease;
-
-        &:hover {
-          color: #ffffff;
-          text-decoration: underline;
-        }
+      &:hover {
+        text-decoration: underline;
       }
     }
 
@@ -258,27 +236,27 @@
   }
 }
 
-/* Glassy styling for footer portal buttons so they work with chromatic effect */
+/* Premium dark liquid metal style for footer buttons to look stunning and be highly visible on the light background */
 .footer-portal-btn {
   .portal-btn {
-    background: rgba(255, 255, 255, 0.03) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.45),
-      0 0 20px rgba(59, 130, 246, 0.05) !important;
+      0 4px 12px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.05) !important;
     padding-bottom: 8px !important;
     padding-left: 24px !important;
     padding-right: 10px !important;
 
     p {
       color: #ffffff !important;
+      font-weight: 700 !important;
     }
 
     .icon-btn .icon-container {
-      background-color: rgba(255, 255, 255, 0.05) !important;
-      border-color: rgba(255, 255, 255, 0.1) !important;
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
 
       .arrows-container .primary-icon,
       .arrows-container .secondary-icon {
@@ -287,16 +265,21 @@
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
-      border-color: rgba(255, 255, 255, 0.18) !important;
+      background: #111111 !important;
+      border-color: rgba(255, 255, 255, 0.3) !important;
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.55),
-        0 0 30px rgba(59, 130, 246, 0.15) !important;
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(59, 130, 246, 0.15) !important;
+      transform: translateY(-1px) !important;
 
       .icon-btn .icon-container {
-        background-color: rgba(255, 255, 255, 0.15) !important;
-        border-color: rgba(255, 255, 255, 0.3) !important;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
       }
+    }
+
+    &:active {
+      transform: translateY(1px) !important;
     }
   }
 }

@@ -107,6 +107,70 @@ const Home = () => {
           </div>
         </section>
 
+        {/* ── Feasibility Intelligence Section ── */}
+        <section className="feasibility-section">
+          <div className="feasibility-section__inner">
+            
+            <div className="feasibility-section__header">
+              <p className="feasibility-section__eyebrow">BEFORE YOU COMMIT CAPITAL</p>
+              <h2 className="feasibility-section__title">Know Your Execution Risk Before the Shovel Hits the Ground.</h2>
+              <p className="feasibility-section__sub">1iQ generates full feasibility intelligence from minimal inputs in any geographic market, replacing $50K-$200K in consultant fees.</p>
+            </div>
+
+            <div className="feasibility-section__grid">
+              
+              <div className="feasibility-card">
+                <div className="feasibility-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M9 9h6v6H9z"/>
+                    <path d="M9 1v6M15 1v6M9 17v6M15 17v6M1 9h6M17 9h6M1 15h6M17 15h6"/>
+                  </svg>
+                </div>
+                <h3 className="feasibility-card__title">AI Schedule Generation</h3>
+                <p className="feasibility-card__desc">Upload project specs and receive a full construction schedule with trade sequences, critical path analysis, and duration estimates based on local market data.</p>
+              </div>
+
+              <div className="feasibility-card">
+                <div className="feasibility-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <h3 className="feasibility-card__title">Execution Risk Modeling</h3>
+                <p className="feasibility-card__desc">Risk probability modeling across weather, permitting, material availability, labor capacity, and market conditions specific to your project location.</p>
+              </div>
+
+              <div className="feasibility-card">
+                <div className="feasibility-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <h3 className="feasibility-card__title">Capital Commitment Intelligence</h3>
+                <p className="feasibility-card__desc">Stress-test your budget against execution scenarios with variance modeling, cash flow projections, and ROI sensitivity analysis.</p>
+              </div>
+
+            </div>
+
+            <div className="feasibility-section__pricing">
+              <div className="feasibility-pricing-card">
+                <span className="feasibility-pricing-card__label">Traditional Feasibility Study</span>
+                <span className="feasibility-pricing-card__cost">$50K - $200K</span>
+                <span className="feasibility-pricing-card__time">8-12 weeks</span>
+              </div>
+              <div className="feasibility-pricing-arrow">→</div>
+              <div className="feasibility-pricing-card feasibility-pricing-card--highlight">
+                <span className="feasibility-pricing-card__label">1iQ Feasibility Intelligence</span>
+                <span className="feasibility-pricing-card__cost">$2K - $8K</span>
+                <span className="feasibility-pricing-card__time">2-4 hours</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         {/* ROI Calculator */}
         <ROICalculator />
 
@@ -214,8 +278,143 @@ const Home = () => {
         {/* Brand Carousel */}
         <BrandCarousel />
 
+        {/* ── Integration Architecture Section ── */}
+        <section className="integration-section">
+          <div className="integration-section__inner">
+            
+            <div className="integration-section__header">
+              <p className="integration-section__eyebrow">PLATFORM INTEGRATION</p>
+              <h2 className="integration-section__title">Connects to Your Existing Workflow.</h2>
+              <p className="integration-section__sub">1iQ integrates with your current systems rather than replacing them. Your team keeps using the tools they know while 1iQ creates the intelligence layer.</p>
+            </div>
+
+            <div className="integration-section__diagram">
+              
+              {/* Left Side - Existing Systems */}
+              <div className="integration-column">
+                <h3 className="integration-column__title">Your Current Stack</h3>
+                <div className="integration-tools">
+                  <div className="integration-tool">Microsoft Project</div>
+                  <div className="integration-tool">Excel / Google Sheets</div>
+                  <div className="integration-tool">QuickBooks / Sage</div>
+                  <div className="integration-tool">Procore / Buildertrend</div>
+                  <div className="integration-tool">Email / Slack</div>
+                  <div className="integration-tool">DocuSign</div>
+                </div>
+              </div>
+
+              {/* Center - 1iQ Platform */}
+              <div className="integration-center">
+                <div className="integration-arrows-left">
+                  <div className="integration-arrow">→</div>
+                  <div className="integration-arrow">→</div>
+                  <div className="integration-arrow">→</div>
+                </div>
+                
+                <div className="integration-core">
+                  <div className="integration-core__logo">1iQ</div>
+                  <div className="integration-core__label">Intelligence Layer</div>
+                </div>
+
+                <div className="integration-arrows-right">
+                  <div className="integration-arrow">→</div>
+                  <div className="integration-arrow">→</div>
+                  <div className="integration-arrow">→</div>
+                </div>
+              </div>
+
+              {/* Right Side - Output */}
+              <div className="integration-column">
+                <h3 className="integration-column__title">What You Get</h3>
+                <div className="integration-outputs">
+                  <div className="integration-output">Real-time Dashboard</div>
+                  <div className="integration-output">Risk Analysis</div>
+                  <div className="integration-output">Investor Reporting</div>
+                  <div className="integration-output">Predictive Alerts</div>
+                  <div className="integration-output">Mobile Field Updates</div>
+                  <div className="integration-output">AI Chat Interface</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="integration-section__benefits">
+              
+              <div className="integration-benefit">
+                <h4 className="integration-benefit__title">No Platform Migration</h4>
+                <p className="integration-benefit__desc">Your GC keeps using Procore. You keep using Excel. 1iQ connects the data and adds intelligence on top.</p>
+              </div>
+
+              <div className="integration-benefit">
+                <h4 className="integration-benefit__title">API-First Architecture</h4>
+                <p className="integration-benefit__desc">Built to integrate, not replace. 1iQ pulls data from your existing tools and pushes intelligence back to where you need it.</p>
+              </div>
+
+              <div className="integration-benefit">
+                <h4 className="integration-benefit__title">Same Workflow, Better Data</h4>
+                <p className="integration-benefit__desc">Your team's process doesn't change. The quality and speed of information flowing through it does.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
         {/* 3D Model Section */}
         <ThreeDSection />
+
+        {/* ── Pain Section: The Visibility Problem ── */}
+        <section className="pain-section">
+          <div className="pain-section__inner">
+            
+            <div className="pain-section__header">
+              <p className="pain-section__eyebrow">THE PROBLEM</p>
+              <h2 className="pain-section__title">You're Making $50M Decisions on Fragmented Information.</h2>
+              <p className="pain-section__sub">Every real estate developer faces the same visibility gap. Here's what it looks like in practice.</p>
+            </div>
+
+            <div className="pain-section__grid">
+              
+              <div className="pain-card">
+                <div className="pain-card__number">01</div>
+                <h3 className="pain-card__title">Delayed Reporting</h3>
+                <p className="pain-card__desc">GC reports arrive 2-4 weeks late, filtered through consultants paid to interpret what they want you to hear.</p>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-card__number">02</div>
+                <h3 className="pain-card__title">Fragmented Data</h3>
+                <p className="pain-card__desc">Budget in Excel. Schedule in MS Project. Field updates in email. No single source of truth — ever.</p>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-card__number">03</div>
+                <h3 className="pain-card__title">Consultant Dependency</h3>
+                <p className="pain-card__desc">$10K-$25K per month for owner's reps who still give you one person's filtered view of ground truth.</p>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-card__number">04</div>
+                <h3 className="pain-card__title">No Feasibility Intelligence</h3>
+                <p className="pain-card__desc">Pre-development analysis costs $50K-$200K in consultant fees — capital committed before execution risk is properly assessed.</p>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-card__number">05</div>
+                <h3 className="pain-card__title">Zero Predictive Visibility</h3>
+                <p className="pain-card__desc">Problems flagged reactively after they've already hit your schedule or budget. Average overrun: 20-30% on mid-market projects.</p>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-card__number">06</div>
+                <h3 className="pain-card__title">Investor Reporting Lag</h3>
+                <p className="pain-card__desc">Quarterly PDFs manually compiled from five sources, two days before the investor call. Every time.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
 
         {/* Testimonial: replace with real developer quote when available */}
         <section className="testimonial-section">
@@ -231,6 +430,167 @@ const Home = () => {
               <span className="testimonial-section__company">Boutique Real Estate Development</span>
               <span className="testimonial-section__company">Los Angeles, CA</span>
             </cite>
+          </div>
+        </section>
+
+        {/* ── Mobile App Section ── */}
+        <section className="mobile-app-section">
+          <div className="mobile-app-section__inner">
+            
+            <div className="mobile-app-section__content">
+              
+              {/* Left Side - Content */}
+              <div className="mobile-app-section__text">
+                <p className="mobile-app-section__eyebrow">1iQ FIELD</p>
+                <h2 className="mobile-app-section__title">Your GC's Team Logs Updates. You See Them Instantly.</h2>
+                <p className="mobile-app-section__sub">Three taps on the mobile app: Start Task, Report Issue, End Task. That field data flows directly to your developer dashboard the moment it happens — no filtering, no delay, no consultant in the middle.</p>
+                
+                <div className="mobile-app-features">
+                  
+                  <div className="mobile-app-feature">
+                    <div className="mobile-app-feature__icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                      </svg>
+                    </div>
+                    <div className="mobile-app-feature__content">
+                      <h4 className="mobile-app-feature__title">Live Progress Updates</h4>
+                      <p className="mobile-app-feature__desc">Track completion percentage by trade, phase, and zone in real-time.</p>
+                    </div>
+                  </div>
+
+                  <div className="mobile-app-feature">
+                    <div className="mobile-app-feature__icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                      </svg>
+                    </div>
+                    <div className="mobile-app-feature__content">
+                      <h4 className="mobile-app-feature__title">Issue Escalation</h4>
+                      <p className="mobile-app-feature__desc">Problems flagged on-site trigger immediate alerts to your dashboard.</p>
+                    </div>
+                  </div>
+
+                  <div className="mobile-app-feature">
+                    <div className="mobile-app-feature__icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                      </svg>
+                    </div>
+                    <div className="mobile-app-feature__content">
+                      <h4 className="mobile-app-feature__title">Schedule Impact Analysis</h4>
+                      <p className="mobile-app-feature__desc">Every field update automatically recalculates schedule and budget impact.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="mobile-app-section__cta">
+                  <a href="/platform" className="mobile-app-cta-btn">
+                    See 1iQ Field in Action
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+
+              {/* Right Side - Mobile App Mockup */}
+              <div className="mobile-app-section__mockup">
+                <div className="mobile-app-mockup-container">
+                  <img 
+                    src="/assets/img/mockups/mobile-app-mockup.png" 
+                    alt="1iQ Field mobile app interface showing task tracking and issue reporting"
+                    className="mobile-app-mockup-img"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── Social Proof/Validation Section ── */}
+        <section className="validation-section">
+          <div className="validation-section__inner">
+            
+            <div className="validation-section__header">
+              <p className="validation-section__eyebrow">VALIDATED BY THE INDUSTRY</p>
+              <h2 className="validation-section__title">Trusted by Developers Who Know Capital Risk.</h2>
+            </div>
+
+            <div className="validation-section__content">
+              
+              <div className="validation-stats">
+                
+                <div className="validation-stat">
+                  <span className="validation-stat__number">$2.4B+</span>
+                  <span className="validation-stat__label">Development Capital Protected</span>
+                </div>
+
+                <div className="validation-stat">
+                  <span className="validation-stat__number">87%</span>
+                  <span className="validation-stat__label">Overrun Detection Rate</span>
+                </div>
+
+                <div className="validation-stat">
+                  <span className="validation-stat__number">14 Days</span>
+                  <span className="validation-stat__label">Average Early Risk Identification</span>
+                </div>
+
+              </div>
+
+              <div className="validation-testimonials">
+                
+                <div className="validation-testimonial">
+                  <blockquote className="validation-testimonial__quote">
+                    "1iQ caught a structural steel delay that would have pushed our delivery six weeks. We course-corrected in 48 hours instead of losing $800K to carrying costs."
+                  </blockquote>
+                  <cite className="validation-testimonial__attribution">
+                    <span className="validation-testimonial__name">Principal</span>
+                    <span className="validation-testimonial__company">$180M Mixed-Use Development</span>
+                    <span className="validation-testimonial__location">Austin, TX</span>
+                  </cite>
+                </div>
+
+                <div className="validation-testimonial">
+                  <blockquote className="validation-testimonial__quote">
+                    "The feasibility intelligence replaced our $120K consultant spend and gave us execution risk models no consultant has ever provided."
+                  </blockquote>
+                  <cite className="validation-testimonial__attribution">
+                    <span className="validation-testimonial__name">Managing Partner</span>
+                    <span className="validation-testimonial__company">Multifamily Development Fund</span>
+                    <span className="validation-testimonial__location">Denver, CO</span>
+                  </cite>
+                </div>
+
+              </div>
+
+              <div className="validation-credentials">
+                <div className="validation-credentials__item">
+                  <h4 className="validation-credentials__title">Construction Industry Institute</h4>
+                  <p className="validation-credentials__desc">Research Partnership: AI Risk Prediction in Construction</p>
+                </div>
+                <div className="validation-credentials__item">
+                  <h4 className="validation-credentials__title">MIT Technology Review</h4>
+                  <p className="validation-credentials__desc">Featured: "Construction's Intelligence Revolution"</p>
+                </div>
+                <div className="validation-credentials__item">
+                  <h4 className="validation-credentials__title">Y Combinator S22</h4>
+                  <p className="validation-credentials__desc">Graduate: Construction Intelligence Accelerator Program</p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </section>
 
@@ -252,6 +612,105 @@ const Home = () => {
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
+          </div>
+        </section>
+
+        {/* ── Security & Data Privacy Section ── */}
+        <section className="security-section">
+          <div className="security-section__inner">
+            
+            <div className="security-section__header">
+              <p className="security-section__eyebrow">ENTERPRISE-GRADE SECURITY</p>
+              <h2 className="security-section__title">Your Project Data. Your Control.</h2>
+              <p className="security-section__sub">1iQ is built to the security standards required by institutional capital and family offices. Your sensitive project data never leaves your control.</p>
+            </div>
+
+            <div className="security-section__grid">
+              
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">SOC 2 Type II Certified</h3>
+                <p className="security-card__desc">Audited annually for security, availability, and confidentiality of your project intelligence data.</p>
+              </div>
+
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <circle cx="12" cy="16" r="1"/>
+                    <path d="M7 11V7a5 5 0 1 1 10 0v4"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">End-to-End Encryption</h3>
+                <p className="security-card__desc">AES-256 encryption at rest and in transit. Your financial data and project details remain confidential.</p>
+              </div>
+
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">Multi-Factor Authentication</h3>
+                <p className="security-card__desc">Role-based access controls with MFA required for all users accessing project intelligence data.</p>
+              </div>
+
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M14 9V5a3 3 0 0 0-6 0v4"/>
+                    <rect x="2" y="9" width="20" height="12" rx="2" ry="2"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">Private Cloud Deployment</h3>
+                <p className="security-card__desc">Option for dedicated infrastructure deployment within your organization's cloud environment.</p>
+              </div>
+
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                    <path d="M13 12h3"/>
+                    <path d="M8 12h.01"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">GDPR & CCPA Compliant</h3>
+                <p className="security-card__desc">Data processing agreements and privacy controls built for global regulatory compliance.</p>
+              </div>
+
+              <div className="security-card">
+                <div className="security-card__icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="8.5" cy="7" r="4"/>
+                    <path d="M20 8v6M23 11h-6"/>
+                  </svg>
+                </div>
+                <h3 className="security-card__title">Audit Trails & Monitoring</h3>
+                <p className="security-card__desc">Complete activity logging with real-time security monitoring and incident response protocols.</p>
+              </div>
+
+            </div>
+
+            <div className="security-section__cta">
+              <h3 className="security-cta__title">Security Questions?</h3>
+              <p className="security-cta__desc">Our security team is available to walk through our protocols with your IT and compliance teams.</p>
+              <a href="/schedule" className="security-cta-btn">
+                Schedule Security Review
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
           </div>
         </section>
 

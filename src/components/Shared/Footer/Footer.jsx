@@ -45,17 +45,17 @@ const Footer = () => {
         <div className="footer-middle pb-[128px]">
           <div className="col-one">
             <div>
-              <p className="footer-middle-title mb-[32px] text-[14px] font-medium">Start Building Today </p>
+              <p className="footer-middle-title mb-[32px] text-[14px] font-medium">PROTECT YOUR CAPITAL</p>
               <PortalButton
-                label="Schedule Demo"
+                label="Run a Free Feasibility Analysis"
                 redirectTo="/schedule"
                 showDivider={true}
                 fullWidth
                 className="cta__portal-btn portal-btn-theme"
               />
               <PortalButton
-                label="Learn More"
-                redirectTo="/get-started"
+                label="Explore the Platform"
+                redirectTo="/platform"
                 showDivider={true}
                 fullWidth
                 className="cta__portal-btn portal-btn-theme mt-4"

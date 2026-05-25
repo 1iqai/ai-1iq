@@ -44,24 +44,24 @@ function ScrollCards() {
 
   const cards = [
     {
-      title: "Your Development Leads Shouldn't Be Doing This.",
-      description: "Chasing updates at 10pm. Consolidating spreadsheets on Sunday. That is not development leadership, that is administration. And it consumes 60% of their week.",
+      title: "Your GC's Report Is Two Weeks Old.",
+      description: "By the time you read the update, the problem has already compounded. 1iQ gives you live visibility into every project — not what your GC decided to share, but what's actually happening on site, right now.",
     },
     {
-      title: "It Tracks. So They Don't Have To.",
-      description: "Field activity converts to live project data the moment it happens. No manual entry. No chasing subs for updates. 1iQ handles it.",
+      title: "Model Execution Risk Before You Commit.",
+      description: "Most developers spend $50K-$200K on feasibility consultants before committing capital. 1iQ generates full execution risk models, schedule sensitivity analysis, and capital exposure projections from minimal inputs — in hours, not weeks.",
     },
     {
-      title: "The Schedule Rewrites Itself.",
-      description: "A task closes. The timeline adjusts. Affected teams get alerted. No one touches a thing.",
+      title: "The Field Talks Directly to Your Dashboard.",
+      description: "Your GC's team logs updates through 1iQ's mobile app: Start Task, Report Issue, End Task. That data flows directly to your developer intelligence layer the moment it happens — no filtering, no delay, no intermediary.",
     },
     {
       title: "Ask Your Project Anything.",
-      description: "Chat directly with your project data. Uncover risks, surface issues, and get AI recommendations before anyone has to send an update.",
+      description: "Chat directly with your live project data. 'What's threatening my delivery date?' 'Where is my budget exposure right now?' 'What happens to my schedule if this RFI isn't resolved this week?' Answers in seconds, not days.",
     },
     {
-      title: "Reports That Write Themselves.",
-      description: "1iQ generates stakeholder summaries automatically tailored to each audience, from site updates to executive briefings. Your team never writes another status report.",
+      title: "Investor Reporting. Done.",
+      description: "Stop compiling quarterly PDFs from five different spreadsheets. 1iQ generates investor-grade reporting automatically from live project data — on demand, on schedule, always current. Capital relationships protected.",
     }
   ];
 

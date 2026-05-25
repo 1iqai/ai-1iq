@@ -218,15 +218,13 @@ const Navigation = ({ heroRef }) => {
             <img src="/assets/person-svgrepo-com.svg" alt="Profile" />
           </div>
 
-          <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
-            <button
-              ref={siblingRef}
-              className="navigation__request-btn"
-              onClick={() => navigate('/schedule')}
-            >
-              Free Feasibility Analysis
-            </button>
-          </MetalFx>
+          <button
+            ref={siblingRef}
+            className="navigation__request-btn"
+            onClick={() => navigate('/schedule')}
+          >
+            Free Feasibility Analysis
+          </button>
 
           <Hamnav />
         </div>

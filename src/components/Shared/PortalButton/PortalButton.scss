@@ -201,3 +201,62 @@
     justify-content: space-between;
   }
 }
+
+/* Sleek theme matched dark glass button with glowing outline and chromatic compatibility */
+.portal-btn-container.portal-btn-theme {
+  .portal-btn {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.6),
+      0 0 15px rgba(59, 130, 246, 0.15) !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    padding-left: 32px !important;
+    padding-right: 12px !important;
+    border-radius: 9999px !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+    p {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+    }
+
+    .icon-btn .icon-container {
+      background-color: rgba(59, 130, 246, 0.1) !important;
+      border-color: rgba(59, 130, 246, 0.3) !important;
+      width: 44px !important;
+      min-height: 44px !important;
+
+      .arrows-container .primary-icon,
+      .arrows-container .secondary-icon {
+        fill: #60a5fa !important;
+      }
+    }
+
+    &:hover {
+      background: #070707 !important;
+      border-color: #60a5fa !important;
+      box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(59, 130, 246, 0.4) !important;
+      transform: translateY(-2px) !important;
+
+      .icon-btn .icon-container {
+        background-color: rgba(59, 130, 246, 0.2) !important;
+        border-color: #60a5fa !important;
+      }
+    }
+
+    &:active {
+      transform: translateY(1px) !important;
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(59, 130, 246, 0.2) !important;
+    }
+  }
+}

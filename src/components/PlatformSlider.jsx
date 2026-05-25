@@ -207,9 +207,7 @@ export default function PlatformSlider() {
               ))}
             </ul>
             <a
-              href="https://calendly.com/ck-1iq/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/schedule"
               className="ps-copy__cta"
             >
               Book a Demo

@@ -412,7 +412,7 @@ const Platform = () => {
             <p className="intelligence-layer__body">
               Traditional construction software manages data. 1iQ makes it intelligent.
             </p>
-            <a href="https://calendly.com/ck-1iq/30min" target="_blank" rel="noopener noreferrer" className="intelligence-layer__cta">
+            <a href="/schedule" className="intelligence-layer__cta">
               Technical Integration Demo →
             </a>
           </div>

@@ -2,7 +2,8 @@
 
 .footer {
   padding-bottom: 24px;
-  background-color: #bcbfb0;
+  background-color: #070707;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
   .footer-top {
     display: grid;
@@ -30,6 +31,7 @@
         display: block;
         margin-bottom: 12px;
         font-weight: 600;
+        color: #ffffff;
       }
 
       input[type="email"] {
@@ -38,11 +40,12 @@
         padding: 12px 0;
         background: transparent;
         border: none;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: #ffffff;
 
         &:focus {
           outline: none;
-          border-bottom: 1px solid #5f5f5f;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
       }
     }
@@ -63,7 +66,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
@@ -75,7 +78,7 @@
     }
 
     &-title {
-      color: #5f5f5f;
+      color: #8f8f8f;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -110,7 +113,7 @@
             overflow: hidden;
             position: relative;
             text-decoration: none;
-            color: #000;
+            color: rgba(255, 255, 255, 0.85);
 
             &:not(:last-child) {
               margin-bottom: 8px;
@@ -119,10 +122,12 @@
             &:hover span:last-child {
               transition: transform 0.3s ease;
               transform: translateY(0%);
+              color: #ffffff;
             }
 
             &:hover span:first-child {
               transform: translateY(-100%);
+              color: #ffffff;
             }
 
             span {
@@ -166,7 +171,7 @@
           display: block;
           font-size: 14px;
           font-weight: 500;
-          color: #333;
+          color: #a3a3a3;
           text-decoration: none;
           transition: color 0.2s ease;
 
@@ -175,7 +180,7 @@
           }
 
           &:hover {
-            color: #000;
+            color: #ffffff;
           }
         }
       }
@@ -188,7 +193,7 @@
     flex-direction: column;
     gap: 24px;
     font-size: 14px;
-    color: #555;
+    color: #a3a3a3;
 
     @include tablet {
       flex-direction: row;
@@ -202,18 +207,28 @@
       gap: 24px;
 
       .icon {
-        color: #080808;
+        color: #a3a3a3;
         font-size: 20px;
-        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, color 0.2s ease;
 
         &:hover {
           transform: scale(1.1);
+          color: #ffffff;
         }
       }
     }
 
-    .address {
+    .email-address {
+      color: #a3a3a3;
+      text-decoration: none;
+      transition: color 0.2s ease;
 
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    .address {
       @include tablet {
         order: 1;
         max-width: 50%;
@@ -224,14 +239,64 @@
     .policy {
       cursor: pointer;
 
-      &:hover {
-        text-decoration: underline;
+      a {
+        color: #a3a3a3;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+          text-decoration: underline;
+        }
       }
     }
 
     .legal-links {
       display: flex;
       gap: 24px;
+    }
+  }
+}
+
+/* Glassy styling for footer portal buttons so they work with chromatic effect */
+.footer-portal-btn {
+  .portal-btn {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.45),
+      0 0 20px rgba(59, 130, 246, 0.05) !important;
+    padding-bottom: 8px !important;
+    padding-left: 24px !important;
+    padding-right: 10px !important;
+
+    p {
+      color: #ffffff !important;
+    }
+
+    .icon-btn .icon-container {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      .arrows-container .primary-icon,
+      .arrows-container .secondary-icon {
+        fill: #ffffff !important;
+      }
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(59, 130, 246, 0.15) !important;
+
+      .icon-btn .icon-container {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+      }
     }
   }
 }

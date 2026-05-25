@@ -51,14 +51,14 @@ const Footer = () => {
                 redirectTo="/schedule"
                 showDivider={true}
                 fullWidth
-                className="cta__portal-btn portal-btn--classic"
+                className="cta__portal-btn footer-portal-btn"
               />
               <PortalButton
                 label="Learn More"
                 redirectTo="/get-started"
                 showDivider={true}
                 fullWidth
-                className="cta__portal-btn portal-btn--classic mt-4"
+                className="cta__portal-btn footer-portal-btn mt-4"
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex gap-6 flex-wrap">
-            <a href="mailto:info@1iq.com" className="email-address" target="_blank">info@1iq.com</a>
+            <a href="mailto:admin@1iq.ai" className="email-address" target="_blank">admin@1iq.ai</a>
             <div className="address text-nowrap">312 W. 2nd St, #1931, Casper, WY 82601</div>
           </div>
           <div className="legal-links flex gap-6">

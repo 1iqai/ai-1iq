@@ -6,6 +6,7 @@ import Navigation from "../../components/Navigation";
 import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
 import Footer from "../../components/Shared/Footer/Footer";
 import PortalButton from "../../components/Shared/PortalButton/PortalButton";
+import MetalButton from "../../components/Shared/MetalButton/MetalButton";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -192,13 +193,15 @@ const LearnMore = () => {
                                     <p className="opportunity__body text-base mb-6 text-neutral-400 leading-relaxed transition-colors duration-300">
                                         Join our developer ecosystem. Access early APIs, technical documentation, and collaborate with our engineering team.
                                     </p>
-                                    <div className="mt-auto flex justify-center">
-                                        <PortalButton
-                                            label="Join Program"
+                                    <div className="mt-auto flex justify-center w-full">
+                                        <MetalButton
+                                            variant="default"
                                             redirectTo="/builder-application"
-                                            className="hero-portal-btn w-full"
-                                            showDivider={false}
-                                        />
+                                            className="w-full"
+                                            buttonClassName="w-full"
+                                        >
+                                            Join Program
+                                        </MetalButton>
                                     </div>
                                 </div>
 
@@ -211,13 +214,15 @@ const LearnMore = () => {
                                     <p className="opportunity__body text-base mb-6 text-neutral-400 leading-relaxed transition-colors duration-300">
                                         Explore co-development opportunities, white-label solutions, and revenue-sharing partnerships.
                                     </p>
-                                    <div className="mt-auto flex justify-center">
-                                        <PortalButton
-                                            label="Explore Partnerships"
+                                    <div className="mt-auto flex justify-center w-full">
+                                        <MetalButton
+                                            variant="outline"
                                             redirectTo="/partnership-inquiry"
-                                            className="hero-portal-btn w-full"
-                                            showDivider={false}
-                                        />
+                                            className="w-full"
+                                            buttonClassName="w-full"
+                                        >
+                                            Explore Partnerships
+                                        </MetalButton>
                                     </div>
                                 </div>
                             </div>
@@ -235,21 +240,21 @@ const LearnMore = () => {
                                 Connect with our technical team to discuss API access, partnership opportunities, and implementation roadmaps.
                             </p>
 
-                            <div className="cta__buttons flex flex-col sm:flex-row gap-6 justify-center">
-                                <PortalButton
-                                    label="Technical Demo"
+                            <div className="cta__buttons flex flex-col sm:flex-row gap-6 justify-center items-center">
+                                <MetalButton
+                                    variant="secondary"
                                     redirectTo="/schedule"
-                                    showDivider={true}
-                                    fullWidth
-                                    className="cta__portal-btn"
-                                />
-                                <PortalButton
-                                    label="Developer Program"
+                                    className="w-full sm:w-auto"
+                                >
+                                    Technical Demo
+                                </MetalButton>
+                                <MetalButton
+                                    variant="outline"
                                     redirectTo="/builder-application"
-                                    showDivider={true}
-                                    fullWidth
-                                    className="cta__portal-btn"
-                                />
+                                    className="w-full sm:w-auto"
+                                >
+                                    Developer Program
+                                </MetalButton>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,307 @@
+.predictive-engine {
+  background: #070707;
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background atmospheric glow */
+.predictive-engine__bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 102, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.predictive-engine__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ── Centered Header (Returns-section-style) ── */
+.predictive-engine__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.predictive-engine__eyebrow {
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0066ff;
+  margin: 0;
+}
+
+.predictive-engine__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.predictive-engine__sub {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.6;
+  color: #a3a3a3;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Split Layout (Value-blocks-style) ── */
+.predictive-engine__split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Left Column: Interactive Risk Widget Mockup ── */
+.predictive-engine__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.predictive-engine__visual-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pe-risk-card {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(13, 13, 13, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(0, 102, 255, 0.03),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &:hover {
+    border-color: rgba(0, 102, 255, 0.35);
+    box-shadow: 
+      0 32px 64px rgba(0, 0, 0, 0.7),
+      0 0 48px rgba(0, 102, 255, 0.12),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+.pe-risk-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 16px;
+}
+
+.pe-risk-card__status {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+
+  &--alert {
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+}
+
+.pe-risk-card__metric {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.pe-risk-card__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pe-risk-card__desc {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+.pe-risk-card__footer {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pe-risk-card__badge {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #60a5fa;
+  text-transform: uppercase;
+}
+
+.pe-risk-card__rec {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #d4d4d4;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ── Right Column: Bento Features ── */
+.predictive-engine__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.predictive-engine__features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pe-feature {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px 32px;
+  background: rgba(13, 13, 13, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background: rgba(13, 13, 13, 0.65);
+    border-color: rgba(0, 102, 255, 0.28);
+    box-shadow: 
+      0 12px 30px rgba(0, 0, 0, 0.5),
+      0 0 24px rgba(0, 102, 255, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.pe-feature__num {
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15);
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.pe-feature:hover .pe-feature__num {
+  color: #0066ff;
+}
+
+.pe-feature__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pe-feature__heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pe-feature__desc {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+/* ── Responsive Queries ── */
+@media (max-width: 1024px) {
+  .predictive-engine {
+    padding: 100px 32px;
+  }
+
+  .predictive-engine__split {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .predictive-engine__visual {
+    order: 2;
+  }
+
+  .predictive-engine__copy {
+    order: 1;
+  }
+
+  .pe-risk-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .predictive-engine {
+    padding: 80px 20px;
+  }
+
+  .predictive-engine__inner {
+    gap: 48px;
+  }
+
+  .pe-feature {
+    padding: 24px;
+    gap: 16px;
+  }
+}

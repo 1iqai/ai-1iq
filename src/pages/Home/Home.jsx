@@ -8,6 +8,7 @@ import Footer from "../../components/Shared/Footer/Footer";
 import BrandCarousel from "../../components/Shared/BrandCarousel/BrandCarousel";
 import ROICalculator from "../../components/ROICalculator";
 import AnimatedNumber from "../../components/Shared/AnimatedNumber/AnimatedNumber";
+import MetalButton from "../../components/Shared/MetalButton/MetalButton";
 
 const Home = () => {
   const heroRef = useRef(null);
@@ -355,6 +356,81 @@ const Home = () => {
                 <p className="integration-benefit__desc">Your team's process doesn't change. The quality and speed of information flowing through it does.</p>
               </div>
 
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── AI Predictive Engine Section ── */}
+        <section className="predictive-engine">
+          <div className="predictive-engine__bg" aria-hidden="true" />
+          <div className="predictive-engine__inner">
+            
+            {/* Section Header */}
+            <div className="predictive-engine__header">
+              <p className="predictive-engine__eyebrow">PREDICTIVE INTELLIGENCE</p>
+              <h2 className="predictive-engine__title">See Carrying Costs and Overrun Risk Before They Hit Your Ledger.</h2>
+              <p className="predictive-engine__sub">1iQ's deep learning models process daily field updates to simulate delivery variance, forecasting bottlenecks weeks before they manifest.</p>
+            </div>
+
+            {/* Split Bento Layout */}
+            <div className="predictive-engine__split">
+              
+              {/* Left Column: Interactive Risk Indicators */}
+              <div className="predictive-engine__visual">
+                <div className="predictive-engine__visual-glow" aria-hidden="true" />
+                <div className="pe-risk-card">
+                  <div className="pe-risk-card__header">
+                    <span className="pe-risk-card__status pe-risk-card__status--alert">CRITICAL EXPOSURE</span>
+                    <span className="pe-risk-card__metric">92% Probable</span>
+                  </div>
+                  <h4 className="pe-risk-card__title">Framing Delay in Zone C</h4>
+                  <p className="pe-risk-card__desc">Current pacing predicts a schedule slippage of 14 days, carrying a capital exposure risk of $120K if unmitigated.</p>
+                  <div className="pe-risk-card__footer">
+                    <span className="pe-risk-card__badge">AI Recommendation</span>
+                    <p className="pe-risk-card__rec">Authorize subcontractor overtime for MEP installation to recover critical path timelines.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Bento Features */}
+              <div className="predictive-engine__copy">
+                <div className="predictive-engine__features">
+                  
+                  <div className="pe-feature">
+                    <div className="pe-feature__num">01</div>
+                    <div className="pe-feature__body">
+                      <h3 className="pe-feature__heading">Monte Carlo Variance Modeling</h3>
+                      <p className="pe-feature__desc">Simulates 10,000+ schedule outcomes daily based on local weather, trade capacity, and procurement pacing, delivering statistical certainty on delivery dates.</p>
+                    </div>
+                  </div>
+
+                  <div className="pe-feature">
+                    <div className="pe-feature__num">02</div>
+                    <div className="pe-feature__body">
+                      <h3 className="pe-feature__heading">Carrying Cost Projections</h3>
+                      <p className="pe-feature__desc">Translates physical delays into financial exposure, showing you the exact carry and debt service impact of schedule shifts in real time.</p>
+                    </div>
+                  </div>
+
+                  <div className="pe-feature">
+                    <div className="pe-feature__num">03</div>
+                    <div className="pe-feature__body">
+                      <h3 className="pe-feature__heading">Automated Recovery Scenarios</h3>
+                      <p className="pe-feature__desc">When a risk is detected, our decision engine models recovery paths such as sequence adjustments or trade overlapping to protect your yield.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            {/* Central CTA using our premium MetalButton */}
+            <div className="predictive-engine__cta flex justify-center mt-8">
+              <MetalButton variant="secondary" redirectTo="/schedule">
+                Explore Predictive Recovery
+              </MetalButton>
             </div>
 
           </div>

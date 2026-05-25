@@ -7,6 +7,7 @@ import ThreeDSection from "../../components/ThreeDSection";
 import Footer from "../../components/Shared/Footer/Footer";
 import BrandCarousel from "../../components/Shared/BrandCarousel/BrandCarousel";
 import ROICalculator from "../../components/ROICalculator";
+import AnimatedNumber from "../../components/Shared/AnimatedNumber/AnimatedNumber";
 
 const Home = () => {
   const heroRef = useRef(null);
@@ -146,19 +147,19 @@ const Home = () => {
                 <ul className="returns-legend">
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--1" />
-                    <span className="returns-legend__text"><strong>$190K+</strong>: Feasibility Study Savings</span>
+                    <span className="returns-legend__text"><strong><AnimatedNumber value={190} prefix="$" suffix="K+" /></strong>: Feasibility Study Savings</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--2" />
-                    <span className="returns-legend__text"><strong>$4M to $6M</strong>: Overrun Exposure Protected</span>
+                    <span className="returns-legend__text"><strong><AnimatedNumber value={4} prefix="$" suffix="M" /> to <AnimatedNumber value={6} prefix="$" suffix="M" /></strong>: Overrun Exposure Protected</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--3" />
-                    <span className="returns-legend__text"><strong>$100K/yr</strong>: Investor Reporting Labor Saved</span>
+                    <span className="returns-legend__text"><strong><AnimatedNumber value={100} prefix="$" suffix="K/yr" /></strong>: Investor Reporting Labor Saved</span>
                   </li>
                   <li className="returns-legend__item">
                     <span className="returns-legend__dot returns-legend__dot--4" />
-                    <span className="returns-legend__text"><strong>$300K/yr</strong>: Owner's Rep Fees Eliminated</span>
+                    <span className="returns-legend__text"><strong><AnimatedNumber value={300} prefix="$" suffix="K/yr" /></strong>: Owner's Rep Fees Eliminated</span>
                   </li>
                 </ul>
               </div>
@@ -168,19 +169,19 @@ const Home = () => {
                 <h3 className="returns-financial__headline">Here's What That Means</h3>
 
                 <div className="returns-metric">
-                  <span className="returns-metric__value">$500K</span>
+                  <span className="returns-metric__value"><AnimatedNumber value={500} prefix="$" suffix="K" /></span>
                   <span className="returns-metric__label">1iQ Fee on a $20M Project</span>
                   <span className="returns-metric__sub">2.5% of total project budget</span>
                 </div>
 
                 <div className="returns-metric">
-                  <span className="returns-metric__value">$1M+</span>
+                  <span className="returns-metric__value"><AnimatedNumber value={1} prefix="$" suffix="M+" /></span>
                   <span className="returns-metric__label">Saved on a Single Avoided Overrun</span>
                   <span className="returns-metric__sub">5% budget protection on a $20M project</span>
                 </div>
 
                 <div className="returns-metric">
-                  <span className="returns-metric__value">2x+</span>
+                  <span className="returns-metric__value"><AnimatedNumber value={2} suffix="x+" /></span>
                   <span className="returns-metric__label">Net ROI Minimum in Year 1</span>
                   <span className="returns-metric__sub">On a single avoided delay or overrun event</span>
                 </div>

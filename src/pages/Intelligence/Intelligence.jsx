@@ -39,27 +39,27 @@ const Intelligence = () => {
     {
       title: "Your Weekly Report. Written Before You Wake Up.",
       description: (
-        "1iQ Intel reads every dashboard and writes the weekly summary automatically — saving 182 hours a year, per PM."
+        "1iQ Intel reads every dashboard and writes the weekly summary automatically, saving 182 hours a year, per project lead."
       ),
       icon: <FaChartLine className="text-3xl" />,
     },
     {
       title: "Time Recovered Is Money Recovered.",
       description: (
-        "Across scheduling, reporting, and admin automation, the expected recovery is $71,397 per PM, per year."
+        "Across scheduling, reporting, and admin automation, the expected recovery is $71,397 per project lead, per year."
       ),
       icon: <FaMicrochip className="text-3xl" />,
     },
     {
       title: "Capacity You Already Have.",
       description: (
-        "With reporting automated, each PM gains capacity for one more project a year — $350k in new gross profit, no new hires."
+        "With reporting automated, each project lead gains capacity for one more project a year, generating $350k in new gross profit with no new hires."
       ),
       icon: <FaBrain className="text-3xl" />,
     },
     {
       title: "One Source of Truth.",
-      description: "One AI driven system replaces every disconnected tool — every team, task, budget, and document connected live.",
+      description: "One AI driven system replaces every disconnected tool, connecting every team, task, budget, and document live.",
       icon: <FaShieldAlt className="text-3xl" />,
     },
   ];
@@ -91,8 +91,8 @@ const Intelligence = () => {
       title: "The Math Is Simple.",
       description: (
         <>
-          For a team of five project managers, the net benefit is <strong className="text-2xl font-black text-black tracking-tight">$2.1M</strong> in Year 1. That's{" "}
-          <strong className="text-black font-bold">4,156 hours</strong> recovered, $71,397 in direct savings per PM, and <strong className="text-2xl font-black text-black tracking-tight">$25 million</strong> in new project capacity. From a tool that was already in your budget.
+          For a team of five development leaders, the net benefit is <strong className="text-2xl font-black text-black tracking-tight">$2.1M</strong> in Year 1. That's{" "}
+          <strong className="text-black font-bold">4,156 hours</strong> recovered, $71,397 in direct savings per project lead, and <strong className="text-2xl font-black text-black tracking-tight">$25 million</strong> in new project capacity. From a tool that was already in your budget.
         </>
       ),
       icon: <FaEye className="text-3xl" />,
@@ -100,7 +100,7 @@ const Intelligence = () => {
     {
       title: "Already In Your Budget. Ready Day One.",
       description:
-        "1iQ is structured as a 2.5% project soft cost, already in your budget. Out of pocket cost is $1,000 per PM, per year.",
+        "1iQ is structured as a 2.5% project soft cost, already in your budget. Out of pocket cost is $1,000 per project lead, per year.",
       icon: <FaCog className="text-3xl" />,
     },
     {
@@ -256,7 +256,7 @@ const Intelligence = () => {
                                 Key Intelligence Features
                             </h2>
                             <p className="features__subtitle text-black/80 text-xl md:text-2xl leading-relaxed font-light">
-                                Cutting-edge AI capabilities that redefine project management
+                                Cutting-edge AI capabilities that redefine development intelligence
                             </p>
                         </div> */}
 

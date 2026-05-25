@@ -407,7 +407,7 @@ const Platform = () => {
               The Intelligence Layer<br />Your Stack Needs
             </h2>
             <p className="intelligence-layer__body">
-              Your enterprise already runs on scheduling tools, project management platforms, and field reporting systems. 1iQ doesn't replace them: it connects them as the missing intelligence layer, transforming fragmented data silos into unified, actionable insights at scale.
+              Your enterprise already runs on scheduling tools, construction management suites, and field reporting systems. 1iQ doesn't replace them: it connects them as the missing intelligence layer, transforming fragmented data silos into unified, actionable insights at scale.
             </p>
             <p className="intelligence-layer__body">
               Traditional construction software manages data. 1iQ makes it intelligent.
@@ -467,7 +467,7 @@ const Platform = () => {
                     <line x1="16" y1="13" x2="8" y2="13"/>
                     <line x1="16" y1="17" x2="8" y2="17"/>
                   </svg>
-                  <span className="il-tool-card__label">Project Management</span>
+                  <span className="il-tool-card__label">Management Platforms</span>
                   <span className="il-tool-card__sub">Procore, Autodesk</span>
                 </div>
 

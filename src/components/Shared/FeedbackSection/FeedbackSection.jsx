@@ -22,7 +22,7 @@ const FeedbackSection = () => {
     {
       quote: "1iQ completely transformed how we manage field operations. It replaced three platforms and our manual Excel process overnight. We now have real-time updates from job sites, instant schedule adjustments, and a live dashboard that keeps us on top of costs and crews. This is the future of construction coordination.",
       author: "David Mitchell",
-      role: "Project Manager",
+      role: "Development Manager",
       company: "Halifax Construction & Development"
     },
     {

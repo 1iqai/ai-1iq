@@ -9,7 +9,7 @@ const MODULES = [
     description:
       "Budgets, schedules, team performance, and milestones are all visible and live. 1iQ Core is the central command layer that connects every document, decision, and data point across your project operation.",
     features: [
-      "RFIs and submittals handled automatically, saving 208 hours per PM per year",
+      "RFIs and submittals handled automatically, saving 208 hours per team member per year",
       "AI project chat answers any question about the job instantly",
       "Predictive risk alerts flag cost overruns before they escalate",
       "Live dashboards replace the Friday report with real-time visibility",
@@ -35,11 +35,11 @@ const MODULES = [
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_intel_new.jpeg",
     title: "Your Weekly Report. Written Before You Wake Up.",
     description:
-      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary, which is complete, accurate, and ready to send. What used to take half a day takes nothing. Saves 182 hours a year, per PM.",
+      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary, which is complete, accurate, and ready to send. What used to take half a day takes nothing. Saves 182 hours a year, per project lead.",
     features: [
       "Automated report summarization replaces manual PowerPoint and Excel work",
       "AI-powered analysis surfaces risks and opportunities across your portfolio",
-      "Expected direct savings: $71,397 per PM per year in recovered time and costs",
+      "Expected direct savings: $71,397 per project lead per year in recovered time and costs",
       "One source of truth that replaces fragmented tools with a single live system",
     ],
     screenshotAlt: "1iQ Intel: Automated Reporting Dashboard",

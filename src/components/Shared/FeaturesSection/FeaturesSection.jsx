@@ -60,7 +60,7 @@ const FeaturesSection = () => {
     {
       icon: <FaChartBar className="w-10 h-10" />,
       title: 'Schedules That Stop Breaking',
-      description: "Your PMs shouldn't be rebuilding the schedule every time a sub misses a day. 1iQ updates it automatically from live field data, saving 332 hours a year of manual P6 and MS Project entry.",
+      description: "Your development teams shouldn't be rebuilding the schedule every time a sub misses a day. 1iQ updates it automatically from live field data, saving 332 hours a year of manual P6 and MS Project entry.",
     },
     {
       icon: <FaSyncAlt className="w-10 h-10" />,
@@ -75,17 +75,17 @@ const FeaturesSection = () => {
     {
       icon: <FaShieldAlt className="w-10 h-10" />,
       title: 'The Admin That Runs Itself',
-      description: 'RFIs, submittals, daily logs, data entry. The invisible tax that eats 208 hours of every PM\'s year. 1iQ handles it automatically so your team can focus on what actually needs a human.',
+      description: 'RFIs, submittals, daily logs, data entry. The invisible tax that eats 208 hours of every development leader\'s year. 1iQ handles it automatically so your team can focus on what actually needs a human.',
     },
     {
       icon: <FaMobileAlt className="w-10 h-10" />,
       title: 'Direct Cost Savings',
-      description: 'At $68/hr fully loaded, the recovered time and delay avoidance unlocks $71,397 per PM in expected savings.',
+      description: 'At $68/hr fully loaded, the recovered time and delay avoidance unlocks $71,397 per project lead in expected savings.',
     },
     {
       icon: <FaLink className="w-10 h-10" />,
       title: 'Massive Revenue Uplift',
-      description: 'By offloading paperwork, each PM can take on 1 extra project per year. A $5M budget at 7% margin equals $350k in new gross profit.',
+      description: 'By offloading paperwork, each development leader can take on 1 extra project per year. A $5M budget at 7% margin equals $350k in new gross profit.',
     },
   ];
 
@@ -117,10 +117,10 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div ref={titleRef} className="features-section__header text-center mb-8 md:mb-16">
           <h2 className="header-title features-section__title mb-4">
-            What 1iQ Returns to Every PM
+            What 1iQ Returns to Every Team
           </h2>
           <p className="header-subtitle features-section__subtitle">
-            Right now, your best PMs are spending more time on admin than they are running jobs. 1iQ changes that, returning 831 hours, 21 weeks, and 40% of their year back to the work that actually moves projects forward.
+            Right now, your best project leads are spending more time on admin than they are running jobs. 1iQ changes that, returning 831 hours, 21 weeks, and 40% of their year back to the work that actually moves projects forward.
           </p>
         </div>
 

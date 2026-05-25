@@ -171,7 +171,7 @@ const CoreValuePillars = () => {
             How 1iQ Gives the Time Back
           </h2>
           <p className="core-pillars__subtitle text-lg md:text-xl text-neutral-600 font-normal max-w-xl">
-            Three things every PM spends too much time on. Three things 1iQ handles automatically.
+            Three things every development team spends too much time on. Three things 1iQ handles automatically.
           </p>
         </div>
 

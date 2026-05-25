@@ -38,7 +38,7 @@ const CoreField = () => {
   const coreCapabilities = [
     {
       title: "RFIs and Submittals. Handled.",
-      description: "1iQ Core automates RFIs, submittals, daily logs, and data entry — saving 208 hours of your PM's year.",
+      description: "1iQ Core automates RFIs, submittals, daily logs, and data entry, saving 208 hours of your development team's year.",
       icon: <FaClipboardCheck className="text-3xl" />,
     },
     {

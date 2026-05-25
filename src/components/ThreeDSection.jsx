@@ -44,12 +44,12 @@ function ScrollCards() {
 
   const cards = [
     {
-      title: "Your PM Shouldn't Be Doing This.",
-      description: "Rebuilding a schedule at 10pm. Pulling a status deck on Sunday. That's not project management. That's administration. And it's consuming 60% of their week.",
+      title: "Your Development Leads Shouldn't Be Doing This.",
+      description: "Chasing updates at 10pm. Consolidating spreadsheets on Sunday. That is not development leadership, that is administration. And it consumes 60% of their week.",
     },
     {
       title: "It Tracks. So They Don't Have To.",
-      description: "Field activity converts to live project data the moment it happens. No manual entry. No chasing subs for updates. The virtual PM handles it.",
+      description: "Field activity converts to live project data the moment it happens. No manual entry. No chasing subs for updates. 1iQ handles it.",
     },
     {
       title: "The Schedule Rewrites Itself.",
@@ -61,7 +61,7 @@ function ScrollCards() {
     },
     {
       title: "Reports That Write Themselves.",
-      description: "1iQ generates stakeholder summaries automatically tailored to each audience, from site updates to executive briefings. Your PMs never write another status report.",
+      description: "1iQ generates stakeholder summaries automatically tailored to each audience, from site updates to executive briefings. Your team never writes another status report.",
     }
   ];
 

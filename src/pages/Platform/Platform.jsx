@@ -78,17 +78,17 @@ const Platform = () => {
       />
 
       {/* Hero Section - Dark dot grid background */}
-      <section id="hero" className="hero__section relative w-full bg-[#070707] text-white pt-16 pb-12 md:pt-24 md:pb-24 bg-dot-grid">
+      <section id="hero" className="hero__section relative w-full bg-[#070707] text-white pt-10 pb-6 md:pt-14 md:pb-10 bg-dot-grid">
         <div className="container mx-auto px-6 md:px-12">
           <div className="hero__content max-w-4xl mx-auto flex flex-col items-center">
-            <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-8 text-center font-space-grotesk">
+            <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-4 text-center font-space-grotesk">
               The Operating Intelligence Your Development Business Needs.
             </h2>
-            <p className="hero__description text-center text-neutral-400 text-xl md:text-2xl leading-relaxed font-light mb-12 w-full mt-0 md:mt-4 max-w-3xl">
+            <p className="hero__description text-center text-neutral-400 text-xl md:text-2xl leading-relaxed font-light mb-6 w-full mt-0 md:mt-2 max-w-3xl">
               Real estate developers manage multi-million dollar projects with fragmented information, weeks-old reports, and consultant filters. 1iQ is the intelligence platform that connects your field operations to your capital decisions in real-time.
             </p>
 
-            <div className="flex justify-center mt-8 mb-16">
+            <div className="flex justify-center mt-4 mb-6">
               <PortalButton
                 label="Schedule Intelligence Demo"
                 redirectTo="/schedule"

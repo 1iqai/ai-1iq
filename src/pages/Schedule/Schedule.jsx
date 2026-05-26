@@ -278,56 +278,56 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
   return (
     <div style={{
       position: "fixed", inset: 0, zIndex: 1000,
-      background: "rgba(7, 7, 7, 0.8)", backdropFilter: "blur(14px)",
+      background: "rgba(255, 255, 255, 0.9)", backdropFilter: "blur(14px)",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: "16px", animation: "fadeIn 0.25s ease forwards",
     }}>
       <div style={{
-        background: "rgba(13, 13, 13, 0.94)", borderRadius: "20px", width: "100%", maxWidth: 680,
+        background: "#ffffff", borderRadius: "20px", width: "100%", maxWidth: 680,
         maxHeight: "90vh", display: "flex", flexDirection: "column",
-        boxShadow: "0 40px 120px rgba(0,0,0,0.85), 0 0 50px rgba(0, 102, 255, 0.05)",
-        border: "1px solid rgba(255, 255, 255, 0.08)", animation: "popIn 0.35s cubic-bezier(.34,1.4,.64,1) forwards",
+        boxShadow: "0 40px 120px rgba(0,0,0,0.15), 0 0 50px rgba(0, 102, 255, 0.05)",
+        border: "1px solid rgba(0, 0, 0, 0.08)", animation: "popIn 0.35s cubic-bezier(.34,1.4,.64,1) forwards",
       }}>
         {/* ── Header ── */}
-        <div style={{ padding: "28px 32px 20px", borderBottom: "1px solid rgba(255, 255, 255, 0.08)", flexShrink: 0 }}>
+        <div style={{ padding: "28px 32px 20px", borderBottom: "1px solid rgba(0, 0, 0, 0.08)", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
             <div style={{ width: 6, height: 28, background: "#0066ff", borderRadius: 3 }} />
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "10px", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", color: "#0066ff" }}>
               LETTER OF INTENT
             </span>
           </div>
-          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "24px", fontWeight: 700, color: "#ffffff", margin: "0 0 4px", letterSpacing: "-0.3px" }}>
+          <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "24px", fontWeight: 700, color: "#000000", margin: "0 0 4px", letterSpacing: "-0.3px" }}>
             1iQ Platform Access Agreement
           </h2>
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#a3a3a3", margin: 0 }}>
-            Effective Date: {LOI_DATE}&nbsp;·&nbsp; Applicant: <strong style={{ color: "#ffffff" }}>{name}{company ? `, ${company}` : ""}</strong>
+          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#666666", margin: 0 }}>
+            Effective Date: {LOI_DATE}&nbsp;·&nbsp; Applicant: <strong style={{ color: "#000000" }}>{name}{company ? `, ${company}` : ""}</strong>
           </p>
         </div>
 
         {/* ── Scrollable Body ── */}
         <div ref={scrollRef} style={{
           flex: 1, overflowY: "auto", padding: "28px 32px",
-          fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#f3f4f6",
+          fontFamily: "'Inter', sans-serif", fontSize: "14px", color: "#333333",
           lineHeight: 1.75, letterSpacing: "-0.05px",
         }}>
-          <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid rgba(255, 255, 255, 0.08)", fontSize: "13px", color: "#a3a3a3", lineHeight: 1.8 }}>
+          <div style={{ marginBottom: 24, paddingBottom: 20, borderBottom: "1px solid rgba(0, 0, 0, 0.08)", fontSize: "13px", color: "#666666", lineHeight: 1.8 }}>
             <div style={{ marginBottom: 4 }}>30 January 2026</div>
             <div style={{ marginBottom: 4 }}>Via Electronic Mail</div>
-            <div style={{ marginTop: 12, color: "#a3a3a3" }}>
-              <strong style={{ color: "#ffffff" }}>1iQ, LLC</strong><br />
+            <div style={{ marginTop: 12, color: "#666666" }}>
+              <strong style={{ color: "#000000" }}>1iQ, LLC</strong><br />
               Los Angeles, California
             </div>
-            <div style={{ marginTop: 8, color: "#a3a3a3" }}>
-              Attn: <strong style={{ color: "#ffffff" }}>{name}</strong>
-              {company && <><br /><span style={{ color: "#a3a3a3" }}>{company}</span></>}
+            <div style={{ marginTop: 8, color: "#666666" }}>
+              Attn: <strong style={{ color: "#000000" }}>{name}</strong>
+              {company && <><br /><span style={{ color: "#666666" }}>{company}</span></>}
             </div>
-            <div style={{ marginTop: 8, fontWeight: 600, color: "#ffffff" }}>Re: Letter of Intent for Services to be Provided</div>
+            <div style={{ marginTop: 8, fontWeight: 600, color: "#000000" }}>Re: Letter of Intent for Services to be Provided</div>
           </div>
 
-          <p style={{ margin: "0 0 16px", color: "#ffffff" }}>Dear {name || "Ladies and Gentlemen"}:</p>
-          <p style={{ margin: "0 0 28px", color: "#a3a3a3" }}>
-            This letter of intent (<strong style={{ color: "#ffffff" }}>"LOI"</strong>) sets out the principal terms of a potential contract for services being considered by{" "}
-            <strong style={{ color: "#ffffff" }}>{name}{company ? ` / ${company}` : ""}</strong> (<strong style={{ color: "#ffffff" }}>"Customer"</strong>) for use of the 1iQ platform and services from 1iQ, LLC a Wyoming limited liability company (<strong style={{ color: "#ffffff" }}>"1iQ"</strong>).
+          <p style={{ margin: "0 0 16px", color: "#000000" }}>Dear {name || "Ladies and Gentlemen"}:</p>
+          <p style={{ margin: "0 0 28px", color: "#666666" }}>
+            This letter of intent (<strong style={{ color: "#000000" }}>"LOI"</strong>) sets out the principal terms of a potential contract for services being considered by{" "}
+            <strong style={{ color: "#000000" }}>{name}{company ? ` / ${company}` : ""}</strong> (<strong style={{ color: "#000000" }}>"Customer"</strong>) for use of the 1iQ platform and services from 1iQ, LLC a Wyoming limited liability company (<strong style={{ color: "#000000" }}>"1iQ"</strong>).
           </p>
 
           {[
@@ -341,35 +341,35 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
             { num: "8.", title: "Entire Agreement; Amendments", body: "This LOI constitutes the entire agreement of the Parties with respect to the subject matter hereof and supersedes all prior agreements. This LOI may not be amended except by a written instrument signed by both Parties." },
           ].map((s) => (
             <div key={s.num} style={{ marginBottom: 24 }}>
-              <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "13px", fontWeight: 700, color: "#ffffff", letterSpacing: "1.2px", textTransform: "uppercase", margin: "0 0 8px", display: "flex", gap: 8 }}>
+              <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "13px", fontWeight: 700, color: "#000000", letterSpacing: "1.2px", textTransform: "uppercase", margin: "0 0 8px", display: "flex", gap: 8 }}>
                 <span style={{ color: "#0066ff" }}>{s.num}</span> {s.title}
               </h3>
-              <p style={{ margin: 0, color: "#a3a3a3" }}>{s.body}</p>
+              <p style={{ margin: 0, color: "#666666" }}>{s.body}</p>
             </div>
           ))}
 
-          <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)", paddingTop: 20, marginTop: 8, color: "#a3a3a3", fontSize: "12px" }}>
+          <div style={{ borderTop: "1px solid rgba(0, 0, 0, 0.08)", paddingTop: 20, marginTop: 8, color: "#666666", fontSize: "12px" }}>
             By accepting below, Customer represents that they have the full authority to bind themselves and their organization to the terms of this Letter of Intent.
           </div>
         </div>
 
         {/* ── Footer ── */}
-        <div style={{ padding: "20px 32px 24px", borderTop: "1px solid rgba(255, 255, 255, 0.08)", flexShrink: 0, background: "rgba(255, 255, 255, 0.01)", borderRadius: "0 0 20px 20px" }}>
+        <div style={{ padding: "20px 32px 24px", borderTop: "1px solid rgba(0, 0, 0, 0.08)", flexShrink: 0, background: "rgba(0, 0, 0, 0.02)", borderRadius: "0 0 20px 20px" }}>
           <label style={{ display: "flex", alignItems: "flex-start", gap: 12, cursor: "pointer", marginBottom: 20 }}>
             <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} style={{ width: 18, height: 18, marginTop: 2, accentColor: "#0066ff", cursor: "pointer", flexShrink: 0 }} />
-            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "13.5px", color: "#a3a3a3", lineHeight: 1.5 }}>
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: "13.5px", color: "#666666", lineHeight: 1.5 }}>
               I have read, understood, and agree to the terms of this Letter of Intent on behalf of myself and/or my organization.
             </span>
           </label>
           <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
             <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[declineRef]}>
-              <button ref={declineRef} onClick={onDecline} style={{ padding: "12px 24px", borderRadius: "100px", border: "1px solid rgba(255, 255, 255, 0.15)", background: "rgba(0,0,0,0.4)", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: "#a3a3a3", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}>
+              <button ref={declineRef} onClick={onDecline} style={{ padding: "12px 24px", borderRadius: "100px", border: "1px solid rgba(0, 0, 0, 0.15)", background: "#f0f0f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: "#666666", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}>
                 Decline
               </button>
             </MetalFx>
             <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[acceptRef]}>
-              <button ref={acceptRef} onClick={agreed ? onAccept : undefined} disabled={!agreed} style={{ display: "flex", alignItems: "center", gap: 0, borderRadius: "100px", border: "none", overflow: "hidden", background: agreed ? "#0066ff" : "rgba(255,255,255,0.05)", cursor: agreed ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
-                <span style={{ padding: "12px 20px 12px 24px", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: agreed ? "#ffffff" : "rgba(255,255,255,0.3)", letterSpacing: "1.2px", textTransform: "uppercase" }}>Accept &amp; Continue</span>
+              <button ref={acceptRef} onClick={agreed ? onAccept : undefined} disabled={!agreed} style={{ display: "flex", alignItems: "center", gap: 0, borderRadius: "100px", border: "none", overflow: "hidden", background: agreed ? "#0066ff" : "rgba(0,0,0,0.05)", cursor: agreed ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
+                <span style={{ padding: "12px 20px 12px 24px", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: agreed ? "#ffffff" : "rgba(0,0,0,0.3)", letterSpacing: "1.2px", textTransform: "uppercase" }}>Continue</span>
                 <span style={{ width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.12)", borderRadius: "50%", margin: "3px 3px 3px 0" }}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
@@ -497,8 +497,8 @@ const Schedule = () => {
   // Called when the loading screen animation finishes
   const handleLoaderDone = () => {
     setShowLoader(false);
-    // Navigate to home and scroll to the very top
-    navigate("/");
+    // Navigate to demo app and scroll to the very top
+    navigate("/demo");
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 

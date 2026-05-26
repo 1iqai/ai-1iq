@@ -19,8 +19,7 @@ import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Platform from "./pages/Platform/Platform";
 import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
-
-
+import DemoAppWrapper from "./components/DemoAppWrapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +104,7 @@ function App() {
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
-        <Route path="/demo/*" element={<Navigate to="/" replace />} />
+        <Route path="/demo/*" element={<DemoAppWrapper />} />
       </Routes>
     </div>
   );

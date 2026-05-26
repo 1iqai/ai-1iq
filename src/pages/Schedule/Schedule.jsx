@@ -386,12 +386,14 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
    DEMO BOOKING PAGE
    ═══════════════════════════════════════════════════════════════ */
 
-const PM_OPTIONS = ["<$5M", "$5M-$20M", "$20M-$50M", "$50M+"];
+const PORTFOLIO_OPTIONS = ["<$10M", "$10M-$50M", "$50M-$100M", "$100M+"];
+const PROJECT_TYPES = ["Residential", "Commercial", "Mixed-Use", "Industrial", "Multifamily", "Hospitality", "Other"];
+const PORTFOLIO_SIZES = ["1-2 projects", "3-5 projects", "6-10 projects", "10+ projects"];
 
 const BULLETS = [
-  "See real-time data ingestion from multiple construction management systems",
-  "Watch AI models predict project risks and resource bottlenecks live",
-  "Get technical architecture walkthrough and API integration roadmap",
+  "See live project data from your GC's field operations flowing to your developer dashboard",
+  "Watch 1iQ predict schedule delays and budget overruns 2-4 weeks before they manifest",
+  "Review ROI calculations and capital protection scenarios specific to your portfolio",
 ];
 
 function DemoField({ label, id, children, required }) {
@@ -414,12 +416,13 @@ const Schedule = () => {
   const [focused, setFocused] = useState(null);
 
   const [data, setData] = useState({
-    firstName: "", lastName: "", email: "", phone: "", company: "", pmCount: "",
+    firstName: "", lastName: "", email: "", phone: "", company: "", 
+    portfolioValue: "", projectType: "", portfolioSize: "", painPoint: ""
   });
 
   const set = (field) => (e) => setData((d) => ({ ...d, [field]: e.target.value }));
 
-  const canSubmit = data.firstName && data.lastName && data.email && data.company;
+  const canSubmit = data.firstName && data.lastName && data.email && data.company && data.portfolioValue;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -434,7 +437,10 @@ const Schedule = () => {
         "Work Email": data.email,
         "Phone": data.phone,
         "Company Name": data.company,
-        "Total Active Project Budget": data.pmCount,
+        "Current Development Portfolio Value": data.portfolioValue,
+        "Primary Project Type": data.projectType,
+        "Active Portfolio Size": data.portfolioSize,
+        "Primary Visibility Challenge": data.painPoint,
       };
       Object.entries(payload).forEach(([key, value]) => {
         if (value && value.toString().trim() !== "") formData.append(key, value);
@@ -446,7 +452,7 @@ const Schedule = () => {
         const adminCopy = new FormData();
         adminCopy.append("access_key", "aff2eb3e-c155-4a3d-987e-bf059301f9b3");
         adminCopy.append("ccemail", "admin@1iq.ai");
-        adminCopy.append("subject", `New Demo Request: ${data.firstName} ${data.lastName} / ${data.company}`);
+        adminCopy.append("subject", `New Intelligence Briefing Request: ${data.firstName} ${data.lastName} / ${data.company}`);
         adminCopy.append("from_name", "1iQ Platform");
         adminCopy.append("replyto", data.email);
         Object.entries(payload).forEach(([key, value]) => {
@@ -486,7 +492,7 @@ const Schedule = () => {
       await sendLOIEmail({
         formData: data, pdfBlob, acceptedAt,
         ccEmails: ccList,
-        subject: `LOI Accepted: ${data.firstName} ${data.lastName} / ${data.company}`,
+        subject: `Development Intelligence LOI Accepted: ${data.firstName} ${data.lastName} / ${data.company}`,
       });
     } catch (err) {
       // Non-blocking — loading screen continues regardless
@@ -524,8 +530,8 @@ const Schedule = () => {
 
       <CommonHeader
         ref={heroRef}
-        title="Technical Integration"
-        text="Ready to integrate 1iQ's AI infrastructure? Let's discuss your technical requirements and implementation roadmap."
+        title="Development Intelligence Briefing"
+        text="Schedule a private briefing to see how 1iQ transforms fragmented project data into capital-protecting intelligence for your development business."
       />
 
       {/* ── LOI Modal ── */}
@@ -547,10 +553,10 @@ const Schedule = () => {
           {/* ── LEFT: Value Prop ── */}
           <div className="demo-booking__left">
             <h2 className="demo-booking__headline">
-              Technical Deep Dive & Architecture Review
+              Private Development Intelligence Briefing
             </h2>
             <p className="demo-booking__subtext">
-              Book a 30-minute technical demo. See how 1iQ's AI infrastructure processes construction data at scale, with live API demonstrations and integration planning.
+              Schedule a 30-minute executive briefing with real project data. See exactly how 1iQ transforms your current reporting gaps into capital-protecting intelligence.
             </p>
             <ul className="demo-booking__bullets">
               {BULLETS.map((b, i) => (
@@ -567,9 +573,9 @@ const Schedule = () => {
 
             {/* Badge row */}
             <div className="demo-booking__badges">
-              <span className="demo-booking__badge">Technical demo</span>
-              <span className="demo-booking__badge">API walkthrough</span>
-              <span className="demo-booking__badge">Architecture review</span>
+              <span className="demo-booking__badge">Executive briefing</span>
+              <span className="demo-booking__badge">ROI analysis</span>
+              <span className="demo-booking__badge">Risk modeling demo</span>
             </div>
           </div>
 
@@ -577,8 +583,8 @@ const Schedule = () => {
           <div className="demo-booking__right">
             <div className="demo-card">
               <div className="demo-card__header">
-                <p className="demo-card__eyebrow">Technical Demo</p>
-                <h3 className="demo-card__title">Connect with our engineering team</h3>
+                <p className="demo-card__eyebrow">Executive Briefing</p>
+                <h3 className="demo-card__title">Schedule your development intelligence review</h3>
               </div>
 
               <form onSubmit={handleSubmit} className="demo-card__form" noValidate>
@@ -656,17 +662,18 @@ const Schedule = () => {
                   />
                 </DemoField>
 
-                {/* Total Active Project Budget */}
-                <DemoField label="Total Active Project Budget" id="pmCount">
+                {/* Current Development Portfolio Value */}
+                <DemoField label="Current Development Portfolio Value" id="portfolioValue" required>
                   <select
-                    id="pmCount"
-                    value={data.pmCount}
-                    onChange={set("pmCount")}
-                    onFocus={() => setFocused("pmCount")}
+                    id="portfolioValue"
+                    value={data.portfolioValue}
+                    onChange={set("portfolioValue")}
+                    onFocus={() => setFocused("portfolioValue")}
                     onBlur={() => setFocused(null)}
+                    required
                     style={{
-                      ...inputStyle("pmCount"),
-                      color: data.pmCount ? "#ffffff" : "rgba(255,255,255,0.35)",
+                      ...inputStyle("portfolioValue"),
+                      color: data.portfolioValue ? "#ffffff" : "rgba(255,255,255,0.35)",
                       appearance: "none",
                       WebkitAppearance: "none",
                       backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
@@ -676,11 +683,79 @@ const Schedule = () => {
                       cursor: "pointer",
                     }}
                   >
-                    <option value="" disabled>Select budget range</option>
-                    {PM_OPTIONS.map((o) => (
+                    <option value="" disabled>Select portfolio value</option>
+                    {PORTFOLIO_OPTIONS.map((o) => (
                       <option key={o} value={o} style={{ background: "#0d1117", color: "#ffffff" }}>{o}</option>
                     ))}
                   </select>
+                </DemoField>
+
+                {/* Primary Project Type */}
+                <DemoField label="Primary Project Type" id="projectType">
+                  <select
+                    id="projectType"
+                    value={data.projectType}
+                    onChange={set("projectType")}
+                    onFocus={() => setFocused("projectType")}
+                    onBlur={() => setFocused(null)}
+                    style={{
+                      ...inputStyle("projectType"),
+                      color: data.projectType ? "#ffffff" : "rgba(255,255,255,0.35)",
+                      appearance: "none",
+                      WebkitAppearance: "none",
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 16px center",
+                      paddingRight: "40px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <option value="" disabled>Select project type</option>
+                    {PROJECT_TYPES.map((o) => (
+                      <option key={o} value={o} style={{ background: "#0d1117", color: "#ffffff" }}>{o}</option>
+                    ))}
+                  </select>
+                </DemoField>
+
+                {/* Active Portfolio Size */}
+                <DemoField label="Active Portfolio Size" id="portfolioSize">
+                  <select
+                    id="portfolioSize"
+                    value={data.portfolioSize}
+                    onChange={set("portfolioSize")}
+                    onFocus={() => setFocused("portfolioSize")}
+                    onBlur={() => setFocused(null)}
+                    style={{
+                      ...inputStyle("portfolioSize"),
+                      color: data.portfolioSize ? "#ffffff" : "rgba(255,255,255,0.35)",
+                      appearance: "none",
+                      WebkitAppearance: "none",
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")`,
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "right 16px center",
+                      paddingRight: "40px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <option value="" disabled>Select portfolio size</option>
+                    {PORTFOLIO_SIZES.map((o) => (
+                      <option key={o} value={o} style={{ background: "#0d1117", color: "#ffffff" }}>{o}</option>
+                    ))}
+                  </select>
+                </DemoField>
+
+                {/* Primary Visibility Challenge */}
+                <DemoField label="Primary Visibility Challenge" id="painPoint">
+                  <input
+                    id="painPoint"
+                    type="text"
+                    value={data.painPoint}
+                    onChange={set("painPoint")}
+                    placeholder="e.g., Delayed GC reports, budget overruns, investor reporting"
+                    onFocus={() => setFocused("painPoint")}
+                    onBlur={() => setFocused(null)}
+                    style={inputStyle("painPoint")}
+                  />
                 </DemoField>
 
                 {/* CTA Button */}
@@ -694,7 +769,7 @@ const Schedule = () => {
                 </button>
 
                 <p className="demo-card__footnote">
-                  30-minute technical session. We'll confirm within one business day and send pre-call technical documentation.
+                  30-minute executive briefing. We'll confirm within one business day and send a portfolio risk assessment framework.
                 </p>
               </form>
             </div>

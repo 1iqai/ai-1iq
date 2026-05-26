@@ -3391,3 +3391,129 @@ $blue: #4a9eff;
 }
 
 @import "./pages/Home/PredictiveEngine.scss";
+/* ============================================================
+   FEASIBILITY COMPARISON TABLE
+   ============================================================ */
+
+.feasibility-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: stretch;
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.feasibility-comparison__card { display: flex; flex-direction: column; }
+.feasibility-comparison__card--old { background: #fafafa; }
+.feasibility-comparison__card--new { background: #f0f5ff; }
+
+.feasibility-comparison__badge {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #71717a;
+  padding: 16px 24px 14px;
+  border-bottom: 1px solid #e4e4e7;
+  background: #f4f4f5;
+}
+
+.feasibility-comparison__badge--new {
+  color: #1e40af;
+  background: #dbeafe;
+  border-bottom-color: #bfdbfe;
+}
+
+.feasibility-comparison__rows { display: flex; flex-direction: column; }
+
+.feasibility-comparison__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.feasibility-comparison__row:last-child { border-bottom: none; }
+.feasibility-comparison__card--new .feasibility-comparison__row {
+  border-bottom-color: #dbeafe;
+}
+
+.feasibility-comparison__key {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  min-width: 72px;
+}
+
+.feasibility-comparison__val {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3f3f46;
+  text-align: right;
+}
+.feasibility-comparison__val--pain { color: #dc2626; font-weight: 600; }
+.feasibility-comparison__val--win  { color: #1d4ed8; font-weight: 700; }
+
+.feasibility-comparison__divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 4px;
+  background: #ffffff;
+  border-left: 1px solid #e4e4e7;
+  border-right: 1px solid #e4e4e7;
+}
+
+.feasibility-comparison__divider-line {
+  width: 1px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, transparent, #e4e4e7, transparent);
+}
+
+.feasibility-comparison__divider-vs {
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #a1a1aa;
+  padding: 6px 8px;
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+@media (max-width: 680px) {
+  .feasibility-comparison {
+    grid-template-columns: 1fr;
+  }
+  .feasibility-comparison__divider {
+    flex-direction: row;
+    padding: 12px 24px;
+    border: none;
+    border-top: 1px solid #e4e4e7;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .feasibility-comparison__divider-line {
+    width: 40px;
+    height: 1px;
+    min-height: unset;
+    background: linear-gradient(to right, transparent, #e4e4e7, transparent);
+  }
+}

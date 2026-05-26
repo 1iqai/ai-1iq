@@ -155,53 +155,57 @@ const Home = () => {
 
             </div>
 
-            <div className="feasibility-section__pricing">
-              <div className="feasibility-pricing-comparison">
-                
-                <div className="feasibility-comparison-side">
-                  <h4 className="feasibility-comparison-title">Traditional Feasibility Study</h4>
-                  <div className="feasibility-comparison-items">
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Cost</span>
-                      <span className="feasibility-comparison-value">$50,000 – $200,000</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Timeline</span>
-                      <span className="feasibility-comparison-value">8 – 12 weeks</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Source</span>
-                      <span className="feasibility-comparison-value">One consultant's opinion</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Analysis</span>
-                      <span className="feasibility-comparison-value">Manual. Static. Backward-looking.</span>
-                    </div>
+            <div className="feasibility-comparison">
+              <div className="feasibility-comparison__card feasibility-comparison__card--old">
+                <div className="feasibility-comparison__badge">Traditional Approach</div>
+                <div className="feasibility-comparison__rows">
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Cost</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--pain">$50,000 – $200,000</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Timeline</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--pain">8 – 12 weeks</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Source</span>
+                    <span className="feasibility-comparison__val">One consultant's opinion</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Analysis</span>
+                    <span className="feasibility-comparison__val">Manual. Static. Backward-looking.</span>
                   </div>
                 </div>
+              </div>
 
-                <div className="feasibility-comparison-side feasibility-comparison-side--highlight">
-                  <h4 className="feasibility-comparison-title">1iQ Feasibility Intelligence</h4>
-                  <div className="feasibility-comparison-items">
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Cost</span>
-                      <span className="feasibility-comparison-value">Talk to us</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Timeline</span>
-                      <span className="feasibility-comparison-value">Minutes</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Source</span>
-                      <span className="feasibility-comparison-value">AI-calibrated to your market</span>
-                    </div>
-                    <div className="feasibility-comparison-item">
-                      <span className="feasibility-comparison-label">Analysis</span>
-                      <span className="feasibility-comparison-value">Live. Predictive. On-demand.</span>
-                    </div>
+              <div className="feasibility-comparison__divider">
+                <div className="feasibility-comparison__divider-line" />
+                <span className="feasibility-comparison__divider-vs">VS</span>
+                <div className="feasibility-comparison__divider-line" />
+              </div>
+
+              <div className="feasibility-comparison__card feasibility-comparison__card--new">
+                <div className="feasibility-comparison__badge feasibility-comparison__badge--new">
+                  1iQ Feasibility Intelligence
+                </div>
+                <div className="feasibility-comparison__rows">
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Cost</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--win">Talk to us</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Timeline</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--win">Minutes</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Source</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--win">AI-calibrated to your market</span>
+                  </div>
+                  <div className="feasibility-comparison__row">
+                    <span className="feasibility-comparison__key">Analysis</span>
+                    <span className="feasibility-comparison__val feasibility-comparison__val--win">Live. Predictive. On-demand.</span>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -211,106 +215,6 @@ const Home = () => {
         {/* ROI Calculator */}
         <ROICalculator />
 
-        {/* ── What 1iQ Returns ── */}
-        <section className="returns-section">
-          <div className="returns-section__inner">
-
-            <div className="returns-section__header">
-              <p className="returns-section__eyebrow">THE ROI</p>
-              <h2 className="returns-section__title">What 1iQ Returns to Every Developer</h2>
-              <p className="returns-section__sub">The capital protection case for a single $20M project.</p>
-            </div>
-
-            <div className="returns-two-col">
-
-              {/* LEFT */}
-              <div className="returns-hours">
-                <div className="returns-hours__hero">
-                  <span className="returns-hours__total">2x</span>
-                  <span className="returns-hours__label">Minimum ROI on a Single Avoided Overrun</span>
-                </div>
-
-                <div className="returns-bar" aria-label="Capital protection breakdown">
-                  <div className="returns-bar__segment returns-bar__segment--1" style={{width: '40%'}}>
-                    <span className="returns-bar__tip">$190K+</span>
-                  </div>
-                  <div className="returns-bar__segment returns-bar__segment--2" style={{width: '22%'}}>
-                    <span className="returns-bar__tip">$1M+</span>
-                  </div>
-                  <div className="returns-bar__segment returns-bar__segment--3" style={{width: '13%'}}>
-                    <span className="returns-bar__tip">$100K</span>
-                  </div>
-                  <div className="returns-bar__segment returns-bar__segment--4" style={{width: '25%'}}>
-                    <span className="returns-bar__tip">$300K</span>
-                  </div>
-                </div>
-
-                <ul className="returns-legend">
-                  <li className="returns-legend__item">
-                    <span className="returns-legend__dot returns-legend__dot--1" />
-                    <span className="returns-legend__text"><strong><AnimatedNumber value={190} prefix="$" suffix="K+" /></strong>: Feasibility Study Savings</span>
-                  </li>
-                  <li className="returns-legend__item">
-                    <span className="returns-legend__dot returns-legend__dot--2" />
-                    <span className="returns-legend__text"><strong><AnimatedNumber value={4} prefix="$" suffix="M" /> to <AnimatedNumber value={6} prefix="$" suffix="M" /></strong>: Overrun Exposure Protected</span>
-                  </li>
-                  <li className="returns-legend__item">
-                    <span className="returns-legend__dot returns-legend__dot--3" />
-                    <span className="returns-legend__text"><strong><AnimatedNumber value={100} prefix="$" suffix="K/yr" /></strong>: Investor Reporting Labor Saved</span>
-                  </li>
-                  <li className="returns-legend__item">
-                    <span className="returns-legend__dot returns-legend__dot--4" />
-                    <span className="returns-legend__text"><strong><AnimatedNumber value={300} prefix="$" suffix="K/yr" /></strong>: Owner's Rep Fees Eliminated</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* RIGHT */}
-              <div className="returns-financial">
-                <h3 className="returns-financial__headline">Here's What That Means</h3>
-
-                <div className="returns-metric">
-                  <span className="returns-metric__value"><AnimatedNumber value={500} prefix="$" suffix="K" /></span>
-                  <span className="returns-metric__label">1iQ Fee on a $20M Project</span>
-                  <span className="returns-metric__sub">2.5% of total project budget</span>
-                </div>
-
-                <div className="returns-metric">
-                  <span className="returns-metric__value"><AnimatedNumber value={1} prefix="$" suffix="M+" /></span>
-                  <span className="returns-metric__label">Saved on a Single Avoided Overrun</span>
-                  <span className="returns-metric__sub">5% budget protection on a $20M project</span>
-                </div>
-
-                <div className="returns-metric">
-                  <span className="returns-metric__value"><AnimatedNumber value={2} suffix="x+" /></span>
-                  <span className="returns-metric__label">Net ROI Minimum in Year 1</span>
-                  <span className="returns-metric__sub">On a single avoided delay or overrun event</span>
-                </div>
-
-                <p className="returns-financial__note">
-                  Numbers based on McKinsey, FMI, and CII industry research.{' '}
-                  <a
-                    href="#roi-calculator"
-                    className="returns-financial__roi-link"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const target = document.getElementById('roi-calculator');
-                      if (!target) return;
-                      if (window.lenis) {
-                        window.lenis.scrollTo(target);
-                      } else {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }}
-                  >
-                    Use the ROI calculator to see your project's exact figures.
-                  </a>
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </section>
 
         {/* Brand Carousel */}
         <BrandCarousel />

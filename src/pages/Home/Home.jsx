@@ -220,84 +220,13 @@ const Home = () => {
         <BrandCarousel />
 
         {/* ── Integration Architecture Section ── */}
-        <section className="integration-section">
-          <div className="integration-section__inner">
-            
-            <div className="integration-section__header">
-              <p className="integration-section__eyebrow">PLATFORM INTEGRATION</p>
-              <h2 className="integration-section__title">Connects to Your Existing Workflow.</h2>
-              <p className="integration-section__sub">1iQ integrates with your current systems rather than replacing them. Your team keeps using the tools they know while 1iQ creates the intelligence layer.</p>
-            </div>
-
-            <div className="integration-section__diagram">
-              
-              {/* Left Side - Existing Systems */}
-              <div className="integration-column">
-                <h3 className="integration-column__title">Your Current Stack</h3>
-                <div className="integration-tools">
-                  <div className="integration-tool">Microsoft Project</div>
-                  <div className="integration-tool">Excel / Google Sheets</div>
-                  <div className="integration-tool">QuickBooks / Sage</div>
-                  <div className="integration-tool">Procore / Buildertrend</div>
-                  <div className="integration-tool">Email / Slack</div>
-                  <div className="integration-tool">DocuSign</div>
-                </div>
-              </div>
-
-              {/* Center - 1iQ Platform */}
-              <div className="integration-center">
-                <div className="integration-arrows-left">
-                  <div className="integration-arrow">→</div>
-                  <div className="integration-arrow">→</div>
-                  <div className="integration-arrow">→</div>
-                </div>
-                
-                <div className="integration-core">
-                  <div className="integration-core__logo">1iQ</div>
-                  <div className="integration-core__label">Intelligence Layer</div>
-                </div>
-
-                <div className="integration-arrows-right">
-                  <div className="integration-arrow">→</div>
-                  <div className="integration-arrow">→</div>
-                  <div className="integration-arrow">→</div>
-                </div>
-              </div>
-
-              {/* Right Side - Output */}
-              <div className="integration-column">
-                <h3 className="integration-column__title">What You Get</h3>
-                <div className="integration-outputs">
-                  <div className="integration-output">Real-time Dashboard</div>
-                  <div className="integration-output">Risk Analysis</div>
-                  <div className="integration-output">Investor Reporting</div>
-                  <div className="integration-output">Predictive Alerts</div>
-                  <div className="integration-output">Mobile Field Updates</div>
-                  <div className="integration-output">AI Chat Interface</div>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="integration-section__benefits">
-              
-              <div className="integration-benefit">
-                <h4 className="integration-benefit__title">No Platform Migration</h4>
-                <p className="integration-benefit__desc">Your GC keeps using Procore. You keep using Excel. 1iQ connects the data and adds intelligence on top.</p>
-              </div>
-
-              <div className="integration-benefit">
-                <h4 className="integration-benefit__title">API-First Architecture</h4>
-                <p className="integration-benefit__desc">Built to integrate, not replace. 1iQ pulls data from your existing tools and pushes intelligence back to where you need it.</p>
-              </div>
-
-              <div className="integration-benefit">
-                <h4 className="integration-benefit__title">Same Workflow, Better Data</h4>
-                <p className="integration-benefit__desc">Your team's process doesn't change. The quality and speed of information flowing through it does.</p>
-              </div>
-
-            </div>
-
+        <section className="integration-section" style={{ padding: "120px 24px", background: "#070707" }}>
+          <div className="integration-section__inner" style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
+            <img 
+              src="/platform-integration.png" 
+              alt="Platform Integration: Connects to Your Existing Workflow" 
+              style={{ width: "100%", height: "auto", borderRadius: "16px", boxShadow: "0 4px 40px rgba(0,0,0,0.4)" }} 
+            />
           </div>
         </section>
 

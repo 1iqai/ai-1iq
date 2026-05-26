@@ -219,17 +219,6 @@ const Home = () => {
         {/* Brand Carousel */}
         <BrandCarousel />
 
-        {/* ── Integration Architecture Section ── */}
-        <section className="integration-section" style={{ padding: "120px 24px", background: "#070707" }}>
-          <div className="integration-section__inner" style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
-            <img 
-              src="/platform-integration.png" 
-              alt="Platform Integration: Connects to Your Existing Workflow" 
-              style={{ width: "100%", height: "auto", borderRadius: "16px", boxShadow: "0 4px 40px rgba(0,0,0,0.4)" }} 
-            />
-          </div>
-        </section>
-
         {/* ── AI Predictive Engine Section ── */}
         <section className="predictive-engine">
           <div className="predictive-engine__bg" aria-hidden="true" />

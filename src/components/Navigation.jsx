@@ -223,7 +223,7 @@ const Navigation = ({ heroRef }) => {
             className="navigation__request-btn"
             onClick={() => navigate('/schedule')}
           >
-            Free Feasibility Analysis
+            Schedule a Product Tour
           </button>
 
           <Hamnav />

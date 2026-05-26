@@ -768,9 +768,6 @@ const Schedule = () => {
                   {sending ? "Booking…" : "Book My Demo →"}
                 </button>
 
-                <p className="demo-card__footnote">
-                  30-minute executive briefing. We'll confirm within one business day and send a portfolio risk assessment framework.
-                </p>
               </form>
             </div>
           </div>

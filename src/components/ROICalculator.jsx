@@ -189,13 +189,6 @@ export default function ROICalculator() {
             </div>
           </div>
 
-          <div className="roi-cost-callout">
-            <span className="roi-cost-callout__label">1iQ fee for this project</span>
-            <span className="roi-cost-callout__value">{fmt(results.iqFee)}</span>
-            <span className="roi-cost-callout__note">
-              2.5% of project budget, capped at $1.25M for projects above $50M. Priced against a full-time owner's rep at $180K to $300K per year.
-            </span>
-          </div>
 
           <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
             <button
@@ -203,7 +196,7 @@ export default function ROICalculator() {
               onClick={() => navigate("/schedule")}
               className="roi-cta"
             >
-              Run a Free Feasibility Analysis
+              Schedule a Product Tour
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>

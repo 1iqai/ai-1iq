@@ -47,7 +47,7 @@ const Footer = () => {
             <div>
               <p className="footer-middle-title mb-[32px] text-[14px] font-medium">PROTECT YOUR CAPITAL</p>
               <PortalButton
-                label="Run a Free Feasibility Analysis"
+                label="Schedule a Product Tour"
                 redirectTo="/schedule"
                 showDivider={true}
                 fullWidth

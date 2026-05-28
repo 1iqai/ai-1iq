@@ -125,11 +125,27 @@ const HeroSection = ({ heroRef }) => {
         <div ref={blockRef} className="hero__block">
 
           <h1 className="hero__title">
-            {"Real-Time Intelligence for Real Estate Development".split(" ").map((word, i) => (
-              <span key={i} className="inline-block" style={{ whiteSpace: "nowrap", marginRight: "0.26em" }}>
-                <TextRoll center>{word}</TextRoll>
-              </span>
-            ))}
+            <span className="hero__title-line">
+              {"Real-Time Intelligence".split(" ").map((word, i) => (
+                <span key={i} className="inline-block" style={{ whiteSpace: "nowrap", marginRight: "0.26em" }}>
+                  <TextRoll center>{word}</TextRoll>
+                </span>
+              ))}
+            </span>
+            <span className="hero__title-line hero__title-line--connector">
+              {"for".split(" ").map((word, i) => (
+                <span key={i} className="inline-block" style={{ whiteSpace: "nowrap", marginRight: "0.26em" }}>
+                  <TextRoll center>{word}</TextRoll>
+                </span>
+              ))}
+            </span>
+            <span className="hero__title-line">
+              {"Real Estate Development".split(" ").map((word, i) => (
+                <span key={i} className="inline-block" style={{ whiteSpace: "nowrap", marginRight: "0.26em" }}>
+                  <TextRoll center>{word}</TextRoll>
+                </span>
+              ))}
+            </span>
           </h1>
 
           <p className="hero__sub">

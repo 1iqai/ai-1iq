@@ -12,37 +12,39 @@
     letter-spacing: 0.18em;
     text-align: start;
     cursor: pointer;
-    color: #ffffff;
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(3, 3, 3, 0.95) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.16) 0%, rgba(0, 102, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 102, 255, 0.35) !important;
     border-radius: 9999px;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.55),
-      0 0 20px rgba(59, 130, 246, 0.1),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      0 0 20px rgba(0, 102, 255, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.65),
-        0 0 40px rgba(59, 130, 246, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.3);
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(0, 102, 255, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+      border-color: rgba(0, 102, 255, 0.7) !important;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.28) 0%, rgba(0, 102, 255, 0.12) 100%) !important;
       transform: translateY(-2px);
     }
 
     &:active {
       transform: translateY(1px) scale(0.98);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5),
-        0 0 15px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(0, 102, 255, 0.2) !important;
     }
 
     p {
       flex: 1;
       margin: 0;
       white-space: nowrap;
+      color: #ffffff !important;
     }
 
     .icon-btn {
@@ -59,8 +61,8 @@
         overflow: hidden;
         position: relative;
         border-radius: 50%;
-        background-color: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.3);
+        background-color: rgba(0, 102, 255, 0.15) !important;
+        border: 1px solid rgba(0, 102, 255, 0.4) !important;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
         .arrows-container {
@@ -70,8 +72,7 @@
 
           .primary-icon,
           .secondary-icon {
-            fill: #60a5fa;
-            /* Tailwind blue-400 */
+            fill: #ffffff !important;
             font-size: 20px;
             left: 0;
             position: absolute;
@@ -93,9 +94,9 @@
     }
 
     &:hover .icon-btn .icon-container {
-      background-color: rgba(59, 130, 246, 0.15);
-      border-color: rgba(59, 130, 246, 0.8);
-      box-shadow: inset 0 0 15px rgba(59, 130, 246, 0.3);
+      background-color: rgba(0, 102, 255, 0.3) !important;
+      border-color: rgba(0, 102, 255, 0.9) !important;
+      box-shadow: inset 0 0 15px rgba(0, 102, 255, 0.4) !important;
 
       .arrows-container .primary-icon {
         opacity: 0;
@@ -121,33 +122,33 @@
     padding-bottom: 8px;
     padding-left: 24px;
     padding-right: 10px;
-    background: linear-gradient(145deg, rgba(20, 25, 25, 0.85), rgba(5, 10, 10, 0.95));
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.16) 0%, rgba(0, 102, 255, 0.06) 100%) !important;
     border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.35) !important;
 
     p {
-      color: rgba(255, 255, 255, 0.8);
+      color: #ffffff !important;
     }
 
     .icon-btn .icon-container {
-      border-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 102, 255, 0.4) !important;
+      background-color: rgba(0, 102, 255, 0.15) !important;
 
       .arrows-container .primary-icon,
       .arrows-container .secondary-icon {
-        fill: #fff;
+        fill: #ffffff !important;
       }
     }
 
     &:hover .icon-btn .icon-container {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 102, 255, 0.3) !important;
+      border-color: rgba(0, 102, 255, 0.9) !important;
       box-shadow: none;
     }
   }
 
   .divider-container {
     display: none;
-    /* Hide divider in favor of completely glassy button everywhere */
   }
 }
 
@@ -155,35 +156,30 @@
 .portal-btn-container.portal-btn-container--outline {
   .portal-btn {
     padding: 12px 32px;
-    background: rgba(255, 255, 255, 0.05);
-    /* Very subtle white overlay */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    /* Solid grey-ish white border */
+    background: rgba(0, 102, 255, 0.12) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(0, 102, 255, 0.4) !important;
     box-shadow: none;
-    /* No glow */
     border-radius: 8px;
-    /* Slightly squared pill as shown in screenshot */
     gap: 0;
 
     p {
-      color: rgba(255, 255, 255, 0.95);
+      color: #ffffff !important;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-align: center;
     }
 
-    /* Hide the icon right completely for this variant */
     .icon-btn {
       display: none;
     }
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(0, 102, 255, 0.22) !important;
+      border-color: rgba(0, 102, 255, 0.7) !important;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.25) !important;
     }
 
     &:active {
@@ -205,12 +201,14 @@
 /* Sleek theme matched dark glass button with glowing outline and chromatic compatibility */
 .portal-btn-container.portal-btn-theme {
   .portal-btn {
-    background: #000000 !important;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.16) 0%, rgba(0, 102, 255, 0.06) 100%) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 102, 255, 0.35) !important;
     box-shadow: 
-      0 4px 20px rgba(0, 0, 0, 0.6),
-      0 0 15px rgba(59, 130, 246, 0.15) !important;
+      0 4px 20px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(0, 102, 255, 0.2) !important;
     padding-top: 14px !important;
     padding-bottom: 14px !important;
     padding-left: 32px !important;
@@ -227,36 +225,36 @@
     }
 
     .icon-btn .icon-container {
-      background-color: rgba(59, 130, 246, 0.1) !important;
-      border-color: rgba(59, 130, 246, 0.3) !important;
+      background-color: rgba(0, 102, 255, 0.15) !important;
+      border-color: rgba(0, 102, 255, 0.4) !important;
       width: 44px !important;
       min-height: 44px !important;
 
       .arrows-container .primary-icon,
       .arrows-container .secondary-icon {
-        fill: #60a5fa !important;
+        fill: #ffffff !important;
       }
     }
 
     &:hover {
-      background: #070707 !important;
-      border-color: #60a5fa !important;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.28) 0%, rgba(0, 102, 255, 0.12) 100%) !important;
+      border-color: rgba(0, 102, 255, 0.7) !important;
       box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(59, 130, 246, 0.4) !important;
+        0 8px 30px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 102, 255, 0.45) !important;
       transform: translateY(-2px) !important;
 
       .icon-btn .icon-container {
-        background-color: rgba(59, 130, 246, 0.2) !important;
-        border-color: #60a5fa !important;
+        background-color: rgba(0, 102, 255, 0.3) !important;
+        border-color: rgba(0, 102, 255, 0.9) !important;
       }
     }
 
     &:active {
       transform: translateY(1px) !important;
       box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.5),
-        0 0 15px rgba(59, 130, 246, 0.2) !important;
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(0, 102, 255, 0.2) !important;
     }
   }
 }

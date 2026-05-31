@@ -57,20 +57,30 @@
 
   // --- Variants ---
 
-  // 1. Default: Sleek dark glossy theme
+  // 1. Default: Premium transparent electric blue backdrop & glowing boundaries
   &.metal-btn--variant-default {
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(3, 3, 3, 0.98) 100%);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.16) 0%, rgba(0, 102, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.6),
-      0 0 20px rgba(59, 130, 246, 0.1),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      0 0 20px rgba(0, 102, 255, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+
+    &::before {
+      border-color: rgba(0, 102, 255, 0.35) !important;
+    }
 
     &:hover {
-      background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(5, 5, 5, 1) 100%);
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.28) 0%, rgba(0, 102, 255, 0.12) 100%) !important;
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(59, 130, 246, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 30px rgba(0, 102, 255, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+
+      &::before {
+        border-color: rgba(0, 102, 255, 0.7) !important;
+      }
     }
   }
 
@@ -96,25 +106,27 @@
     }
   }
 
-  // 3. Secondary: Translucent blue brand highlight
+  // 3. Secondary: Translucent blue brand highlight (aligned with default)
   &.metal-btn--variant-secondary {
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 102, 255, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.16) 0%, rgba(0, 102, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.5),
-      0 0 25px rgba(0, 102, 255, 0.15);
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      0 0 25px rgba(0, 102, 255, 0.2) !important;
 
     &::before {
-      border-color: rgba(0, 102, 255, 0.35);
+      border-color: rgba(0, 102, 255, 0.35) !important;
     }
 
     &:hover {
-      background: linear-gradient(135deg, rgba(0, 102, 255, 0.25) 0%, rgba(0, 102, 255, 0.1) 100%);
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.28) 0%, rgba(0, 102, 255, 0.12) 100%) !important;
       box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.6),
-        0 0 35px rgba(0, 102, 255, 0.35);
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(0, 102, 255, 0.45) !important;
 
       &::before {
-        border-color: rgba(0, 102, 255, 0.6);
+        border-color: rgba(0, 102, 255, 0.7) !important;
       }
     }
   }

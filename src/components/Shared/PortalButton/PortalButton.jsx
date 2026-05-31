@@ -58,7 +58,7 @@ const PortalButton = ({
         .filter(Boolean)
         .join(" ")}
     >
-      <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
+      <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[siblingRef]}>
         <Component
           ref={siblingRef}
           className={["portal-btn", buttonClassName].filter(Boolean).join(" ")}

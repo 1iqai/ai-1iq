@@ -11,8 +11,8 @@ import "./MetalButton.scss";
 export const MetalButton = forwardRef(({
   children,
   preset = "chromatic",
-  theme = "auto",
-  strength = 0.9,
+  theme = "dark",
+  strength = 0.45,
   paused = false,
   borderRadius,
   disableGlow = false,

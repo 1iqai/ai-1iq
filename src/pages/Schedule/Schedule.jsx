@@ -362,16 +362,16 @@ function LOIModal({ name, company, visible, onAccept, onDecline }) {
             </span>
           </label>
           <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
-            <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[declineRef]}>
-              <button ref={declineRef} onClick={onDecline} style={{ padding: "12px 24px", borderRadius: "100px", border: "1px solid rgba(0, 0, 0, 0.15)", background: "#f0f0f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: "#666666", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}>
+            <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[declineRef]}>
+              <button ref={declineRef} onClick={onDecline} style={{ padding: "12px 24px", borderRadius: "100px", border: "1px solid rgba(0, 0, 0, 0.15)", background: "#f0f0f0", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: "#333333", letterSpacing: "1px", textTransform: "uppercase", cursor: "pointer", transition: "all 0.2s" }}>
                 Decline
               </button>
             </MetalFx>
-            <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[acceptRef]}>
-              <button ref={acceptRef} onClick={agreed ? onAccept : undefined} disabled={!agreed} style={{ display: "flex", alignItems: "center", gap: 0, borderRadius: "100px", border: "none", overflow: "hidden", background: agreed ? "#0066ff" : "rgba(0,0,0,0.05)", cursor: agreed ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
+            <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[acceptRef]}>
+              <button ref={acceptRef} onClick={agreed ? onAccept : undefined} disabled={!agreed} style={{ display: "flex", alignItems: "center", gap: 0, borderRadius: "100px", border: agreed ? "1px solid rgba(0, 102, 255, 0.35)" : "none", overflow: "hidden", background: agreed ? "linear-gradient(135deg, rgba(0, 102, 255, 0.2) 0%, rgba(0, 102, 255, 0.05) 100%)" : "rgba(0,0,0,0.05)", cursor: agreed ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
                 <span style={{ padding: "12px 20px 12px 24px", fontFamily: "'Space Grotesk', sans-serif", fontSize: "11px", fontWeight: 600, color: agreed ? "#ffffff" : "rgba(0,0,0,0.3)", letterSpacing: "1.2px", textTransform: "uppercase" }}>Continue</span>
-                <span style={{ width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(255,255,255,0.12)", borderRadius: "50%", margin: "3px 3px 3px 0" }}>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                <span style={{ width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", background: agreed ? "rgba(0, 102, 255, 0.3)" : "rgba(0,0,0,0.1)", borderRadius: "50%", margin: "3px 3px 3px 0" }}>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={agreed ? "#ffffff" : "rgba(0,0,0,0.3)"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </span>
               </button>
             </MetalFx>

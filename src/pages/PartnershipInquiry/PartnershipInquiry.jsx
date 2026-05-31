@@ -213,7 +213,7 @@ const PartnershipInquiry = () => {
               </div>
 
               <div className="input-group flex justify-center mt-8">
-                <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[submitRef]}>
+                <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[submitRef]}>
                   <button
                     ref={submitRef}
                     type="submit"

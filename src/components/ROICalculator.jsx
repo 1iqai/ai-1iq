@@ -337,7 +337,7 @@ export default function ROICalculator() {
 
           <div className="roi-cta-block">
             <p className="roi-cta-question">{ctaQuestion}</p>
-            <MetalFx preset="chromatic" strength={0.90} reflectionTargets={[siblingRef]}>
+            <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[siblingRef]}>
               <button ref={siblingRef} onClick={() => navigate("/schedule")} className="roi-cta">
                 See How 1iQ Protects It
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

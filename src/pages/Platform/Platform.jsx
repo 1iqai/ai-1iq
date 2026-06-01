@@ -233,20 +233,6 @@ const Platform = () => {
             </div>
           </div>
 
-          <div className="platform-cta__stats">
-            <div className="cta-stat">
-              <span className="cta-stat__number">$2.4B+</span>
-              <span className="cta-stat__label">Development Capital Protected</span>
-            </div>
-            <div className="cta-stat">
-              <span className="cta-stat__number">87%</span>
-              <span className="cta-stat__label">Risk Detection Accuracy</span>
-            </div>
-            <div className="cta-stat">
-              <span className="cta-stat__number">2x+</span>
-              <span className="cta-stat__label">ROI on Single Avoided Overrun</span>
-            </div>
-          </div>
 
         </div>
       </section>

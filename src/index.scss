@@ -1393,6 +1393,84 @@ section {
   filter: drop-shadow(0 30px 60px rgba(0, 102, 255, 0.15)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
 }
 
+/* Sleek glassmorphic browser window mockup */
+.value-blocks__browser-frame {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 102, 255, 0.25);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.65),
+    0 0 40px rgba(0, 102, 255, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(0, 102, 255, 0.45);
+    box-shadow: 
+      0 40px 80px rgba(0, 0, 0, 0.75),
+      0 0 50px rgba(0, 102, 255, 0.25),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.value-blocks__browser-header {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.value-blocks__browser-dots {
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  left: 16px;
+}
+
+.value-blocks__browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.7;
+
+  &.red { background-color: #ff5f56; }
+  &.yellow { background-color: #ffbd2e; }
+  &.green { background-color: #27c93f; }
+}
+
+.value-blocks__browser-address {
+  margin: 0 auto;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 24px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.value-blocks__video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  outline: none;
+  background: #000;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1000px) {
   .value-blocks__split {
@@ -1409,6 +1487,11 @@ section {
     margin: 0 auto;
   }
 
+  .value-blocks__browser-frame {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
   .value-blocks {
     padding: 80px 24px;
   }
@@ -1420,6 +1503,10 @@ section {
   }
 
   .value-blocks__mockup-img {
+    max-width: 100%;
+  }
+
+  .value-blocks__browser-frame {
     max-width: 100%;
   }
 

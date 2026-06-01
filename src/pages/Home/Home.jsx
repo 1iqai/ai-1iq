@@ -93,15 +93,30 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* RIGHT — multi-device product mockup */}
+              {/* RIGHT — premium video browser mockup */}
               <div className="value-blocks__mockup">
                 <div className="value-blocks__mockup-glow" aria-hidden="true" />
-                <img
-                  src="/assets/img/mockups/MultiDeviceMock.png"
-                  alt="1iQ development intelligence platform across desktop, laptop, tablet, and mobile"
-                  className="value-blocks__mockup-img"
-                  loading="lazy"
-                />
+                <div className="value-blocks__browser-frame">
+                  <div className="value-blocks__browser-header">
+                    <div className="value-blocks__browser-dots">
+                      <span className="value-blocks__browser-dot red" />
+                      <span className="value-blocks__browser-dot yellow" />
+                      <span className="value-blocks__browser-dot green" />
+                    </div>
+                    <div className="value-blocks__browser-address">
+                      1iq.ai/dashboard/intelligence
+                    </div>
+                  </div>
+                  <video
+                    className="value-blocks__video"
+                    src="/assets/video/Real-Time Construction Intelligence Briefing.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                  />
+                </div>
               </div>
 
             </div>

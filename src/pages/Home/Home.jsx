@@ -109,10 +109,9 @@ const Home = () => {
                   </div>
                   <video
                     className="value-blocks__video"
-                    src="/assets/video/Real-Time Construction Intelligence Briefing.mp4"
-                    autoPlay
+                    src="/assets/video/Real-Time%20Construction%20Intelligence%20Briefing.mp4"
+                    preload="metadata"
                     loop
-                    muted
                     playsInline
                     controls
                   />
@@ -263,11 +262,10 @@ const Home = () => {
                   </div>
                 </div>
                 <video
-                  src="/assets/video/38 Story Salvador Brazil.mp4"
+                  src="/assets/video/38%20Story%20Salvador%20Brazil.mp4"
                   className="predictive-engine__video"
-                  autoPlay
+                  preload="metadata"
                   loop
-                  muted
                   playsInline
                   controls
                 />

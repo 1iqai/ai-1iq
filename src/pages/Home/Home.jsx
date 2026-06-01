@@ -483,7 +483,7 @@ const Home = () => {
               <div className="mobile-app-section__mockup">
                 <div className="mobile-app-mockup-container">
                   <img 
-                    src="/assets/img/mockups/mobile-app-mockup.png" 
+                    src="/assets/img/mockups/MultiDeviceMock.png" 
                     alt="1iQ Field mobile app interface showing task tracking and issue reporting"
                     className="mobile-app-mockup-img"
                     loading="lazy"

@@ -97,7 +97,7 @@ const Developer = () => {
       </section>
 
       {/* ── Three Intelligence Layers Section ── */}
-      <section className="intelligence-layers">
+      <section className="intelligence-layers" data-nav-theme="bright">
         <div className="intelligence-layers__inner">
           
           <div className="intelligence-layers__header">
@@ -149,7 +149,7 @@ const Developer = () => {
       </section>
 
       {/* ── ROI Calculator Section ── */}
-      <section className="developer-roi">
+      <section className="developer-roi" data-nav-theme="bright">
         <div className="developer-roi__inner">
           <div className="developer-roi__header">
             <h2 className="developer-roi__title">What Is Your Capital Exposure on This Project?</h2>
@@ -161,7 +161,7 @@ const Developer = () => {
       <ROICalculator />
 
       {/* ── Pricing Section ── */}
-      <section className="developer-pricing">
+      <section className="developer-pricing" data-nav-theme="bright">
         <div className="developer-pricing__inner">
           
           <div className="developer-pricing__header">

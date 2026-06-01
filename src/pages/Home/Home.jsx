@@ -124,7 +124,7 @@ const Home = () => {
         </section>
 
         {/* ── Feasibility Intelligence Section ── */}
-        <section className="feasibility-section">
+        <section className="feasibility-section" data-nav-theme="bright">
           <div className="feasibility-section__inner">
             
             <div className="feasibility-section__header">

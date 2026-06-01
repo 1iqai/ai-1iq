@@ -53,23 +53,27 @@ const Navigation = ({ heroRef }) => {
   }, [heroRef]);
 
   useEffect(() => {
-    const heroElement = heroRef?.current;
-    if (!heroElement) {
-      return;
-    }
+    // Dynamic ScrollTriggers for all sections with data-nav-theme="bright"
+    const brightSections = document.querySelectorAll('[data-nav-theme="bright"]');
+    const triggers = [];
 
-    const logoColorTrigger = ScrollTrigger.create({
-      trigger: heroElement,
-      start: "bottom top+=80",
-      end: "+=1",
-      onEnter: () => setIsLogoOnBrightSection(true),
-      onLeaveBack: () => setIsLogoOnBrightSection(false),
+    brightSections.forEach((section) => {
+      const trigger = ScrollTrigger.create({
+        trigger: section,
+        start: "top top+=80",
+        end: "bottom top+=80",
+        onEnter: () => setIsLogoOnBrightSection(true),
+        onLeave: () => setIsLogoOnBrightSection(false),
+        onEnterBack: () => setIsLogoOnBrightSection(true),
+        onLeaveBack: () => setIsLogoOnBrightSection(false),
+      });
+      triggers.push(trigger);
     });
 
     return () => {
-      logoColorTrigger.kill();
+      triggers.forEach(t => t.kill());
     };
-  }, [heroRef]);
+  }, [location.pathname]);
 
   useEffect(() => {
     return () => {

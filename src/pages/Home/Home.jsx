@@ -12,6 +12,58 @@ import MetalButton from "../../components/Shared/MetalButton/MetalButton";
 
 const Home = () => {
   const heroRef = useRef(null);
+  const briefingVideoRef = useRef(null);
+  const salvadorVideoRef = useRef(null);
+
+  useEffect(() => {
+    const briefingVideo = briefingVideoRef.current;
+    const salvadorVideo = salvadorVideoRef.current;
+
+    const playAndPauseAfterOneSec = (videoElement) => {
+      if (!videoElement) return null;
+
+      // Force muted for browser autoplay policy compliance
+      videoElement.muted = true;
+
+      const handleTimeUpdate = () => {
+        if (videoElement.currentTime >= 1.0) {
+          videoElement.pause();
+          // Unmute so when the viewer plays explicitly, it plays with audio
+          videoElement.muted = false;
+          videoElement.removeEventListener("timeupdate", handleTimeUpdate);
+        }
+      };
+
+      videoElement.addEventListener("timeupdate", handleTimeUpdate);
+
+      // Start playing
+      videoElement.play().catch((err) => {
+        console.log("Video preview autoplay prevented by browser:", err);
+        videoElement.removeEventListener("timeupdate", handleTimeUpdate);
+      });
+
+      return handleTimeUpdate;
+    };
+
+    let briefingListener = null;
+    let salvadorListener = null;
+
+    // Tiny timeout to ensure DOM elements are fully initialized
+    const timer = setTimeout(() => {
+      briefingListener = playAndPauseAfterOneSec(briefingVideoRef.current);
+      salvadorListener = playAndPauseAfterOneSec(salvadorVideoRef.current);
+    }, 150);
+
+    return () => {
+      clearTimeout(timer);
+      if (briefingVideo && briefingListener) {
+        briefingVideo.removeEventListener("timeupdate", briefingListener);
+      }
+      if (salvadorVideo && salvadorListener) {
+        salvadorVideo.removeEventListener("timeupdate", salvadorListener);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -108,9 +160,11 @@ const Home = () => {
                     </div>
                   </div>
                   <video
+                    ref={briefingVideoRef}
                     className="value-blocks__video"
                     src="/assets/video/Real-Time_Construction_Intelligence_Briefing.mp4"
-                    preload="metadata"
+                    preload="auto"
+                    muted
                     loop
                     playsInline
                     controls
@@ -262,9 +316,11 @@ const Home = () => {
                   </div>
                 </div>
                 <video
+                  ref={salvadorVideoRef}
                   src="/assets/video/38_Story_Salvador_Brazil.mp4"
                   className="predictive-engine__video"
-                  preload="metadata"
+                  preload="auto"
+                  muted
                   loop
                   playsInline
                   controls

@@ -498,7 +498,23 @@ const Home = () => {
 
 
 
-
+        {/* Positioning Statement */}
+        <section className="positioning-section">
+          <div className="positioning-section__inner">
+            <p className="positioning-section__eyebrow">DEVELOPMENT INTELLIGENCE INFRASTRUCTURE</p>
+            <div className="positioning-section__statements">
+              <p className="positioning-section__line">Consultants filter information.</p>
+              <p className="positioning-section__line">GC reports arrive weeks late.</p>
+              <p className="positioning-section__line positioning-section__line--highlight">1iQ gives you the unfiltered truth.</p>
+            </div>
+            <a href="/platform" className="positioning-section__cta">
+              Explore the Platform
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </section>
 
 
         <Footer />

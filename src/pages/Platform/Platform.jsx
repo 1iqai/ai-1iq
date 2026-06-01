@@ -200,25 +200,6 @@ const Platform = () => {
 
           </div>
 
-          <div className="developer-roi__summary">
-            <div className="roi-summary__calculation">
-              <div className="roi-calc-item">
-                <span className="roi-calc-label">1iQ Platform Cost (20M Project):</span>
-                <span className="roi-calc-value">$500K</span>
-              </div>
-              <div className="roi-calc-item">
-                <span className="roi-calc-label">Minimum Value Protection:</span>
-                <span className="roi-calc-value">$1M+</span>
-              </div>
-              <div className="roi-calc-item roi-calc-item--result">
-                <span className="roi-calc-label">Net ROI Minimum:</span>
-                <span className="roi-calc-value">2x+</span>
-              </div>
-            </div>
-            <p className="roi-summary__note">
-              Based on single avoided overrun event. Calculations derived from McKinsey, FMI, and Construction Industry Institute research.
-            </p>
-          </div>
 
         </div>
       </section>

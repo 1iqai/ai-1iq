@@ -18,6 +18,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Platform from "./pages/Platform/Platform";
 import Developer from "./pages/Developer/Developer";
+import Pricing from "./pages/Pricing/Pricing";
 import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
 import DemoAppWrapper from "./components/DemoAppWrapper";
@@ -106,6 +107,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/demo/*" element={<DemoAppWrapper />} />
       </Routes>
     </div>

@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "../../components/Navigation";
@@ -107,27 +106,25 @@ const faqs = [
 
 /* ─── Component ─── */
 const Pricing = () => {
-  const navigate = useNavigate();
   const heroRef = useRef(null);
   const pageRef = useRef(null);
   const cardsRef = useRef(null);
   const compRef = useRef(null);
   const faqRef = useRef(null);
-  const [billingCycle, setBillingCycle] = useState("monthly"); // "monthly" | "annual"
+  const [billingCycle, setBillingCycle] = useState("monthly");
   const [openFaq, setOpenFaq] = useState(null);
 
   const getPrice = (tier) => {
     if (tier.price === "$0" || tier.price === "Custom") return tier.price;
     const monthly = parseFloat(tier.price.replace("$", ""));
     if (billingCycle === "annual") {
-      return `$${(monthly * 0.8).toFixed(2)}`;
+      return "$" + (monthly * 0.8).toFixed(2);
     }
     return tier.price;
   };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Stagger-in pricing cards
       if (cardsRef.current) {
         gsap.from(cardsRef.current.querySelectorAll(".pricing-card"), {
           y: 60,
@@ -135,28 +132,18 @@ const Pricing = () => {
           duration: 0.7,
           stagger: 0.15,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 85%",
-          },
+          delay: 0.2,
         });
       }
-
-      // Comparison table fade
       if (compRef.current) {
         gsap.from(compRef.current, {
           y: 40,
           opacity: 0,
           duration: 0.7,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: compRef.current,
-            start: "top 85%",
-          },
+          scrollTrigger: { trigger: compRef.current, start: "top 85%" },
         });
       }
-
-      // FAQ stagger
       if (faqRef.current) {
         gsap.from(faqRef.current.querySelectorAll(".pricing-faq__item"), {
           y: 30,
@@ -164,10 +151,7 @@ const Pricing = () => {
           duration: 0.5,
           stagger: 0.1,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: faqRef.current,
-            start: "top 85%",
-          },
+          scrollTrigger: { trigger: faqRef.current, start: "top 85%" },
         });
       }
     }, pageRef);
@@ -181,9 +165,9 @@ const Pricing = () => {
 
       {/* ── Hero ── */}
       <section ref={heroRef} className="pricing-hero">
-        <div className="pricing-hero__bg" aria-hidden="true" />
-        <div className="pricing-hero__glow pricing-hero__glow--left" aria-hidden="true" />
-        <div className="pricing-hero__glow pricing-hero__glow--right" aria-hidden="true" />
+        <div className="pricing-hero__bg" aria-hidden="true"></div>
+        <div className="pricing-hero__glow pricing-hero__glow--left" aria-hidden="true"></div>
+        <div className="pricing-hero__glow pricing-hero__glow--right" aria-hidden="true"></div>
 
         <div className="pricing-hero__content">
           <div className="pricing-hero__inner">
@@ -202,13 +186,13 @@ const Pricing = () => {
       <section className="pricing-toggle-section">
         <div className="pricing-toggle">
           <button
-            className={`pricing-toggle__btn ${billingCycle === "monthly" ? "pricing-toggle__btn--active" : ""}`}
+            className={"pricing-toggle__btn" + (billingCycle === "monthly" ? " pricing-toggle__btn--active" : "")}
             onClick={() => setBillingCycle("monthly")}
           >
             Monthly
           </button>
           <button
-            className={`pricing-toggle__btn ${billingCycle === "annual" ? "pricing-toggle__btn--active" : ""}`}
+            className={"pricing-toggle__btn" + (billingCycle === "annual" ? " pricing-toggle__btn--active" : "")}
             onClick={() => setBillingCycle("annual")}
           >
             Annual
@@ -223,7 +207,7 @@ const Pricing = () => {
           {tiers.map((tier) => (
             <div
               key={tier.id}
-              className={`pricing-card ${tier.highlight ? "pricing-card--highlight" : ""}`}
+              className={"pricing-card" + (tier.highlight ? " pricing-card--highlight" : "")}
             >
               {tier.badge && <div className="pricing-card__badge">{tier.badge}</div>}
 
@@ -234,7 +218,11 @@ const Pricing = () => {
 
               <div className="pricing-card__price-block">
                 <span className="pricing-card__price">{getPrice(tier)}</span>
-                {tier.period && <span className="pricing-card__period">{billingCycle === "annual" && tier.price !== "$0" ? "/mo (billed annually)" : tier.period}</span>}
+                {tier.period && (
+                  <span className="pricing-card__period">
+                    {billingCycle === "annual" && tier.price !== "$0" ? "/mo (billed annually)" : tier.period}
+                  </span>
+                )}
               </div>
 
               {tier.trial && (
@@ -245,12 +233,12 @@ const Pricing = () => {
                 href={tier.cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`pricing-card__cta ${tier.highlight ? "pricing-card__cta--primary" : ""}`}
+                className={"pricing-card__cta" + (tier.highlight ? " pricing-card__cta--primary" : "")}
               >
                 {tier.cta.label}
               </a>
 
-              <div className="pricing-card__divider" />
+              <div className="pricing-card__divider"></div>
 
               <ul className="pricing-card__features">
                 {tier.features.map((f, i) => (
@@ -308,7 +296,7 @@ const Pricing = () => {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`pricing-faq__item ${openFaq === i ? "pricing-faq__item--open" : ""}`}
+                className={"pricing-faq__item" + (openFaq === i ? " pricing-faq__item--open" : "")}
               >
                 <button
                   className="pricing-faq__question"

@@ -126,33 +126,42 @@ const Pricing = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (cardsRef.current) {
-        gsap.from(cardsRef.current.querySelectorAll(".pricing-card"), {
-          y: 60,
-          opacity: 0,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: "power3.out",
-          delay: 0.2,
-        });
+        gsap.fromTo(cardsRef.current.querySelectorAll(".pricing-card"),
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power3.out",
+            delay: 0.2,
+          }
+        );
       }
       if (compRef.current) {
-        gsap.from(compRef.current, {
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: { trigger: compRef.current, start: "top 85%" },
-        });
+        gsap.fromTo(compRef.current,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: { trigger: compRef.current, start: "top 85%" },
+          }
+        );
       }
       if (faqRef.current) {
-        gsap.from(faqRef.current.querySelectorAll(".pricing-faq__item"), {
-          y: 30,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: { trigger: faqRef.current, start: "top 85%" },
-        });
+        gsap.fromTo(faqRef.current.querySelectorAll(".pricing-faq__item"),
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: faqRef.current, start: "top 85%" },
+          }
+        );
       }
     }, pageRef);
 

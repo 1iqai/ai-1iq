@@ -494,6 +494,7 @@
 .s26 .grow__places span:nth-child(2) i { animation-delay: .6s; }
 .s26 .grow__places span:nth-child(3) i { animation-delay: 1.2s; }
 .s26 .grow__places span:nth-child(4) i { animation-delay: .3s; }
+.s26 .grow__places span:nth-child(5) i { animation-delay: .9s; }
 .s26 .grow__places .grow__more { background: transparent; box-shadow: none; border: 1px dashed var(--blue); color: var(--blue); }
 @keyframes pulse-g { 0% { box-shadow: 0 0 0 0 rgba(15,118,110,.5); } 100% { box-shadow: 0 0 0 8px rgba(15,118,110,0); } }
 @media (max-width: 1000px) {

@@ -530,7 +530,9 @@
 }
 .s26 .logo { perspective: 600px; height: 34px; }
 .s26 .logo__flip { position: relative; display: block; height: 100%; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+@media (hover: hover) and (pointer: fine) {
 .s26 .logo:hover .logo__flip { transform: rotateY(180deg); }
+}
 .s26 .logo__img { display: block; height: 100%; width: auto; transition: opacity .8s ease; }
 .s26 .logo__img--dark { position: absolute; inset: 0; opacity: 0; }
 .s26 .banner.is-light .logo__img--light { opacity: 0; }

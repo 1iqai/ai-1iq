@@ -66,7 +66,7 @@ const ContactUs = () => {
         <CommonHeader
           ref={heroRef}
           title={"Contact Sales"}
-          text={"Ready to transform your business? Let's discuss pricing and implementation."}
+          text={"Ready to transform your business? Let's talk about your projects."}
         ></CommonHeader>
 
         <div className="content-grid">

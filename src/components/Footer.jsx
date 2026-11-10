@@ -62,11 +62,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/pricing" className="hover:text-white transition-colors duration-200 font-light">
-                  Pricing
-                </a>
-              </li>
-              <li>
                 <a href="#" className="hover:text-white transition-colors duration-200 font-light">
                   Case Studies
                 </a>

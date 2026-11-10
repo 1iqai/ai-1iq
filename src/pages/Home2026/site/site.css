@@ -543,4 +543,5 @@
 .s26 .logo__flip, .s26 .logo__img { transition: none; }
 .s26 .logo:hover .logo__flip { transform: none; }
 }
+.s26 .logo-inline { display: inline-block; height: .9em; width: auto; vertical-align: -0.08em; margin-left: .06em; }
 body.s26-body { background: #F6F5F2; }

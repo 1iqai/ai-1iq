@@ -17,7 +17,6 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
 const LoadingScreen = lazy(() => import("./components/LoadingScreen/LoadingScreen"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
-const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
 import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
 const DemoAppWrapper = lazy(() => import("./components/DemoAppWrapper"));
@@ -111,6 +110,7 @@ function App() {
         {/* <Route path="/core-field" element={<CoreField />} />
         <Route path="/intelligence" element={<Intelligence />} /> */}
         <Route path="/contact-us" element={<Navigate to="/schedule" replace />} />
+        <Route path="/pricing" element={<Navigate to="/" replace />} />
         <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
         <Route path="/builder-application" element={<BuilderForm />} />
         <Route path="/get-started" element={<GetStarted />} />
@@ -118,7 +118,6 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
-        <Route path="/pricing" element={<Pricing />} />
         <Route path="/demo/*" element={<DemoAppWrapper />} />
       </Routes>
       </Suspense>

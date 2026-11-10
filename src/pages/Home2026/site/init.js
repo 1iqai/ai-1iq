@@ -129,7 +129,7 @@ export function init(root) {
   const heroEl = $("top"), heroA = $("heroa"), heroB = $("herob"), cue = $("cue"), shade = $("shade"), heroFade = $("herofade");
   const wrapWords = (el) => { el.innerHTML = el.textContent.trim().split(/\s+/).map((w) => `<span class="w">${w}</span> `).join(""); return [...el.querySelectorAll(".w")]; };
   const stWords = wrapWords($("statement"));
-  ["Finish", "date,", "cost", "risk,"].forEach((t) => stWords.filter((w) => w.textContent === t).forEach((w) => w.classList.add("w--blue")));
+  [["live", "model"], ["trust,"], ["on", "site."], ["time", "to", "fix", "them."]].forEach((ph) => stWords.forEach((w, i) => { if (ph.every((t, k) => stWords[i + k]?.textContent === t)) ph.forEach((_, k) => stWords[i + k].classList.add("w--blue")); }));
   const wordHeads = [...document.querySelectorAll(".words")].map((el) => [el, wrapWords(el)]);
   const gapItems = [...document.querySelectorAll(".gapitem")];
   const qimg = $("quoteimg");

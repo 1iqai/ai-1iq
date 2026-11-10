@@ -520,4 +520,12 @@
 .s26 .grow__places span.is-leaving { opacity: 0; transform: scale(.9); transition: opacity .5s, transform .5s; }
 .s26 .grow__places span { will-change: transform; }
 .s26 .grow__note { margin-top: 10px; font: 500 10.5px/1.4 var(--mono); letter-spacing: .04em; color: var(--dis); }
+.s26 .grow__why { margin-top: 20px; padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--blue) 20%, transparent); }
+.s26 .grow__why p { margin-top: 8px; font: 500 16px/1.45 var(--display); letter-spacing: -.01em; color: var(--ink); max-width: 52ch; }
+.s26 .grow__pts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.s26 .grow__pts span { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 8px; background: var(--card); font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+.s26 .grow__pts b { font: 600 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+@media (max-width: 640px) {
+.s26 .grow__pts { grid-template-columns: minmax(0, 1fr); }
+}
 body.s26-body { background: #F6F5F2; }

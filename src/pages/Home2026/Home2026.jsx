@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import markup from "./site/markup.html?raw";
 import "./site/site.css";
+import faq from "./site/faq.ld.json";
 
 /**
  * 1iq.ai home page (Nov 2026), in the style of terminal-industries.com with the 1iQ app's own colours and fonts.
@@ -27,7 +28,12 @@ const Home2026 = () => {
       navigate(a.getAttribute("href"));
     };
     el.addEventListener("click", onClick);
+    // FAQ structured data, so search engines can show the questions and answers
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json"; ld.id = "faq-ld"; ld.textContent = JSON.stringify(faq);
+    document.head.appendChild(ld);
     return () => {
+      ld.remove();
       cancelled = true;
       el.removeEventListener("click", onClick);
       cleanup();

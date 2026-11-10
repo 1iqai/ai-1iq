@@ -13,6 +13,9 @@ import faq from "./site/faq.ld.json";
 const Home2026 = () => {
   const root = useRef(null);
   const navigate = useNavigate();
+  // keep the latest navigate in a ref: its identity changes with the URL, and re-running the effect would tear the page down
+  const nav = useRef(navigate);
+  nav.current = navigate;
 
   useEffect(() => {
     const el = root.current;
@@ -22,10 +25,22 @@ const Home2026 = () => {
       if (!cancelled) cleanup = m.init(el);
     });
     const onClick = (e) => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      // in page anchors (#top, #contact, ...) scroll here without touching the URL, so the router never re-renders the page
+      const hash = e.target.closest("a[href^='#']");
+      if (hash) {
+        e.preventDefault();
+        const id = hash.getAttribute("href").slice(1);
+        const target = id === "top" ? null : el.querySelector("#" + CSS.escape(id));
+        const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const top = target ? target.getBoundingClientRect().top + window.scrollY : 0;
+        window.scrollTo({ top, behavior: smooth ? "smooth" : "auto" });
+        return;
+      }
       const a = e.target.closest("a[href^='/']");
-      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || a.target === "_blank") return;
+      if (!a || a.target === "_blank") return;
       e.preventDefault();
-      navigate(a.getAttribute("href"));
+      nav.current(a.getAttribute("href"));
     };
     el.addEventListener("click", onClick);
     // FAQ structured data, so search engines can show the questions and answers
@@ -38,7 +53,7 @@ const Home2026 = () => {
       el.removeEventListener("click", onClick);
       cleanup();
     };
-  }, [navigate]);
+  }, []);
 
   return <div className="s26" ref={root} dangerouslySetInnerHTML={{ __html: markup }} />;
 };

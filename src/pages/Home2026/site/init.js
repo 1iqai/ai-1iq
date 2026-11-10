@@ -277,6 +277,29 @@ export function init(root) {
     IO(([e]) => { on = e.isIntersecting; loop(); }).observe(cw);
   })();
 
+  // the live data network: a market from the list below moves up and joins the network, then the loop starts again
+  (() => {
+    const top = $("growtop"), bot = $("growbot"); if (!top || !bot) return;
+    const joined = [];
+    const flip = (el, to, before) => {
+      const a = el.getBoundingClientRect(); before && before(); to.appendChild(el); const b = el.getBoundingClientRect();
+      el.style.transition = "none"; el.style.transform = `translate(${a.left - b.left}px, ${a.top - b.top}px)`;
+      el.getBoundingClientRect(); el.style.transition = "transform .9s cubic-bezier(.23,1,.32,1), background-color .4s, box-shadow .4s, color .4s"; el.style.transform = "";
+    };
+    const step = () => {
+      if (joined.length >= 4) { // reset: the joined markets fade out and go back to the list
+        joined.forEach((el) => el.classList.add("is-leaving"));
+        later(() => { joined.splice(0).forEach((el) => { el.classList.remove("is-leaving", "is-joined"); el.style.transition = "none"; bot.appendChild(el); }); }, 600);
+        return;
+      }
+      const el = bot.querySelector("span.is-next:not(.is-joined)"); if (!el) return;
+      flip(el, top, () => el.classList.add("is-joined")); joined.push(el);
+    };
+    let on = false, t = 0;
+    const loop = () => { clearTimeout(t); if (!on || reduce) return; t = later(() => { step(); loop(); }, 2200); };
+    IO(([e]) => { on = e.isIntersecting; loop(); }).observe(top);
+  })();
+
   /* ---------- the live 3D building: a 22-storey tower under construction, physically lit */
   const scene3 = $("scene"), cv = $("bldg");
   if (!THREE) { scene3.insertAdjacentHTML("beforeend", '<div class="scene__fallback">The 3D building could not load here.</div>'); return; }

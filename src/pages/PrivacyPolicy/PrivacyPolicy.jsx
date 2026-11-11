@@ -14,36 +14,108 @@ const PrivacyPolicy = () => {
 
     const policiesData = [
         {
-            title: "1. Information Collection",
-            content: "We collect information you provide directly to us, such as when you create an account, subscribe to our newsletter, or contact us for support. This may include your name, email address, phone number, and company information."
+            "title": "1. Who we are",
+            "content": [
+                "1iQ LLC, a Wyoming limited liability company (\"1iQ\", \"we\", \"us\"), provides the 1iQ platform: the web app at app.1iq.ai, the 1iQ mobile apps and this website (together, the \"Service\").",
+                "This policy explains what information we collect, why we collect it, who we share it with and the choices you have. Questions go to admin@1iq.ai."
+            ]
         },
         {
-            title: "2. Use of Information",
-            content: "We use the information we collect to provide, maintain, and improve our services, to process your transactions, to send you technical notices and support messages, and to communicate with you about products, services, offers, and events."
+            "title": "2. Your company's data",
+            "content": [
+                "When a company uses 1iQ, that company controls the project information its people put into the Service: schedules, budgets, tasks, issues, comments, photos and files. We process that information on the company's behalf and under our agreement with it.",
+                "If you use 1iQ through your employer, or because you were invited to a project, you can send questions about that project information to that company. We will help them answer you."
+            ]
         },
         {
-            title: "3. Data Sharing",
-            content: "We do not share your personal information with third parties except as described in this policy. We may share your information with third-party vendors, consultants, and other service providers who need access to such information to carry out work on our behalf."
+            "title": "3. What we collect",
+            "content": [
+                "Account information: your name, email address, phone number if you give one, company, role and profile photo.",
+                "Project information that you or your team enter: project names and site addresses, schedules, budgets, change orders, draws, tasks and their progress, issues, comments, photos and files.",
+                "Field activity: when a task is started, finished, checked or corrected in the mobile app, the time and who did it. The mobile app does not track your location. A project's location is the site address entered for the project.",
+                "Connected services: if your company connects Procore, the schedule and budget information 1iQ reads from Procore and the access tokens needed to do so, which we store encrypted.",
+                "Device and usage information: push notification tokens for your devices, browser and device type, log data such as IP address, pages visited, actions and times, and product analytics about how features are used.",
+                "Messages you send us, such as support requests and contact or partnership forms."
+            ]
         },
         {
-            title: "4. Data Security",
-            content: "We take reasonable measures to help protect information about you from loss, theft, misuse and unauthorized access, disclosure, alteration and destruction. We use industry-standard encryption and security protocols."
+            "title": "4. How we use it",
+            "content": [
+                "To provide and run the Service: schedules, forecasts, Site Watch alerts, budgets and draws, reports, notifications and the 1iQ assistant.",
+                "To keep accounts and data secure: sign in, two step sign in, bot checks, rate limits and detecting misuse.",
+                "To support you, to tell you about the Service, security and changes to these policies, and to improve the Service using aggregated usage information.",
+                "To meet legal obligations.",
+                "We do not sell personal information, and we do not share it for advertising."
+            ]
         },
         {
-            title: "5. User Rights",
-            content: "You have the right to access, correct, or delete your personal information. You may also object to the processing of your personal information or request that we restrict the processing of your personal information."
+            "title": "5. AI features",
+            "content": [
+                "The 1iQ assistant, the schedule generator, reports and other AI features send the project information needed for a request to our AI provider, Anthropic, to produce the answer. Under Anthropic's commercial terms, that information is not used to train its models. Anthropic may keep it for a limited period for safety and abuse monitoring.",
+                "We do not use your company's data to train AI models. AI features suggest; they do not change a schedule unless a person approves the change."
+            ]
         },
         {
-            title: "6. Cookies and Tracking",
-            content: "We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent."
+            "title": "6. Public data services",
+            "content": [
+                "To show weather, site hazards, cost escalation and local news for a project, 1iQ sends the project's location (city or site address) to public data services such as MET Norway, NASA POWER, OpenStreetMap, the US Census geocoder, USGS, FEMA, ThinkHazard!, the World Bank and the IMF. We send the location only, not your name or your project details."
+            ]
         },
         {
-            title: "7. Third-Party Links",
-            content: "Our Service may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit."
+            "title": "7. Who we share it with",
+            "content": [
+                "Your company and the people on your projects, according to the roles your company gives them. For example, an owner given viewer access sees what the project manager shares.",
+                "Service providers that run parts of the Service for us, who may use the information only to provide their service to us: Amazon Web Services (United States) for hosting, file storage, sign in and email; MongoDB Atlas (United States) for the database; Anthropic (United States) for AI features; Google Firebase (United States) for mobile push notifications; Cloudflare (United States) for bot checks at sign in; Amplitude (United States) for product analytics; Twilio SendGrid (United States) for email; and Procore (United States) only when your company connects it.",
+                "Others when the law requires it, to protect the rights and safety of our users or the public, or as part of a merger, acquisition or sale of our business, in which case we will tell affected customers."
+            ]
         },
         {
-            title: "8. Contact Us",
-            content: "If you have any questions about this Privacy Policy, please contact us at privacy@1iq.ai."
+            "title": "8. Where it is stored and how we protect it",
+            "content": [
+                "We store data in the United States. If you use 1iQ from another country, your information is transferred to and processed in the United States.",
+                "Data is encrypted in transit (TLS 1.2 or higher) and at rest. Each company's data is kept separate from other companies', access follows each person's role, administrators can use two step sign in, and the database is backed up every night to encrypted storage.",
+                "No system is perfectly secure. If a breach affects your information, we will notify the affected customers as the law requires."
+            ]
+        },
+        {
+            "title": "9. How long we keep it",
+            "content": [
+                "We keep account and project information while your company's account is active. When a company closes its account or asks us to, we delete its project information within 90 days, except copies in backups, which expire on their own within 35 days, and anything the law requires us to keep.",
+                "Log data is kept for a limited period for security and troubleshooting."
+            ]
+        },
+        {
+            "title": "10. Your choices and rights",
+            "content": [
+                "You can update your profile in the Service at any time, and you can delete your account from the mobile app or by writing to us. You can ask us for a copy of your personal information, or ask us to correct or delete it, by writing to admin@1iq.ai. For project information your company controls, we will work with your company to respond. We will confirm your identity before acting on a request.",
+                "California residents have the right to know what personal information we collect and how we use and share it, and to request access, correction and deletion. We do not sell or share personal information for advertising and do not use sensitive personal information beyond providing the Service. We will not treat you differently for using these rights. You may use an authorized agent.",
+                "If you are in the European Economic Area, the United Kingdom or Brazil, you also have rights under the GDPR, the UK GDPR or the LGPD, including the right to object and to complain to your data protection authority. We rely on our contract with your company, our legitimate interest in running and securing the Service, your consent where we ask for it, and legal obligations.",
+                "We answer requests within 45 days, or sooner where the law requires."
+            ]
+        },
+        {
+            "title": "11. Cookies",
+            "content": [
+                "We use essential cookies to keep you signed in securely; the Service does not work without them. We use product analytics to understand which features are used. We do not use advertising cookies. You can control cookies in your browser settings."
+            ]
+        },
+        {
+            "title": "12. Children",
+            "content": [
+                "The Service is for businesses and is not directed to children under 16. We do not knowingly collect their personal information."
+            ]
+        },
+        {
+            "title": "13. Changes to this policy",
+            "content": [
+                "We will post any change on this page with a new date. If a change is significant, we will tell customers by email or in the Service before it takes effect."
+            ]
+        },
+        {
+            "title": "14. Contact us",
+            "content": [
+                "1iQ LLC, admin@1iq.ai"
+            ]
         }
     ];
 
@@ -78,7 +150,7 @@ const PrivacyPolicy = () => {
             <CommonHeader
                 ref={heroRef}
                 title="Privacy Policy"
-                text="Last Updated: November 19, 2025"
+                text="Last updated: November 11, 2026"
             />
 
             {/* Content Section */}
@@ -97,9 +169,11 @@ const PrivacyPolicy = () => {
                                     </h2>
                                 </div>
                                 <div className="md:col-span-8">
-                                    <p className="text-lg md:text-xl text-neutral-400 leading-relaxed font-light">
-                                        {policy.content}
-                                    </p>
+                                    {(policy.content || []).map((para, i) => (
+                                        <p key={i} className="text-lg md:text-xl text-neutral-400 leading-relaxed font-light mb-5 last:mb-0">
+                                            {para}
+                                        </p>
+                                    ))}
                                 </div>
                             </div>
                         ))}

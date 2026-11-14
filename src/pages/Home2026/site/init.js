@@ -310,6 +310,43 @@ export function init(root) {
     paint();
   })();
 
+  /* ---------- Linked tasks: "Move all 9" pulls the forecast on the chart back in from Aug 3 to Jul 27 */
+  (() => {
+    const win = $("dwin"), line = $("fcline"), mark = $("fcmark"), text = $("fctext");
+    if (!win || !line) return;
+    const acts = $("dwinacts"), fc = $("dwinfc"), fcB = fc.querySelector("b");
+    const ease = (t) => { t = Math.max(0, Math.min(1, t)); return t * t * (3 - 2 * t); };
+    const X0 = 44, Y0 = 20, PW = 576, PH = 240, T0 = 0.6, A = 0.985 * ease((T0 - 0.02) / 0.96);
+    let mv = null, m = 0, raf = 0;
+    const time = () => { try { return new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date()); } catch { return ""; } };
+    // the forecast runs from today's point to the finish; the finish slides between Aug 3 (m = 0) and Jul 27 (m = 1)
+    const draw = () => {
+      const E = 0.98 - 0.12 * ease(m), f = (t) => ease((t - 0.02) / (E - 0.02)), f0 = f(T0), pts = [];
+      for (let i = 24; i <= 40; i++) { const t = i / 40, v = A + (f(t) - f0) * (1 - A) / (1 - f0); pts.push(`${(X0 + PW * t).toFixed(1)},${(Y0 + PH * (1 - Math.min(1, v))).toFixed(1)}`); }
+      const x = X0 + PW * E, onPlan = m > 0.98, col = onPlan ? "#0F766E" : "#C2410C", day = 3 - Math.round(7 * ease(m));
+      line.setAttribute("points", pts.join(" ")); line.setAttribute("stroke", col);
+      mark.setAttribute("x1", x.toFixed(1)); mark.setAttribute("x2", x.toFixed(1)); mark.setAttribute("stroke", col);
+      text.setAttribute("x", (x - 6).toFixed(1)); text.style.fill = col;
+      text.textContent = `FORECAST ${day >= 1 ? "AUG " + day : "JUL " + (31 + day)}${onPlan ? " · ON PLAN" : ""}`;
+    };
+    const glide = (to) => {
+      cancelAnimationFrame(raf);
+      if (reduce) { m = to; draw(); return; }
+      const from = m, t0 = performance.now();
+      const step = (now) => { const k = Math.min(1, (now - t0) / 700); m = from + (to - from) * k; draw(); if (k < 1 && alive) raf = requestAnimationFrame(step); };
+      raf = requestAnimationFrame(step);
+    };
+    const paint = () => {
+      win.classList.toggle("is-moved", !!mv); win.classList.toggle("is-all", mv === "all");
+      fc.hidden = !mv; fcB.textContent = mv === "all" ? "Aug 3 → Jul 27" : "Aug 3, no change";
+      acts.innerHTML = !mv
+        ? '<button type="button" class="dbtn" data-act="one">Only this task</button><button type="button" class="dbtn dbtn--pri" data-act="all">Move all 9</button>'
+        : `<span class="dstamp${mv === "one" ? " dstamp--kept" : ""}">${mv === "all" ? "9 tasks moved · " + time() : "Only this task moved"}</span><button type="button" class="dlink" data-act="undo">Undo</button>`;
+    };
+    const onClick = (e) => { const a = e.target.closest("[data-act]"); if (!a) return; mv = a.dataset.act === "undo" ? null : a.dataset.act; paint(); glide(mv === "all" ? 1 : 0); };
+    acts.addEventListener("click", onClick, { signal: ctl.signal });
+  })();
+
 
   })();
   return cleanup;

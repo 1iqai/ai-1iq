@@ -1,7 +1,5 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { MetalFx } from "metal-fx";
-import "./ROICalculator.css";
 
 // ─── Formatting helpers ───────────────────────────────────────────────────────
 const fmt = (n) =>
@@ -17,7 +15,7 @@ const ASSET_CLASSES = [
   { value: "multifamily",   label: "Multifamily",            avgDelayMonths: 2.8, overrunRate: 0.21 },
   { value: "hospitality",   label: "Hospitality",            avgDelayMonths: 4.6, overrunRate: 0.28 },
   { value: "industrial",    label: "Industrial & Logistics",  avgDelayMonths: 2.4, overrunRate: 0.18 },
-  { value: "mixed-use",     label: "Mixed-Use",              avgDelayMonths: 3.5, overrunRate: 0.25 },
+  { value: "mixed-use",     label: "Mixed use",              avgDelayMonths: 3.5, overrunRate: 0.25 },
   { value: "data-center",   label: "Data Centers",           avgDelayMonths: 5.2, overrunRate: 0.32 },
   { value: "commercial",    label: "Commercial",             avgDelayMonths: 3.1, overrunRate: 0.22 },
   { value: "other",         label: "Other",                  avgDelayMonths: 3.3, overrunRate: 0.23 },
@@ -41,9 +39,9 @@ const getGeoTier = (location) => {
 
 const GEO_RISK_MULTIPLIERS = { 1: 1.0, 2: 1.25, 3: 1.55 };
 const GEO_RISK_LABELS = {
-  1: { label: "Established Market", color: "#22c55e", desc: "Standard baseline risk assumptions applied." },
-  2: { label: "High-Growth Market",  color: "#f59e0b", desc: "Elevated permitting and labor variance factored in." },
-  3: { label: "Emerging Market",     color: "#ef4444", desc: "Enhanced supply chain and regulatory risk applied." },
+  1: { label: "Established market", color: "#0F766E", desc: "Standard baseline risk assumptions applied." },
+  2: { label: "High growth market",  color: "#57544E", desc: "Elevated permitting and labor variance factored in." },
+  3: { label: "Emerging market",     color: "#C2410C", desc: "Enhanced supply chain and regulatory risk applied." },
 };
 
 // ─── Core calculation engine ──────────────────────────────────────────────────
@@ -112,7 +110,6 @@ function Slider({ label, sublabel, value, min, max, step, onChange, format }) {
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function ROICalculator() {
   const navigate = useNavigate();
-  const siblingRef = useRef(null);
 
   const [assetClass, setAssetClass] = useState("multifamily");
   const [location, setLocation] = useState("");
@@ -139,22 +136,15 @@ export default function ROICalculator() {
     : "Your highest exposure is budget overrun risk. How does 1iQ surface variance before it hits your ledger?";
 
   return (
-    <section id="roi-calculator" className="roi-section">
-      <div className="roi-section__header">
-        <h2 className="roi-section__title">What is your capital exposure on this project?</h2>
-        <p className="roi-section__subtitle">
-          Enter your project constraints. See your real risk exposure — built on your numbers, not industry averages.
-        </p>
-      </div>
-
+    <div id="roi-calculator" className="roi-section">
       <div className="roi-layout">
 
         {/* ── Left: Inputs ── */}
         <div className="roi-inputs">
-          <p className="roi-inputs__label">YOUR PROJECT</p>
+          <p className="roi-inputs__label">Your project</p>
 
           <div className="roi-field">
-            <label className="roi-field__label">Asset Class</label>
+            <label className="roi-field__label">Asset class</label>
             <div className="roi-asset-grid">
               {ASSET_CLASSES.map((a) => (
                 <button
@@ -170,7 +160,7 @@ export default function ROICalculator() {
           </div>
 
           <div className="roi-field">
-            <label className="roi-field__label">Project Location</label>
+            <label className="roi-field__label">Project location</label>
             <div className="roi-location-wrap">
               <input
                 type="text"
@@ -192,14 +182,14 @@ export default function ROICalculator() {
           </div>
 
           <Slider
-            label="Total Project Budget"
+            label="Total project budget"
             value={projectBudget} min={5_000_000} max={200_000_000} step={5_000_000}
             onChange={setProjectBudget}
             format={(v) => v >= 1_000_000 ? `$${(v / 1_000_000).toFixed(0)}M` : `$${v / 1_000}K`}
           />
 
           <Slider
-            label="Construction Timeline" sublabel="months"
+            label="Construction timeline" sublabel="months"
             value={timelineMonths} min={6} max={60} step={1}
             onChange={setTimelineMonths}
             format={(v) => `${v} months`}
@@ -211,7 +201,7 @@ export default function ROICalculator() {
               onClick={() => setShowFinancing(!showFinancing)}
               type="button"
             >
-              <span className="roi-financing__toggle-icon">{showFinancing ? "−" : "+"}</span>
+              <span className="roi-financing__toggle-icon">{showFinancing ? "×" : "+"}</span>
               <span className="roi-financing__toggle-label">
                 {showFinancing ? "Hide financing details" : "Add your financing details for a precise estimate"}
               </span>
@@ -220,38 +210,38 @@ export default function ROICalculator() {
             {showFinancing && (
               <div className="roi-financing__panel">
                 <Slider
-                  label="Construction Loan Amount"
+                  label="Construction loan amount"
                   value={loanAmount} min={1_000_000} max={150_000_000} step={1_000_000}
                   onChange={setLoanAmount}
                   format={(v) => v >= 1_000_000 ? `$${(v / 1_000_000).toFixed(0)}M` : `$${v / 1_000}K`}
                 />
                 <Slider
-                  label="Annual Interest Rate" sublabel="construction loan"
+                  label="Annual interest rate" sublabel="construction loan"
                   value={interestRate} min={4} max={15} step={0.25}
                   onChange={setInterestRate}
                   format={(v) => `${v.toFixed(2)}%`}
                 />
                 <Slider
-                  label="Monthly Property Taxes"
+                  label="Monthly property taxes"
                   value={monthlyTaxes} min={1_000} max={50_000} step={500}
                   onChange={setMonthlyTaxes}
                   format={(v) => `$${(v / 1_000).toFixed(0)}K`}
                 />
                 <Slider
-                  label="Monthly Insurance" sublabel="builder's risk + general liability"
+                  label="Monthly insurance" sublabel="builder's risk and general liability"
                   value={monthlyInsurance} min={1_000} max={30_000} step={500}
                   onChange={setMonthlyInsurance}
                   format={(v) => `$${(v / 1_000).toFixed(0)}K`}
                 />
                 <Slider
-                  label="Monthly Operating Overhead" sublabel="staff, consultants, site costs"
+                  label="Monthly operating overhead" sublabel="staff, consultants, site costs"
                   value={monthlyOverhead} min={5_000} max={100_000} step={1_000}
                   onChange={setMonthlyOverhead}
                   format={(v) => `$${(v / 1_000).toFixed(0)}K`}
                 />
                 <div className="roi-carrying-cost">
                   <div className="roi-carrying-cost__row">
-                    <span className="roi-carrying-cost__label">Your Monthly Carrying Cost</span>
+                    <span className="roi-carrying-cost__label">Your monthly carrying cost</span>
                     <span className="roi-carrying-cost__value">{fmt(results.monthlyCarryingCost)}/mo</span>
                   </div>
                   <div className="roi-carrying-cost__breakdown">
@@ -268,7 +258,7 @@ export default function ROICalculator() {
           <p className="roi-inputs__footnote">
             Risk profiles sourced from FMI Q4 2025 Construction Outlook, KPMG Global
             Construction Survey 2025, and CII Research Report 386.{" "}
-            <a href="/platform" className="roi-inputs__link">See full methodology →</a>
+            
           </p>
         </div>
 
@@ -288,7 +278,7 @@ export default function ROICalculator() {
               <p className="roi-stat__label">
                 Delay risk exposure
                 <span className="roi-stat__source">
-                  {results.adjustedDelayMonths} avg months slippage{hasLocation ? ` · ${location.split(",")[0]}` : ""}
+                  {results.adjustedDelayMonths} months average slip{hasLocation ? ` · ${location.split(",")[0]}` : ""}
                 </span>
               </p>
             </div>
@@ -306,14 +296,14 @@ export default function ROICalculator() {
               <span className="roi-stat__number roi-stat__number--sm">{fmt(results.earlyWarningValue)}</span>
               <p className="roi-stat__label">
                 Early warning value
-                <span className="roi-stat__source">Avg 4.2 weeks earlier detection · CII 2025</span>
+                <span className="roi-stat__source">Detection 4.2 weeks earlier on average · CII 2025</span>
               </p>
             </div>
             <div className="roi-stat roi-stat--secondary">
               <span className="roi-stat__number roi-stat__number--sm">{fmt(results.feasibilitySavings)}</span>
               <p className="roi-stat__label">
                 Feasibility intelligence savings
-                <span className="roi-stat__source">vs $50K–$200K consultant study</span>
+                <span className="roi-stat__source">against a $50K to $200K consultant study</span>
               </p>
             </div>
           </div>
@@ -321,35 +311,28 @@ export default function ROICalculator() {
           <div className={`roi-sensitivity roi-sensitivity--${results.geoTier === 1 ? "moderate" : results.geoTier === 2 ? "elevated" : "high"}`}>
             <div className="roi-sensitivity__header">
               <span className="roi-sensitivity__icon">
-                {results.geoTier === 1 ? "◈" : results.geoTier === 2 ? "⚠" : "⚑"}
+                ■
               </span>
               <span className="roi-sensitivity__title">
-                {results.geoTier === 1 ? "MODERATE EXPOSURE" : results.geoTier === 2 ? "ELEVATED EXPOSURE" : "HIGH EXPOSURE"}
+                {results.geoTier === 1 ? "Moderate exposure" : results.geoTier === 2 ? "Elevated exposure" : "High exposure"}
               </span>
             </div>
             <p className="roi-sensitivity__desc">
               {results.monthlyCarryingCost > 0
-                ? `A 6-week schedule slippage on this project represents ${fmt(Math.round(results.monthlyCarryingCost * 1.5))} in carrying costs alone — before any budget overrun.`
-                : `Based on your ${results.assetLabel.toLowerCase()} asset class and ${hasLocation ? location : "selected market"}, your project carries ${results.geoTier === 1 ? "standard" : results.geoTier === 2 ? "above-average" : "elevated"} execution risk exposure.`
+                ? `A 6 week schedule slip on this project represents ${fmt(Math.round(results.monthlyCarryingCost * 1.5))} in carrying costs alone, before any budget overrun.`
+                : `Based on your ${results.assetLabel.toLowerCase()} asset class and ${hasLocation ? location : "selected market"}, your project carries ${results.geoTier === 1 ? "standard" : results.geoTier === 2 ? "above average" : "elevated"} execution risk exposure.`
               }
             </p>
           </div>
 
           <div className="roi-cta-block">
             <p className="roi-cta-question">{ctaQuestion}</p>
-            <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[siblingRef]}>
-              <button ref={siblingRef} onClick={() => navigate("/schedule")} className="roi-cta">
-                See How 1iQ Protects It
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-            </MetalFx>
-            <p className="roi-cta-note">30-minute private briefing. No commitment required.</p>
+            <button type="button" onClick={() => navigate("/schedule")} className="pill pill--blue pill--lg">See how 1iQ protects it</button>
+            <p className="roi-cta-note">A private 30 minute briefing. No commitment required.</p>
           </div>
 
         </div>
       </div>
-    </section>
+    </div>
   );
 }

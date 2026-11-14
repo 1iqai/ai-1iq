@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import markup from "./site/markup.html?raw";
 import "./site/site.css";
+import "./site/site-draft.css";
 import faq from "./site/faq.ld.json";
 
 /**
- * 1iq.ai home page (Nov 2026), in the style of terminal-industries.com with the 1iQ app's own colours and fonts.
- * The page is the approved mock: its markup lives in ./site/markup.html and its behaviour (3D tower, scroll story,
- * agent cards, calculator, booking form) in ./site/init.js, loaded after first paint so three.js never blocks it.
+ * 1iq.ai home page (Nov 2026), drawn like the 1iQ app: paper, hairlines, mono labels and numbered sheets.
+ * Its markup lives in ./site/markup.html, its look in site.css plus site-draft.css, and its behaviour (the high rise
+ * and its scroll story, Decide now, agent cards, calculator, booking form) in ./site/init.js, loaded after first paint.
  * Links that start with "/" go through the router; everything else (anchors, the app sign in) behaves normally.
  */
 const Home2026 = () => {
@@ -22,7 +23,12 @@ const Home2026 = () => {
     let cleanup = () => {};
     let cancelled = false;
     import("./site/init.js").then((m) => {
-      if (!cancelled) cleanup = m.init(el);
+      if (cancelled) return;
+      cleanup = m.init(el);
+      // arriving from another page with a section in the address (/#estimate): go to it once the page is laid out
+      const id = window.location.hash.slice(1);
+      const target = id && el.querySelector("#" + CSS.escape(id));
+      if (target) setTimeout(() => { if (!cancelled) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY, behavior: "auto" }); }, 350);
     });
     const onClick = (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey) return;

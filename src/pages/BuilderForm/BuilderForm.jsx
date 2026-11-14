@@ -1,13 +1,8 @@
-import React, { useRef, useState } from "react";
-import Navigation from "../../components/Navigation";
-import CommonHeader from "../../components/Shared/CommonHeader/CommonHeader";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Footer from "../../components/Shared/Footer/Footer";
-import { MetalFx } from "metal-fx";
+import { DraftPage, PageHero } from "../../components/Draft/DraftPage";
 
 const BuilderForm = () => {
-  const heroRef = useRef(null);
-  const submitRef = useRef(null);
   const [status, setStatus] = useState("");
 
   const {
@@ -60,16 +55,13 @@ const BuilderForm = () => {
   };
 
   return (
-    <>
-      <div className="app relative w-full overflow-x-hidden">
-        <Navigation heroRef={heroRef} />
-        <CommonHeader ref={heroRef} title={"Builder Inquiry"} text={"Tell us about your project and how we can help."} />
-
-        <div className="content-grid">
-          <div className="wrapper">
-            <form className="form" noValidate onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex gap-6">
-                <div className="input-group flex-1">
+    <DraftPage>
+      <PageHero narrow sheet="Sheet F2 · Builder inquiry" note="Fields marked * are needed" kicker="Developer program" title="Builder inquiry." lead="Tell us about your project and how we can help." />
+      <section className="d-sec">
+        <div className="wrap">
+            <form className="p-form p-form--wide" noValidate onSubmit={handleSubmit(onSubmit)}>
+              <>
+                <div className="p-field p-field--half">
                   <label htmlFor="firstName">
                     First Name <span className="required">*</span>
                   </label>
@@ -82,7 +74,7 @@ const BuilderForm = () => {
                   {errors.firstName && <p className="error-message">{errors.firstName.message}</p>}
                 </div>
 
-                <div className="input-group flex-1">
+                <div className="p-field p-field--half">
                   <label htmlFor="lastName">
                     Last Name <span className="required">*</span>
                   </label>
@@ -94,9 +86,9 @@ const BuilderForm = () => {
                   />
                   {errors.lastName && <p className="error-message">{errors.lastName.message}</p>}
                 </div>
-              </div>
+              </>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="email">
                   Email <span className="required">*</span>
                 </label>
@@ -115,7 +107,7 @@ const BuilderForm = () => {
                 {errors.email && <p className="error-message">{errors.email.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="phone">Phone</label>
                 <input
                   {...register("phone", {
@@ -131,13 +123,13 @@ const BuilderForm = () => {
                 {errors.phone && <p className="error-message">{errors.phone.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="location">Location</label>
                 <input {...register("location")} id="location" type="text" />
               </div>
 
-              <div className="input-group">
-                <label htmlFor="website">Website / Portfolio</label>
+              <div className="p-field">
+                <label htmlFor="website">Website or portfolio</label>
                 <input
                   {...register("website")}
                   id="website"
@@ -147,7 +139,7 @@ const BuilderForm = () => {
                 {errors.website && <p className="error-message">{errors.website.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="linkedin">LinkedIn Profile</label>
                 <input
                   {...register("linkedin")}
@@ -158,7 +150,7 @@ const BuilderForm = () => {
                 {errors.linkedin && <p className="error-message">{errors.linkedin.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="projectType">
                   Project Type <span className="required">*</span>
                 </label>
@@ -174,7 +166,7 @@ const BuilderForm = () => {
                 {errors.projectType && <p className="error-message">{errors.projectType.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="projectStage">Project Stage</label>
                 <select {...register("projectStage")} id="projectStage">
                   <option value="prototype">Prototype</option>
@@ -183,16 +175,16 @@ const BuilderForm = () => {
                 </select>
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="teamSize">Team Size</label>
                 <select {...register("teamSize")} id="teamSize">
-                  <option value="2-5">2-5 people</option>
-                  <option value="5-10">5-10 people</option>
-                  <option value="10-20">10-20 people</option>
+                  <option value="2-5">2 to 5 people</option>
+                  <option value="5-10">5 to 10 people</option>
+                  <option value="10-20">10 to 20 people</option>
                 </select>
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="projectDescription">
                   Project Description <span className="required">*</span>
                 </label>
@@ -207,42 +199,27 @@ const BuilderForm = () => {
                 {errors.projectDescription && <p className="error-message">{errors.projectDescription.message}</p>}
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="techStack">Technology Stack</label>
                 <textarea {...register("techStack")} id="techStack"></textarea>
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="challenges">Current Challenges</label>
                 <textarea {...register("challenges")} id="challenges"></textarea>
               </div>
 
-              <div className="input-group">
+              <div className="p-field">
                 <label htmlFor="why1iq">Why 1iQ?</label>
                 <textarea {...register("why1iq")} id="why1iq"></textarea>
               </div>
 
-              <div className="input-group flex justify-center mt-8">
-                <MetalFx preset="chromatic" theme="dark" strength={0.45} reflectionTargets={[submitRef]}>
-                  <button
-                    ref={submitRef}
-                    type="submit"
-                    className="submit-btn"
-                  >
-                    Submit Inquiry
-                  </button>
-                </MetalFx>
-              </div>
-
+              <button type="submit" className="pill pill--blue pill--lg">Send inquiry</button>
               {status && <p className="form-status">{status}</p>}
             </form>
-          </div>
         </div>
-
-        <Footer />
-      </div>
-    </>
+      </section>
+    </DraftPage>
   );
 };
-
 export default BuilderForm;

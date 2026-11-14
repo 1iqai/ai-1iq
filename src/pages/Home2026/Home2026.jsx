@@ -2,12 +2,13 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import markup from "./site/markup.html?raw";
 import "./site/site.css";
+import "./site/site-draft.css";
 import faq from "./site/faq.ld.json";
 
 /**
- * 1iq.ai home page (Nov 2026), in the style of terminal-industries.com with the 1iQ app's own colours and fonts.
- * The page is the approved mock: its markup lives in ./site/markup.html and its behaviour (3D tower, scroll story,
- * agent cards, calculator, booking form) in ./site/init.js, loaded after first paint so three.js never blocks it.
+ * 1iq.ai home page (Nov 2026), drawn like the 1iQ app: paper, hairlines, mono labels and numbered sheets.
+ * Its markup lives in ./site/markup.html, its look in site.css plus site-draft.css, and its behaviour (the high rise
+ * and its scroll story, Decide now, agent cards, calculator, booking form) in ./site/init.js, loaded after first paint.
  * Links that start with "/" go through the router; everything else (anchors, the app sign in) behaves normally.
  */
 const Home2026 = () => {

@@ -15,11 +15,11 @@
 ## Pages
 
 - [Home](https://www.1iq.ai/): what 1iQ is and how it works
-- [Construction schedule review](https://www.1iq.ai/construction-schedule-review): how developers and owners test a contractor's schedule before signing, with a free schedule scorecard
-- [Preconstruction scheduling](https://www.1iq.ai/preconstruction-scheduling): how contractors check a bid schedule before submitting it, with the same scorecard
-- [Platform](https://www.1iq.ai/platform): the four parts of 1iQ (Core, Field, Intel, Gantt) and how it connects to existing tools
-- [For developers](https://www.1iq.ai/developer): feasibility, live oversight and investor reporting, with an exposure estimate
-- [Book a briefing](https://www.1iq.ai/schedule): a private 30 minute briefing
+- [Construction schedule review](https://www.1iq.ai/construction-schedule-review/): how developers and owners test a contractor's schedule before signing, with a free schedule scorecard
+- [Preconstruction scheduling](https://www.1iq.ai/preconstruction-scheduling/): how contractors check a bid schedule before submitting it, with the same scorecard
+- [Platform](https://www.1iq.ai/platform/): the four parts of 1iQ (Core, Field, Intel, Gantt) and how it connects to existing tools
+- [For developers](https://www.1iq.ai/developer/): feasibility, live oversight and investor reporting, with an exposure estimate
+- [Book a briefing](https://www.1iq.ai/schedule/): a private 30 minute briefing
 
 ## Facts
 

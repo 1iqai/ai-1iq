@@ -7,7 +7,7 @@ import path from "node:path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
-const { render, SEO, SITE } = await import(pathToFileURL(path.join(root, ".prerender", "prerender.js")).href);
+const { render, SEO, urlOf } = await import(pathToFileURL(path.join(root, ".prerender", "prerender.js")).href);
 const template = await readFile(path.join(dist, "index.html"), "utf8");
 const manifest = JSON.parse(await readFile(path.join(dist, ".vite", "manifest.json"), "utf8"));
 
@@ -42,7 +42,7 @@ for (const [route, seo] of Object.entries(SEO)) {
   }
   if (!body.includes("s26")) throw new Error(`Nothing was drawn for ${route}`);
   if (body.includes('<template id="B:')) throw new Error(`${route} was not drawn in one piece`);
-  const url = SITE + (route === "/" ? "/" : route);
+  const url = urlOf(route);
   const links = [...cssFor(PAGE_FILE[route] || "")].map((c) => `<link rel="stylesheet" href="/${c}" />`).join("\n  ");
   const ld = seo.ld.map((d) => `<script type="application/ld+json" class="seo-ld">${JSON.stringify(d).replace(/</g, "\\u003c")}</script>`).join("\n  ");
   let html = template
@@ -65,7 +65,7 @@ for (const [route, seo] of Object.entries(SEO)) {
 // the list of pages for search engines, from the same table
 const today = new Date().toISOString().slice(0, 10);
 const HIDE = new Set(["/partnership-inquiry", "/builder-application", "/get-started"]);
-const urls = Object.keys(SEO).filter((r) => !HIDE.has(r)).map((r) => `  <url><loc>${SITE}${r === "/" ? "/" : r}</loc><lastmod>${today}</lastmod></url>`).join("\n");
+const urls = Object.keys(SEO).filter((r) => !HIDE.has(r)).map((r) => `  <url><loc>${urlOf(r)}</loc><lastmod>${today}</lastmod></url>`).join("\n");
 await writeFile(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
 await rm(path.join(root, ".prerender"), { recursive: true, force: true });
 console.log(`Wrote ${count} pages as finished HTML, and the sitemap.`);

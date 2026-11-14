@@ -5,6 +5,9 @@ import homeFaq from "./pages/Home2026/site/faq.ld.json";
 import { REVIEW_FAQ, PRECON_FAQ } from "./content/scheduleFaqs";
 
 export const SITE = "https://www.1iq.ai";
+// The address search engines should record for a page. The host serves each page from its own folder, so the
+// address ends in a slash (/platform/); the form without it redirects there.
+export const urlOf = (path) => SITE + (path === "/" ? "/" : path.replace(/\/+$/, "") + "/");
 
 const faqLd = (rows) => ({
   "@context": "https://schema.org", "@type": "FAQPage",
@@ -12,7 +15,7 @@ const faqLd = (rows) => ({
 });
 const crumbs = (name, path) => ({
   "@context": "https://schema.org", "@type": "BreadcrumbList",
-  itemListElement: [{ "@type": "ListItem", position: 1, name: "1iQ", item: SITE + "/" }, { "@type": "ListItem", position: 2, name, item: SITE + path }],
+  itemListElement: [{ "@type": "ListItem", position: 1, name: "1iQ", item: SITE + "/" }, { "@type": "ListItem", position: 2, name, item: urlOf(path) }],
 });
 const ORG = {
   "@context": "https://schema.org", "@type": "Organization", name: "1iQ", legalName: "1iQ LLC", url: SITE + "/", logo: SITE + "/og-image.png",
@@ -26,7 +29,7 @@ const APP = {
   featureList: ["Construction schedule review", "DCMA 14 point schedule assessment", "Primavera P6, Microsoft Project and Excel import", "Planned against actual tracking", "Forecast finish date", "Owner and investor reporting"],
 };
 const article = (headline, description, path) => ({
-  "@context": "https://schema.org", "@type": "Article", headline, description, mainEntityOfPage: SITE + path,
+  "@context": "https://schema.org", "@type": "Article", headline, description, mainEntityOfPage: urlOf(path),
   author: { "@type": "Person", name: "Chimi Kadiya", jobTitle: "Founder of 1iQ, construction program and project manager" },
   publisher: { "@type": "Organization", name: "1iQ", logo: { "@type": "ImageObject", url: SITE + "/og-image.png" } },
   datePublished: "2026-11-13", dateModified: "2026-11-13",
@@ -87,8 +90,8 @@ export function applySeo(pathname) {
   set('meta[name="description"]', "content", seo.description);
   set('meta[property="og:title"]', "content", seo.title);
   set('meta[property="og:description"]', "content", seo.description);
-  set('meta[property="og:url"]', "content", SITE + path);
-  set('link[rel="canonical"]', "href", SITE + path);
+  set('meta[property="og:url"]', "content", urlOf(path));
+  set('link[rel="canonical"]', "href", urlOf(path));
   document.head.querySelectorAll("script.seo-ld").forEach((n) => n.remove());
   seo.ld.forEach((data) => {
     const s = document.createElement("script");

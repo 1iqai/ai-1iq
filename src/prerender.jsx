@@ -5,9 +5,9 @@ import { StrictMode } from "react";
 import { prerenderToNodeStream } from "react-dom/static";
 import { StaticRouter } from "react-router-dom";
 import App from "./App.jsx";
-import { SEO, SITE } from "./seo";
+import { SEO, urlOf } from "./seo";
 
-export { SEO, SITE };
+export { SEO, urlOf };
 
 export async function render(path) {
   const { prelude } = await prerenderToNodeStream(

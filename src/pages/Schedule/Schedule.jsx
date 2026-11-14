@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import jsPDF from "jspdf";
 import { DraftPage, PageHero } from "../../components/Draft/DraftPage";
 
 /* ---------- letter of intent: the PDF and the email that carries it (wording unchanged) */
@@ -15,7 +14,7 @@ const LOI_SECTIONS = [
   { num: "8.", title: "Entire Agreement; Amendments", body: "This LOI constitutes the entire agreement of the Parties with respect to the subject matter hereof and supersedes all prior agreements. This LOI may not be amended except by a written instrument signed by both Parties." },
 ];
 
-function buildLOIPdf(data, acceptedAt) {
+function buildLOIPdf(jsPDF, data, acceptedAt) {
   const doc = new jsPDF({ unit: "pt", format: "letter" });
   const PW = doc.internal.pageSize.getWidth();
   const PH = doc.internal.pageSize.getHeight();
@@ -109,8 +108,10 @@ function buildLOIPdf(data, acceptedAt) {
   return doc;
 }
 
-function generateAndDeliverPDF(data, acceptedAt) {
-  const doc = buildLOIPdf(data, acceptedAt);
+// the PDF library loads only when a letter is accepted, so the page itself stays light
+async function generateAndDeliverPDF(data, acceptedAt) {
+  const { default: jsPDF } = await import("jspdf");
+  const doc = buildLOIPdf(jsPDF, data, acceptedAt);
   const dateStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const fileName = `1iQ-LOI_${data.company || "Client"}_${dateStr}.pdf`.replace(/\s+/g, "_");
   doc.save(fileName);
@@ -307,7 +308,7 @@ const Schedule = () => {
 
     try {
       // 1. Generate PDF — auto-downloads to the user's browser
-      const pdfBlob = generateAndDeliverPDF(data, acceptedAt);
+      const pdfBlob = await generateAndDeliverPDF(data, acceptedAt);
 
       // Single submission: primary goes to account owner (ck@1iq.ai),
       // ccemail delivers copies to submitter + admin@1iq.ai in one call.

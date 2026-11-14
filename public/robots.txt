@@ -1,3 +1,27 @@
+# Everyone may read the public site, including AI assistants and their search crawlers.
 User-agent: *
 Allow: /
+Disallow: /demo/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.1iq.ai/sitemap.xml

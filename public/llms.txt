@@ -1,0 +1,29 @@
+# 1iQ
+
+> 1iQ is a development intelligence platform for real estate developers, investors, family offices and the contractors who build for them. It reads a construction schedule, checks it, and then tracks planned progress against what really happens on site, so everyone knows where a project stands the moment it changes.
+
+1iQ was founded by Chimi Kadiya, a construction program and project manager with more than 15 years of experience. The company is 1iQ LLC.
+
+## What 1iQ does
+
+- Construction schedule review: reads Primavera P6 (.xer, .xml), Microsoft Project XML and Excel schedules, recalculates the critical path and runs the DCMA 14 point schedule assessment plus logic checks.
+- Tracking: keeps three dates side by side. The original plan is fixed once agreed. The working schedule moves only with a project manager's approval. The forecast is worked out from what has really happened.
+- Decisions: shows a project manager what needs a decision now, such as holds, sign offs and fixed issues.
+- Reporting: owner and investor reports written from live project data, with past reports kept.
+- Feasibility: execution risk and schedule projections before a project starts.
+
+## Pages
+
+- [Home](https://www.1iq.ai/): what 1iQ is and how it works
+- [Construction schedule review](https://www.1iq.ai/construction-schedule-review): how developers and owners test a contractor's schedule before signing, with a free schedule scorecard
+- [Preconstruction scheduling](https://www.1iq.ai/preconstruction-scheduling): how contractors check a bid schedule before submitting it, with the same scorecard
+- [Platform](https://www.1iq.ai/platform): the four parts of 1iQ (Core, Field, Intel, Gantt) and how it connects to existing tools
+- [For developers](https://www.1iq.ai/developer): feasibility, live oversight and investor reporting, with an exposure estimate
+- [Book a briefing](https://www.1iq.ai/schedule): a private 30 minute briefing
+
+## Facts
+
+- Pricing is not published. It is discussed in a briefing.
+- The free scorecard shows a score out of 100, the number of quality checks passed and the three biggest problems by name. The uploaded file is not kept.
+- 1iQ does not judge a contractor's durations. It checks whether the schedule can be tracked truthfully.
+- Contact: admin@1iq.ai

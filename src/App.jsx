@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 // Every page but the home page loads on demand, so the home page stays light.
 import "./App.scss";
@@ -16,11 +16,18 @@ const TermsOfUse = lazy(() => import("./pages/TermsOfUse/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
+const ScheduleReview = lazy(() => import("./pages/Scheduling/ScheduleReview"));
+const Preconstruction = lazy(() => import("./pages/Scheduling/Preconstruction"));
 import ScrollToTop from "./components/ScrollToTop";
+import { applySeo } from "./seo";
 const DemoAppWrapper = lazy(() => import("./components/DemoAppWrapper"));
 
 
 function App() {
+  // the page title, description and structured data follow the page shown
+  const { pathname } = useLocation();
+  useEffect(() => { applySeo(pathname); }, [pathname]);
+
   useEffect(() => {
     // Smooth scrolling and ScrollTrigger load after the first paint, so the home page shows sooner.
     let cleanup = () => {};
@@ -114,6 +121,8 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
+        <Route path="/construction-schedule-review" element={<ScheduleReview />} />
+        <Route path="/preconstruction-scheduling" element={<Preconstruction />} />
         <Route path="/demo/*" element={<DemoAppWrapper />} />
       </Routes>
       </Suspense>

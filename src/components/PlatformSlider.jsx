@@ -1,249 +1,131 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
-// ─── Module data ──────────────────────────────────────────────────────────────
 const MODULES = [
   {
     tag: "1iQ Core",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_core_new.jpeg",
-    title: "Everything in One Place. Always Current.",
+    title: "Everything in one place. Always current.",
     description:
-      "Budgets, schedules, team performance, and milestones are all visible and live. 1iQ Core is the central command layer that connects every document, decision, and data point across your project operation.",
+      "Budgets, schedules, team performance and milestones are all visible and live. 1iQ Core is the central command layer that connects every document, decision and data point across your project operation.",
     features: [
       "RFIs and submittals handled automatically, saving 208 hours per team member per year",
       "AI project chat answers any question about the job instantly",
-      "Predictive risk alerts flag cost overruns before they escalate",
-      "Live dashboards replace the Friday report with real-time visibility",
+      "Risk alerts flag cost overruns before they escalate",
+      "Live dashboards replace the Friday report",
     ],
-    screenshotAlt: "1iQ Core: Central Command Dashboard",
+    screenshotAlt: "1iQ Core: central command dashboard",
   },
   {
     tag: "1iQ Field",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_field_mockup.png",
-    title: "Field to Office. Zero Lag.",
+    title: "Field to office. Zero lag.",
     description:
-      "What happens on site shouldn't take 48 hours to reach the office. 1iQ Field syncs real-time data from the field directly into the platform, ensuring every decision gets made on today's information, not last week's.",
+      "What happens on site should not take 48 hours to reach the office. 1iQ Field brings live data from the field straight into the platform, so every decision is made on today's information, not last week's.",
     features: [
-      "Field teams report once and data flows automatically into schedules and dashboards",
-      "Mobile sync keeps every trade updated without phone calls or follow-ups",
-      "Automated progress tracking monitors milestones without chasing subs",
-      "Live updates eliminate idle time between trades across all project phases",
+      "Field teams report once and the data flows into schedules and dashboards",
+      "Every trade stays updated without phone calls or follow ups",
+      "Progress is tracked against milestones without chasing subs",
+      "Live updates cut idle time between trades across every phase",
     ],
-    screenshotAlt: "1iQ Field: Mobile Field Sync Interface",
+    screenshotAlt: "1iQ Field: mobile field view",
   },
   {
     tag: "1iQ Intel",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_intel_new.jpeg",
-    title: "Your Weekly Report. Written Before You Wake Up.",
+    title: "Your weekly report. Written before you wake up.",
     description:
-      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary, which is complete, accurate, and ready to send. What used to take half a day takes nothing. Saves 182 hours a year, per project lead.",
+      "Every Monday, 1iQ Intel reads your dashboards and writes the executive summary: complete, accurate and ready to send. What used to take half a day takes nothing. It saves 182 hours a year for each project lead.",
     features: [
-      "Automated report summarization replaces manual PowerPoint and Excel work",
-      "AI-powered analysis surfaces risks and opportunities across your portfolio",
+      "Report summaries replace manual PowerPoint and Excel work",
+      "Analysis surfaces risks and opportunities across your portfolio",
       "Expected direct savings: $71,397 per project lead per year in recovered time and costs",
-      "One source of truth that replaces fragmented tools with a single live system",
+      "One source of truth replaces scattered tools with a single live system",
     ],
-    screenshotAlt: "1iQ Intel: Automated Reporting Dashboard",
+    screenshotAlt: "1iQ Intel: reporting dashboard",
   },
   {
     tag: "1iQ Gantt",
     imageSrc: "/assets/img/1iq_app_screenshots/1iq_grant.jpeg",
-    title: "The Schedule That Runs Itself.",
+    title: "The schedule that keeps itself current.",
     description:
-      "Field data flows directly into 1iQ Gantt. When something changes on site, the schedule reflects it automatically, remaining complete and accurate in 5 minutes, not rebuilt over days.",
+      "Field data flows straight into 1iQ Gantt. When something changes on site, 1iQ works out the new dates in 5 minutes and your PM approves them, instead of rebuilding the schedule over days.",
     features: [
-      "Drops scheduling time from 336 hours a year down to 4",
-      "Predictive delay detection flags critical path risks before they hit",
-      "Dynamic timeline adjustments based on live field data with no manual input required",
-      "5-minute schedule updates replace days of manual P6 and MS Project entry",
+      "Scheduling time drops from 336 hours a year to 4",
+      "Delay detection flags critical path risks before they hit",
+      "Date changes are worked out from live field data, ready for your PM to approve",
+      "A 5 minute update replaces days of manual entry in P6 and MS Project",
     ],
-    screenshotAlt: "1iQ Gantt: AI Schedule Generator",
+    screenshotAlt: "1iQ Gantt: schedule view",
   },
 ];
 
-// ─── Screenshot placeholder ───────────────────────────────────────────────────
-function ScreenshotPlaceholder({ alt, src }) {
-  return (
-    <div className="ps-screenshot">
-      <div className="ps-screenshot__browser">
-        <div className="ps-screenshot__bar">
-          <span className="ps-screenshot__dot" />
-          <span className="ps-screenshot__dot" />
-          <span className="ps-screenshot__dot" />
-          <div className="ps-screenshot__url" />
-        </div>
-        <div className="ps-screenshot__content">
-          {src ? (
-            <img src={src} alt={alt} loading="lazy" decoding="async" className="ps-screenshot__img" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-          ) : (
-            <div className="ps-screenshot__placeholder">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-              <p>Screenshot coming soon</p>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Main component ───────────────────────────────────────────────────────────
+/** Platform page, sheet P3: the four parts of 1iQ, one at a time. Arrow keys and swipes move between them. */
 export default function PlatformSlider() {
   const [active, setActive] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [direction, setDirection] = useState("right");
+  const box = useRef(null);
+  const step = (d) => setActive((a) => (a + d + MODULES.length) % MODULES.length);
 
-  const goTo = useCallback(
-    (index) => {
-      if (index === active || animating) return;
-      setDirection(index > active ? "right" : "left");
-      setAnimating(true);
-      setTimeout(() => {
-        setActive(index);
-        setAnimating(false);
-      }, 200);
-    },
-    [active, animating]
-  );
-
-  const prev = () => goTo(active === 0 ? MODULES.length - 1 : active - 1);
-  const next = () => goTo(active === MODULES.length - 1 ? 0 : active + 1);
-
-  // Stable refs so event listeners don't re-attach on every state change
-  const activeRef = useRef(active);
-  const animatingRef = useRef(animating);
-  useEffect(() => { activeRef.current = active; }, [active]);
-  useEffect(() => { animatingRef.current = animating; }, [animating]);
-
-  // Keyboard navigation — attached once
   useEffect(() => {
-    const handler = (e) => {
-      if (e.key === 'ArrowLeft') goTo(activeRef.current === 0 ? MODULES.length - 1 : activeRef.current - 1);
-      if (e.key === 'ArrowRight') goTo(activeRef.current === MODULES.length - 1 ? 0 : activeRef.current + 1);
+    const el = box.current;
+    let x0 = null;
+    const start = (e) => { x0 = e.changedTouches[0].clientX; };
+    const end = (e) => {
+      if (x0 === null) return;
+      const d = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(d) >= 40) step(d < 0 ? 1 : -1);
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    el.addEventListener("touchstart", start, { passive: true });
+    el.addEventListener("touchend", end, { passive: true });
+    return () => { el.removeEventListener("touchstart", start); el.removeEventListener("touchend", end); };
   }, []);
 
-  // Touch swipe — passive listeners for zero jank
-  const touchStartX = useRef(null);
-  useEffect(() => {
-    const slider = document.querySelector('.platform-slider');
-    if (!slider) return;
+  const onKey = (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+  };
 
-    const onTouchStart = (e) => {
-      touchStartX.current = e.changedTouches[0].clientX;
-    };
-    const onTouchEnd = (e) => {
-      if (touchStartX.current === null) return;
-      const delta = e.changedTouches[0].clientX - touchStartX.current;
-      touchStartX.current = null;
-      if (Math.abs(delta) < 40) return; // ignore small taps
-      if (delta < 0) goTo(activeRef.current === MODULES.length - 1 ? 0 : activeRef.current + 1);
-      else goTo(activeRef.current === 0 ? MODULES.length - 1 : activeRef.current - 1);
-    };
-
-    slider.addEventListener('touchstart', onTouchStart, { passive: true });
-    slider.addEventListener('touchend', onTouchEnd, { passive: true });
-    return () => {
-      slider.removeEventListener('touchstart', onTouchStart);
-      slider.removeEventListener('touchend', onTouchEnd);
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const module = MODULES[active];
+  const m = MODULES[active];
 
   return (
-    <section className="platform-slider">
-      <div className="platform-slider__inner">
-
-        {/* Section header */}
-        <div className="platform-slider__header">
-          <p className="platform-slider__eyebrow">THE PLATFORM</p>
-          <h2 className="platform-slider__title">One Platform. Four Capabilities.</h2>
-          <p className="platform-slider__subtitle">
-            Adopt together or roll out by need. Most teams start with Core and Intel,
-            then add Field and Gantt as adoption grows.
-          </p>
+    <section className="d-sec" id="parts">
+      <div className="sheetbar"><div className="wrap"><span>Sheet P3 · The four parts</span><span>Adopt together or by need</span></div></div>
+      <div className="wrap">
+        <div className="p-head reveal">
+          <div className="ruler" />
+          <h2 className="h2">One platform. Four capabilities.</h2>
+          <p className="d-p">Adopt them together or roll out by need. Most teams start with Core and Intel, then add Field and Gantt as adoption grows.</p>
         </div>
 
-        {/* Tab navigation */}
-        <div className="platform-slider__tabs" role="tablist">
-          {MODULES.map((m, i) => (
-            <button
-              key={m.tag}
-              role="tab"
-              aria-selected={i === active}
-              className={`ps-tab ${i === active ? "ps-tab--active" : ""}`}
-              onClick={() => goTo(i)}
-            >
-              {m.tag}
-            </button>
-          ))}
-        </div>
-
-        {/* Slide */}
-        <div
-          className={`platform-slider__slide ${animating ? `platform-slider__slide--exit-${direction}` : "platform-slider__slide--enter"}`}
-        >
-          {/* Left: copy */}
-          <div className="ps-copy">
-            <span className="ps-copy__tag">{module.tag}</span>
-            <h3 className="ps-copy__title">{module.title}</h3>
-            <p className="ps-copy__desc">{module.description}</p>
-            <ul className="ps-copy__features">
-              {module.features.map((f, i) => (
-                <li key={i} className="ps-copy__feature">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ps-copy__check">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/schedule"
-              className="ps-copy__cta"
-            >
-              Book a Demo
-            </a>
-          </div>
-
-          {/* Right: screenshot */}
-          <ScreenshotPlaceholder alt={module.screenshotAlt} src={module.imageSrc} />
-        </div>
-
-        {/* Navigation controls */}
-        <div className="platform-slider__controls">
-          <button className="ps-arrow ps-arrow--prev" onClick={prev} aria-label="Previous module">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-
-          <div className="ps-dots">
-            {MODULES.map((m, i) => (
-              <button
-                key={i}
-                className={`ps-dot ${i === active ? "ps-dot--active" : ""}`}
-                onClick={() => goTo(i)}
-                aria-label={`Go to ${m.tag}`}
-              />
+        <div className="p-parts reveal" ref={box}>
+          <div className="p-parts__tabs" role="tablist" aria-label="Parts of the platform" onKeyDown={onKey}>
+            {MODULES.map((x, i) => (
+              <button key={x.tag} type="button" role="tab" id={`part-tab-${i}`} aria-controls="part-panel" aria-selected={i === active} tabIndex={i === active ? 0 : -1} onClick={() => setActive(i)}>{x.tag}</button>
             ))}
           </div>
-
-          <button className="ps-arrow ps-arrow--next" onClick={next} aria-label="Next module">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
+          <div className="p-part" role="tabpanel" id="part-panel" aria-labelledby={`part-tab-${active}`}>
+            <div className="p-part__copy" key={m.tag}>
+              <span className="k">{m.tag}</span>
+              <h3>{m.title}</h3>
+              <p>{m.description}</p>
+              <ul className="p-list">{m.features.map((f) => <li key={f}>{f}</li>)}</ul>
+              <Link to="/schedule" className="pill pill--blue">Book a demo</Link>
+            </div>
+            <div className="p-part__shot">
+              <div className="p-frame" key={m.tag}>
+                <div className="p-frame__bar"><span className="k">{m.tag}</span><span className="k">{String(active + 1).padStart(2, "0")} of 04</span></div>
+                <img src={m.imageSrc} alt={m.screenshotAlt} loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+          <div className="p-parts__foot">
+            <span className="k">{String(active + 1).padStart(2, "0")} / 04 · {m.tag}</span>
+            <div className="p-arrows">
+              <button type="button" onClick={() => step(-1)} aria-label="Previous part">←</button>
+              <button type="button" onClick={() => step(1)} aria-label="Next part">→</button>
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   );

@@ -23,7 +23,12 @@ const Home2026 = () => {
     let cleanup = () => {};
     let cancelled = false;
     import("./site/init.js").then((m) => {
-      if (!cancelled) cleanup = m.init(el);
+      if (cancelled) return;
+      cleanup = m.init(el);
+      // arriving from another page with a section in the address (/#estimate): go to it once the page is laid out
+      const id = window.location.hash.slice(1);
+      const target = id && el.querySelector("#" + CSS.escape(id));
+      if (target) setTimeout(() => { if (!cancelled) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY, behavior: "auto" }); }, 350);
     });
     const onClick = (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey) return;

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 // Every page but the home page loads on demand, so the home page stays light.
 import "./App.scss";
@@ -14,16 +14,13 @@ const Intelligence = lazy(() => import("./pages/Intelligence/Intelligence"));
 const GetStarted = lazy(() => import("./pages/GetStarted/GetStarted"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
-const LoadingScreen = lazy(() => import("./components/LoadingScreen/LoadingScreen"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
-import "./pages/LearnMore/LearnMore.scss";
 import ScrollToTop from "./components/ScrollToTop";
 const DemoAppWrapper = lazy(() => import("./components/DemoAppWrapper"));
 
 
 function App() {
-  const { pathname } = useLocation();
   useEffect(() => {
     // Smooth scrolling and ScrollTrigger load after the first paint, so the home page shows sooner.
     let cleanup = () => {};
@@ -99,8 +96,7 @@ function App() {
 
   return (
     <div className="app">
-      {/* the new home page opens straight away, no splash */}
-      {pathname !== "/" && <Suspense fallback={null}><LoadingScreen /></Suspense>}
+      {/* every page opens straight away, no splash */}
       <ScrollToTop />
       <Suspense fallback={null}>
       <Routes>

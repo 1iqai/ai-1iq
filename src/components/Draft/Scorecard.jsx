@@ -53,7 +53,8 @@ export default function Scorecard({ audience = "developer" }) {
       body.append("file", file);
       const res = await fetch(`${API}/schedule-scorecard`, { method: "POST", body });
       const json = await res.json().catch(() => null);
-      if (!res.ok || !json?.success) throw new Error(json?.message || "The scorecard is not available right now. Please try again in a few minutes.");
+      // the server's own words only when they are about this upload (a bad file, too big, too many tries)
+      if (!res.ok || !json?.success) throw new Error([400, 413, 422, 429].includes(res.status) && json?.message ? json.message : "The scorecard is not available right now. Please try again in a few minutes.");
       setCard(json.data);
       sendLead(email.trim(), file.name, json.data, audience);
     } catch (err) {

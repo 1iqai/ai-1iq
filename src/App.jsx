@@ -16,6 +16,7 @@ const TermsOfUse = lazy(() => import("./pages/TermsOfUse/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
+const Services = lazy(() => import("./pages/Services/Services"));
 const ScheduleReview = lazy(() => import("./pages/Scheduling/ScheduleReview"));
 const Preconstruction = lazy(() => import("./pages/Scheduling/Preconstruction"));
 import ScrollToTop from "./components/ScrollToTop";
@@ -121,6 +122,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/construction-schedule-review" element={<ScheduleReview />} />
         <Route path="/preconstruction-scheduling" element={<Preconstruction />} />
         <Route path="/demo/*" element={<DemoAppWrapper />} />

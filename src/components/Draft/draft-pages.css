@@ -30,6 +30,8 @@
 .s26.dp .p-cell p { font-size: 15px; line-height: 1.55; color: var(--ink2); }
 .s26.dp .p-cell .pill { margin-top: auto; align-self: flex-start; }
 .s26.dp .p-cell .p-gap { flex: 1; min-height: 10px; }
+/* One line under a cell heading: what the engagement actually gets you (Services). */
+.s26.dp .p-cell .p-sub { font: 600 15px/1.4 var(--display); letter-spacing: -.01em; color: var(--blue); margin: -2px 0 2px; }
 .s26.dp .p-num { font: 700 clamp(30px, 3vw, 42px)/1.05 var(--display); letter-spacing: -.035em; color: var(--blue); font-variant-numeric: tabular-nums; }
 .s26.dp a.p-cell { transition: background-color .2s var(--ease); }
 .s26.dp a.p-cell:hover { background: var(--blue-soft); }

@@ -14,6 +14,7 @@ const Intelligence = lazy(() => import("./pages/Intelligence/Intelligence"));
 const GetStarted = lazy(() => import("./pages/GetStarted/GetStarted"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy/RefundPolicy"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
 const Services = lazy(() => import("./pages/Services/Services"));
@@ -121,6 +122,8 @@ function App() {
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/refunds" element={<Navigate to="/refund-policy" replace />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
         <Route path="/services" element={<Services />} />

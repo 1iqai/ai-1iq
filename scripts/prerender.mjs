@@ -19,6 +19,7 @@ const PAGE_FILE = {
   "/schedule": "src/pages/Schedule/Schedule.jsx", "/learn-more": "src/pages/LearnMore/LearnMore.jsx",
   "/partnership-inquiry": "src/pages/PartnershipInquiry/PartnershipInquiry.jsx", "/builder-application": "src/pages/BuilderForm/BuilderForm.jsx",
   "/get-started": "src/pages/GetStarted/GetStarted.jsx", "/terms-of-use": "src/pages/TermsOfUse/TermsOfUse.jsx", "/privacy-policy": "src/pages/PrivacyPolicy/PrivacyPolicy.jsx",
+  "/refund-policy": "src/pages/RefundPolicy/RefundPolicy.jsx",
 };
 const cssFor = (key, seen = new Set(), out = new Set()) => {
   const e = manifest[key];

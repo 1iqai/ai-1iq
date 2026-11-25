@@ -87,6 +87,7 @@ export const SEO = {
   "/get-started": { title: "Developer Access | 1iQ", description: "Three ways to connect with 1iQ: a technical demo, a strategic partnership or the developer program.", ld: [] },
   "/terms-of-use": { title: "Terms of Use | 1iQ", description: "The terms that apply to using 1iQ's website and services.", ld: [] },
   "/privacy-policy": { title: "Privacy Policy | 1iQ", description: "How 1iQ collects, uses and protects information.", ld: [] },
+  "/refund-policy": { title: "Refunds and Cancellation | 1iQ", description: "How to cancel 1iQ, what happens to a month you have paid for, and when 1iQ refunds the monthly fee, a 3D space model setup or a single schedule analysis.", ld: [] },
 };
 
 export const cleanPath = (p) => (p.length > 1 ? p.replace(/\/+$/, "") : p) || "/";

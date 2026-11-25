@@ -17,6 +17,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
 const Services = lazy(() => import("./pages/Services/Services"));
+const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
 const ScheduleReview = lazy(() => import("./pages/Scheduling/ScheduleReview"));
 const Preconstruction = lazy(() => import("./pages/Scheduling/Preconstruction"));
 import ScrollToTop from "./components/ScrollToTop";
@@ -114,7 +115,7 @@ function App() {
         {/* <Route path="/core-field" element={<CoreField />} />
         <Route path="/intelligence" element={<Intelligence />} /> */}
         <Route path="/contact-us" element={<Navigate to="/schedule" replace />} />
-        <Route path="/pricing" element={<Navigate to="/" replace />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
         <Route path="/builder-application" element={<BuilderForm />} />
         <Route path="/get-started" element={<GetStarted />} />

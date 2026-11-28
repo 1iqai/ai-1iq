@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { DraftPage, PageHero, Sheet, CloseBand } from "../../components/Draft/DraftPage";
+import { DraftPage, Sheet, CloseBand } from "../../components/Draft/DraftPage";
 import { PRICING_FAQ } from "../../content/pricingFaqs";
 
 /**
@@ -101,65 +101,67 @@ const Pricing = () => {
 
   return (
     <DraftPage>
-      <PageHero
-        sheet="Sheet R1 · Pricing"
-        note="Published prices"
-        kicker="Pricing"
-        title="You pay for the project, not for seats."
-        lead={`One price a month for each project that is running, set by that project's budget. The web app, the mobile app and the integrations are all in it, and your crews on site are free. From ${from} a month.`}
-      >
-        {startCta("pill pill--blue pill--lg")}
-        <a href="#yours" className="pill pill--white pill--lg">What yours would cost</a>
-      </PageHero>
-
-      <Sheet no="R2" name="Your price" note="Pick a budget" id="yours" tone="paper">
-        <div className="p-head reveal">
-          <div className="ruler" />
-          <h2 className="h2">Find the number before you talk to anyone.</h2>
-          <p className="d-p">Nothing to choose at sign up. 1iQ works the band out from the project itself, so this is a look at what your own job would bill rather than a package you have to commit to.</p>
-        </div>
-
-        {founding && (
-          <div className="pr-places reveal" data-testid="founding-left">
-            <i aria-hidden="true" />
-            <b>{left} of {total} founding places left</b>
-            <span>Founding prices are for the first {total} companies and hold for as long as you stay.</span>
-          </div>
-        )}
-
-        <div className="pr-pick reveal">
-          <div className="pr-bands" role="group" aria-label="Project budget">
-            {p.project.map((b) => (
-              <button
-                key={b.band}
-                type="button"
-                className={`roi-asset-btn${b.band === band ? " roi-asset-btn--active" : ""}`}
-                aria-pressed={b.band === band}
-                onClick={() => setBand(b.band)}
-              >
-                {tab(b)}
-              </button>
-            ))}
-          </div>
-          <div className="pr-pick__out">
-            <div className="pr-pick__fig">
-              <span className="k">{span(picked)} budget</span>
-              <Price foundingCents={picked.foundingCents} listCents={picked.listCents} founding={founding} />
-              <span className="pr-pick__per">{picked.maxBudget === null ? "Priced at a briefing" : "Per active project, per month"}</span>
-              {picked.maxBudget === null
-                ? <p className="pr-pick__note">Above $50M the reporting is shaped by who needs to see what and how often, so the price is set once we have walked the project with you.</p>
-                : <p className="pr-pick__note">Everyone on the project is included. Add a second project and it bills at its own band.</p>}
-              <div className="pr-pick__cta">{startCta("pill pill--blue")}</div>
+      {/* The same two column hero the home page uses, with the price picker standing where its drawing does */}
+      <section className="d-hero" id="top" aria-label="Pricing">
+        <div className="wrap d-hero__in">
+          <div>
+            <span className="k">Pricing</span>
+            <h1 className="h1">You pay for the project, <em>not for seats</em>.</h1>
+            <p className="d-hero__lead">One price a month for each project that is running, set by that project&rsquo;s budget. The web app, the mobile app and the integrations are all in it, and your crews on site are free.</p>
+            <div className="ctas">
+              {startCta("pill pill--blue pill--lg")}
+              <a href="#billing" className="pill pill--white pill--lg">How billing works</a>
             </div>
-            <div className="pr-pick__inc">
-              <span className="k">In every band</span>
-              <ul className="p-list">{INCLUDED.map((x) => <li key={x}>{x}</li>)}</ul>
+            <div className="d-dates" aria-label="What the price covers">
+              <div><span className="k">Your crews</span><b>Free</b><small>Unlimited field seats, every project</small></div>
+              <div><span className="k">Commitment</span><b>None</b><small>Monthly, cancel it yourself</small></div>
+              <div><span className="k">From</span><b>{from}</b><small>A month, projects up to $2M</small></div>
             </div>
           </div>
-        </div>
-      </Sheet>
 
-      <Sheet no="R3" name="Add ons" note="Only when the job needs them">
+          <div className="d-scene pr-scene">
+            <div className="d-scene__tag">
+              <span className="k">Your price</span>
+              <span className="k">{founding ? `${left} of ${total} founding places left` : "List prices"}</span>
+            </div>
+            <div className="pr-scene__in">
+              <span className="k">Your project&rsquo;s budget</span>
+              <div className="pr-bands" role="group" aria-label="Project budget">
+                {p.project.map((b) => (
+                  <button
+                    key={b.band}
+                    type="button"
+                    className={`roi-asset-btn${b.band === band ? " roi-asset-btn--active" : ""}`}
+                    aria-pressed={b.band === band}
+                    onClick={() => setBand(b.band)}
+                  >
+                    {tab(b)}
+                  </button>
+                ))}
+              </div>
+
+              <div className="pr-fig">
+                <Price foundingCents={picked.foundingCents} listCents={picked.listCents} founding={founding} />
+                <span className="pr-fig__per">{picked.maxBudget === null ? "Priced at a briefing" : "Per active project, per month"}</span>
+                <p className="pr-fig__note">
+                  {picked.maxBudget === null
+                    ? "Above $50M the reporting is shaped by who needs to see what and how often, so the price is set once we have walked the project with you."
+                    : `${span(picked)}. Everyone on the project is included, and a second project bills at its own band.`}
+                </p>
+              </div>
+
+              <div className="pr-inc">
+                <span className="k">In every band</span>
+                <ul className="p-list">{INCLUDED.map((x) => <li key={x}>{x}</li>)}</ul>
+              </div>
+
+              <div className="pr-scene__cta">{startCta("pill pill--blue")}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Sheet no="02" name="Add ons" note="Only when the job needs them" tone="paper">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">Two things you can add, and one you can try for nothing.</h2>
@@ -195,7 +197,7 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="R4" name="How billing works" note="Four things worth knowing" tone="paper">
+      <Sheet no="03" name="How billing works" note="Four things worth knowing" id="billing">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">The parts people only find out later.</h2>
@@ -208,14 +210,14 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="R5" name="Questions" note="Asked on most briefings">
+      <Sheet no="04" name="Questions" note="Asked on most briefings" tone="paper">
         <div className="p-grid p-grid--2 reveal">
           {PRICING_FAQ.map(([q, a]) => (
             <div className="p-cell" key={q}><h3>{q}</h3><p>{a}</p></div>
           ))}
         </div>
         <p className="pr-legal reveal">
-          Prices in US dollars. <Link to="/terms-of-use">Terms of Use</Link> and <Link to="/privacy-policy">Privacy Policy</Link>.
+          Prices in US dollars. <Link to="/terms-of-use">Terms of Use</Link>, <Link to="/privacy-policy">Privacy Policy</Link> and <Link to="/refund-policy">Refunds and cancellation</Link>.
         </p>
       </Sheet>
 

@@ -255,3 +255,17 @@
   .s26 .d-draw { stroke-dashoffset: 0; animation: none; }
   .s26 .d-rig [style*="animation"] { animation: none !important; }
 }
+
+/* Apple's and Google's own badge artwork, vendored into public/assets/img/stores rather than hot linked.
+   Apple's SVG is 120x40 with no padding; Google's PNG ships with its required clear space baked in, which
+   is why it is set taller and pulled back with a negative margin so the two sit level and evenly spaced.
+   Under .s26 rather than .s26.dp because the home page uses these too. */
+.s26 .pr-stores { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.s26 .pr-store { display: inline-flex; text-decoration: none; border: 0; background: none; padding: 0; }
+.s26 .pr-store img { display: block; width: auto; }
+.s26 .pr-store--apple img { height: 40px; }
+.s26 .pr-store--play img { height: 60px; margin: -10px -9px; }
+.s26 .pr-stores--sm .pr-store--apple img { height: 30px; }
+.s26 .pr-stores--sm .pr-store--play img { height: 45px; margin: -8px -7px; }
+/* in a page cell the pair sits at the bottom, as the other cell buttons do */
+.s26.dp .p-cell .pr-stores { margin-top: auto; padding-top: 18px; }

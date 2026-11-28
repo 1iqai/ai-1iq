@@ -358,11 +358,3 @@
   .s26.dp .p-score__top { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .s26.dp .p-faq summary { font-size: 17px; }
 }
-
-/* The two store links. Built in the site's own language rather than Apple's and Google's badge artwork,
-   which is trademarked and would look foreign here. Drop the official PNGs in and these can be swapped. */
-.s26.dp .pr-stores { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 18px; }
-.s26.dp .pr-store { display: inline-flex; flex-direction: column; gap: 1px; min-width: 150px; padding: 9px 14px; border: 1px solid var(--ink); background: var(--card); text-decoration: none; color: inherit; transition: background-color .2s var(--ease); }
-.s26.dp .pr-store:hover { background: var(--blue-soft); }
-.s26.dp .pr-store .k { font-size: 10px; letter-spacing: .09em; }
-.s26.dp .pr-store b { font: 600 15px/1.2 var(--display); letter-spacing: -.01em; }

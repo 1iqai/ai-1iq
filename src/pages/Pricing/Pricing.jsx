@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DraftPage, Sheet, CloseBand } from "../../components/Draft/DraftPage";
+import { APP_STORE, GOOGLE_PLAY } from "../../components/Draft/SiteFrame";
 import { PRICING_FAQ } from "../../content/pricingFaqs";
 
 /**
@@ -189,11 +190,11 @@ const Pricing = () => {
               person is what stops field data ever arriving. On its own it is updates nobody can read.
             </p>
             <div className="pr-stores">
-              <a href="https://apps.apple.com/us/app/id6755146159" target="_blank" rel="noopener noreferrer" className="pr-store">
-                <span className="k">Download on the</span><b>App Store</b>
+              <a href={APP_STORE} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--apple" aria-label="Download 1iQ on the App Store">
+                <img src="/assets/img/stores/app-store.svg" alt="Download on the App Store" width="120" height="40" />
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.oneiq" target="_blank" rel="noopener noreferrer" className="pr-store">
-                <span className="k">Get it on</span><b>Google Play</b>
+              <a href={GOOGLE_PLAY} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--play" aria-label="Get 1iQ on Google Play">
+                <img src="/assets/img/stores/google-play.png" alt="Get it on Google Play" width="155" height="60" />
               </a>
             </div>
           </div>

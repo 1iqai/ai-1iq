@@ -276,7 +276,7 @@
    nothing to press. One 28s timeline; every element rides it on a negative delay so beat N starts at
    N x 7s and the loop is already in the right place when the page opens. Reduced motion gets the end
    state with every caption shown, which is the whole story as a static diagram. */
-/* The 48s film sits over the CSS loop and fades in once the browser says it can play through, so a
+/* The 60s film sits over the CSS loop and fades in once the browser says it can play through, so a
    slow connection, a refused autoplay or reduced motion all keep the loop rather than an empty box.
 
    The film is 16:9 and the loop is nearly 3:1, so from 760px up the section reserves a 16:9 frame and

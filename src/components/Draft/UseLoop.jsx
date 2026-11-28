@@ -20,10 +20,10 @@ const FILM = "/assets/video/how-1iq-works.mp4";
 const POSTER = "/assets/video/how-1iq-works.jpg";
 
 /**
- * The 48 second film, with the CSS loop underneath it.
+ * The 60 second film, with the CSS loop underneath it.
  *
  * The film is the better telling: it is the real apps, shot on the real product, and it shows the
- * handoff from the phone to the web app in a way line art cannot. But it is 6MB, so nobody waits for
+ * handoff from the phone to the web app in a way line art cannot. But it is 9MB, so nobody waits for
  * it: the loop below runs from the first paint, the film only starts loading when the section comes
  * near the viewport, and it fades in over the loop once the browser says it can play through. A
  * visitor on a slow connection, with data saver on, or with reduced motion set, simply keeps the loop.

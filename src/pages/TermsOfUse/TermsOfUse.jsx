@@ -51,7 +51,7 @@ const termsData = [
     {
         "title": "8. Fees",
         "content": [
-            "Paid plans are billed as stated in Customer's order form or in the plan chosen at sign up, in advance, plus applicable taxes. Fees are not refundable except as stated in the order form or where the law requires. If payment is late, we may suspend the Service after giving notice.",
+            "Paid plans are billed monthly in advance, plus applicable taxes, at the prices published at 1iq.ai/pricing, or as stated in Customer's order form where there is one. Customer does not choose a plan: the price of each project is set by that project's budget, which 1iQ reads from the project itself. If that budget grows into a higher band, we will tell Customer at least seven days before the price changes. A band never moves down on its own. Fees are not refundable except as set out in our Refunds and Cancellation policy, in the order form, or where the law requires. If payment is late, we may suspend the Service after giving notice.",
             "Free trials and pilots are provided as they are, and may end."
         ]
     },

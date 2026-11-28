@@ -24,15 +24,26 @@ const POSTER = "/assets/video/how-1iq-works.jpg";
  *
  * The film is the better telling: it is the real apps, shot on the real product, and it shows the
  * handoff from the phone to the web app in a way line art cannot. But it is 9MB, so nobody waits for
- * it: the loop below runs from the first paint, the film only starts loading when the section comes
- * near the viewport, and it fades in over the loop once the browser says it can play through. A
- * visitor on a slow connection, with data saver on, or with reduced motion set, simply keeps the loop.
+ * it: the loop below runs from the first paint and the film is not fetched at all until the section
+ * is near. A visitor on a slow connection, with data saver on, or with reduced motion set, simply
+ * keeps the loop.
+ *
+ * Loading and playing are deliberately two different moments. It loads early, 400px out, so it is
+ * buffered by the time anyone reaches it. It does not start until the section is actually half on
+ * screen, and then it starts at the first frame, so the first thing a visitor sees is the logo and
+ * not whatever the film happened to be up to. Scroll away and it pauses rather than playing to an
+ * empty room; come back and it picks up where it stopped.
  */
+const PLAY_AT = 0.5;      // half the section on screen starts it
+const PAUSE_AT = 0.15;    // and it only stops once it is nearly gone, so a nudge does not toggle it
+
 const UseFilm = () => {
   const box = useRef(null);
   const vid = useRef(null);
   const [ready, setReady] = useState(false);
+  const live = useRef({ canPlay: false, inView: false, started: false });
 
+  // the film is fetched well before it is needed, but never on a phone or against reduced motion
   useEffect(() => {
     const v = vid.current, b = box.current;
     if (!v || !b) return undefined;
@@ -40,25 +51,40 @@ const UseFilm = () => {
     if (window.innerWidth < 760) return undefined;   // the loop is the phone telling
     if (!("IntersectionObserver" in window)) return undefined;
 
-    const io = new IntersectionObserver((es) => {
+    const pre = new IntersectionObserver((es) => {
       es.forEach((e) => {
         if (!e.isIntersecting) return;
-        io.disconnect();
+        pre.disconnect();
         v.src = FILM;            // nothing is fetched until here
         v.load();
       });
     }, { rootMargin: "400px 0px" });
-    io.observe(b);
-    return () => io.disconnect();
-  }, []);
+    pre.observe(b);
 
-  const onReady = () => {
-    const v = vid.current;
-    if (!v) return;
-    const go = v.play();
-    if (go && go.catch) go.catch(() => {});   // a browser that refuses autoplay keeps the loop
-    setReady(true);
-  };
+    const run = () => {
+      const s = live.current;
+      if (!s.canPlay || !s.inView) return;
+      if (!s.started) { s.started = true; try { v.currentTime = 0; } catch (err) { /* not seekable yet */ } }
+      v.muted = true;                            // belt and braces for the autoplay rules
+      const go = v.play();
+      if (go && go.catch) go.catch(() => {});    // a browser that refuses autoplay keeps the loop
+      setReady(true);
+    };
+
+    const watch = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        const s = live.current;
+        if (e.intersectionRatio >= PLAY_AT) { s.inView = true; run(); }
+        else if (e.intersectionRatio < PAUSE_AT) { s.inView = false; v.pause(); }
+      });
+    }, { threshold: [0, PAUSE_AT, PLAY_AT, 0.9] });
+    watch.observe(b);
+
+    const onCan = () => { live.current.canPlay = true; run(); };
+    v.addEventListener("canplaythrough", onCan);
+
+    return () => { pre.disconnect(); watch.disconnect(); v.removeEventListener("canplaythrough", onCan); };
+  }, []);
 
   return (
     <div className={`lp-film${ready ? " is-ready" : ""}`} ref={box}>
@@ -72,7 +98,6 @@ const UseFilm = () => {
         preload="none"
         tabIndex={-1}
         aria-hidden="true"
-        onCanPlayThrough={onReady}
       />
       <UseLoop />
     </div>

@@ -350,8 +350,11 @@ export function init(root) {
 
   /* The 62s film over the CSS loop (Sheet 03).
      The loop runs from the first paint; the film is 9MB so it is not fetched until the section is
-     near the viewport, and it only replaces the loop once the browser says it can play through.
-     Reduced motion, a refused autoplay or a slow connection all simply keep the loop. */
+     400px away. Loading and playing are two different moments on purpose: it starts only once the
+     section is half on screen, and from the first frame, so a visitor always sees the logo first
+     rather than whatever the film was up to. Scrolling away pauses it; coming back picks it up.
+     Reduced motion, a phone, a refused autoplay or a slow connection all simply keep the loop.
+     Keep this in step with src/components/Draft/UseLoop.jsx. */
   (function () {
     const box = document.getElementById("useFilm");
     const v = document.getElementById("useFilmV");
@@ -359,21 +362,40 @@ export function init(root) {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (window.innerWidth < 760) return;   // the loop is the phone telling
     if (!("IntersectionObserver" in window)) return;
-    v.addEventListener("canplaythrough", () => {
+
+    const PLAY_AT = 0.5, PAUSE_AT = 0.15;
+    let canPlay = false, inView = false, started = false;
+
+    const run = () => {
+      if (!canPlay || !inView) return;
+      if (!started) { started = true; try { v.currentTime = 0; } catch (e) { /* not seekable yet */ } }
+      v.muted = true;
       const go = v.play();
       if (go && go.catch) go.catch(() => {});
       box.classList.add("is-ready");
-    }, { once: true, signal: ctl.signal });
-    const io = new IntersectionObserver((es) => {
+    };
+
+    v.addEventListener("canplaythrough", () => { canPlay = true; run(); }, { signal: ctl.signal });
+
+    const pre = new IntersectionObserver((es) => {
       es.forEach((e) => {
         if (!e.isIntersecting) return;
-        io.disconnect();
+        pre.disconnect();
         v.src = "/assets/video/how-1iq-works.mp4";
         v.load();
       });
     }, { rootMargin: "400px 0px" });
-    io.observe(box);
-    ctl.signal.addEventListener("abort", () => io.disconnect());
+    pre.observe(box);
+
+    const watch = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (e.intersectionRatio >= PLAY_AT) { inView = true; run(); }
+        else if (e.intersectionRatio < PAUSE_AT) { inView = false; v.pause(); }
+      });
+    }, { threshold: [0, PAUSE_AT, PLAY_AT, 0.9] });
+    watch.observe(box);
+
+    ctl.signal.addEventListener("abort", () => { pre.disconnect(); watch.disconnect(); });
   })();
 
   })();

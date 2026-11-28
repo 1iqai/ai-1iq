@@ -276,6 +276,31 @@
    nothing to press. One 28s timeline; every element rides it on a negative delay so beat N starts at
    N x 7s and the loop is already in the right place when the page opens. Reduced motion gets the end
    state with every caption shown, which is the whole story as a static diagram. */
+/* The 48s film sits over the CSS loop and fades in once the browser says it can play through, so a
+   slow connection, a refused autoplay or reduced motion all keep the loop rather than an empty box.
+
+   The film is 16:9 and the loop is nearly 3:1, so from 760px up the section reserves a 16:9 frame and
+   the loop sits centred in it: the film then fills that frame exactly and nothing jumps when it
+   arrives. Below 760px there is no film at all. Its captions would be about ten pixels tall on a
+   phone, and 6MB over mobile data to watch something unreadable is a poor trade, so the loop, which
+   was built for that width, stays. */
+.s26 .lp-film { position: relative; }
+.s26 .lp-film__v { display: none; }
+@media (min-width: 760px) {
+  .s26 .lp-film { aspect-ratio: 16 / 9; }
+  .s26 .lp-film > .lp { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); }
+  .s26 .lp-film__v { display: block; position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; border: 1px solid var(--ink); background: var(--stone);
+    opacity: 0; pointer-events: none; transition: opacity .5s ease; z-index: 2; }
+  .s26 .lp-film.is-ready .lp-film__v { opacity: 1; }
+  .s26 .lp-film.is-ready > .lp { opacity: 0; transition: opacity .5s ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .s26 .lp-film { aspect-ratio: auto; }
+  .s26 .lp-film > .lp { position: static; transform: none; }
+  .s26 .lp-film__v { display: none; }
+}
+
 .s26 .lp { border: 1px solid var(--ink); background: var(--card); }
 .s26 .lp__head { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--stone); }
 .s26 .lp__stage { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }

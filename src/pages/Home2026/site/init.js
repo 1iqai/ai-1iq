@@ -348,6 +348,34 @@ export function init(root) {
   })();
 
 
+  /* The 48s film over the CSS loop (Sheet 03).
+     The loop runs from the first paint; the film is 6MB so it is not fetched until the section is
+     near the viewport, and it only replaces the loop once the browser says it can play through.
+     Reduced motion, a refused autoplay or a slow connection all simply keep the loop. */
+  (function () {
+    const box = document.getElementById("useFilm");
+    const v = document.getElementById("useFilmV");
+    if (!box || !v) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.innerWidth < 760) return;   // the loop is the phone telling
+    if (!("IntersectionObserver" in window)) return;
+    v.addEventListener("canplaythrough", () => {
+      const go = v.play();
+      if (go && go.catch) go.catch(() => {});
+      box.classList.add("is-ready");
+    }, { once: true, signal: ctl.signal });
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        v.src = "/assets/video/how-1iq-works.mp4";
+        v.load();
+      });
+    }, { rootMargin: "400px 0px" });
+    io.observe(box);
+    ctl.signal.addEventListener("abort", () => io.disconnect());
+  })();
+
   })();
   return cleanup;
 }

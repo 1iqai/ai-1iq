@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 /**
  * How 1iQ is used, in 28 seconds, with nothing to press.
  *
@@ -14,6 +16,69 @@
  *
  * The same markup is in src/pages/Home2026/site/markup.html. Change one, change the other.
  */
+const FILM = "/assets/video/how-1iq-works.mp4";
+const POSTER = "/assets/video/how-1iq-works.jpg";
+
+/**
+ * The 48 second film, with the CSS loop underneath it.
+ *
+ * The film is the better telling: it is the real apps, shot on the real product, and it shows the
+ * handoff from the phone to the web app in a way line art cannot. But it is 6MB, so nobody waits for
+ * it: the loop below runs from the first paint, the film only starts loading when the section comes
+ * near the viewport, and it fades in over the loop once the browser says it can play through. A
+ * visitor on a slow connection, with data saver on, or with reduced motion set, simply keeps the loop.
+ */
+const UseFilm = () => {
+  const box = useRef(null);
+  const vid = useRef(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const v = vid.current, b = box.current;
+    if (!v || !b) return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    if (window.innerWidth < 760) return undefined;   // the loop is the phone telling
+    if (!("IntersectionObserver" in window)) return undefined;
+
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        io.disconnect();
+        v.src = FILM;            // nothing is fetched until here
+        v.load();
+      });
+    }, { rootMargin: "400px 0px" });
+    io.observe(b);
+    return () => io.disconnect();
+  }, []);
+
+  const onReady = () => {
+    const v = vid.current;
+    if (!v) return;
+    const go = v.play();
+    if (go && go.catch) go.catch(() => {});   // a browser that refuses autoplay keeps the loop
+    setReady(true);
+  };
+
+  return (
+    <div className={`lp-film${ready ? " is-ready" : ""}`} ref={box}>
+      <video
+        className="lp-film__v"
+        ref={vid}
+        poster={POSTER}
+        muted
+        loop
+        playsInline
+        preload="none"
+        tabIndex={-1}
+        aria-hidden="true"
+        onCanPlayThrough={onReady}
+      />
+      <UseLoop />
+    </div>
+  );
+};
+
 const UseLoop = () => (
   <div
     className="lp reveal"
@@ -78,4 +143,5 @@ const UseLoop = () => (
   </div>
 );
 
-export default UseLoop;
+export { UseLoop };
+export default UseFilm;

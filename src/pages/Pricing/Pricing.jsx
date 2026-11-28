@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DraftPage, Sheet, CloseBand } from "../../components/Draft/DraftPage";
 import { APP_STORE, GOOGLE_PLAY } from "../../components/Draft/SiteFrame";
+import UseLoop from "../../components/Draft/UseLoop";
 import { PRICING_FAQ } from "../../content/pricingFaqs";
 
 /**
@@ -201,7 +202,16 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="03" name="Add ons" note="Only when the job needs them">
+      <Sheet no="03" name="How it works" note="Thirty seconds, start to finish">
+        <div className="p-head reveal">
+          <div className="ruler" />
+          <h2 className="h2">One tap on site, and the whole project knows.</h2>
+          <p className="d-p">The loop between the two apps, running. A crew finishes a task where they are standing, and the office sees it and the finish date moves without anyone writing a report.</p>
+        </div>
+        <UseLoop />
+      </Sheet>
+
+      <Sheet no="04" name="Add ons" note="Only when the job needs them" tone="paper">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">Two things you can add, and one you can try for nothing.</h2>
@@ -237,7 +247,7 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="04" name="How billing works" note="Four things worth knowing" id="billing" tone="paper">
+      <Sheet no="05" name="How billing works" note="Four things worth knowing" id="billing">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">The parts people only find out later.</h2>
@@ -250,7 +260,7 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="05" name="Questions" note="Asked on most briefings">
+      <Sheet no="06" name="Questions" note="Asked on most briefings" tone="paper">
         <div className="p-grid p-grid--2 reveal">
           {PRICING_FAQ.map(([q, a]) => (
             <div className="p-cell" key={q}><h3>{q}</h3><p>{a}</p></div>

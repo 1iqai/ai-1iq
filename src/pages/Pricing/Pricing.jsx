@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DraftPage, Sheet, CloseBand } from "../../components/Draft/DraftPage";
+import { APP_STORE, GOOGLE_PLAY } from "../../components/Draft/SiteFrame";
+import UseLoop from "../../components/Draft/UseLoop";
 import { PRICING_FAQ } from "../../content/pricingFaqs";
 
 /**
@@ -161,7 +163,55 @@ const Pricing = () => {
         </div>
       </section>
 
-      <Sheet no="02" name="Add ons" note="Only when the job needs them" tone="paper">
+
+      <Sheet no="02" name="Two apps" note="You need both" tone="paper">
+        <div className="p-head reveal">
+          <div className="ruler" />
+          <h2 className="h2">One project, two halves. Neither works alone.</h2>
+          <p className="d-p">1iQ is a dashboard and a field app that are the same thing seen from two ends. The price below covers both, because a project only makes sense when the office and the site are looking at the same live record.</p>
+        </div>
+        <div className="p-grid p-grid--2 reveal">
+          <div className="p-cell">
+            <span className="k">In the office</span>
+            <h3>The web app is where the project is read</h3>
+            <p>
+              Schedule, forecast, budget, draws, risk and owner reporting. This is where a project manager
+              decides what moves and an owner sees where their money stands. On its own it is a plan that
+              nobody on site is updating, which is the problem every developer already has.
+            </p>
+            <div className="p-gap" />
+            <a href="https://app.1iq.ai/login" className="pill pill--white">Open the web app</a>
+          </div>
+          <div className="p-cell">
+            <span className="k">On site</span>
+            <h3>The field app is where the project is recorded</h3>
+            <p>
+              Crews start and finish their own tasks, report issues and send photos from where the work is.
+              Field crew and field lead seats are free and unlimited, deliberately, because charging per
+              person is what stops field data ever arriving. On its own it is updates nobody can read.
+            </p>
+            <div className="pr-stores">
+              <a href={APP_STORE} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--apple" aria-label="Download 1iQ on the App Store">
+                <img src="/assets/img/stores/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+              </a>
+              <a href={GOOGLE_PLAY} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--play" aria-label="Get 1iQ on Google Play">
+                <img src="/assets/img/stores/google-play.png" alt="Get it on Google Play" width="155" height="60" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </Sheet>
+
+      <Sheet no="03" name="How it works" note="Thirty seconds, start to finish">
+        <div className="p-head reveal">
+          <div className="ruler" />
+          <h2 className="h2">One tap on site, and the whole project knows.</h2>
+          <p className="d-p">The loop between the two apps, running. A crew finishes a task where they are standing, and the office sees it and the finish date moves without anyone writing a report.</p>
+        </div>
+        <UseLoop />
+      </Sheet>
+
+      <Sheet no="04" name="Add ons" note="Only when the job needs them" tone="paper">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">Two things you can add, and one you can try for nothing.</h2>
@@ -197,7 +247,7 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="03" name="How billing works" note="Four things worth knowing" id="billing">
+      <Sheet no="05" name="How billing works" note="Four things worth knowing" id="billing">
         <div className="p-head reveal">
           <div className="ruler" />
           <h2 className="h2">The parts people only find out later.</h2>
@@ -210,7 +260,7 @@ const Pricing = () => {
         </div>
       </Sheet>
 
-      <Sheet no="04" name="Questions" note="Asked on most briefings" tone="paper">
+      <Sheet no="06" name="Questions" note="Asked on most briefings" tone="paper">
         <div className="p-grid p-grid--2 reveal">
           {PRICING_FAQ.map(([q, a]) => (
             <div className="p-cell" key={q}><h3>{q}</h3><p>{a}</p></div>

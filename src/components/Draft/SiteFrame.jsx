@@ -24,6 +24,10 @@ const NAV = [
   ["/pricing", "Pricing"],
 ];
 
+/** The field app's store listings. Checked live before they went on the site. */
+export const APP_STORE = "https://apps.apple.com/us/app/id6755146159";
+export const GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.oneiq";
+
 const ASK_QUESTIONS = [
   "When will Harbor Lofts finish?",
   "What is late this week?",
@@ -142,7 +146,15 @@ export const SiteFooter = () => (
         <Link to="/pricing">Pricing</Link>
         <Link to="/#estimate">Estimate</Link>
         <Link to="/#faq">FAQ</Link>
-      </nav></div>
+      </nav>
+      <div className="pr-stores pr-stores--sm" style={{ marginTop: 16 }}>
+        <a href={APP_STORE} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--apple" aria-label="Download 1iQ on the App Store">
+          <img src="/assets/img/stores/app-store.svg" alt="Download on the App Store" width="120" height="40" />
+        </a>
+        <a href={GOOGLE_PLAY} target="_blank" rel="noopener noreferrer" className="pr-store pr-store--play" aria-label="Get 1iQ on Google Play">
+          <img src="/assets/img/stores/google-play.png" alt="Get it on Google Play" width="155" height="60" />
+        </a>
+      </div></div>
       <div><h4>Company</h4><nav>
         <Link to="/schedule">Book a briefing</Link>
         <Link to="/learn-more">Resources</Link>

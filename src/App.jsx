@@ -14,8 +14,11 @@ const Intelligence = lazy(() => import("./pages/Intelligence/Intelligence"));
 const GetStarted = lazy(() => import("./pages/GetStarted/GetStarted"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse/TermsOfUse"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy/RefundPolicy"));
 const Platform = lazy(() => import("./pages/Platform/Platform"));
 const Developer = lazy(() => import("./pages/Developer/Developer"));
+const Services = lazy(() => import("./pages/Services/Services"));
+const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
 const ScheduleReview = lazy(() => import("./pages/Scheduling/ScheduleReview"));
 const Preconstruction = lazy(() => import("./pages/Scheduling/Preconstruction"));
 import ScrollToTop from "./components/ScrollToTop";
@@ -113,14 +116,17 @@ function App() {
         {/* <Route path="/core-field" element={<CoreField />} />
         <Route path="/intelligence" element={<Intelligence />} /> */}
         <Route path="/contact-us" element={<Navigate to="/schedule" replace />} />
-        <Route path="/pricing" element={<Navigate to="/" replace />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/partnership-inquiry" element={<PartnershipInquiry />} />
         <Route path="/builder-application" element={<BuilderForm />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/refunds" element={<Navigate to="/refund-policy" replace />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/developer" element={<Developer />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/construction-schedule-review" element={<ScheduleReview />} />
         <Route path="/preconstruction-scheduling" element={<Preconstruction />} />
         <Route path="/demo/*" element={<DemoAppWrapper />} />

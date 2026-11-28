@@ -3,6 +3,7 @@
 // page's HTML) and in the browser when someone moves between pages (applySeo).
 import homeFaq from "./pages/Home2026/site/faq.ld.json";
 import { REVIEW_FAQ, PRECON_FAQ } from "./content/scheduleFaqs";
+import { PRICING_FAQ } from "./content/pricingFaqs";
 
 export const SITE = "https://www.1iq.ai";
 // The address search engines should record for a page. The host serves each page from its own folder, so the
@@ -71,11 +72,22 @@ export const SEO = {
     description: "Technical documentation, partnership options and construction industry news from 1iQ.",
     ld: [crumbs("Resources", "/learn-more")],
   },
+  "/services": {
+    title: "Services: Project Setup, Schedule Review and 3D Models | 1iQ",
+    description: "The work the 1iQ team does with you: standing your first project up, reading a contractor's schedule before you sign it, building a 3D model of the space and connecting Procore, P6 and Microsoft Project.",
+    ld: [crumbs("Services", "/services")],
+  },
+  "/pricing": {
+    title: "Pricing: Pay Per Project, Crews Are Free | 1iQ",
+    description: "1iQ is priced per active project by that project's budget, with the web app, the mobile app and the integrations included and unlimited field crew seats at no charge. See what your own project would cost.",
+    ld: [faqLd(PRICING_FAQ), crumbs("Pricing", "/pricing")],
+  },
   "/partnership-inquiry": { title: "Partnership Inquiry | 1iQ", description: "Join the 1iQ partner ecosystem: technology, referral, reseller and consulting partnerships.", ld: [] },
   "/builder-application": { title: "Builder Inquiry | 1iQ", description: "Tell 1iQ about your project and join the developer program.", ld: [] },
   "/get-started": { title: "Developer Access | 1iQ", description: "Three ways to connect with 1iQ: a technical demo, a strategic partnership or the developer program.", ld: [] },
   "/terms-of-use": { title: "Terms of Use | 1iQ", description: "The terms that apply to using 1iQ's website and services.", ld: [] },
   "/privacy-policy": { title: "Privacy Policy | 1iQ", description: "How 1iQ collects, uses and protects information.", ld: [] },
+  "/refund-policy": { title: "Refunds and Cancellation | 1iQ", description: "How to cancel 1iQ, what happens to a month you have paid for, and when 1iQ refunds the monthly fee, a 3D space model setup or a single schedule analysis.", ld: [] },
 };
 
 export const cleanPath = (p) => (p.length > 1 ? p.replace(/\/+$/, "") : p) || "/";

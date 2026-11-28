@@ -12,6 +12,8 @@ const LINKS = [
   ["/platform", "Platform"],
   ["/developer", "For developers"],
   ["/construction-schedule-review", "Schedule review"],
+  ["/services", "Services"],
+  ["/pricing", "Pricing"],
   ["/#estimate", "Estimate"],
   ["/#faq", "FAQ"],
 ];
@@ -62,8 +64,8 @@ export const DraftPage = ({ children }) => {
       <footer className="footer">
         <div className="wrap footer__in">
           <div><div className="logo logo--foot"><img className="logo__img" src="/assets/img/home/logo-dark.png" alt="1iQ" /></div><p className="small" style={{ marginTop: 14, maxWidth: 320 }}>Development intelligence for real estate developers, family offices and private equity.</p></div>
-          <div><h4>Platform</h4><nav><Link to="/platform">Platform</Link><Link to="/developer">For developers</Link><Link to="/construction-schedule-review">Schedule review</Link><Link to="/preconstruction-scheduling">Preconstruction scheduling</Link><Link to="/#estimate">Estimate</Link><Link to="/#faq">FAQ</Link></nav></div>
-          <div><h4>Company</h4><nav><Link to="/schedule">Book a briefing</Link><Link to="/learn-more">Resources</Link><a href="https://app.1iq.ai/login">Sign in</a><Link to="/terms-of-use">Terms</Link><Link to="/privacy-policy">Privacy</Link></nav></div>
+          <div><h4>Platform</h4><nav><Link to="/platform">Platform</Link><Link to="/developer">For developers</Link><Link to="/construction-schedule-review">Schedule review</Link><Link to="/preconstruction-scheduling">Preconstruction scheduling</Link><Link to="/services">Services</Link><Link to="/pricing">Pricing</Link><Link to="/#estimate">Estimate</Link><Link to="/#faq">FAQ</Link></nav></div>
+          <div><h4>Company</h4><nav><Link to="/schedule">Book a briefing</Link><Link to="/learn-more">Resources</Link><a href="https://app.1iq.ai/login">Sign in</a><Link to="/terms-of-use">Terms</Link><Link to="/privacy-policy">Privacy</Link><Link to="/refund-policy">Refunds</Link></nav></div>
           <div><h4>Reach us</h4><nav><a href="mailto:admin@1iq.ai">admin@1iq.ai</a><span style={{ color: "#B3AFA7" }}>312 W. 2nd St, #1931<br />Casper, WY 82601</span><span className="p-social"><a href="https://www.linkedin.com/company/1iq-ai/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/1iQaiApp" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.instagram.com/1iq.ai/" target="_blank" rel="noopener noreferrer">Instagram</a></span></nav></div>
         </div>
       </footer>
@@ -92,14 +94,16 @@ export const Sheet = ({ no, name, note, tone, id, children, className = "" }) =>
   </section>
 );
 
-/** The closing band with one button. */
-export const CloseBand = ({ label, title, text, to = "/schedule", cta = "Book a briefing" }) => (
+/** The closing band with one button. `href` sends it off the site (the app), `to` stays on it. */
+export const CloseBand = ({ label, title, text, to = "/schedule", href, cta = "Book a briefing" }) => (
   <section className="p-close">
     <div className="wrap reveal">
       {label && <span className="k">{label}</span>}
       <h2 className="h2">{title}</h2>
       {text && <p className="d-p">{text}</p>}
-      <Link to={to} className="pill pill--blue pill--lg">{cta}</Link>
+      {href
+        ? <a href={href} className="pill pill--blue pill--lg">{cta}</a>
+        : <Link to={to} className="pill pill--blue pill--lg">{cta}</Link>}
     </div>
   </section>
 );

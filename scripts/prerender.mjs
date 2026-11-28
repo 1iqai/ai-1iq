@@ -14,10 +14,12 @@ const manifest = JSON.parse(await readFile(path.join(dist, ".vite", "manifest.js
 // which source file draws which page, to find the styles that page needs before any script runs
 const PAGE_FILE = {
   "/platform": "src/pages/Platform/Platform.jsx", "/developer": "src/pages/Developer/Developer.jsx",
+  "/services": "src/pages/Services/Services.jsx", "/pricing": "src/pages/Pricing/Pricing.jsx",
   "/construction-schedule-review": "src/pages/Scheduling/ScheduleReview.jsx", "/preconstruction-scheduling": "src/pages/Scheduling/Preconstruction.jsx",
   "/schedule": "src/pages/Schedule/Schedule.jsx", "/learn-more": "src/pages/LearnMore/LearnMore.jsx",
   "/partnership-inquiry": "src/pages/PartnershipInquiry/PartnershipInquiry.jsx", "/builder-application": "src/pages/BuilderForm/BuilderForm.jsx",
   "/get-started": "src/pages/GetStarted/GetStarted.jsx", "/terms-of-use": "src/pages/TermsOfUse/TermsOfUse.jsx", "/privacy-policy": "src/pages/PrivacyPolicy/PrivacyPolicy.jsx",
+  "/refund-policy": "src/pages/RefundPolicy/RefundPolicy.jsx",
 };
 const cssFor = (key, seen = new Set(), out = new Set()) => {
   const e = manifest[key];

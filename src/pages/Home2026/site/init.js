@@ -348,7 +348,7 @@ export function init(root) {
   })();
 
 
-  /* The 60s film over the CSS loop (Sheet 03).
+  /* The 62s film over the CSS loop (Sheet 03).
      The loop runs from the first paint; the film is 9MB so it is not fetched until the section is
      near the viewport, and it only replaces the loop once the browser says it can play through.
      Reduced motion, a refused autoplay or a slow connection all simply keep the loop. */

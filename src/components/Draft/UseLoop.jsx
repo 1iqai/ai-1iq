@@ -20,7 +20,7 @@ const FILM = "/assets/video/how-1iq-works.mp4";
 const POSTER = "/assets/video/how-1iq-works.jpg";
 
 /**
- * The 60 second film, with the CSS loop underneath it.
+ * The 62 second film, with the CSS loop underneath it.
  *
  * The film is the better telling: it is the real apps, shot on the real product, and it shows the
  * handoff from the phone to the web app in a way line art cannot. But it is 9MB, so nobody waits for
